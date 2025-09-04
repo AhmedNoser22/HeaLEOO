@@ -8,5 +8,7 @@
         public string PhoneNumber { get; set; } = default!;
         public string? PhotoUrl { get; set; }
 
+        public List<int> DoctorIds { get; set; } = new List<int>();
+
     }
 }

@@ -8,5 +8,6 @@
         public string phoneNumber { get; set; } = default!;
         [ForeignKey("specializations")]
         public int specializationId { get; set; }
+        public List<int> ClinicIds { get; set; } = new List<int>();
     }
 }
