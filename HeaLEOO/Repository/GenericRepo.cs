@@ -1,31 +1,74 @@
-﻿namespace HeaLEOO.Repository
+﻿using System.Linq.Expressions;
+
+namespace HeaLEOO.Repository
 {
     public class GenericRepo<T> : IGenericRepo<T> where T : class
     {
-        public Task<IEnumerable<T>> GetAllAsync()
+        private readonly AppDbContext _Context;
+
+        public GenericRepo(AppDbContext context)
         {
-            throw new NotImplementedException();
+            _Context = context ?? throw new ArgumentNullException(nameof(context));
         }
-        public Task<T> GetByIdAsync(int id)
+
+        public async Task<IEnumerable<T>> GetAll(params Expression<Func<T, object>>[] includes)
         {
-            throw new NotImplementedException();
+            IQueryable<T> query = _Context.Set<T>();
+
+            if (includes != null && includes.Any())
+            {
+                foreach (var include in includes)
+                {
+                    query = query.Include(include);
+                }
+            }
+
+            return await query.ToListAsync();
         }
-        public Task AddAsync(T entity)
+
+        public async Task<T> GetById(int id)
         {
-            throw new NotImplementedException();
+            if (id <= 0)
+                throw new ArgumentException("Id must be greater than zero", nameof(id));
+
+            var entity = await _Context.Set<T>().FindAsync(id);
+            if (entity == null)
+                throw new KeyNotFoundException($"Entity of type {typeof(T).Name} with id {id} was not found");
+
+            return entity;
         }
-        public void Update(T entity)
+
+        public async Task<T> Add(T entity)
         {
-            throw new NotImplementedException();
+            if (entity == null)
+                throw new ArgumentNullException(nameof(entity), "Entity cannot be null");
+
+            await _Context.Set<T>().AddAsync(entity);
+            return entity;
         }
-        public void Delete(T entity)
+
+        public T Update(T entity)
         {
-            throw new NotImplementedException();
+            if (entity == null)
+                throw new ArgumentNullException(nameof(entity), "Entity cannot be null");
+
+            _Context.Set<T>().Update(entity);
+            return entity;
         }
-        public Task<bool> Complete()
+
+        public async Task<T> Delete(int id)
         {
-            throw new NotImplementedException();
+            if (id <= 0)
+                throw new ArgumentException("Id must be greater than zero", nameof(id));
+
+            var entity = await _Context.Set<T>().FindAsync(id);
+            if (entity == null)
+                throw new KeyNotFoundException($"Entity of type {typeof(T).Name} with id {id} was not found");
+
+            _Context.Set<T>().Remove(entity);
+            return entity;
         }
-        
+
+        public async Task<bool> Complete() => await _Context.SaveChangesAsync() > 0;
     }
 }

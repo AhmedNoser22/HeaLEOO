@@ -1,12 +1,21 @@
-﻿namespace HeaLEOO.Repository
+﻿using System.Linq.Expressions;
+
+namespace HeaLEOO.Repository
 {
     public interface IGenericRepo<T> where T : class
     {
-        Task<T> GetByIdAsync(int id);
-        Task<IEnumerable<T>> GetAllAsync();
-        Task AddAsync(T entity);
-        void Update(T entity);
-        void Delete(T entity);
-        Task <bool> Complete();
+        Task<IEnumerable<T>> GetAll(params Expression<Func<T, object>>[] includes);
+
+        Task<T> GetById(int id);
+
+        
+
+        Task<T> Add(T entity);
+
+        T Update(T entity);
+
+        Task<T> Delete(int id);
+
+        Task<bool> Complete();
     }
 }
