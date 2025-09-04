@@ -31,6 +31,8 @@ namespace HeaLEOO
                 pattern: "{controller=Home}/{action=Index}/{id?}")
                 .WithStaticAssets();
 
+            // this is comment
+
             app.Run();
         }
     }
