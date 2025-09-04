@@ -1,4 +1,5 @@
-﻿using HeaLEOO.DTOs;
+﻿using AutoMapper;
+using HeaLEOO.DTOs;
 
 namespace HeaLEOO.Mapping
 {
@@ -7,6 +8,8 @@ namespace HeaLEOO.Mapping
         public MapProfile()
         {
             CreateMap<Doctors, DoctorsDto>();
+            CreateMap<Clinics, ClinicsDto>();
+            CreateMap<ClinicsDto, Clinics>();
         }
     }
 }

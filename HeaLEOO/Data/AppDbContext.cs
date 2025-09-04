@@ -1,6 +1,6 @@
 ﻿namespace HeaLEOO.Data
 {
-    public class AppDbContext:IdentityDbContext<AppUser>
+    public class AppDbContext:IdentityDbContext<ApplicationUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext>options):base(options)
         {
@@ -15,6 +15,5 @@
         public DbSet<Clinics> Clinics { get; set; } = default!;
         public DbSet<ClinicDoctors> ClinicDoctors { get; set; } = default!;
         public DbSet<Appointments> Appointments { get; set; } = default!;
-        public DbSet<Services> Services { get; set; } = default!;
     }
 }
