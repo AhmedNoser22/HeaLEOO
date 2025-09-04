@@ -1,8 +1,4 @@
-﻿using AutoMapper;
-using HeaLEOO.ViewModels;
-using Microsoft.AspNetCore.Identity;
-
-namespace HeaLEOO.ServicesHel
+﻿namespace HeaLEOO.ServicesHel
 {
     public class ServiceAuth : IServiceAuth
     {
@@ -28,7 +24,6 @@ namespace HeaLEOO.ServicesHel
             if (result.Succeeded)
             {
                 await _signInManager.SignInAsync(registerUser, isPersistent: false);
-                await _userManager.AddToRoleAsync(registerUser, "User");
                 return true;
             }
             return false;
