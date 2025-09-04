@@ -1,9 +1,4 @@
-﻿using HeaLEOO.DTOs;
-using HeaLEOO.Services;
-using HeaLEOO.ServicesHel;
-using Microsoft.AspNetCore.Mvc;
-
-namespace HeaLEOO.Controllers
+﻿namespace HeaLEOO.Controllers
 {
     public class DoctorsController : Controller
     {
@@ -17,8 +12,6 @@ namespace HeaLEOO.Controllers
             _clinicsService = clinicsService ?? throw new ArgumentNullException(nameof(clinicsService));
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
-
-        // GET: /Doctors
         public async Task<IActionResult> Index()
         {
             var doctors = await _doctorService.GetAllDoctorsAsync();
@@ -26,8 +19,6 @@ namespace HeaLEOO.Controllers
             ViewBag.Clinics = await _clinicsService.GetAllAsync();
             return View(doctors);
         }
-
-        // GET: /Doctors/Details/{id}
         public async Task<IActionResult> Details(int id)
         {
             var doctor = await _doctorService.GetDoctorByIdAsync(id);
@@ -41,16 +32,12 @@ namespace HeaLEOO.Controllers
             ViewBag.Clinics = await _clinicsService.GetAllAsync();
             return View(doctor);
         }
-
-        // GET: /Doctors/Create
         public async Task<IActionResult> Create()
         {
             ViewBag.Specializations = _context.Specializations.ToList();
             ViewBag.Clinics = await _clinicsService.GetAllAsync();
             return View();
         }
-
-        // POST: /Doctors/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(DoctorsDto doctorDto)
@@ -75,8 +62,6 @@ namespace HeaLEOO.Controllers
                 return View(doctorDto);
             }
         }
-
-        // GET: /Doctors/Edit/{id}
         public async Task<IActionResult> Edit(int id)
         {
             var doctor = await _doctorService.GetDoctorByIdAsync(id);
@@ -89,8 +74,6 @@ namespace HeaLEOO.Controllers
             ViewBag.Clinics = await _clinicsService.GetAllAsync();
             return View(doctor);
         }
-
-        // POST: /Doctors/Edit/{id}
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, DoctorsDto doctorDto)

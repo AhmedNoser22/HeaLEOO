@@ -1,6 +1,4 @@
-﻿using HeaLEOO.DTOs;
-
-namespace HeaLEOO.ServicesHel
+﻿namespace HeaLEOO.ServicesHel
 {
     public class AuthService : IAuthService
     {
@@ -38,9 +36,7 @@ namespace HeaLEOO.ServicesHel
                     Succeeded = false,
                     Errors = new[] { "Email is already in use." }
                 };
-            }
-
-           
+            }  
             var user = new AppUser
             {
                 UserName = dto.UserName, 

@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-using HeaLEOO.DTOs;
-namespace HeaLEOO.ServicesHel
+﻿namespace HeaLEOO.ServicesHel
 {
     public class ServiceDoctors : IServiceDoctors
     {
