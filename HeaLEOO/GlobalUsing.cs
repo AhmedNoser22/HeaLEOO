@@ -8,5 +8,6 @@ global using HeaLEOO.Data;
 global using HeaLEOO.Repository;
 global using AutoMapper;
 global using Microsoft.AspNetCore.Mvc;
-global using HeaLEOO.DTOs;
-global using HeaLEOO.ServicesHel;
+global using HeaLEOO.ViewModels;
+global using System.ComponentModel.DataAnnotations;
+global using HeaLEOO.ALLServices;
