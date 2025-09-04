@@ -1,4 +1,5 @@
-﻿using HeaLEOO.ServicesHel;
+﻿using HeaLEOO.Services;
+using HeaLEOO.ServicesHel;
 namespace HeaLEOO
 {
     public static class DependancyInjectionApp
@@ -24,6 +25,7 @@ namespace HeaLEOO
             services.AddScoped(typeof(IGenericRepo<>),typeof(GenericRepo<>));
             services.AddAutoMapper(typeof(DependancyInjectionApp));
             services.AddScoped<IServiceDoctors, ServiceDoctors>();
+            services.AddScoped<IClinicsService, ClinicsService>();
 
             return services;
         }
