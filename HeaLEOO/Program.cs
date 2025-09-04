@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+
 namespace HeaLEOO
 {
     public class Program
@@ -32,6 +34,7 @@ namespace HeaLEOO
                 .WithStaticAssets();
 
             // this is comment
+            // this is comment 2
 
             app.Run();
         }
