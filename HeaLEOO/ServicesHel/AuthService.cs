@@ -6,12 +6,12 @@ namespace HeaLEOO.ServicesHel
     
         public class AuthService : IAuthService
         {
-            private readonly UserManager<ApplicationUser> _userManager;
-            private readonly SignInManager<ApplicationUser> _signInManager;
+            private readonly UserManager<AppUser> _userManager;
+            private readonly SignInManager<AppUser> _signInManager;
             private readonly ILogger<AuthService> _logger;
 
-            public AuthService(UserManager<ApplicationUser> userManager,
-                               SignInManager<ApplicationUser> signInManager,
+            public AuthService(UserManager<AppUser> userManager,
+                               SignInManager<AppUser> signInManager,
                                ILogger<AuthService> logger)
             {
                 _userManager = userManager;
@@ -22,8 +22,16 @@ namespace HeaLEOO.ServicesHel
         
             public async Task<AuthResult> RegisterAsync(RegisterDto dto)
             {
-             
-                var existing = await _userManager.FindByEmailAsync(dto.Email);
+                 if (dto.Password != dto.ConfirmPassword)
+               {
+                return new AuthResult
+                {
+                    Succeeded = false,
+                    Errors = new[] { "Passwords do not match." }
+                };
+               }
+
+            var existing = await _userManager.FindByEmailAsync(dto.Email);
                 if (existing != null)
                 {
                     return new AuthResult
@@ -34,7 +42,7 @@ namespace HeaLEOO.ServicesHel
                 }
 
    
-                var user = new ApplicationUser
+                var user = new AppUser
                 {
                     UserName = dto.Email,   
                     Email = dto.Email,
