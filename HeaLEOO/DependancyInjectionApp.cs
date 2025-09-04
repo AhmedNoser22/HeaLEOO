@@ -3,6 +3,7 @@ namespace HeaLEOO
 {
     public static class DependancyInjectionApp
     {
+        //bbbbbbbb
         public static IServiceCollection AddHeaLEOOApp(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<AppDbContext>(options =>
