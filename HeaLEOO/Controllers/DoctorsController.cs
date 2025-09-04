@@ -9,7 +9,7 @@ namespace HeaLEOO.Controllers
     {
         private readonly IServiceDoctors _doctorService;
         private readonly IClinicsService _clinicsService;
-        //Coment......//
+        //Coment......
         public DoctorsController(IServiceDoctors doctorService, IClinicsService clinicsService)
         {
             _doctorService = doctorService ?? throw new ArgumentNullException(nameof(doctorService));
