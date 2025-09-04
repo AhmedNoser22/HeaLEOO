@@ -1,6 +1,4 @@
-﻿using HeaLEOO.Services;
-using HeaLEOO.ServicesHel;
-namespace HeaLEOO
+﻿namespace HeaLEOO
 {
     public static class DependancyInjectionApp
     {
