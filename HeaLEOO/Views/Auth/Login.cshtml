@@ -1,0 +1,189 @@
+﻿@model dynamic
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Online Tournament - @ViewData["Title"]</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        .login-page {
+            display: flex;
+            height: 100vh;
+            width: 100%;
+        }
+
+        .welcome-section {
+            flex: 1;
+            background: linear-gradient(135deg, #2c7da0, #57c7e3);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .curve {
+            position: absolute;
+            top: 0;
+            right: -1px;
+            height: 100%;
+            width: 150px;
+            overflow: hidden;
+        }
+
+            .curve svg {
+                height: 100%;
+                width: 100%;
+            }
+
+        .rocket {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            font-size: 32px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 1rem;
+        }
+
+        .form-section {
+            flex: 1;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem;
+        }
+
+        .form-box {
+            width: 100%;
+            max-width: 400px;
+        }
+
+            .form-box h2 {
+                color: #2c7da0;
+                font-weight: bold;
+            }
+
+        .form-control {
+            border: 2px solid #e0e7ff;
+            border-radius: 10px;
+            padding: 12px;
+            transition: border-color 0.2s ease;
+        }
+
+            .form-control:focus {
+                border-color: #2c7da0;
+                box-shadow: 0 0 0 3px rgba(44, 125, 160, 0.2);
+            }
+
+        .btn-primary {
+            background: #2c7da0;
+            border: none;
+            border-radius: 50px;
+            padding: 12px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            width: 100%;
+        }
+
+            .btn-primary:hover {
+                background: #1a5d7a;
+            }
+
+        .forgot-password, .signup-link {
+            font-size: 0.9em;
+            color: #2c7da0;
+            text-decoration: none;
+        }
+
+            .forgot-password:hover, .signup-link:hover {
+                text-decoration: underline;
+                color: #1a5d7a;
+            }
+
+        .account-question {
+            font-size: 0.9em;
+            color: #555;
+            margin-top: 1rem;
+        }
+
+        @@media (max-width: 768px) {
+            .login-page {
+                flex-direction: column;
+            }
+
+            .curve {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-page">
+
+        <div class="welcome-section">
+            <div class="rocket">🚀</div>
+            <h2 class="fw-bold">Welcome</h2>
+            <p class="mb-3">You are 30 seconds away from login your own tournament!</p>
+            <p>
+                You Have No Account?
+                <a href="#" class="text-white fw-bold text-decoration-underline">Register</a>
+            </p>
+
+     
+            <div class="curve">
+                <svg viewBox="0 0 200 800" preserveAspectRatio="none">
+                    <path d="M0,0 C150,400 50,400 200,800 L200,0 Z" fill="#fff"></path>
+                </svg>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="form-box">
+                <h2>Login to Healio</h2>
+                <p class="text-muted">Enter your credentials to access your account</p>
+                <form method="post">
+                    <div class="form-group mb-3 text-start">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group mb-3 text-start">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+                <a href="#" class="d-block mt-3 forgot-password">Forgot Password?</a>
+                <p class="account-question">
+                    Don't have an account?
+                    <a href="#" class="signup-link">Sign up</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
