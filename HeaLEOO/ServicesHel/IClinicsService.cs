@@ -1,6 +1,4 @@
-﻿using HeaLEOO.Models;
-
-namespace HeaLEOO.Services
+﻿namespace HeaLEOO.ServicesHel
 {
     public interface IClinicsService
     {

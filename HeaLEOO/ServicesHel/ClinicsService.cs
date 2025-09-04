@@ -1,8 +1,4 @@
-﻿using HeaLEOO.Data;
-using HeaLEOO.Models;
-using Microsoft.EntityFrameworkCore;
-
-namespace HeaLEOO.Services
+﻿namespace HeaLEOO.ServicesHel
 {
     public class ClinicsService : IClinicsService
     {

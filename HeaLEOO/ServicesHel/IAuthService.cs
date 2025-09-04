@@ -1,6 +1,4 @@
-﻿using HeaLEOO.DTOs;
-
-namespace HeaLEOO.ServicesHel
+﻿namespace HeaLEOO.ServicesHel
 {
     public interface IAuthService
     {

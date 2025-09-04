@@ -1,5 +1,3 @@
-using HeaLEOO.ServicesHel;
-
 namespace HeaLEOO
 {
     public class Program
@@ -11,8 +9,6 @@ namespace HeaLEOO
             // Add services to the container.
             builder.Services.AddHeaLEOOApp(builder.Configuration);
             builder.Services.AddControllersWithViews();
-            builder.Services.AddScoped<IAuthService, AuthService>();
-
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
