@@ -8,6 +8,8 @@ namespace HeaLEOO.Mapping
         public MapProfile()
         {
             CreateMap<Doctors, DoctorsDto>();
+            CreateMap<Clinics, ClinicsDto>();
+            CreateMap<ClinicsDto, Clinics>();
         }
     }
 }
