@@ -1,5 +1,4 @@
 ﻿using System.Linq.Expressions;
-
 namespace HeaLEOO.Repository
 {
     public class GenericRepo<T> : IGenericRepo<T> where T : class

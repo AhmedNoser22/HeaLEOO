@@ -1,4 +1,5 @@
-﻿namespace HeaLEOO
+﻿using HeaLEOO.ServicesHel;
+namespace HeaLEOO
 {
     public static class DependancyInjectionApp
     {

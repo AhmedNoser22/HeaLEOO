@@ -7,4 +7,3 @@ global using Microsoft.EntityFrameworkCore.Metadata.Builders;
 global using HeaLEOO.Data;
 global using HeaLEOO.Repository;
 global using AutoMapper;
-global using HeaLEOO.Services;
