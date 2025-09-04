@@ -1,0 +1,445 @@
+﻿@model dynamic
+@{
+    ViewData["Title"] = "MediCare - Home";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediCare - @ViewData["Title"]</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+            .header h1 {
+                color: #00a3e0;
+                font-weight: 700;
+                margin: 0;
+            }
+
+        .nav-links a {
+            color: #666;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+            .nav-links a:hover {
+                color: #00a3e0;
+            }
+
+        .nav-buttons .btn {
+            margin-left: 10px;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+            .nav-buttons .btn:first-child {
+                background-color: #00a3e0;
+                color: white;
+                border: 2px solid #00a3e0;
+            }
+
+                .nav-buttons .btn:first-child:hover {
+                    background-color: #0081b8;
+                    border-color: #0081b8;
+                }
+
+            .nav-buttons .btn:last-child {
+                background-color: transparent;
+                color: #00a3e0;
+                border: 2px solid #00a3e0;
+            }
+
+                .nav-buttons .btn:last-child:hover {
+                    background-color: #00a3e0;
+                    color: white;
+                }
+
+        .hero {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(to bottom, #e6f3f8, #ffffff);
+        }
+
+            .hero h2 {
+                color: #00a3e0;
+                font-weight: 700;
+                margin-bottom: 1rem;
+            }
+
+            .hero p {
+                color: #666;
+                margin-bottom: 1.5rem;
+            }
+
+        .search-bar {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+            .search-bar .form-control {
+                border-radius: 30px 0 0 30px;
+                border-right: none;
+            }
+
+            .search-bar .btn {
+                border-radius: 0 30px 30px 0;
+                background-color: #00a3e0;
+                color: white;
+                border: none;
+            }
+
+                .search-bar .btn:hover {
+                    background-color: #0081b8;
+                }
+
+        .clinic-grid {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+            .clinic-grid h2 {
+                color: #00a3e0;
+                margin-bottom: 2rem;
+            }
+
+        .clinic-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+            .clinic-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .clinic-card img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                border-radius: 10px;
+                margin-bottom: 1rem;
+            }
+
+        .clinic-rating {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #fff;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            color: #00a3e0;
+            font-weight: 600;
+        }
+
+        .clinic-card .btn {
+            background-color: #00a3e0;
+            color: white;
+            border-radius: 30px;
+        }
+
+            .clinic-card .btn:hover {
+                background-color: #0081b8;
+            }
+
+        .clinic-info {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .clinic-specialties {
+            margin: 0.5rem 0;
+        }
+
+            .clinic-specialties .btn {
+                background-color: #e6f3f8;
+                color: #00a3e0;
+                border: none;
+                margin-right: 0.5rem;
+                border-radius: 15px;
+            }
+
+                .clinic-specialties .btn:hover {
+                    background-color: #cce6f0;
+                }
+
+
+        .footer {
+            background: linear-gradient(180deg, #f0f7ff 0%, #e6f0fa 100%);
+            padding: 2rem 0;
+            text-align: center;
+            color: #333;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: space-around;
+            gap: 4rem;
+            margin-bottom: 1.5rem;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            min-width: 150px;
+        }
+
+            .footer-column h6 {
+                color: #2c7da0;
+                font-weight: 600;
+                margin-bottom: 0.8rem;
+                font-size: 1rem;
+                text-align:;
+            }
+
+            .footer-column a {
+                color: #666;
+                text-decoration: none;
+                margin-bottom: 0.4rem;
+                font-size: 0.9rem;
+                transition: color 0.3s ease;
+                display: block;
+                text-align: center;
+            }
+
+                .footer-column a:hover {
+                    color: #2c7da0;
+                }
+
+                .footer-column a i {
+                    margin-right: 0.3rem;
+                    color: #2c7da0;
+                }
+
+        .footer-brand {
+            width: 100%;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #2c7da0;
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-tagline {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 0.6rem;
+            line-height: 1.4;
+        }
+
+        .footer-contact {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 0.6rem;
+            line-height: 1.4;
+        }
+
+        .footer-copyright {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1><span style="color: #00a3e0;">&#9829;</span> MediCare</h1>
+        <div class="nav-links">
+            <a asp-controller="Home" asp-action="Index">Home</a>
+            <a asp-controller="Home" asp-action="Services">Services</a>
+            <a asp-controller="Home" asp-action="Contact">Contact</a>
+        </div>
+        <div class="nav-buttons">
+            <a asp-controller="Auth" asp-action="Login" class="btn">Login</a>
+            <a asp-controller="Auth" asp-action="Signup" class="btn">Sign Up</a>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Find the Right Clinic for You</h2>
+                <p>Discover trusted medical clinics, browse through our network of certified healthcare providers and find the perfect match for your medical needs.</p>
+                <div class="search-bar">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search by name or location...">
+                        <button class="btn" type="button">Search</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="clinic-grid">
+            <div class="container">
+                <h2>Featured Clinics</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="clinic-card">
+                            <div class="clinic-rating">★ 4.8</div>
+                            <img src="https://via.placeholder.com/300x200" alt="Central Medical Center">
+                            <h5>Central Medical Center</h5>
+                            <p class="clinic-info"><i class="bi bi-geo-alt"></i> 123 Main Street, Downtown</p>
+                            <p class="clinic-info"><i class="bi bi-person"></i> 15 Doctors Available</p>
+                            <div class="clinic-specialties">
+                                <button type="button" class="btn btn-sm">Cardiology</button>
+                                <button type="button" class="btn btn-sm">Neurology</button>
+                                <button type="button" class="btn btn-sm">+1 more</button>
+                            </div>
+                            <a href="#" class="btn btn-primary mt-2">View Doctors <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="clinic-card">
+                            <div class="clinic-rating">★ 4.4</div>
+                            <img src="https://via.placeholder.com/300x200" alt="Riverside Health Clinic">
+                            <h5>Riverside Health Clinic</h5>
+                            <p class="clinic-info"><i class="bi bi-geo-alt"></i> 840 River Road, Riverside</p>
+                            <p class="clinic-info"><i class="bi bi-person"></i> 8 Doctors Available</p>
+                            <div class="clinic-specialties">
+                                <button type="button" class="btn btn-sm">Family Medicine</button>
+                                <button type="button" class="btn btn-sm">Dermatology</button>
+                                <button type="button" class="btn btn-sm">+1 more</button>
+                            </div>
+                            <a href="#" class="btn btn-primary mt-2">View Doctors <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="clinic-card">
+                            <div class="clinic-rating">★ 4.9</div>
+                            <img src="https://via.placeholder.com/300x200" alt="Northside Family Practice">
+                            <h5>Northside Family Practice</h5>
+                            <p class="clinic-info"><i class="bi bi-geo-alt"></i> 789 North Avenue, Northside</p>
+                            <p class="clinic-info"><i class="bi bi-person"></i> 12 Doctors Available</p>
+                            <div class="clinic-specialties">
+                                <button type="button" class="btn btn-sm">Family Medicine</button>
+                                <button type="button" class="btn btn-sm">Internal Medicine</button>
+                                <button type="button" class="btn btn-sm">+1 more</button>
+                            </div>
+                            <a href="#" class="btn btn-primary mt-2">View Doctors <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="clinic-card">
+                            <div class="clinic-rating">★ 4.7</div>
+                            <img src="https://via.placeholder.com/300x200" alt="Westfield Specialty Center">
+                            <h5>Westfield Specialty Center</h5>
+                            <p class="clinic-info"><i class="bi bi-geo-alt"></i> 237 West Boulevard, Westfield</p>
+                            <p class="clinic-info"><i class="bi bi-person"></i> 20 Doctors Available</p>
+                            <div class="clinic-specialties">
+                                <button type="button" class="btn btn-sm">Oncology</button>
+                                <button type="button" class="btn btn-sm">Radiology</button>
+                                <button type="button" class="btn btn-sm">+1 more</button>
+                            </div>
+                            <a href="#" class="btn btn-primary mt-2">View Doctors <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="clinic-card">
+                            <div class="clinic-rating">★ 4.5</div>
+                            <img src="https://via.placeholder.com/300x200" alt="Eastside Community Clinic">
+                            <h5>Eastside Community Clinic</h5>
+                            <p class="clinic-info"><i class="bi bi-geo-alt"></i> 654 East Avenue, Eastside</p>
+                            <p class="clinic-info"><i class="bi bi-person"></i> 6 Doctors Available</p>
+                            <div class="clinic-specialties">
+                                <button type="button" class="btn btn-sm">Family Medicine</button>
+                                <button type="button" class="btn btn-sm">General Surgery</button>
+                                <button type="button" class="btn btn-sm">+1 more</button>
+                            </div>
+                            <a href="#" class="btn btn-primary mt-2">View Doctors <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="clinic-card">
+                            <div class="clinic-rating">★ 4.8</div>
+                            <img src="https://via.placeholder.com/300x200" alt="Metropolitan Heart Institute">
+                            <h5>Metropolitan Heart Institute</h5>
+                            <p class="clinic-info"><i class="bi bi-geo-alt"></i> 817 Metro Plaza, City Center</p>
+                            <p class="clinic-info"><i class="bi bi-person"></i> 25 Doctors Available</p>
+                            <div class="clinic-specialties">
+                                <button type="button" class="btn btn-sm">Cardiology</button>
+                                <button type="button" class="btn btn-sm">Cardiac Surgery</button>
+                                <button type="button" class="btn btn-sm">+1 more</button>
+                            </div>
+                            <a href="#" class="btn btn-primary mt-2">View Doctors <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h6>Product</h6>
+                    <a href="#"><i class="bi bi-box"></i> Product</a>
+                    <a href="#"><i class="bi bi-gear"></i> Features</a>
+                    <a href="#"><i class="bi bi-code-slash"></i> API</a>
+                </div>
+                <div class="footer-column">
+                    <h6>Support</h6>
+                    <a href="#"><i class="bi bi-headset"></i> Support</a>
+                    <a href="#" class="contact-us-btn"><i class="bi bi-envelope-fill"></i> Contact Us</a>
+                    <a href="#"><i class="bi bi-info-circle"></i> Status</a>
+                </div>
+                <div class="footer-column">
+                    <h6>Legal</h6>
+                    <a href="#"><i class="bi bi-file-earmark-text"></i> Terms of Service</a>
+                    <a href="#"><i class="bi bi-shield-check"></i> HIPAA Compliance</a>
+                </div>
+            </div>
+            <div class="footer-brand">
+                <h3 class="footer-logo">Healio</h3>
+                <p class="footer-tagline">Your trusted healthcare appointment platform</p>
+                <p class="footer-contact">Contact us: <a href="mailto:info@healio.com">info@healio.com</a></p>
+                <p class="footer-copyright">&copy; 2025 Healio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

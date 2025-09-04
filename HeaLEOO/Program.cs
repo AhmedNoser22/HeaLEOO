@@ -5,7 +5,7 @@ namespace HeaLEOO
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
+            //comment....
             // Add services to the container.
             builder.Services.AddHeaLEOOApp(builder.Configuration);
             builder.Services.AddControllersWithViews();
@@ -34,7 +34,7 @@ namespace HeaLEOO
             // this is comment
             // this is comment 2
             // this is comment 3
-
+            // comment
             app.Run();
         }
     }
