@@ -2,9 +2,77 @@
 {
     public class DoctorsController : Controller
     {
-        public IActionResult Index()
+        private readonly IServicesDoctor _serviceDoctor;
+        private readonly serviceSpecializations _serviceSpecializations;
+        private readonly serviceClinics _serviceClinics;
+        private readonly serviceAppointments _serviceAppointments;
+        private readonly IMapper _mapper;
+
+        public DoctorsController(
+            IServicesDoctor serviceDoctor,
+            serviceSpecializations serviceSpecializations,
+            serviceClinics serviceClinics,
+            serviceAppointments serviceAppointments,
+            IMapper mapper)
         {
-            return View();
+            _serviceDoctor = serviceDoctor;
+            _serviceSpecializations = serviceSpecializations;
+            _serviceClinics = serviceClinics;
+            _serviceAppointments = serviceAppointments;
+            _mapper = mapper;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var doctors = await _serviceDoctor.GetAllItems();
+            return View(doctors); 
+        }
+        public IActionResult Create()
+        {
+            var model = new DoctorViewModel
+            {
+                Specializations = _serviceSpecializations.GetAllSpecializations(),
+                Clinics = _serviceClinics.GetAllClinics(),
+                Appointments = _serviceAppointments.GetAllAppointments()
+            };
+            return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(DoctorViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                model.Specializations = _serviceSpecializations.GetAllSpecializations();
+                model.Clinics = _serviceClinics.GetAllClinics();
+                model.Appointments = _serviceAppointments.GetAllAppointments();
+                return View(model);
+            }
+            await _serviceDoctor.CreateItem(model);
+            return RedirectToAction(nameof(Index));
+        }
+        public async Task<IActionResult> Details(int id)
+        {
+            var doctor = await _serviceDoctor.GetItemById(id);
+            if (doctor == null)
+                return NotFound();
+
+            return View(doctor);
+        }
+        public async Task<IActionResult> Delete(int id)
+        {
+            var doctor = await _serviceDoctor.GetItemById(id);
+            if (doctor == null)
+                return NotFound();
+
+            return View(doctor);
+        }
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            await _serviceDoctor.DeletItem(id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

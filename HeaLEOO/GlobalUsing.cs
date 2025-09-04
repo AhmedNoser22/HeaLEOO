@@ -11,3 +11,5 @@ global using Microsoft.AspNetCore.Mvc;
 global using HeaLEOO.ViewModels;
 global using System.ComponentModel.DataAnnotations;
 global using HeaLEOO.ALLServices;
+global using Microsoft.AspNetCore.Mvc.Rendering;
+global using HeaLEOO.Helper;
