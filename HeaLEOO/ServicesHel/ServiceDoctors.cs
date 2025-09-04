@@ -29,7 +29,7 @@ namespace HeaLEOO.ServicesHel
             await _doctorRepo.Complete();    
             return _mapper.Map<DoctorsDto>(addedDoctor);
         }
-
+        // nm;
         public async Task<bool> DeleteDoctorAsync(int id)
         {
             var getId = await _doctorRepo.GetById(id);
