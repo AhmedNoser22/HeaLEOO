@@ -21,6 +21,8 @@
                 )
                 .AddEntityFrameworkStores<AppDbContext>();
             services.AddScoped(typeof(IGenericRepo<>),typeof(GenericRepo<>));
+            services.AddAutoMapper(typeof(DependancyInjectionApp));
+            services.AddScoped<IServiceDoctors, ServiceDoctors>();
             return services;
         }
     }
