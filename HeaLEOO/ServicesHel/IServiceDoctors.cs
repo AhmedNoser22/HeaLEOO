@@ -7,6 +7,6 @@ namespace HeaLEOO.ServicesHel
         Task<IEnumerable<DoctorsDto>> GetAllDoctorsAsync();
         Task<DoctorsDto> GetDoctorByIdAsync(int id);
         Task<DoctorsDto> AddDoctorAsync(DoctorsDto doctorDto);
-        Task<bool> DeleteDoctorAsync(int id);
+        Task<bool> DeleteDoctorAsync(int id); 
     }
 }
