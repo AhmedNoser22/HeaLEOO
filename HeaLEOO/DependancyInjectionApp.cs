@@ -30,7 +30,7 @@ namespace HeaLEOO
             services.AddScoped<IserviceAppointments, serviceAppointments>();
             services.AddScoped<IserviceClinics,serviceClinics>();
             services.AddScoped<IserviceSpecializations, serviceSpecializations>();
-
+            services.AddScoped<ImageService>();
 
 
             return services;
