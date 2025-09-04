@@ -24,7 +24,6 @@ namespace HeaLEOO
             services.AddScoped(typeof(IGenericRepo<>),typeof(GenericRepo<>));
             services.AddAutoMapper(typeof(DependancyInjectionApp));
             services.AddScoped<IServiceDoctors, ServiceDoctors>();
-            services.AddScoped<IClinicsService, ClinicsService>();
 
             return services;
         }
