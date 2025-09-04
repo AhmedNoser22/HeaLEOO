@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace YourProjectName.Controllers
+namespace HeaLEOO.Controllers
 {
     public class HomeController : Controller
     {
