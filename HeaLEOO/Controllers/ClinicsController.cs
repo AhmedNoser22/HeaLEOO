@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace HeaLEOO.Controllers
+﻿namespace HeaLEOO.Controllers
 {
     public class ClinicsController : Controller
     {
@@ -15,13 +13,13 @@ namespace HeaLEOO.Controllers
 
         public async Task<IActionResult> Index()
         {
-            // call service to get all clinics //
-            return View();
+            var clinics = await _serviceClinics.GetAllClinicsAsync();
+            var model = _mapper.Map<List<ClinicVM>>(clinics);
+            return View(model);
         }
 
         public IActionResult Create()
         {
-            // return empty VM for clinic creation //
             return View();
         }
 
@@ -29,26 +27,32 @@ namespace HeaLEOO.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ClinicVM model)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                // return same model with validation messages //
-                return View(model);
+                var clinic = await _serviceClinics.AddClinicAsync(model);
+                return RedirectToAction(nameof(Index));
             }
-
-            // call service to add new clinic //
-            return RedirectToAction(nameof(Index));
+            return View(model);
         }
 
         public async Task<IActionResult> Details(int id)
         {
-            // get clinic by id from service //
-            return View();
+            var clinic = await _serviceClinics.GetClinicByIdAsync(id);
+            if (clinic == null)
+            {
+                return NotFound();
+            }
+            var model = await _serviceClinics.GetClinicByIdAsync(id);
+            return View(model);
         }
 
         public async Task<IActionResult> DeleteClinic(int id)
         {
-            // call service to delete clinic by id //
-
+            var success = await _serviceClinics.DeleteClinicAsync(id);
+            if (!success)
+            {
+                return NotFound();
+            }
             return RedirectToAction(nameof(Index));
         }
     }

@@ -14,5 +14,20 @@
             var specializations = await _serviceSpecializations.GetSpecializations();
             return View(specializations);
         }
+        [HttpGet]
+        public IActionResult AddSpecializations()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddSpecializations(SpecializationsVM specializations)
+        {
+            if (ModelState.IsValid)
+            {
+                await _serviceSpecializations.Addspecializations(specializations);
+                return RedirectToAction("Index");
+            }
+            return View(specializations);
+        }
     }
 }

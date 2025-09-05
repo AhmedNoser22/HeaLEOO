@@ -1,6 +1,4 @@
-﻿using HeaLEOO.Models;
-
-namespace HeaLEOO.Mapping
+﻿namespace HeaLEOO.Mapping
 {
     public class MapProfile : Profile
     {
@@ -16,6 +14,14 @@ namespace HeaLEOO.Mapping
             CreateMap<DoctorViewModel, Doctors>()
            .ForMember(dest => dest.ClinicDoctors, opt => opt.Ignore())
               .ForMember(dest => dest.specializations, opt => opt.Ignore());
+            CreateMap<SpecializationsVM, Specializations>();
+            CreateMap<Specializations, SpecializationsVM>();
+            CreateMap<ClinicVM, Clinics>();
+            CreateMap<Clinics, ClinicVM>();
+            CreateMap<RegisterVM,AppUser>()
+                .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.Username))
+                .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email)); ;
+
 
 
         }
