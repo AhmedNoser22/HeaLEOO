@@ -2,16 +2,17 @@
 {
     public class SpecializationController : Controller
     {
-        private readonly IserviceSpecializations _serviceSpecializations;
+        private readonly IServiceSpec _serviceSpecializations;
 
-        public SpecializationController(IserviceSpecializations serviceSpecializations)
+        public SpecializationController(IServiceSpec serviceSpecializations)
         {
             _serviceSpecializations = serviceSpecializations;
         }
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            return View();
+            var specializations = await _serviceSpecializations.GetSpecializations();
+            return View(specializations);
         }
     }
 }

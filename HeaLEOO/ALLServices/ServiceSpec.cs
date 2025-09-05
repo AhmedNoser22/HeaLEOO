@@ -1,11 +1,11 @@
 ﻿
 namespace HeaLEOO.ALLServices
 {
-    public class ServiceSpecialization : IServiceSpecialization
+    public class ServiceSpec : IServiceSpec
     {
         private readonly IGenericRepo<Specializations> _genericRepo;
         private readonly IMapper _mapper;
-        public ServiceSpecialization(IGenericRepo<Specializations> genericRepo, IMapper mapper = null)
+        public ServiceSpec(IGenericRepo<Specializations> genericRepo, IMapper mapper = null)
         {
             _genericRepo = genericRepo;
             _mapper = mapper;
