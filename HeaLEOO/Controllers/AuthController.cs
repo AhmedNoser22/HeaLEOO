@@ -1,4 +1,8 @@
-﻿namespace HeaLEOO.Controllers
+﻿using HeaLEOO.ALLServices;
+using HeaLEOO.ViewModels;
+using Microsoft.AspNetCore.Mvc;
+
+namespace HeaLEOO.Controllers
 {
     public class AuthController : Controller
     {

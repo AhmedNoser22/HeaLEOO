@@ -1,57 +1,118 @@
-/* ======= Global Styles ======= */
+/* ================== General ================== */
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f9fafb;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f8fb;
     color: #333;
-    scroll-behavior: smooth;
 }
 
-/* ======= Hero Section ======= */
-.hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('/images/hero-bg.jpg') center/cover no-repeat;
-    height: 90vh;
+/* ================== Header / Navbar ================== */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 2rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Brand (Logo + Title) */
+.brand-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.brand-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #2c7da0;
+    transition: color 0.3s ease;
+}
+
+.brand-link:hover .brand-title {
+    color: #1a5d7a;
+}
+
+/* Nav Links (centered) */
+.nav-links {
+    flex: 1;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
-/* ======= Features Section ======= */
-.feature-card {
-    border-radius: 12px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-    .feature-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
-    }
-
-/* ======= Testimonials ======= */
-.testimonial-card {
-    border-radius: 12px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-    .testimonial-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
-    }
-
-/* ======= Footer ======= */
-.footer {
-    background-color: #111;
-    color: white;
-    padding: 20px 0;
-}
-
-    .footer .social-icons a {
-        color: white;
-        margin: 0 10px;
-        font-size: 20px;
+    .nav-links a {
+        margin: 0 15px;
+        text-decoration: none;
+        color: #444;
+        font-weight: 500;
         transition: color 0.3s ease;
     }
 
-        .footer .social-icons a:hover {
-            color: #00d1b2;
+        .nav-links a:hover {
+            color: #2c7da0;
         }
 
+/* Nav Buttons (modern global UI style) */
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn {
+    padding: 0.45rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.25s ease;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+/* Minimal outline button (Login) */
+.btn-login {
+    background: transparent;
+    color: #2c7da0;
+    border: 1.5px solid #2c7da0;
+}
+
+    .btn-login:hover {
+        background: #2c7da0;
+        color: #fff;
+    }
+
+/* Primary filled button (Register) */
+.btn-primary {
+    background: #2c7da0;
+    color: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+    .btn-primary:hover {
+        background: #1a5d7a;
+    }
+
+/* Secondary soft button (Doctors) */
+.btn-secondary {
+    background: #eef6f9;
+    color: #2c7da0;
+}
+
+    .btn-secondary:hover {
+        background: #d7eef5;
+    }

@@ -1,4 +1,9 @@
-﻿namespace HeaLEOO.Controllers
+﻿using HeaLEOO.ALLServices;
+using HeaLEOO.Helper;
+using HeaLEOO.ViewModels;
+using Microsoft.AspNetCore.Mvc;
+
+namespace HeaLEOO.Controllers
 {
     public class DoctorsController : Controller
     {

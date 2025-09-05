@@ -1,4 +1,6 @@
-﻿using HeaLEOO.ServicesHel;
+﻿using HeaLEOO.ALLServices;
+using HeaLEOO.Helper;
+using HeaLEOO.ServicesHel;
 
 namespace HeaLEOO
 {
@@ -25,7 +27,7 @@ namespace HeaLEOO
                 .AddEntityFrameworkStores<AppDbContext>();
             services.AddScoped(typeof(IGenericRepo<>),typeof(GenericRepo<>));
             services.AddAutoMapper(typeof(DependancyInjectionApp));
-            services.AddScoped<IServiceAuth, ServiceAuth>();
+            services.AddScoped<IServiceAuth, ServiceAuth>(); 
             services.AddScoped<IServicesDoctor, ServicesDoctor>();
             services.AddScoped<IserviceClinics,serviceClinics>();
             services.AddScoped<IserviceSpecializations, serviceSpecializations>();
