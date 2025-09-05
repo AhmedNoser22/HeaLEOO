@@ -21,7 +21,8 @@
             CreateMap<RegisterVM,AppUser>()
                 .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.Username))
                 .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email)); ;
-
+            CreateMap<Appointments, AppointmentsVM>();
+            CreateMap<AppointmentsVM, Appointments>();
 
 
         }
