@@ -8,7 +8,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 90vh;
+    min-height:92vh;
     background: linear-gradient(135deg, #1c4a92, #2c93ea);
     padding: 20px;
 }
