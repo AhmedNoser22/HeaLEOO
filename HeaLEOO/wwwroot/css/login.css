@@ -6,10 +6,10 @@
 .login-container {
     display: flex;
     flex-direction: column;
-    justify-content:center; /* less empty space */
+    justify-content: center; /* less empty space */
     align-items: center;
     min-height: 90vh;
-    background: linear-gradient(160deg, #1c6db3, #4ea8de); /* brand blue gradient */
+    background: linear-gradient(160deg, #0f5ea2, #4ea8de); /* brand blue gradient */
     padding-top: 3rem; /* reduced space above */
     padding-bottom: 2rem; /* reduced space below */
 }
