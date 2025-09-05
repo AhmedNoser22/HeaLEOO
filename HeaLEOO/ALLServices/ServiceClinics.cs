@@ -15,7 +15,7 @@
         public async Task<ClinicVM> AddClinicAsync(ClinicVM clinicVM, IFormFile? file = null)
         {
             var clinic = _mapper.Map<Clinics>(clinicVM);
-
+            //file upload
             if (file != null)
             {
                 clinic.PhotoUrl = await _imageService.UploadImageAsync(file);

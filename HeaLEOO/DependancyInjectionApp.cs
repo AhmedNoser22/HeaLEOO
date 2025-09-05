@@ -1,6 +1,7 @@
 ﻿using HeaLEOO.ALLServices;
 using HeaLEOO.Helper;
 using HeaLEOO.ServicesHel;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace HeaLEOO
 {
@@ -29,10 +30,6 @@ namespace HeaLEOO
             services.AddAutoMapper(typeof(DependancyInjectionApp));
             services.AddScoped<IServiceAuth, ServiceAuth>(); 
             services.AddScoped<IServicesDoctor, ServicesDoctor>();
-            services.AddScoped<IserviceClinics,serviceClinics>();
-            services.AddScoped<IserviceSpecializations, serviceSpecializations>();
-            services.AddScoped<ImageService>();
-            services.AddScoped<IServiceSpec, ServiceSpec>();
 
 
             return services;
