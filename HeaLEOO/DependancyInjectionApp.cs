@@ -1,6 +1,7 @@
 ﻿using HeaLEOO.ALLServices;
 using HeaLEOO.Helper;
 using HeaLEOO.ServicesHel;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace HeaLEOO
 {
@@ -33,6 +34,9 @@ namespace HeaLEOO
             services.AddScoped<IserviceSpecializations, serviceSpecializations>();
             services.AddScoped<ImageService>();
             services.AddScoped<IserviceSpecializations, serviceSpecializations>();
+            services.AddScoped<IServiceAppointments, ServiceAppointments>();
+            services.AddScoped<IServiceSpec, ServiceSpec>();
+            services.AddScoped<IServiceLM, ServiceLM>();
 
 
             return services;
