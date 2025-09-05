@@ -1,0 +1,42 @@
+﻿@model IEnumerable<HeaLEOO.Models.Specializations>
+
+@{
+    ViewData["Title"] = "Specializations";
+    Layout = "_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4">Specializations</h2>
+    <a asp-controller="Specialization" asp-action="AddSpecializations" class="btn btn-primary mb-3">
+        <i class="bi bi-plus-circle"></i> Add New Specialization
+    </a>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Doctors Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>@item.Doctors?.Count()</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="3" class="text-center text-muted">No specializations found.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
