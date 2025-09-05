@@ -1,6 +1,6 @@
 ﻿namespace HeaLEOO.ALLServices
 {
-    public interface IServiceSpecialization
+    public interface IServiceSpec
     {
         Task<IEnumerable<SpecializationsVM>> GetSpecializations();
         Task<SpecializationsVM> Addspecializations(SpecializationsVM specializations);
