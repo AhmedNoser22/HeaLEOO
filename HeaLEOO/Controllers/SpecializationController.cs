@@ -10,7 +10,7 @@ namespace HeaLEOO.Controllers
         {
             _serviceSpecializations = serviceSpecializations;
         }
-
+        [HttpGet]
         public IActionResult Index()
         {
             var specializations = _serviceSpecializations.GetAllSpecializations();
