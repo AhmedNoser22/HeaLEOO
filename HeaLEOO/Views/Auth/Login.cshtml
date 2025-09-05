@@ -1,51 +1,41 @@
-﻿@model LoginVM
-
+﻿@model HeaLEOO.ViewModels.LoginVM
 @{
     ViewData["Title"] = "Login";
 }
 
-<div class="login-container">
-    <h1 class="page-title">Sign in</h1>
+<div class="auth-container">
+    <!-- Title outside the card -->
+    <h1 class="auth-page-title">Sign In</h1>
 
-    <div class="login-card">
-        <h2 class="login-title">Welcome back</h2>
-        <p class="login-subtitle">Enter your account details below</p>
+    <div class="auth-card">
+        <h2 class="auth-title">Welcome Back</h2>
 
-        <form asp-action="Login" method="post" class="login-form">
+        <form asp-action="Login" method="post" class="auth-form">
             @Html.AntiForgeryToken()
 
-            <div asp-validation-summary="All" class="text-danger text-center mb-3"></div>
-
-            <div class="form-group mb-3">
-                <label asp-for="Email"></label>
-                <input asp-for="Email" class="form-control" placeholder="Enter your email" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+            <div class="form-group mb-3 text-start">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger d-block"></span>
             </div>
 
-            <div class="form-group mb-3">
-                <label asp-for="Password"></label>
-                <input asp-for="Password" class="form-control" placeholder="Enter your password" />
-                <span asp-validation-for="Password" class="text-danger"></span>
+            <div class="form-group mb-3 text-start">
+                <label asp-for="Password" class="form-label"></label>
+                <input asp-for="Password" class="form-control" type="password" />
+                <span asp-validation-for="Password" class="text-danger d-block"></span>
             </div>
 
-            <div class="form-check mb-3">
+            <div class="form-check mb-3 text-start">
                 <input asp-for="RememberMe" class="form-check-input" />
                 <label asp-for="RememberMe" class="form-check-label"></label>
             </div>
 
-            <div class="text-center">
-                <button type="submit" class="btn-login">Login</button>
-            </div>
-
-            <div class="register-link mt-4">
-                <p>Don’t have an account? <a asp-action="Register" asp-controller="Auth">Register here</a></p>
-            </div>
+            <button type="submit" class="btn-login w-100">Login</button>
         </form>
+
+        <p class="auth-footer-text mt-3">
+            Don’t have an account?
+            <a asp-controller="Auth" asp-action="Register" class="auth-link">Register here</a>
+        </p>
     </div>
 </div>
-
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-}
