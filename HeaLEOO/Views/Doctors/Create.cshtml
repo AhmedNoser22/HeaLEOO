@@ -1,0 +1,38 @@
+﻿@model HeaLEOO.ViewModels.DoctorViewModel
+
+@{
+    ViewData["Title"] = "Add Doctor";
+}
+
+<div class="container py-4">
+    <h2 class="text-primary fw-bold mb-4">Add New Doctor</h2>
+
+    <form asp-action="Create" method="post" class="shadow p-4 rounded bg-light">
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label fw-bold"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="PhoneNumber" class="form-label fw-bold"></label>
+            <input asp-for="PhoneNumber" class="form-control" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="SpecializationId" class="form-label fw-bold">Specialization</label>
+            <select asp-for="SpecializationId" asp-items="Model.Specializations" class="form-select"></select>
+            <span asp-validation-for="SpecializationId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label fw-bold">Clinics</label>
+            <select asp-for="ClinicIds" asp-items="Model.Clinics" class="form-select" multiple></select>
+            <span asp-validation-for="ClinicIds" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-success">Save</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

@@ -14,7 +14,6 @@
             _serviceClinics = serviceClinics;
             _mapper = mapper;
         }
-
         public async Task<IActionResult> Index()
         {
             var doctors = await _serviceDoctor.GetAllItems();
@@ -51,21 +50,23 @@
             if (doctor == null) return NotFound();
             return View(doctor);
         }
-
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> DeleteDoctor(int id)
         {
-            var doctor = await _serviceDoctor.GetItemById(id);
-            if (doctor == null) return NotFound();
-            return View(doctor);
-        }
+            var result = await _serviceDoctor.DeletItem(id);
+            if (result)
+            {
+                TempData["SuccessMessage"] = "Doctor deleted successfully.";
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "Failed to delete doctor.";
+            }
 
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            await _serviceDoctor.DeletItem(id);
             return RedirectToAction(nameof(Index));
         }
+
+
+
     }
 
 }
