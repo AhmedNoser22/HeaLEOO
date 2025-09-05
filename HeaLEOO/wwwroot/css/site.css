@@ -22,17 +22,18 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
-    position: relative; /* for absolute centering of nav-links */
+    position: relative;
 }
 
-/* Brand (Logo + Title) */
+/* Brand */
 .brand-link {
     display: flex;
     align-items: center;
     gap: 8px;
     text-decoration: none;
     color: inherit;
-    margin-left: 20px; /* space on left */
+    margin-left: 20px;
+    justify-content: center;
 }
 
 .logo {
@@ -48,7 +49,7 @@ body {
     text-decoration: none;
 }
 
-/* Nav Links (perfect center of screen) */
+/* Nav Links */
 .nav-links {
     position: absolute;
     left: 50%;
@@ -68,7 +69,7 @@ body {
             color: #246FBE;
         }
 
-/* Nav Buttons (right side) */
+/* Nav Buttons */
 .nav-buttons {
     display: flex;
     align-items: center;
@@ -228,13 +229,6 @@ body {
     text-align: center;
 }
 
-.footer-logo {
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: #2c7da0;
-    margin-bottom: 0.8rem;
-}
-
 .footer-tagline {
     font-size: 1rem;
     color: #666;
@@ -254,6 +248,7 @@ body {
     color: #666;
     margin-bottom: 0;
     line-height: 1.4;
+    justify-content: center;
 }
 
 /* ================== Dashboard / Sidebar ================== */
