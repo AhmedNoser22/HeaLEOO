@@ -11,8 +11,8 @@
         [HttpGet]
         public IActionResult Index()
         {
-            var specializations = _serviceSpecializations.GetAllSpecializations();
-            return View(specializations);
+            var data = _serviceSpecializations.GetAllSpecializations();
+            return View(data);
         }
     }
 }
