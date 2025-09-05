@@ -4,18 +4,19 @@ namespace HeaLEOO.Controllers
 {
     public class ServicesController : Controller
     {
-        private readonly IServiceLM _serviceLM;
+        private readonly IServiceLM _serviceServices;
         private readonly IMapper _mapper;
 
-        public ServicesController(IServiceLM serviceLM, IMapper mapper)
+        public ServicesController(IServiceLM serviceServices, IMapper mapper)
         {
-            _serviceLM = serviceLM;
+            _serviceServices = serviceServices;
             _mapper = mapper;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var services = await _serviceServices.GetAllAsync();
+            return View(services);
         }
 
         public IActionResult Create()
@@ -26,23 +27,70 @@ namespace HeaLEOO.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(ServiceVM model)
+        public async Task<IActionResult> Create(ServiceVM model)
         {
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
 
+            await _serviceServices.CreateAsync(model);
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Details(int id)
+        public async Task<IActionResult> Details(int id)
         {
-            return View();
+            var service = await _serviceServices.GetByIdAsync(id);
+            if (service == null) return NotFound();
+            return View(service);
         }
 
-        public IActionResult DeleteService(int id)
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
         {
+            var service = await _serviceServices.GetByIdAsync(id);
+            if (service == null) return NotFound();
+            return View(service);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, ServiceVM model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var result = await _serviceServices.UpdateAsync(id, model);
+            if (!result)
+            {
+                return NotFound();
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var service = await _serviceServices.GetByIdAsync(id);
+            if (service == null) return NotFound();
+            return View(service);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var result = await _serviceServices.DeleteAsync(id);
+            if (result)
+            {
+                TempData["SuccessMessage"] = "Service deleted successfully.";
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "Failed to delete service.";
+            }
             return RedirectToAction(nameof(Index));
         }
     }
