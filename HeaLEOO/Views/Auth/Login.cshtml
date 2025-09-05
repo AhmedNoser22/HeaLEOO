@@ -3,25 +3,26 @@
     ViewData["Title"] = "Login";
 }
 
-<div class="auth-container">
+<div class="auth-container login-page">
     <!-- Title outside the card -->
-    <h1 class="auth-page-title">Sign In</h1>
+    <h1 class="auth-page-title">Sign in</h1>
 
     <div class="auth-card">
-        <h2 class="auth-title">Welcome Back</h2>
+        <h2 class="auth-title-login-page">Welcome back</h2>
+        <p class="second-line">Enter your account details below</p>
 
         <form asp-action="Login" method="post" class="auth-form">
             @Html.AntiForgeryToken()
 
             <div class="form-group mb-3 text-start">
                 <label asp-for="Email" class="form-label"></label>
-                <input asp-for="Email" class="form-control" />
+                <input asp-for="Email" class="form-control" placeholder="Enter your email" />
                 <span asp-validation-for="Email" class="text-danger d-block"></span>
             </div>
 
             <div class="form-group mb-3 text-start">
                 <label asp-for="Password" class="form-label"></label>
-                <input asp-for="Password" class="form-control" type="password" />
+                <input asp-for="Password" class="form-control" type="password" placeholder="Enter your password" />
                 <span asp-validation-for="Password" class="text-danger d-block"></span>
             </div>
 
