@@ -2,5 +2,6 @@
 {
     public interface IServiceSpecialization
     {
+        Task<IEnumerable<string>> GetALL();
     }
 }
