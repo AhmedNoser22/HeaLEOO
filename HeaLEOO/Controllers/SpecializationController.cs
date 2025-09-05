@@ -11,8 +11,6 @@
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var data = await _serviceSpecializations.
-            return View(data);
         }
     }
 }
