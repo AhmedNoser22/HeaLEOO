@@ -9,7 +9,7 @@
             _serviceSpecializations = serviceSpecializations;
         }
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             var data = _serviceSpecializations.GetAllSpecializations();
             return View(data);
