@@ -1,6 +1,6 @@
 ﻿namespace HeaLEOO.Helper
 {
-    public class AllowedAttribute: ValidationAttribute
+    public class AllowedAttribute : ValidationAttribute
     {
         private readonly string _AllowedExtensions;
 
@@ -24,4 +24,5 @@
             }
             return ValidationResult.Success;
         }
+    }
 }

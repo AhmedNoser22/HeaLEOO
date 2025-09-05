@@ -11,12 +11,11 @@ namespace HeaLEOO.Helper
 
         public IEnumerable<SelectListItem> GetAllSpecializations()
         {
-            var result = _context.Specializations.Select
-                (
-                x => new SelectListItem { Text = x.Name, Value = x.Id.ToString() }
-                ).AsNoTracking().ToList();
-            return result;
+            return _context.Specializations.AsNoTracking()
+                .Select(x => new SelectListItem { Text = x.Name, Value = x.Id.ToString() })
+                .ToList();
         }
+
 
     }
 }

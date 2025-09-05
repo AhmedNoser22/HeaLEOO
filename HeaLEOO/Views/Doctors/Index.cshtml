@@ -1,0 +1,43 @@
+﻿@model IEnumerable<DoctorViewModel>
+
+@{
+    ViewData["Title"] = "Doctors";
+}
+
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="text-primary fw-bold">Doctors List</h2>
+        <a asp-action="Create" class="btn btn-success">+ Add Doctor</a>
+    </div>
+
+    <table class="table table-hover shadow-sm rounded">
+        <thead class="table-primary">
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Specialization</th>
+                <th>Clinics</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var doc in Model)
+            {
+                <tr>
+                    <td>@doc.Name</td>
+                    <td>@doc.PhoneNumber</td>
+                    <td>@doc.SpecializationName</td>
+                    <td>
+                        @foreach (var clinic in doc.ClinicNames)
+                        {
+                            <span class="badge bg-info text-dark me-1">@clinic</span>
+                        }
+                    </td>
+                    <td>
+                        <a asp-action="Delete" asp-route-id="@doc.Id" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

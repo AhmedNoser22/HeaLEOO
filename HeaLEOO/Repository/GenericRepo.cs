@@ -10,20 +10,19 @@ namespace HeaLEOO.Repository
             _Context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public async Task<IEnumerable<T>> GetAll(params Expression<Func<T, object>>[] includes)
+        public async Task<IEnumerable<T>> GetAll(Func<IQueryable<T>, IQueryable<T>> include = null!)
         {
             IQueryable<T> query = _Context.Set<T>();
 
-            if (includes != null && includes.Any())
+            if (include != null)
             {
-                foreach (var include in includes)
-                {
-                    query = query.Include(include);
-                }
+                query = include(query);
             }
 
             return await query.ToListAsync();
         }
+
+
 
         public async Task<T> GetById(int id)
         {

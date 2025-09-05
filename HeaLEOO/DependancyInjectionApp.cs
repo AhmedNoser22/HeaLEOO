@@ -27,7 +27,6 @@ namespace HeaLEOO
             services.AddAutoMapper(typeof(DependancyInjectionApp));
             services.AddScoped<IServiceAuth, ServiceAuth>();
             services.AddScoped<IServicesDoctor, ServicesDoctor>();
-            services.AddScoped<IserviceAppointments, serviceAppointments>();
             services.AddScoped<IserviceClinics,serviceClinics>();
             services.AddScoped<IserviceSpecializations, serviceSpecializations>();
             services.AddScoped<ImageService>();
