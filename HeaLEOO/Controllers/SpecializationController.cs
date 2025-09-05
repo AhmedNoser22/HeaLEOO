@@ -13,7 +13,8 @@ namespace HeaLEOO.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var specializations = _serviceSpecializations.GetAllSpecializations();
+            return View(specializations);
         }
     }
 }
