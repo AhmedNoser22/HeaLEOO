@@ -17,30 +17,32 @@
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="~/css/auth.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+	<link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/index.css" />
 </head>
 <body>
     <!-- ======= Header ======= -->
-    <div class="header">
-        <div class="brand">
-            <a asp-controller="Home" asp-action="Index" class="brand-link">
-                <img class="logo" src="~/images/healeologolog.png" alt="Healeo Logo" />
-                <span class="brand-title">Healeo</span>
-            </a>
-        </div>
-
-        <div class="nav-links">
-            <a asp-controller="Home" asp-action="Index">Home</a>
-            <a asp-controller="Home" asp-action="About">About</a>
-            <a asp-controller="Home" asp-action="Clinic">Clinics</a>
-        </div>
-
-        <div class="nav-buttons">
-            <a asp-controller="Auth" asp-action="Login" class="btn btn-login">Login</a>
-            <a asp-controller="Auth" asp-action="Register" class="btn btn-primary">Register</a>
-            <a asp-controller="Doctors" asp-action="Index" class="btn btn-secondary">Doctors</a>
-        </div>
+<div class="header">
+    <div class="brand">
+        <a asp-controller="Home" asp-action="Index" class="brand-link">
+            <img class="logo" src="~/images/healeologolog.png" alt="Healeo Logo" />
+            <span class="brand-title">Healeo</span>
+        </a>
     </div>
+
+    <div class="nav-links">
+        <a asp-controller="Home" asp-action="Index">Home</a>
+        <a asp-controller="Home" asp-action="About">About</a>
+        <a asp-controller="Home" asp-action="Clinic">Clinics</a>
+    </div>
+
+    <div class="nav-buttons">
+        <a asp-controller="Auth" asp-action="Login" class="btn home-btn-login">Login</a>
+        <a asp-controller="Auth" asp-action="Register" class="btn home-btn-register">Register</a>
+        <a asp-controller="Doctors" asp-action="Index" class="btn home-btn-doctors">Doctors</a>
+    </div>
+</div>
+
 
 
     <!-- ======= Main Content ======= -->
