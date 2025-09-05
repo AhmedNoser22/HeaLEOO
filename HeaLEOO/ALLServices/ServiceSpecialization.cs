@@ -3,9 +3,27 @@ namespace HeaLEOO.ALLServices
 {
     public class ServiceSpecialization : IServiceSpecialization
     {
-        public Task<IEnumerable<SpecializationsVM>> GetSpecializations()
+        private readonly IGenericRepo<Specializations> _genericRepo;
+        private readonly IMapper _mapper;
+        public ServiceSpecialization(IGenericRepo<Specializations> genericRepo, IMapper mapper = null)
         {
-            throw new NotImplementedException();
+            _genericRepo = genericRepo;
+            _mapper = mapper;
         }
+        public async Task<IEnumerable<SpecializationsVM>> GetSpecializations()
+        {
+            var specializations =await _genericRepo.GetAll();
+            return _mapper.Map<IEnumerable<SpecializationsVM>>(specializations);
+        }
+        public async Task<SpecializationsVM> Addspecializations(SpecializationsVM specializations)
+        {
+            var spec = _mapper.Map<Specializations>(specializations);
+            await _genericRepo.Add(spec);
+            await _genericRepo.Complete();
+            return _mapper.Map<SpecializationsVM>(spec);
+
+        }
+
+       
     }
 }
