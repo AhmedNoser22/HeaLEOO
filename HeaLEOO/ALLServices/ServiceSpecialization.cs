@@ -11,11 +11,12 @@ namespace HeaLEOO.ALLServices
             _repo = repo;
             _mapper = mapper;
         }
-        public async Task<IEnumerable<string>> GetALL()
+        public async Task<IEnumerable<SpecializationsVM>> GetALL()
         {
             var data = await _repo.GetAll();
             var result = data.Select(s => s.Name).ToList();
-            return result;
+            var mapped = _mapper.Map<IEnumerable<SpecializationsVM>>(data);
+            return mapped;
         }
     }
 }
