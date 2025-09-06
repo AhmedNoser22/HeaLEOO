@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.8rem 2rem;
+    padding: 0.3rem 2rem;
     background-color: #ffffff;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     position: sticky;
@@ -53,30 +53,7 @@
 }
 
 .nav-links a:hover {
-    color: #246FBE;
-}
-
-/* Animated Underline */
-.animated-underline {
-    position: relative;
-    color: #246FBE;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.animated-underline::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -3px;
-    width: 0%;
-    height: 2px;
-    background: #246FBE;
-    transition: width 0.3s ease;
-}
-
-.animated-underline:hover::after {
-    width: 100%;
+    color: #246FBE !important;
 }
 
 /* Nav Buttons */
@@ -101,41 +78,74 @@
 .nav-buttons .btn {
     margin-left: 10px;
     padding: 0.5rem 1.5rem;
-    border-radius: 30px;
     font-weight: 600;
     transition: all 0.3s ease;
 }
 
 .home-btn-login {
-    background-color: #FFF !important;
-    color: #2C7DA0 !important;
-    border: 2px solid #2C7DA0 !important;
+    color: #000;
+    text-decoration: none;
+    font-weight: 600 !important;
+    position: relative;
+    transition: color 0.3s ease;
+    padding: 5px !important;
+    margin-right: 10px !important;
+}
+    
+.home-btn-login::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px !important;
+    background: #000 !important;
+    transition: width 0.3s ease;
 }
 
-    .home-btn-login:hover {
-        background-color: #2C7DA0 !important;
-        color: #FFF !important;
-    }
+a.home-btn-login:hover::after {
+    width: 100%;
+}
+
+.home-btn-login:hover {
+    color: #000;
+}
 
 .home-btn-register {
+    padding:0.75rem 2rem !important;
+    background-color: #2C7DA0 !important;
+    color: #FFF !important;
+    border: 2px solid #2C7DA0 !important;
+    border-radius: 10px;
+}
+
+.home-btn-register:hover {
     background-color: #FFF !important;
     color: #2C7DA0 !important;
-    border: 2px solid #2C7DA0 !important;
+    border-radius: 1px;
 }
 
-    .home-btn-register:hover {
-        background-color: #2C7DA0 !important;
-        color: #FFF !important;
-    }
-
-.home-btn-doctors {
-    background-color: #FFF !important;
-    color: #1533bf !important;
-    border: 2px solid #1533bf !important;
+/* Animated Underline */
+.animated-underline {
+    position: relative !important;
+    color: #000 !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
 }
 
-    .home-btn-doctors:hover {
-        background-color: #1533bf !important;
-        color: #FFF !important;
-        border: 2px solid #1533bf !important;
-    }
+.animated-underline::after {
+/*    color: #246FBE !important;*/
+    content: "" !important;
+    position: absolute !important;
+    left: 0 !important;
+    bottom: -3px !important;
+    width: 0% !important;
+    height: 2px;
+    background: #246FBE;
+    transition: width 0.3s ease !important;
+}
+
+.animated-underline:hover::after {
+/*    color: #246FBE !important;*/
+    width: 100% !important;
+}
