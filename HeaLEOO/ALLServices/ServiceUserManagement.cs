@@ -3,16 +3,11 @@
     public class ServiceUserManagement : IServiceUserManagement
     {
         private readonly UserManager<AppUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IMapper _mapper;
 
-        public ServiceUserManagement(
-            UserManager<AppUser> userManager,
-            RoleManager<IdentityRole> roleManager,
-            IMapper mapper)
+        public ServiceUserManagement(UserManager<AppUser> userManager, IMapper mapper)
         {
             _userManager = userManager;
-            _roleManager = roleManager;
             _mapper = mapper;
         }
 
