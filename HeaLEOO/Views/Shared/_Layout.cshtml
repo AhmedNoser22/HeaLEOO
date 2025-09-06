@@ -36,16 +36,16 @@
         <div class="brand">
             <a asp-controller="Home" asp-action="Index" class="brand-link">
                 <img class="logo" src="~/images/healeologolog.png" alt="Healeo Logo" />
-                <span class="brand-title">Healeo</span>
+                @* <span class="brand-title">Healeo</span> *@
             </a>
         </div>
 
         <div class="nav-links">
             @* <a asp-controller="Home" asp-action="About">About</a> *@
-            <a asp-controller="Clinics" asp-action="index">Clinics</a>
-            <a asp-controller="Doctors" asp-action="Index">Doctors</a>
-            <a asp-controller="Appointments" asp-action="Index">Appointments</a>
-            <a asp-controller="Services" asp-action="Index">Services</a>
+            <a class="animated-underline" asp-controller="Clinics" asp-action="index">Clinics</a>
+            <a class="animated-underline" asp-controller="Doctors" asp-action="Index">Doctors</a>
+            <a class="animated-underline" asp-controller="Appointments" asp-action="Index">Appointments</a>
+            <a class="animated-underline" asp-controller="Services" asp-action="Index">Services</a>
         </div>
 
         <div class="nav-buttons">

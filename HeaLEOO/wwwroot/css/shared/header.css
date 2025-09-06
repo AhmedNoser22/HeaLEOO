@@ -19,13 +19,13 @@
     gap: 8px;
     text-decoration: none;
     color: inherit;
-    margin-left: 20px;
+    margin-left: 250px;
     justify-content: center;
 }
 
 .logo {
-    width: 55px;
-    height: 55px;
+    width: 75px;
+    height: 75px;
     object-fit: contain;
 }
 
@@ -39,29 +39,52 @@
 /* Nav Links */
 .nav-links {
     position: absolute;
-    left: 50%;
+    left: 30%;
     transform: translateX(-50%);
     display: flex;
     gap: 25px;
 }
 
-    .nav-links a {
-        text-decoration: none;
-        color: #444;
-        font-weight: 500;
-        transition: color 0.3s ease;
-    }
+.nav-links a {
+    text-decoration: none;
+    color: #444;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
 
-        .nav-links a:hover {
-            color: #246FBE;
-        }
+.nav-links a:hover {
+    color: #246FBE;
+}
+
+/* Animated Underline */
+.animated-underline {
+    position: relative;
+    color: #246FBE;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.animated-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background: #246FBE;
+    transition: width 0.3s ease;
+}
+
+.animated-underline:hover::after {
+    width: 100%;
+}
 
 /* Nav Buttons */
 .nav-buttons {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-right: 20px;
+    margin-right: 250px;
 }
 
 .btn {
