@@ -3,47 +3,55 @@
     ViewData["Title"] = "Register";
 }
 
-<div class="auth-container register-page">
-    <!-- Title outside the card -->
-    <h1 class="auth-page-title">Sign up</h1>
+<div class="auth-split-container">
 
-    <div class="auth-card">
-        <h2 class="auth-title-register-page">Create an Account</h2>
-        <p class="second-line">Fill in your details to get started</p>
+    <!-- Left side: register form -->
+    <div class="auth-right-register">
+        <div class="auth-container register-page">
+            <div class="auth-card">
+                <h2 class="auth-title-register-page">Create an Account</h2>
+                <p class="second-line">Fill in your details to get started</p>
 
-        <form asp-action="Register" method="post" class="auth-form">
-            @Html.AntiForgeryToken()
+                <form asp-action="Register" method="post" class="auth-form">
+                    @Html.AntiForgeryToken()
 
-            <div class="form-group mb-3 text-start">
-                <label asp-for="Username" class="form-label"></label>
-                <input asp-for="Username" class="form-control" placeholder="Enter your username" />
-                <span asp-validation-for="Username" class="text-danger d-block"></span>
+                    <div class="form-group mb-3 text-start">
+                        <label asp-for="Username" class="form-label"></label>
+                        <input asp-for="Username" class="form-control" placeholder="Enter your username" />
+                        <span asp-validation-for="Username" class="text-danger d-block"></span>
+                    </div>
+
+                    <div class="form-group mb-3 text-start">
+                        <label asp-for="Email" class="form-label"></label>
+                        <input asp-for="Email" class="form-control" placeholder="Enter your email" />
+                        <span asp-validation-for="Email" class="text-danger d-block"></span>
+                    </div>
+
+                    <div class="form-group mb-3 text-start">
+                        <label asp-for="Password" class="form-label"></label>
+                        <input asp-for="Password" class="form-control" type="password" placeholder="Enter your password" />
+                        <span asp-validation-for="Password" class="text-danger d-block"></span>
+                    </div>
+
+                    <div class="form-group mb-3 text-start">
+                        <label asp-for="ConfirmPassword" class="form-label"></label>
+                        <input asp-for="ConfirmPassword" class="form-control" type="password" placeholder="Confirm your password" />
+                        <span asp-validation-for="ConfirmPassword" class="text-danger d-block"></span>
+                    </div>
+
+                    <button type="submit" class="btn-login w-100 mb-2">Register</button>
+                </form>
+
+                <p class="auth-footer-text mt-3">
+                    Already have an account?
+                    <a asp-controller="Auth" asp-action="Login" class="auth-link">Login here</a>
+                </p>
             </div>
+        </div>
+    </div>
 
-            <div class="form-group mb-3 text-start">
-                <label asp-for="Email" class="form-label"></label>
-                <input asp-for="Email" class="form-control" placeholder="Enter your email" />
-                <span asp-validation-for="Email" class="text-danger d-block"></span>
-            </div>
-
-            <div class="form-group mb-3 text-start">
-                <label asp-for="Password" class="form-label"></label>
-                <input asp-for="Password" class="form-control" type="password" placeholder="Enter your password" />
-                <span asp-validation-for="Password" class="text-danger d-block"></span>
-            </div>
-
-            <div class="form-group mb-3 text-start">
-                <label asp-for="ConfirmPassword" class="form-label"></label>
-                <input asp-for="ConfirmPassword" class="form-control" type="password" placeholder="Confirm your password" />
-                <span asp-validation-for="ConfirmPassword" class="text-danger d-block"></span>
-            </div>
-
-            <button type="submit" class="btn-register w-100">Register</button>
-        </form>
-
-        <p class="auth-footer-text mt-3">
-            Already have an account?
-            <a asp-controller="Auth" asp-action="Login" class="auth-link">Login here</a>
-        </p>
+    <!-- Right side: image -->
+    <div class="auth-left">
+        <img src="~/images/DocWallpaper2.png" alt="Doctor" />
     </div>
 </div>

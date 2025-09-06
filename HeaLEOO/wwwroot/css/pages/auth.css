@@ -37,6 +37,7 @@
 
 .auth-title-register-page {
     color: #416CDF;
+    font-weight:550;
 }
 
 /* Title outside card */
@@ -272,4 +273,18 @@
     .auth-right {
         padding: 1rem;
     }
+}
+
+/* Right side (Register, reversed) */
+.auth-right-register {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFF;
+}
+
+
+.register-page .auth-card {
+    margin:25px 0px 0px 200px;
 }
