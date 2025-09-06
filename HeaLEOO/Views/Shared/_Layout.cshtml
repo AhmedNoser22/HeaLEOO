@@ -53,7 +53,7 @@
         <div class="nav-buttons">
             @if (User.Identity.IsAuthenticated)
             {
-                <span class="btn home-bun-username">@userManager.Users</span>
+                @* <span class="btn home-bun-username">@userManager.Users</span> *@
                 <form method="post" asp-controller="Auth" asp-action="Logout" class="mb-0">
                     <button type="submit" class="btn home-btn-logout">Logout</button>
                 </form>
