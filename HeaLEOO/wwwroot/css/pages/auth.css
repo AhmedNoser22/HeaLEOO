@@ -31,7 +31,7 @@
 
 .auth-title-login-page {
     font-weight: 550;
-    color: #70b2ff;
+    color: #01aaff;
     margin: 0 0 10px 0;
 }
 
@@ -108,7 +108,7 @@
 /* Login button */
 .btn-login {
     /*    background: linear-gradient(135deg, #1c4a92, #2c93ea);*/
-    background: #70b2ff;
+    background: #01aaff;
     border: none;
     padding: 0.8rem;
     font-size: 1rem;
