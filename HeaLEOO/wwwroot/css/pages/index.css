@@ -1,0 +1,197 @@
+﻿* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.hero {
+    background: linear-gradient(#2C7DA0CC, #2C7DA0E6), url('https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 95vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.hero .btn {
+    border-radius: 30px;
+    padding: 0.8rem 2.5rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.hero .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.how-it-works, .features, .featured-clinics {
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.how-it-works h2, .features h2, .featured-clinics h2 {
+    color: #2c7da0;
+    margin-bottom: 8rem;
+}
+
+.step-card {
+    border-radius: 15px;
+    padding: 2rem;
+    background: #0095ff0d;
+    transition: all 0.3s ease;
+    height: 100%;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #0D3C61; /* darker text for contrast */
+}
+
+    .step-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+.step-description {
+    margin-top: 1.5rem;
+    padding: 0 1rem;
+    color: #1b4b63;
+    font-size: 18px;
+}
+
+.clinic-card {
+    border-radius: 15px;
+    padding: 2rem;
+    background: #0095ff0d;
+    transition: all 0.3s ease;
+    height: 100%;
+    min-height: 300px;
+}
+
+    .clinic-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+.clinic-image {
+    width: 300px;
+    height: 300px;
+    max-width: 100%;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+}
+
+    .clinic-image:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s ease;
+    }
+
+.btn-slot {
+    border-radius: 22px;
+    padding: 0.75rem 2rem;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+    .btn-slot:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+
+
+.testimonials {
+    padding: 5rem 0;
+    background: linear-gradient(0deg, #f0f7ff 0%, #f9fafb 100%);
+}
+
+    .testimonials h2 {
+        color: #2c7da0;
+        margin-bottom: 3rem;
+        font-weight: 700;
+    }
+
+.testimonial-card {
+    border-radius: 15px;
+    padding: 2rem;
+    background: #ffffff;
+    transition: all 0.3s ease;
+    height: 100%;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+    .testimonial-card:hover {
+        transform: translateY(-5px) scale(1.03);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .testimonial-card::before {
+        content: '“';
+        font-size: 4rem;
+        color: #2c7da0;
+        position: absolute;
+        top: 10px;
+        left: 20px;
+        opacity: 0.3;
+    }
+
+    .testimonial-card::after {
+        content: '”';
+        font-size: 4rem;
+        color: #2c7da0;
+        position: absolute;
+        bottom: 10px;
+        right: 20px;
+        opacity: 0.3;
+    }
+
+.testimonial-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 2px solid #2c7da0;
+}
+
+.testimonial-text {
+    font-size: 1.1rem;
+    color: #1b4b63;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.testimonial-author {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2c7da0;
+}
+
+
+.stars {
+    font-size: 40px;
+    color: #2c7da0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    margin-bottom: 5px;
+}
+
+.reviews {
+    font-size: 16px;
+    color: #939393;
+    margin: 0;
+}

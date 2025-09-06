@@ -1,0 +1,118 @@
+﻿/* ================== Header / Navbar ================== */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem 2rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    position: sticky;
+}
+
+/* Brand */
+.brand-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: inherit;
+    margin-left: 20px;
+    justify-content: center;
+}
+
+.logo {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
+.brand-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2c7da0;
+    text-decoration: none;
+}
+
+/* Nav Links */
+.nav-links {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 25px;
+}
+
+    .nav-links a {
+        text-decoration: none;
+        color: #444;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+        .nav-links a:hover {
+            color: #246FBE;
+        }
+
+/* Nav Buttons */
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 20px;
+}
+
+.btn {
+    padding: 0.45rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.25s ease;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.nav-buttons .btn {
+    margin-left: 10px;
+    padding: 0.5rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.home-btn-login {
+    background-color: #FFF !important;
+    color: #2C7DA0 !important;
+    border: 2px solid #2C7DA0 !important;
+}
+
+    .home-btn-login:hover {
+        background-color: #2C7DA0 !important;
+        color: #FFF !important;
+    }
+
+.home-btn-register {
+    background-color: #FFF !important;
+    color: #2C7DA0 !important;
+    border: 2px solid #2C7DA0 !important;
+}
+
+    .home-btn-register:hover {
+        background-color: #2C7DA0 !important;
+        color: #FFF !important;
+    }
+
+.home-btn-doctors {
+    background-color: #FFF !important;
+    color: #1533bf !important;
+    border: 2px solid #1533bf !important;
+}
+
+    .home-btn-doctors:hover {
+        background-color: #1533bf !important;
+        color: #FFF !important;
+        border: 2px solid #1533bf !important;
+    }
