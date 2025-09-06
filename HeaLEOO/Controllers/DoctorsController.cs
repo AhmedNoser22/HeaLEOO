@@ -1,22 +1,17 @@
-﻿using HeaLEOO.ALLServices;
-using HeaLEOO.Helper;
-using HeaLEOO.ViewModels;
-using Microsoft.AspNetCore.Mvc;
-
-namespace HeaLEOO.Controllers
+﻿namespace HeaLEOO.Controllers
 {
     public class DoctorsController : Controller
     {
         private readonly IServicesDoctor _serviceDoctor;
         private readonly IserviceSpecializations _serviceSpecializations;
-        private readonly IserviceClinics _serviceClinics;
+        private readonly IServiceClinicsDB _serviceClinicsDB;
         private readonly IMapper _mapper;
 
-        public DoctorsController(IServicesDoctor serviceDoctor, IserviceSpecializations serviceSpecializations, IserviceClinics serviceClinics, IMapper mapper)
+        public DoctorsController(IServicesDoctor serviceDoctor, IserviceSpecializations serviceSpecializations, IServiceClinicsDB serviceClinDate, IMapper mapper)
         {
             _serviceDoctor = serviceDoctor;
             _serviceSpecializations = serviceSpecializations;
-            _serviceClinics = serviceClinics;
+            _serviceClinicsDB = serviceClinDate;
             _mapper = mapper;
         }
         public async Task<IActionResult> Index()
@@ -30,7 +25,8 @@ namespace HeaLEOO.Controllers
             var model = new DoctorViewModel
             {
                 Specializations = _serviceSpecializations.GetAllSpecializations(),
-                Clinics = _serviceClinics.GetAllClinics()
+
+
             };
             return View(model);
         }
@@ -42,7 +38,7 @@ namespace HeaLEOO.Controllers
             if (!ModelState.IsValid)
             {
                 model.Specializations = _serviceSpecializations.GetAllSpecializations();
-                model.Clinics = _serviceClinics.GetAllClinics();
+
                 return View(model);
             }
             await _serviceDoctor.CreateItem(model);

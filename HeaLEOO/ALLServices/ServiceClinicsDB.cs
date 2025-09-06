@@ -3,15 +3,15 @@
     private readonly IGenericRepo<Clinics> _repo;
     private readonly IMapper _mapper;
     private readonly ImageService _imageService;
-    private readonly IServiceClinic _serviceClinic;
+    private readonly IServiceNserv _ServiceNserv;
     private readonly ILookupService _lookupService;
 
-    public ServiceClinicsDB(IGenericRepo<Clinics> repo, IMapper mapper, ImageService imageService, IServiceClinic serviceClinic, ILookupService lookupService)
+    public ServiceClinicsDB(IGenericRepo<Clinics> repo, IMapper mapper, ImageService imageService, IServiceNserv ServiceNserv, ILookupService lookupService)
     {
         _repo = repo;
         _mapper = mapper;
         _imageService = imageService;
-        _serviceClinic = serviceClinic;
+        _ServiceNserv = ServiceNserv;
         _lookupService = lookupService;
     }
     public async Task<IEnumerable<ClinicVM>> GetAllClinicsAsync()
@@ -21,7 +21,7 @@
         foreach (var c in mapped)
         {
             c.Appointments = _lookupService.GetAllAppointments();
-            c.Services = _serviceClinic.GetAllServices();
+            c.Services = _ServiceNserv.GetAllServices();
         }
         return mapped;
     }
@@ -30,7 +30,7 @@
         var clinic = await _repo.GetById(id);
         var mapped = _mapper.Map<ClinicVM>(clinic);
         mapped.Appointments = _lookupService.GetAllAppointments();
-        mapped.Services = _serviceClinic.GetAllServices();
+        mapped.Services = _ServiceNserv.GetAllServices();
         return mapped;
     }
     public async Task<ClinicVM> AddClinicAsync(ClinicVM clinicVM, IFormFile? file = null)

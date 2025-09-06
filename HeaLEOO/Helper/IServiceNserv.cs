@@ -1,6 +1,6 @@
 ﻿namespace HeaLEOO.Helper
 {
-    public interface IServiceClinic
+    public interface IServiceNserv
     {
         IEnumerable<SelectListItem> GetAllServices();
     }

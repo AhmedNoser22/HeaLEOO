@@ -1,15 +1,15 @@
 ﻿namespace HeaLEOO.Helper
 {
-    public class serviceClinics : IserviceClinics
+    public class ServiceNserv:IServiceNserv
     {
         private readonly AppDbContext _context;
-        public serviceClinics(AppDbContext context)
+        public ServiceNserv(AppDbContext context)
         {
             _context = context;
         }
-        public IEnumerable<SelectListItem> GetAllClinics()
+        public IEnumerable<SelectListItem> GetAllServices()
         {
-            return _context.Clinics.AsNoTracking()
+            return _context.Services.AsNoTracking()
                 .Select(x => new SelectListItem { Text = x.Name, Value = x.Id.ToString() })
                 .ToList();
         }

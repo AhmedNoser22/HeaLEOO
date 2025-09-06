@@ -1,19 +1,17 @@
 ﻿namespace HeaLEOO.Helper
 {
-    public class serviceSpecializations : IserviceSpecializations
+    public class ServiceClinDate:IServiceClinDate
     {
         private readonly AppDbContext _context;
-        public serviceSpecializations(AppDbContext context)
+        public ServiceClinDate(AppDbContext context)
         {
             _context = context;
         }
-        public IEnumerable<SelectListItem> GetAllSpecializations()
+        public IEnumerable<SelectListItem>GetAllServiceClinDate()
         {
-            return _context.Specializations.AsNoTracking()
+            return _context.Services.AsNoTracking()
                 .Select(x => new SelectListItem { Text = x.Name, Value = x.Id.ToString() })
                 .ToList();
         }
-
-
     }
 }
