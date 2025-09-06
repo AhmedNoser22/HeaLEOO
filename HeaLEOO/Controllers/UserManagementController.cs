@@ -2,12 +2,12 @@
 
 namespace HeaLEOO.Controllers
 {
-    public class UserManagmentController : Controller
+    public class UserManagementController : Controller
     {
         private readonly IServiceUserManagement _serviceUserManagement;
         private readonly IMapper _mapper;
 
-        public UserManagmentController(IServiceUserManagement serviceUserManagement, IMapper mapper)
+        public UserManagementController(IServiceUserManagement serviceUserManagement, IMapper mapper)
         {
             _serviceUserManagement = serviceUserManagement;
             _mapper = mapper;
