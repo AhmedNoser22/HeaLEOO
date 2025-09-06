@@ -54,10 +54,10 @@
     color: #0D3C61; /* darker text for contrast */
 }
 
-    .step-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    }
+.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
 
 .step-description {
     margin-top: 1.5rem;
@@ -75,10 +75,10 @@
     min-height: 300px;
 }
 
-    .clinic-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    }
+.clinic-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
 
 .clinic-image {
     width: 300px;
@@ -89,10 +89,10 @@
     border-radius: 10px;
 }
 
-    .clinic-image:hover {
-        transform: scale(1.1);
-        transition: transform 0.3s ease;
-    }
+.clinic-image:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
 
 .btn-slot {
     border-radius: 22px;
@@ -102,10 +102,10 @@
     transition: all 0.3s ease;
 }
 
-    .btn-slot:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
+.btn-slot:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
 
 
 
@@ -114,11 +114,11 @@
     background: linear-gradient(0deg, #f0f7ff 0%, #f9fafb 100%);
 }
 
-    .testimonials h2 {
-        color: #2c7da0;
-        margin-bottom: 3rem;
-        font-weight: 700;
-    }
+.testimonials h2 {
+    color: #2c7da0;
+    margin-bottom: 3rem;
+    font-weight: 700;
+}
 
 .testimonial-card {
     border-radius: 15px;
@@ -135,30 +135,30 @@
     align-items: center;
 }
 
-    .testimonial-card:hover {
-        transform: translateY(-5px) scale(1.03);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    }
+.testimonial-card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
 
-    .testimonial-card::before {
-        content: '“';
-        font-size: 4rem;
-        color: #2c7da0;
-        position: absolute;
-        top: 10px;
-        left: 20px;
-        opacity: 0.3;
-    }
+.testimonial-card::before {
+    content: '“';
+    font-size: 4rem;
+    color: #2c7da0;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    opacity: 0.3;
+}
 
-    .testimonial-card::after {
-        content: '”';
-        font-size: 4rem;
-        color: #2c7da0;
-        position: absolute;
-        bottom: 10px;
-        right: 20px;
-        opacity: 0.3;
-    }
+.testimonial-card::after {
+    content: '”';
+    font-size: 4rem;
+    color: #2c7da0;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    opacity: 0.3;
+}
 
 .testimonial-avatar {
     width: 80px;
