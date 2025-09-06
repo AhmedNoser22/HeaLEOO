@@ -3,40 +3,49 @@
     ViewData["Title"] = "Login";
 }
 
-<div class="auth-container login-page">
-    <!-- Title outside the card -->
-    <h1 class="auth-page-title">Sign in</h1>
+<div class="auth-split-container">
+    <!-- Left side: image -->
+    <div class="auth-left">
+        <img src="~/images/docwallpaper.jpg" alt="Doctor" />
+    </div>
 
-    <div class="auth-card">
-        <h2 class="auth-title-login-page">Welcome back</h2>
-        <p class="second-line">Enter your account details below</p>
+    <!-- Right side: login form -->
+    <div class="auth-right">
+        <div class="auth-container login-page">
+            <div class="auth-card">
+                <h2 class="auth-title-login-page">Welcome back</h2>
+                <p class="second-line">Please enter your details below</p>
 
-        <form asp-action="Login" method="post" class="auth-form">
-            @Html.AntiForgeryToken()
+                <form asp-action="Login" method="post" class="auth-form">
+                    @Html.AntiForgeryToken()
 
-            <div class="form-group mb-3 text-start">
-                <label asp-for="Email" class="form-label"></label>
-                <input asp-for="Email" class="form-control" placeholder="Enter your email" />
-                <span asp-validation-for="Email" class="text-danger d-block"></span>
+                    <div class="form-group mb-3 text-start">
+                        <label asp-for="Email" class="form-label"></label>
+                        <input asp-for="Email" class="form-control" placeholder="Email Address" />
+                        <span asp-validation-for="Email" class="text-danger d-block"></span>
+                    </div>
+
+                    <div class="form-group mb-3 text-start">
+                        <label asp-for="Password" class="form-label"></label>
+                        <input asp-for="Password" class="form-control" type="password" placeholder="Password" />
+                        <span asp-validation-for="Password" class="text-danger d-block"></span>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div class="form-check">
+                            <input asp-for="RememberMe" class="form-check-input" />
+                            <label asp-for="RememberMe" class="form-check-label">Remember me</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-login w-100 mb-2">Sign in</button>
+                </form>
+
+                <p class="auth-footer-text mt-3">
+                    Don’t have an account?
+                    <a asp-controller="Auth" asp-action="Register" class="auth-link">Sign up</a>
+                </p>
             </div>
-
-            <div class="form-group mb-3 text-start">
-                <label asp-for="Password" class="form-label"></label>
-                <input asp-for="Password" class="form-control" type="password" placeholder="Enter your password" />
-                <span asp-validation-for="Password" class="text-danger d-block"></span>
-            </div>
-
-            <div class="form-check mb-3 text-start">
-                <input asp-for="RememberMe" class="form-check-input" />
-                <label asp-for="RememberMe" class="form-check-label"></label>
-            </div>
-
-            <button type="submit" class="btn-login w-100">Login</button>
-        </form>
-
-        <p class="auth-footer-text mt-3">
-            Don’t have an account?
-            <a asp-controller="Auth" asp-action="Register" class="auth-link">Register here</a>
-        </p>
+        </div>
     </div>
 </div>

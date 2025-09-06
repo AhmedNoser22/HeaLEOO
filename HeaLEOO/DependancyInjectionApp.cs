@@ -32,6 +32,8 @@
             services.AddScoped<IServiceClinicsDB,ServiceClinicsDB>();
             services.AddScoped<ImageService>();
             return services;
+            
+
         }
     }
 }
