@@ -32,58 +32,56 @@
 </head>
 <body>
     <!-- ======= Header ======= -->
-<div class="header">
-    <div class="brand">
-        <a asp-controller="Home" asp-action="Index" class="brand-link">
-            <img class="logo" src="~/images/healeologolog.png" alt="Healeo Logo" />
-            <span class="brand-title">Healeo</span>
-        </a>
-    </div>
+    <div class="header">
+        <div class="brand">
+            <a asp-controller="Home" asp-action="Index" class="brand-link">
+                <img class="logo" src="~/images/healeologolog.png" alt="Healeo Logo" />
+                <span class="brand-title">Healeo</span>
+            </a>
+        </div>
 
-    <div class="nav-links">
-        <a asp-controller="Home" asp-action="index">Home</a>
-        <a asp-controller="Home" asp-action="About">About</a>
-        <a asp-controller="Clinics" asp-action="index">Clinics</a>
-        <a asp-controller="Doctors" asp-action="Index" class="btn home-btn-doctors">Doctors</a>
-    </div>
+        <div class="nav-links">
+            @* <a asp-controller="Home" asp-action="About">About</a> *@
+            <a asp-controller="Clinics" asp-action="index">Clinics</a>
+            <a asp-controller="Doctors" asp-action="Index">Doctors</a>
+            <a asp-controller="Appointments" asp-action="Index">Appointments</a>
+            <a asp-controller="Services" asp-action="Index">Services</a>
+        </div>
 
-    <div class="nav-buttons">
-        @if (User.Identity.IsAuthenticated)
-        {
-            <span class="btn home-bun-username">AhmedNoser22</span>
-            <form method="post" asp-controller="Auth" asp-action="Logout" class="mb-0">
-                <button type="submit" class="btn home-btn-logout">Logout</button>
-            </form>
-        }
-        else
-        {
-            <a asp-controller="Auth" asp-action="Login" class="btn home-btn-login">Sign in</a>
-            <a asp-controller="Auth" asp-action="Register" class="btn home-btn-register">Register</a>
-        }
-    </div>
-
-    @* <div class="nav-buttons">
-        @{
-            var fakeLoggedIn = true; // toggle this for testing
-        }
-
-        @if (fakeLoggedIn) // instead of User.Identity.IsAuthenticated
-        {
-            <span class="btn home-bun-username">AhmedNoser22</span>
-            <form method="post" asp-controller="Auth" asp-action="Logout" class="mb-0">
+        <div class="nav-buttons">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <span class="btn home-bun-username">AhmedNoser22</span>
+                <form method="post" asp-controller="Auth" asp-action="Logout" class="mb-0">
                     <button type="submit" class="btn home-btn-logout">Logout</button>
-            </form>
-        }
-        else
-        {
-            <a asp-controller="Auth" asp-action="Login" class="btn home-btn-login">Sign in</a>
-            <a asp-controller="Auth" asp-action="Register" class="btn home-btn-register">Register</a>
-        }
-    </div> *@
+                </form>
+            }
+            else
+            {
+                <a asp-controller="Auth" asp-action="Login" class="btn home-btn-login">Sign in</a>
+                <a asp-controller="Auth" asp-action="Register" class="btn home-btn-register">Register</a>
+            }
+        </div>
 
-</div>
+        @* <div class="nav-buttons">
+            @{
+                var fakeLoggedIn = true; // toggle this for testing
+            }
 
-
+            @if (fakeLoggedIn) // instead of User.Identity.IsAuthenticated
+            {
+                <span class="btn home-bun-username">AhmedNoser22</span>
+                <form method="post" asp-controller="Auth" asp-action="Logout" class="mb-0">
+                        <button type="submit" class="btn home-btn-logout">Logout</button>
+                </form>
+            }
+            else
+            {
+                <a asp-controller="Auth" asp-action="Login" class="btn home-btn-login">Sign in</a>
+                <a asp-controller="Auth" asp-action="Register" class="btn home-btn-register">Register</a>
+            }
+        </div> *@
+    </div>
 
     <!-- ======= Main Content ======= -->
     <main>
