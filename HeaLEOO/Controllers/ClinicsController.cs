@@ -6,10 +6,10 @@ namespace HeaLEOO.Controllers
 {
     public class ClinicsController : Controller
     {
-        private readonly IServiceClinics _serviceClinics;
+        private readonly IServiceClinicsDB _serviceClinics;
         private readonly IMapper _mapper;
 
-        public ClinicsController(IServiceClinics serviceClinics, IMapper mapper)
+        public ClinicsController(IServiceClinicsDB serviceClinics, IMapper mapper)
         {
             _serviceClinics = serviceClinics;
             _mapper = mapper;

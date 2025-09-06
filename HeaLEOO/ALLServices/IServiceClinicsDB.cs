@@ -1,6 +1,6 @@
 ﻿namespace HeaLEOO.ALLServices
 {
-    public interface IServiceClinics
+    public interface IServiceClinicsDB
     {
         Task<ClinicVM> AddClinicAsync(ClinicVM clinicVM, IFormFile? file = null);
         Task<IEnumerable<ClinicVM>> GetAllClinicsAsync();

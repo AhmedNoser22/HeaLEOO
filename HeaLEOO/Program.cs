@@ -29,11 +29,6 @@ namespace HeaLEOO
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}")
                 .WithStaticAssets();
-
-            // this is comment
-            // this is comment 2
-            // this is comment 3
-            // comment
             app.Run();
         }
     }
