@@ -127,6 +127,26 @@
     background: linear-gradient(160deg, #6CA4FF, #1533bf);
 }
 
+/* Logout button */
+.home-btn-logout {
+    background: #FFF;
+    border: 2px solid #767676;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #767676;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    display: inline-block;
+}
+
+.home-btn-logout:hover {
+    color: #FFF;
+    background: #e12222;
+}
+
+
 /* Links */
 .auth-link {
     color: #1c4a92;
@@ -134,9 +154,9 @@
     font-weight: 500;
 }
 
-    .auth-link:hover {
-        text-decoration: underline;
-    }
+.auth-link:hover {
+    text-decoration: underline;
+}
 
 /* Footer text */
 .auth-footer-text {
