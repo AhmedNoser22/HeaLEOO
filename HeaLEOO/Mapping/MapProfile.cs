@@ -4,6 +4,10 @@
     {
         public MapProfile()
         {
+            // controllers
+            // user management
+            // roles
+
             CreateMap<Doctors, DoctorViewModel>()
            .ForMember(dest => dest.SpecializationName, opt => opt.MapFrom(src => src.specializations.Name))
            .ForMember(dest => dest.SpecializationId, opt => opt.MapFrom(src => src.specializationId))

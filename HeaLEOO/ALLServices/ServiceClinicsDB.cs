@@ -21,6 +21,7 @@
         var clinic = await _repo.GetById(id);
         return _mapper.Map<ClinicVM>(clinic);
     }
+
     public async Task<ClinicVM> AddClinicAsync(ClinicVM clinicVM, IFormFile? file = null)
     {
         var clinic = _mapper.Map<Clinics>(clinicVM);

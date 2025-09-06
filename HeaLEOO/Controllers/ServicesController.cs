@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace HeaLEOO.Controllers
+﻿namespace HeaLEOO.Controllers
 {
     public class ServicesController : Controller
     {
@@ -12,7 +10,6 @@ namespace HeaLEOO.Controllers
             _serviceServices = serviceServices;
             _mapper = mapper;
         }
-
         public async Task<IActionResult> Index()
         {
             var services = await _serviceServices.GetAllAsync();
