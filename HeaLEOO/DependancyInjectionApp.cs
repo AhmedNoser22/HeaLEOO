@@ -33,6 +33,8 @@
             services.AddScoped<ImageService>();
             services.AddScoped<IServiceUserManagement, ServiceUserManagement>();
             services.AddScoped<IRoleService, RoleService>();
+            services.AddScoped<IServiceClinic, IServiceClinic>();
+            services.AddScoped<ILookupService, LookupService>();
 
 
             return services;
