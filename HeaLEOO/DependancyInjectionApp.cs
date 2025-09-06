@@ -24,11 +24,13 @@
             services.AddAutoMapper(typeof(DependancyInjectionApp));
             services.AddScoped<IServiceAuth, ServiceAuth>(); 
             services.AddScoped<IServicesDoctor, ServicesDoctor>();
-            services.AddScoped<IserviceClinics, serviceClinics>();
             services.AddScoped<IserviceSpecializations, serviceSpecializations>();
             services.AddScoped<IServiceAppointments, ServiceAppointments>();
             services.AddScoped<IServiceSpec, ServiceSpec>();
             services.AddScoped<IServiceLM, ServiceLM>();
+            services.AddScoped<IserviceClinics,serviceClinics>();
+            services.AddScoped<IServiceClinicsDB,ServiceClinicsDB>();
+            services.AddScoped<ImageService>();
             return services;
         }
     }

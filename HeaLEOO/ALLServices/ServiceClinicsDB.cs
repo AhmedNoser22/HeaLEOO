@@ -1,12 +1,12 @@
 ﻿namespace HeaLEOO.ALLServices
 {
-    public class ServiceClinics: IServiceClinics
+    public class ServiceClinicsDB: IServiceClinicsDB
     {
         private readonly IGenericRepo<Clinics> _repo;
         private readonly IMapper _mapper;
         private readonly ImageService _imageService;
 
-        public ServiceClinics(IGenericRepo<Clinics> repo, IMapper mapper, ImageService imageService)
+        public ServiceClinicsDB(IGenericRepo<Clinics> repo, IMapper mapper, ImageService imageService)
         {
             _repo = repo;
             _mapper = mapper;
@@ -15,7 +15,6 @@
         public async Task<ClinicVM> AddClinicAsync(ClinicVM clinicVM, IFormFile? file = null)
         {
             var clinic = _mapper.Map<Clinics>(clinicVM);
-            //file upload
             if (file != null)
             {
                 clinic.PhotoUrl = await _imageService.UploadImageAsync(file);
