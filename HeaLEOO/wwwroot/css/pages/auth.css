@@ -30,14 +30,14 @@
 }
 
 .auth-title-login-page {
-    font-weight:550;
-    color: #246FBE;
+    font-weight: 550;
+    color: #70b2ff;
     margin: 0 0 10px 0;
 }
 
 .auth-title-register-page {
-    color: #416CDF;
-    font-weight:550;
+    color: #366cc1;
+    font-weight: 550;
 }
 
 /* Title outside card */
@@ -108,7 +108,7 @@
 /* Login button */
 .btn-login {
     /*    background: linear-gradient(135deg, #1c4a92, #2c93ea);*/
-    background: #1c4a92;
+    background: #70b2ff;
     border: none;
     padding: 0.8rem;
     font-size: 1rem;
@@ -119,6 +119,9 @@
     transition: background 0.3s ease;
 }
 
+.register-page .btn-login {
+    background: #366cc1;
+}
 /* Register button */
 .btn-register {
     background: linear-gradient(135deg, #1533bf, #6CA4FF);
