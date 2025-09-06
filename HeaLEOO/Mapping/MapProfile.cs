@@ -17,7 +17,7 @@
             CreateMap<SpecializationsVM, Specializations>();
             CreateMap<Specializations, SpecializationsVM>();
             CreateMap<ClinicVM, Clinics>()
-                .ForMember(dest => dest.Id, opt => opt.Ignore());
+           .ForMember(dest => dest.Id, opt => opt.Ignore());
             CreateMap<Clinics, ClinicVM>()
                 .ForMember(dest => dest.PhotoUrl, opt => opt.MapFrom(src => src.PhotoUrl));
             CreateMap<ClinicFormVM, Clinics>()
