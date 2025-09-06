@@ -4,39 +4,41 @@
     ViewData["Title"] = "Add Clinic";
 }
 
-<div class="container mt-5">
-    <div class="card shadow-lg border-0 rounded-4">
-        <div class="card-header bg-success text-white text-center rounded-top-4">
-            <h3 class="mb-0">➕ Add New Clinic</h3>
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card shadow border-0 rounded-4" style="max-width: 600px; width: 100%;">
+        <div class="card-header text-white text-center rounded-top-4" style="background: linear-gradient(135deg, #007bff, #00c6ff);">
+            <h3 class="mb-0">🏥 Add New Clinic</h3>
         </div>
         <div class="card-body p-4">
             <form asp-action="Create" enctype="multipart/form-data">
                 <div class="mb-3">
-                    <label asp-for="Name" class="form-label fw-bold"></label>
-                    <input asp-for="Name" class="form-control rounded-pill shadow-sm" />
+                    <label asp-for="Name" class="form-label fw-semibold">Clinic Name</label>
+                    <input asp-for="Name" class="form-control shadow-sm rounded-3" placeholder="Enter clinic name" />
                     <span asp-validation-for="Name" class="text-danger small"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label asp-for="Address" class="form-label fw-bold"></label>
-                    <input asp-for="Address" class="form-control rounded-pill shadow-sm" />
+                    <label asp-for="Address" class="form-label fw-semibold">Address</label>
+                    <input asp-for="Address" class="form-control shadow-sm rounded-3" placeholder="Enter clinic address" />
                     <span asp-validation-for="Address" class="text-danger small"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label asp-for="PhoneNumber" class="form-label fw-bold"></label>
-                    <input asp-for="PhoneNumber" class="form-control rounded-pill shadow-sm" />
+                    <label asp-for="PhoneNumber" class="form-label fw-semibold">Phone Number</label>
+                    <input asp-for="PhoneNumber" class="form-control shadow-sm rounded-3" placeholder="Enter phone number" />
                     <span asp-validation-for="PhoneNumber" class="text-danger small"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label fw-bold">Clinic Photo</label>
-                    <input type="file" name="file" class="form-control rounded-pill shadow-sm" />
+                    <label class="form-label fw-semibold">Clinic Photo</label>
+                    <input type="file" name="file" class="form-control shadow-sm rounded-3" />
                 </div>
 
-                <div class="text-center">
-                    <button type="submit" class="btn btn-success px-4 rounded-pill shadow-sm">Save</button>
-                    <a asp-action="Index" class="btn btn-outline-secondary px-4 rounded-pill">Back</a>
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn px-4 rounded-pill text-white shadow-sm" style="background: linear-gradient(135deg, #007bff, #00c6ff); border: none;">
+                        💾 Save
+                    </button>
+                    <a asp-action="Index" class="btn btn-outline-secondary px-4 rounded-pill ms-2">Back</a>
                 </div>
             </form>
         </div>
