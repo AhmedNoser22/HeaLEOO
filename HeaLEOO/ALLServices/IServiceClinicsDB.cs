@@ -2,9 +2,9 @@
 {
     public interface IServiceClinicsDB
     {
-        Task<ClinicVM> AddClinicAsync(ClinicVM clinicVM, IFormFile? file = null);
         Task<IEnumerable<ClinicVM>> GetAllClinicsAsync();
         Task<ClinicVM> GetClinicByIdAsync(int id);
+        Task<ClinicVM> AddClinicAsync(ClinicVM clinicVM, IFormFile? file = null);
         Task<bool> DeleteClinicAsync(int id);
     }
 }

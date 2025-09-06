@@ -1,65 +1,52 @@
-﻿@model IEnumerable<HeaLEOO.ViewModels.ClinicVM>
+﻿@model IEnumerable<ClinicVM>
+
 @{
     ViewData["Title"] = "Clinics";
 }
 
 <div class="container mt-5">
-    <h2 class="text-center mb-4 fw-bold text-primary">🏥 Clinics</h2>
-
-    <div class="text-center mb-4">
-        <input id="searchBox" type="text" class="form-control w-50 mx-auto rounded-pill shadow-sm" placeholder="Search clinics..." />
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="fw-bold">Clinics</h2>
+        <a asp-action="Create" class="btn btn-success rounded-pill px-4">➕ Add Clinic</a>
     </div>
 
-    <div class="row g-4" id="clinicsContainer">
-        @foreach (var clinic in Model)
-        {
-            <div class="col-md-4 clinic-card d-flex">
-                <div class="card shadow-lg border-0 rounded-4 h-100 d-flex flex-column">
-                    @if (!string.IsNullOrEmpty(clinic.PhotoUrl))
-                    {
-                        <img src="@clinic.PhotoUrl" class="card-img-top rounded-top-4" style="height:220px; object-fit:cover;" />
-                    }
-                    else
-                    {
-                        <div class="bg-light text-center p-5 rounded-top-4" style="height:220px;">
-                            <i class="bi bi-hospital fs-1 text-secondary"></i>
-                            <p class="text-muted">No Image</p>
-                        </div>
-                    }
-
-                    <div class="card-body flex-grow-1 d-flex flex-column">
-                        <h5 class="card-title text-dark fw-bold">@clinic.Name</h5>
-                        <p class="card-text text-muted flex-grow-1">
-                            📍 @clinic.Address <br />
-                            ☎️ @clinic.PhoneNumber
-                        </p>
-                        <div class="d-flex justify-content-between mt-auto">
-                            <a href="@Url.Action("Details", "Clinics", new { id = clinic.GetHashCode() })" class="btn btn-outline-primary btn-sm">Details</a>
-                            <a href="@Url.Action("DeleteClinic", "Clinics", new { id = clinic.GetHashCode() })" class="btn btn-outline-danger btn-sm">Delete</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        }
-    </div>
-
-    <div class="text-center mt-4">
-        <a class="btn btn-lg btn-success px-4 rounded-pill shadow-sm" href="@Url.Action("Create")">➕ Add New Clinic</a>
-    </div>
+    <table class="table table-hover table-bordered shadow-sm align-middle text-center">
+        <thead class="table-success">
+            <tr>
+                <th>Photo</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var clinic in Model)
+            {
+                <tr>
+                    <td>
+                        @if (!string.IsNullOrEmpty(clinic.PhotoUrl))
+                        {
+                            <img src="@clinic.PhotoUrl" class="img-thumbnail"
+                                 style="width:100px; height:100px; object-fit:cover;" />
+                        }
+                        else
+                        {
+                            <span>No Photo</span>
+                        }
+                    </td>
+                    <td>@clinic.Name</td>
+                    <td>@clinic.Address</td>
+                    <td>@clinic.PhoneNumber</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@clinic.Id" class="btn btn-info btn-sm">Details</a>
+                        <a asp-action="Delete" asp-route-id="@clinic.Id" class="btn btn-danger btn-sm"
+                           onclick="return confirm('Are you sure you want to delete this clinic?');">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
-
-@section Scripts {
-    <script>
-        const searchBox = document.getElementById("searchBox");
-        const clinicCards = document.querySelectorAll(".clinic-card");
-
-        searchBox.addEventListener("keyup", function () {
-            const query = this.value.toLowerCase().trim();
-
-            clinicCards.forEach(card => {
-                const text = card.innerText.toLowerCase();
-                card.style.display = text.includes(query) ? "" : "none";
-            });
-        });
-    </script>
-}

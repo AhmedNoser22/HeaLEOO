@@ -1,0 +1,44 @@
+﻿@model HeaLEOO.ViewModels.ClinicVM
+
+@{
+    ViewData["Title"] = "Add Clinic";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-header bg-success text-white text-center rounded-top-4">
+            <h3 class="mb-0">➕ Add New Clinic</h3>
+        </div>
+        <div class="card-body p-4">
+            <form asp-action="Create" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label fw-bold"></label>
+                    <input asp-for="Name" class="form-control rounded-pill shadow-sm" />
+                    <span asp-validation-for="Name" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Address" class="form-label fw-bold"></label>
+                    <input asp-for="Address" class="form-control rounded-pill shadow-sm" />
+                    <span asp-validation-for="Address" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="PhoneNumber" class="form-label fw-bold"></label>
+                    <input asp-for="PhoneNumber" class="form-control rounded-pill shadow-sm" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Clinic Photo</label>
+                    <input type="file" name="file" class="form-control rounded-pill shadow-sm" />
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success px-4 rounded-pill shadow-sm">Save</button>
+                    <a asp-action="Index" class="btn btn-outline-secondary px-4 rounded-pill">Back</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
