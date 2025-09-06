@@ -9,7 +9,7 @@
         }
         public IEnumerable<SelectListItem>GetAllServiceClinDate()
         {
-            return _context.Services.AsNoTracking()
+            return _context.Clinics.AsNoTracking()
                 .Select(x => new SelectListItem { Text = x.Name, Value = x.Id.ToString() })
                 .ToList();
         }

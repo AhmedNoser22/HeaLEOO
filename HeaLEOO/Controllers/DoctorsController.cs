@@ -4,16 +4,21 @@
     {
         private readonly IServicesDoctor _serviceDoctor;
         private readonly IserviceSpecializations _serviceSpecializations;
-        private readonly IServiceClinicsDB _serviceClinicsDB;
+        private readonly IServiceClinDate _serviceClinicsDate;
         private readonly IMapper _mapper;
 
-        public DoctorsController(IServicesDoctor serviceDoctor, IserviceSpecializations serviceSpecializations, IServiceClinicsDB serviceClinDate, IMapper mapper)
+        public DoctorsController(
+            IServicesDoctor serviceDoctor,
+            IserviceSpecializations serviceSpecializations,
+            IServiceClinDate _serviceClinDate,
+            IMapper mapper)
         {
             _serviceDoctor = serviceDoctor;
             _serviceSpecializations = serviceSpecializations;
-            _serviceClinicsDB = serviceClinDate;
+            _serviceClinicsDate =_serviceClinDate;
             _mapper = mapper;
         }
+
         public async Task<IActionResult> Index()
         {
             var doctors = await _serviceDoctor.GetAllItems();
@@ -25,8 +30,7 @@
             var model = new DoctorViewModel
             {
                 Specializations = _serviceSpecializations.GetAllSpecializations(),
-
-
+                Clinics = _serviceClinicsDate.GetAllServiceClinDate()
             };
             return View(model);
         }
@@ -38,9 +42,10 @@
             if (!ModelState.IsValid)
             {
                 model.Specializations = _serviceSpecializations.GetAllSpecializations();
-
+                model.Clinics = _serviceClinicsDate.GetAllServiceClinDate();
                 return View(model);
             }
+
             await _serviceDoctor.CreateItem(model);
             return RedirectToAction(nameof(Index));
         }
@@ -51,21 +56,13 @@
             if (doctor == null) return NotFound();
             return View(doctor);
         }
+
         public async Task<IActionResult> DeleteDoctor(int id)
         {
             var result = await _serviceDoctor.DeletItem(id);
-            if (result)
-            {
-                TempData["SuccessMessage"] = "Doctor deleted successfully.";
-            }
-            else
-            {
-                TempData["ErrorMessage"] = "Failed to delete doctor.";
-            }
-
+            TempData[result ? "SuccessMessage" : "ErrorMessage"] =
+                result ? "Doctor deleted successfully." : "Failed to delete doctor.";
             return RedirectToAction(nameof(Index));
         }
-
     }
-
 }

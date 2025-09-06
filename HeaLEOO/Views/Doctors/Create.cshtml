@@ -1,9 +1,5 @@
 ﻿@model HeaLEOO.ViewModels.DoctorViewModel
 
-@{
-    ViewData["Title"] = "Add Doctor";
-}
-
 <div class="container mt-5 d-flex justify-content-center">
     <div class="card shadow border-0 rounded-4" style="max-width: 600px; width: 100%;">
         <div class="card-header text-white text-center rounded-top-4" style="background: linear-gradient(135deg, #007bff, #00c6ff);">
@@ -36,10 +32,7 @@
                 </div>
 
                 <div class="text-center mt-4">
-                    <button type="submit" class="btn px-4 rounded-pill text-white shadow-sm"
-                            style="background: linear-gradient(135deg, #007bff, #00c6ff); border: none;">
-                        💾 Save
-                    </button>
+                    <button type="submit" class="btn px-4 rounded-pill text-white shadow-sm" style="background: linear-gradient(135deg, #007bff, #00c6ff); border: none;">💾 Save</button>
                     <a asp-action="Index" class="btn btn-outline-secondary px-4 rounded-pill ms-2">Cancel</a>
                 </div>
             </form>

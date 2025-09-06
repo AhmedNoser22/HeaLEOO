@@ -7,7 +7,11 @@
         private readonly IserviceSpecializations _serviceSpecializations;
         private readonly IServiceClinDate _serviceClinDate;
 
-        public ServicesDoctor(IGenericRepo<Doctors> genericRepo, IMapper mapper, IserviceSpecializations serviceSpecializations, IServiceClinDate serviceClinDate)
+        public ServicesDoctor(
+            IGenericRepo<Doctors> genericRepo,
+            IMapper mapper,
+            IserviceSpecializations serviceSpecializations,
+            IServiceClinDate serviceClinDate)
         {
             _genericRepo = genericRepo;
             _mapper = mapper;
@@ -17,14 +21,11 @@
 
         public async Task<IEnumerable<DoctorViewModel>> GetAllItems()
         {
-            var doctors = await _genericRepo.GetAll
-                (
-                query =>
+            var doctors = await _genericRepo.GetAll(query =>
                 query.Include(d => d.specializations)
-                .Include(d => d.ClinicDoctors)
-                .ThenInclude(cd => cd.Clinic)
+                     .Include(d => d.ClinicDoctors)
+                     .ThenInclude(cd => cd.Clinic)
             );
-
             return _mapper.Map<IEnumerable<DoctorViewModel>>(doctors);
         }
 
@@ -57,7 +58,6 @@
             await _genericRepo.Complete();
             return true;
         }
-
 
         public async Task<bool> DeletItem(int id)
         {
