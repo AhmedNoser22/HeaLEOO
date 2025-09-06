@@ -16,8 +16,14 @@
               .ForMember(dest => dest.specializations, opt => opt.Ignore());
             CreateMap<SpecializationsVM, Specializations>();
             CreateMap<Specializations, SpecializationsVM>();
-            CreateMap<ClinicVM, Clinics>();
-            CreateMap<Clinics, ClinicVM>();
+            CreateMap<ClinicVM, Clinics>()
+                .ForMember(dest => dest.Id, opt => opt.Ignore());
+            CreateMap<Clinics, ClinicVM>()
+                .ForMember(dest => dest.PhotoUrl, opt => opt.MapFrom(src => src.PhotoUrl));
+            CreateMap<ClinicFormVM, Clinics>()
+                .ForMember(dest => dest.PhotoUrl, opt => opt.Ignore());
+            CreateMap<Clinics, ClinicFormVM>()
+                .ForMember(dest => dest.Photo, opt => opt.Ignore());
             CreateMap<RegisterVM,AppUser>()
                 .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.Username))
                 .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email)); ;
