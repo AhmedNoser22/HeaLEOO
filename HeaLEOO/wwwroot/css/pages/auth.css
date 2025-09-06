@@ -127,6 +127,19 @@
     background: linear-gradient(160deg, #6CA4FF, #1533bf);
 }
 
+/* Username text */
+.home-bun-username {
+    color: #2C7DA0;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.home-bun-username:hover {
+    color: #2C7DA0;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
 /* Logout button */
 .home-btn-logout {
     background: #FFF;
