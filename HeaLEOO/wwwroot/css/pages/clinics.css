@@ -79,11 +79,12 @@
     margin: 2.5rem auto 0 auto;
     text-align: center;
     width: 200px;
+    border: 2px solid #0bc850 !important;
 }
 
     .btn-create:hover {
-        background: #fff;
-        border-color: #0bc850;
+        background: inherit !important;
+        border: 2px solid #0bc850;
         color: #0bc850;
         border-radius: 1px;
     }
@@ -92,6 +93,7 @@
 .btn-details {
     background: #2c7da0;
     color: #fff;
+    margin-right:5px;
 }
 
     .btn-details:hover {
@@ -120,11 +122,12 @@
 .btn-back {
     background: #6c757d;
     color: #fff;
+    border: 2px solid #6c757d;
 }
 
     .btn-back:hover {
-        background: #fff;
-        border-color: #6c757d;
+        background: #fff !important;
+        border: 2px solid #6c757d;
         color: #6c757d;
         border-radius: 1px;
     }
