@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="~/css/pages/dashboard.css" />
 
     <link rel="stylesheet" href="~/css/pages/clinics.css" />
+    <link rel="stylesheet" href="~/css/pages/doctors.css" />
 
     <link rel="stylesheet" href="~/css/views/specializations/add.css" />
     <link rel="stylesheet" href="~/css/views/specializations/index.css" />
@@ -47,19 +48,17 @@
             <a class="animated-underline" asp-controller="Clinics" asp-action="Index">Clinics</a>
             <a class="animated-underline" asp-controller="Doctors" asp-action="Index">Doctors</a>
             <a class="animated-underline" asp-controller="Services" asp-action="Index">Services</a>
-            <a class="animated-underline" asp-controller="UserManagement" asp-action="Index">User Management</a>
-            <a class="animated-underline" asp-controller="RoleMvc" asp-action="Index">Roles</a>
 
-            @if (User.IsInRole("Admin"))
+             @if (User.IsInRole("Admin"))
             {
-                
-            }
+                <a class="animated-underline" asp-controller="UserManagement" asp-action="Index">User Management</a>
+                <a class="animated-underline" asp-controller="RoleMvc" asp-action="Index">Roles</a>
+            } 
         </div>
-
-
         <div class="nav-buttons">
             @if (User.Identity.IsAuthenticated)
             {
+				var userLd = await userManager.GetUserAsync(User);
                 @* <span class="btn home-bun-username">@userManager.Users</span> *@
                 <form method="post" asp-controller="Auth" asp-action="Logout" class="mb-0">
                     <button type="submit" class="btn home-btn-logout">Logout</button>
