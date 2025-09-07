@@ -1,4 +1,8 @@
 ﻿@model HeaLEOO.ViewModels.DoctorViewModel
+@{
+    ViewData["Title"] = "Add Doctor";
+}
+
 
 <div class="doctor-create-container">
     <div class="doctor-create-card">
@@ -7,13 +11,13 @@
         <form asp-action="Create" method="post" class="doctor-create-form">
             <div class="form-group">
                 <label asp-for="Name"></label>
-                <input asp-for="Name" class="form-control" placeholder="Enter doctor's name" />
+                <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger small"></span>
             </div>
 
             <div class="form-group">
                 <label asp-for="PhoneNumber"></label>
-                <input asp-for="PhoneNumber" class="form-control" placeholder="Enter phone number" />
+                <input asp-for="PhoneNumber" class="form-control" />
                 <span asp-validation-for="PhoneNumber" class="text-danger small"></span>
             </div>
 
@@ -25,7 +29,21 @@
 
             <div class="form-group">
                 <label>Clinics</label>
-                <select asp-for="ClinicIds" asp-items="Model.Clinics" class="form-select" multiple></select>
+                <div class="doctor-checkbox-group">
+                    @foreach (var clinic in Model.Clinics)
+                    {
+                        <div class="form-check">
+                            <input type="checkbox"
+                                   class="form-check-input"
+                                   name="ClinicIds"
+                                   value="@clinic.Value"
+                                   id="clinic_@clinic.Value" />
+                            <label class="form-check-label" for="clinic_@clinic.Value">
+                                @clinic.Text
+                            </label>
+                        </div>
+                    }
+                </div>
                 <span asp-validation-for="ClinicIds" class="text-danger small"></span>
             </div>
 

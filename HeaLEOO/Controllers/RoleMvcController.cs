@@ -27,7 +27,7 @@
         return RedirectToAction("Index");
     }
 
-    public async Task<IActionResult> ManageUserRoles(string userName)
+    public async Task<IActionResult> ManageUserRoles(string userName= "ahmednose32r")
     {
         var model = await _roleService.GetUserRolesAsync(userName);
         return View(model);

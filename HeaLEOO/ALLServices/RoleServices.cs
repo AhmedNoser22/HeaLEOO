@@ -1,5 +1,4 @@
-﻿namespace TestApiCore.Services
-{
+﻿
     public class RoleService:IRoleServices
     {
         private readonly RoleManager<IdentityRole> _roleManager;
@@ -61,4 +60,4 @@
             await _userManager.AddToRolesAsync(user, rolesToAdd);
         }
     }
-}
+
