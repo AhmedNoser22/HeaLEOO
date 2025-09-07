@@ -12,10 +12,15 @@ namespace HeaLEOO.ALLServices
             _mapper = mapper;
         }
 
-        public Task<bool> DeleteUserAsync(string userId)
+        public async Task<bool> DeleteUserAsync(string userId)
         {
-            throw new NotImplementedException();
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null) return false;
+
+            var result = await _userManager.DeleteAsync(user);
+            return result.Succeeded;
         }
+
 
         public async Task<List<AppUserDto>> GetAllUsersAsync()
         {
