@@ -39,7 +39,7 @@
 /* Nav Links */
 .nav-links {
     position: absolute;
-    left: 32.5%;
+    left: 29%;
     transform: translateX(-50%);
     display: flex;
     gap: 25px;
