@@ -24,6 +24,15 @@ namespace HeaLEOO.Controllers
         {
             return View();
         }
-
+        [HttpPost]
+        public async Task<IActionResult> AddSpecializations(SpecializationsVM specializations)
+        {
+            if (ModelState.IsValid)
+            {
+                await _serviceSpecializations.Addspecializations(specializations);
+                return RedirectToAction("Index");
+            }
+            return View(specializations);
+        }
     }
 }
