@@ -1,6 +1,6 @@
 ﻿namespace HeaLEOO.Models
 {
-    public class Services
+    public class ModelService
     {
         public int Id { get; set; }
         public string Name { get; set; } = default!;

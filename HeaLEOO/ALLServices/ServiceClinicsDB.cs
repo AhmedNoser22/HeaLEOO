@@ -3,50 +3,67 @@
     private readonly IGenericRepo<Clinics> _repo;
     private readonly IMapper _mapper;
     private readonly ImageService _imageService;
-    private readonly IServiceNserv _ServiceNserv;
+    private readonly IServiceNserv _serviceNserv;
     private readonly ILookupService _lookupService;
 
-    public ServiceClinicsDB(IGenericRepo<Clinics> repo, IMapper mapper, ImageService imageService, IServiceNserv ServiceNserv, ILookupService lookupService)
+    public ServiceClinicsDB(
+        IGenericRepo<Clinics> repo,
+        IMapper mapper,
+        ImageService imageService,
+        IServiceNserv serviceNserv,
+        ILookupService lookupService)
     {
         _repo = repo;
         _mapper = mapper;
         _imageService = imageService;
-        _ServiceNserv = ServiceNserv;
+        _serviceNserv = serviceNserv;
         _lookupService = lookupService;
     }
     public async Task<IEnumerable<ClinicVM>> GetAllClinicsAsync()
     {
         var clinics = await _repo.GetAll();
         var mapped = _mapper.Map<IEnumerable<ClinicVM>>(clinics);
+
         foreach (var c in mapped)
         {
             c.Appointments = _lookupService.GetAllAppointments();
-            c.Services = _ServiceNserv.GetAllServices();
+            c.Services = _serviceNserv.GetAllServices();
         }
+
         return mapped;
     }
+
     public async Task<ClinicVM> GetClinicByIdAsync(int id)
     {
         var clinic = await _repo.GetById(id);
+        if (clinic == null) return null;
+
         var mapped = _mapper.Map<ClinicVM>(clinic);
         mapped.Appointments = _lookupService.GetAllAppointments();
-        mapped.Services = _ServiceNserv.GetAllServices();
+        mapped.Services = _serviceNserv.GetAllServices();
+
         return mapped;
     }
+
     public async Task<ClinicVM> AddClinicAsync(ClinicVM clinicVM, IFormFile? file = null)
     {
         var clinic = _mapper.Map<Clinics>(clinicVM);
-        if (file != null) clinic.PhotoUrl = await _imageService.UploadImageAsync(file);
+        if (file != null)
+            clinic.PhotoUrl = await _imageService.UploadImageAsync(file);
+
         await _repo.Add(clinic);
         await _repo.Complete();
+
         return _mapper.Map<ClinicVM>(clinic);
     }
     public async Task<bool> DeleteClinicAsync(int id)
     {
         var clinic = await _repo.Delete(id);
         if (clinic == null) return false;
+
         if (!string.IsNullOrEmpty(clinic.PhotoUrl))
             _imageService.DeleteImage(clinic.PhotoUrl);
+
         return await _repo.Complete();
     }
 }

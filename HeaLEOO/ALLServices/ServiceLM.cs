@@ -34,12 +34,11 @@
 
         public async Task<ServiceVM> CreateAsync(ServiceVM vm)
         {
-            var entity = new Services
+            var entity = new ModelService
             {
                 Name = vm.Name,
                 Price = vm.Price
             };
-
             _context.Services.Add(entity);
             await _context.SaveChangesAsync();
 

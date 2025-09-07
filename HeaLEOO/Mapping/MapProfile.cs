@@ -29,8 +29,8 @@
                 .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email)); ;
             CreateMap<Appointments, AppointmentsVM>();
             CreateMap<AppointmentsVM, Appointments>();
-            CreateMap<Services, ServiceVM>();
-            CreateMap<ServiceVM, Services>();
+            CreateMap<ModelService, ServiceVM>();
+            CreateMap<ServiceVM, ModelService>();
             CreateMap<AppUser, AppUserDto>();
             CreateMap<AppUserDto, AppUser>()
                 .ForMember(dest => dest.Id, opt => opt.Ignore())
