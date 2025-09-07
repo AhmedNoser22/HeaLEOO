@@ -13,6 +13,17 @@ namespace HeaLEOO.Controllers
         {
             _serviceSpecializations = serviceSpecializations;
         }
+        [HttpGet]
+        public async Task<IActionResult> Index()
+        {
+            var specializations = await _serviceSpecializations.GetSpecializations();
+            return View(specializations);
+        }
+        [HttpGet]
+        public IActionResult AddSpecializations()
+        {
+            return View();
+        }
 
     }
 }
