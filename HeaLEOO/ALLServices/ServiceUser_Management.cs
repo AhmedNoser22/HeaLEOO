@@ -30,9 +30,11 @@ namespace HeaLEOO.ALLServices
 
 
 
-        public Task<AppUserDto?> GetUserByIdAsync(string userId)
+        public async Task<AppUserDto?> GetUserByIdAsync(string userId)
         {
-            throw new NotImplementedException();
+            var user = await _userManager.FindByIdAsync(userId);
+            return user == null ? null : _mapper.Map<AppUserDto>(user);
         }
+
     }
 }
