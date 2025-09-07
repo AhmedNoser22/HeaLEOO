@@ -1,0 +1,161 @@
+﻿/* =============== Doctors Page Styles =============== */
+.doctors-container {
+    padding: 2rem;
+}
+
+.doctors-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2c7da0;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+/* Grid */
+.doctors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Doctor Card */
+.doctor-card {
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .doctor-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+
+.doctor-info {
+    padding: 1.5rem;
+}
+
+.doctor-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.doctor-phone,
+.doctor-specialization {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 0.4rem;
+}
+
+/* Clinics badges */
+.doctor-clinics {
+    margin-top: 0.8rem;
+}
+
+.doctor-clinic-badge {
+    display: inline-block;
+    background: #e6f2ff;
+    color: #007bff;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin: 0.2rem 0.3rem 0 0;
+}
+
+/* Actions */
+.doctor-actions {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+    /* ================== Doctors Action Buttons ================== */
+    .doctor-actions a,
+    .doctor-btn-create,
+    .doctor-btn-cancel,
+    .doctor-btn-back {
+        display: inline-block;
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        border-radius: 0.6rem;
+        transition: all 0.2s ease;
+        border: 2px solid transparent; /* 👈 prevent jump on hover */
+    }
+
+/* Create button */
+.doctor-btn-create {
+    background: #0bc850;
+    color: #fff;
+    border-radius: 10px;
+    display: block;
+    margin: 2.5rem auto 0 auto;
+    text-align: center;
+    width: 200px;
+    border: 2px solid #0bc850 !important;
+}
+
+    .doctor-btn-create:hover {
+        background: inherit !important;
+        border: 2px solid #0bc850;
+        color: #0bc850;
+        border-radius: 1px;
+    }
+
+/* Details button */
+.doctor-btn-details {
+    background: #2c7da0;
+    color: #fff;
+    margin-right: 5px;
+}
+
+    .doctor-btn-details:hover {
+        background: #fff;
+        border-color: #2c7da0;
+        color: #2c7da0;
+        border-radius: 1px;
+    }
+
+/* Delete + Cancel button */
+.doctor-btn-delete,
+.doctor-btn-cancel {
+    background: #e63946;
+    color: #fff;
+}
+
+    .doctor-btn-delete:hover,
+    .doctor-btn-cancel:hover {
+        background: #fff;
+        border-color: #e63946;
+        color: #e63946;
+        border-radius: 1px;
+    }
+
+/* Back button */
+.doctor-btn-back {
+    background: #6c757d;
+    color: #fff;
+    border: 2px solid #6c757d;
+}
+
+    .doctor-btn-back:hover {
+        background: #fff !important;
+        border: 2px solid #6c757d;
+        color: #6c757d;
+        border-radius: 1px;
+    }
+
+/* Footer */
+.doctors-footer {
+    margin-top: 2rem;
+    text-align: center;
+}
