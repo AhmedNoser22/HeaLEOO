@@ -1,4 +1,6 @@
-﻿namespace HeaLEOO
+﻿using TestApiCore.Services;
+
+namespace HeaLEOO
 {
     public static class DependancyInjectionApp
     {
@@ -31,11 +33,11 @@
             services.AddScoped<IServiceClinicsDB,ServiceClinicsDB>();
             services.AddScoped<ImageService>();
             services.AddScoped<IServiceUserManagement, ServiceUserManagement>();
-            services.AddScoped<IRoleService, RoleService>();
             services.AddScoped<IServiceNserv, ServiceNserv>();
             services.AddScoped<ILookupService, LookupService>();
             services.AddScoped<IServiceClinicsDB, ServiceClinicsDB>();
             services.AddScoped<IServiceClinDate, ServiceClinDate>();
+            services.AddScoped<IRoleServices, RoleService>();
 
 
             return services;
