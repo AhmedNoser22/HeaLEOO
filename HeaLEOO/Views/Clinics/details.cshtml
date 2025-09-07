@@ -1,0 +1,49 @@
+﻿@model ClinicVM
+@{
+    ViewData["Title"] = "Clinic Details";
+}
+
+<div class="clinic-details-container">
+    <div class="clinic-details-card">
+        <div class="clinic-details-photo">
+            @if (!string.IsNullOrEmpty(Model.PhotoUrl))
+            {
+                <img src="@Model.PhotoUrl" alt="@Model.Name" />
+            }
+            else
+            {
+                <div class="clinic-photo-placeholder">No Image</div>
+            }
+        </div>
+
+        <div class="clinic-details-info">
+            <h2 class="clinic-details-name">@Model.Name</h2>
+            <p><strong>Address:</strong> @Model.Address</p>
+            <p><strong>Phone:</strong> @Model.PhoneNumber</p>
+        </div>
+
+        <div class="clinic-details-section">
+            <h3>Services</h3>
+            <ul>
+                @foreach (var service in Model.Services)
+                {
+                    <li>@service.Text</li>
+                }
+            </ul>
+        </div>
+
+        <div class="clinic-details-section">
+            <h3>Appointments</h3>
+            <ul>
+                @foreach (var app in Model.Appointments)
+                {
+                    <li>@app.Text</li>
+                }
+            </ul>
+        </div>
+
+        <div class="clinic-details-actions">
+            <a asp-action="Index" class="btn-back">← Back to List</a>
+        </div>
+    </div>
+</div>

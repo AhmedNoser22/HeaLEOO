@@ -15,5 +15,6 @@
         public DbSet<Clinics> Clinics { get; set; } = default!;
         public DbSet<ClinicDoctors> ClinicDoctors { get; set; } = default!;
         public DbSet<Appointments> Appointments { get; set; } = default!;
+        public DbSet<ModelService> Services { get; set; } = default!;
     }
 }

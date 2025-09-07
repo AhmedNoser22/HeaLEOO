@@ -1,12 +1,9 @@
-﻿using HeaLEOO.ALLServices;
-using HeaLEOO.Helper;
-using HeaLEOO.ServicesHel;
+﻿using TestApiCore.Services;
 
 namespace HeaLEOO
 {
     public static class DependancyInjectionApp
     {
-        //bbbbbbbb
         public static IServiceCollection AddHeaLEOOApp(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<AppDbContext>(options =>
@@ -29,13 +26,23 @@ namespace HeaLEOO
             services.AddAutoMapper(typeof(DependancyInjectionApp));
             services.AddScoped<IServiceAuth, ServiceAuth>(); 
             services.AddScoped<IServicesDoctor, ServicesDoctor>();
-            services.AddScoped<IserviceClinics,serviceClinics>();
             services.AddScoped<IserviceSpecializations, serviceSpecializations>();
+            services.AddScoped<IServiceAppointments, ServiceAppointments>();
+            services.AddScoped<IServiceSpec, ServiceSpec>();
+            services.AddScoped<IServiceLM, ServiceLM>();
+            services.AddScoped<IServiceClinicsDB,ServiceClinicsDB>();
             services.AddScoped<ImageService>();
-            services.AddScoped<IserviceSpecializations, serviceSpecializations>();
+            services.AddScoped<IServiceUserManagement, ServiceUserManagement>();
+            services.AddScoped<IServiceNserv, ServiceNserv>();
+            services.AddScoped<ILookupService, LookupService>();
+            services.AddScoped<IServiceClinicsDB, ServiceClinicsDB>();
+            services.AddScoped<IServiceClinDate, ServiceClinDate>();
+            services.AddScoped<IRoleServices, RoleService>();
 
 
             return services;
+            
+
         }
     }
 }

@@ -8,7 +8,7 @@
         public string PhoneNumber { get; set; } = default!;
         public string? PhotoUrl { get; set; }
         public ICollection<ClinicDoctors> ClinicDoctors { get; set; } = new List<ClinicDoctors>();
-        public ICollection<Services> Services { get; set; } = new List<Services>();
+        public ICollection<ModelService> Services { get; set; } = new List<ModelService>();
         public ICollection<Appointments> Appointments { get; set; } = new List<Appointments>();
     }
 }

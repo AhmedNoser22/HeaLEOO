@@ -1,6 +1,6 @@
 ﻿namespace HeaLEOO.Setting
 {
-    public class FileSetting
+    public static class FileSetting
     {
         public const string ImagePath = "assests/images";
         public const string AllowedImageTypes = ".jpg,.jpeg,.png";

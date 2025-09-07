@@ -1,13 +1,9 @@
 ﻿@model IEnumerable<DoctorViewModel>
 
-@{
-    ViewData["Title"] = "Doctors";
-}
-
 <div class="container py-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h2 class="text-primary fw-bold">Doctors List</h2>
-        <a asp-action="Create" class="btn btn-success">+ Add Doctor</a>
+        <a asp-action="Create" class="btn px-4 rounded-pill text-white shadow-sm" style="background: linear-gradient(135deg, #007bff, #00c6ff); border: none;">+ Add Doctor</a>
     </div>
 
     <table class="table table-hover shadow-sm rounded">
@@ -39,7 +35,6 @@
                            onclick="return confirm('Are you sure you want to delete this doctor?');">
                             Delete
                         </a>
-
                     </td>
                 </tr>
             }

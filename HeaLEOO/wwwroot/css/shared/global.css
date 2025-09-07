@@ -1,0 +1,12 @@
+﻿/* ================== Global Styles ================== */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9fafb;
+    color: #333;
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}

@@ -1,34 +1,40 @@
-﻿public class ImageService
+﻿namespace HeaLEOO.ALLServices
 {
-    private readonly IWebHostEnvironment _env;
-
-    public ImageService(IWebHostEnvironment env)
+    public class ImageService
     {
-        _env = env;
-    }
+        private readonly IWebHostEnvironment _env;
 
-    public async Task<string> UploadImageAsync(IFormFile file)
-    {
-        if (file == null || file.Length == 0)
-            return null!;
-        var extension = Path.GetExtension(file.FileName);
-        var fileName = $"{Guid.NewGuid().ToString()}{extension}";
-        var path = Path.Combine(_env.WebRootPath, "uploads", fileName);
-        if (!Directory.Exists(Path.Combine(_env.WebRootPath, "uploads")))
-            Directory.CreateDirectory(Path.Combine(_env.WebRootPath, "uploads"));
-        using (var stream = new FileStream(path, FileMode.Create))
+        public ImageService(IWebHostEnvironment env)
         {
-            await file.CopyToAsync(stream);
+            _env = env;
         }
 
-        return fileName; 
-    }
-    public void DeleteImage(string fileName)
-    {
-        if (string.IsNullOrEmpty(fileName)) return;
+        public async Task<string> UploadImageAsync(IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+                return string.Empty;
+            var uploadFolder = Path.Combine(_env.WebRootPath, "uploads");
+            if (!Directory.Exists(uploadFolder))
+                Directory.CreateDirectory(uploadFolder);
+            var fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+            var filePath = Path.Combine(uploadFolder, fileName);
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+            return "/uploads/" + fileName;
+        }
 
-        var path = Path.Combine(_env.WebRootPath, "uploads", fileName);
-        if (File.Exists(path))
-            File.Delete(path);
+        public void DeleteImage(string relativePath)
+        {
+            if (string.IsNullOrEmpty(relativePath))
+                return;
+
+            var fullPath = Path.Combine(_env.WebRootPath, relativePath.TrimStart('/'));
+            if (File.Exists(fullPath))
+            {
+                File.Delete(fullPath);
+            }
+        }
     }
 }

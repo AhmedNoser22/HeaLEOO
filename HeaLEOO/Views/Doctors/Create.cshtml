@@ -1,38 +1,41 @@
 ﻿@model HeaLEOO.ViewModels.DoctorViewModel
 
-@{
-    ViewData["Title"] = "Add Doctor";
-}
-
-<div class="container py-4">
-    <h2 class="text-primary fw-bold mb-4">Add New Doctor</h2>
-
-    <form asp-action="Create" method="post" class="shadow p-4 rounded bg-light">
-        <div class="mb-3">
-            <label asp-for="Name" class="form-label fw-bold"></label>
-            <input asp-for="Name" class="form-control" />
-            <span asp-validation-for="Name" class="text-danger"></span>
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card shadow border-0 rounded-4" style="max-width: 600px; width: 100%;">
+        <div class="card-header text-white text-center rounded-top-4" style="background: linear-gradient(135deg, #007bff, #00c6ff);">
+            <h3 class="mb-0">👨‍⚕️ Add New Doctor</h3>
         </div>
+        <div class="card-body p-4">
+            <form asp-action="Create" method="post">
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label fw-semibold"></label>
+                    <input asp-for="Name" class="form-control shadow-sm rounded-3" placeholder="Enter doctor's name" />
+                    <span asp-validation-for="Name" class="text-danger small"></span>
+                </div>
 
-        <div class="mb-3">
-            <label asp-for="PhoneNumber" class="form-label fw-bold"></label>
-            <input asp-for="PhoneNumber" class="form-control" />
-            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                <div class="mb-3">
+                    <label asp-for="PhoneNumber" class="form-label fw-semibold"></label>
+                    <input asp-for="PhoneNumber" class="form-control shadow-sm rounded-3" placeholder="Enter phone number" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="SpecializationId" class="form-label fw-semibold">Specialization</label>
+                    <select asp-for="SpecializationId" asp-items="Model.Specializations" class="form-select shadow-sm rounded-3"></select>
+                    <span asp-validation-for="SpecializationId" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Clinics</label>
+                    <select asp-for="ClinicIds" asp-items="Model.Clinics" class="form-select shadow-sm rounded-3" multiple></select>
+                    <span asp-validation-for="ClinicIds" class="text-danger small"></span>
+                </div>
+
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn px-4 rounded-pill text-white shadow-sm" style="background: linear-gradient(135deg, #007bff, #00c6ff); border: none;">💾 Save</button>
+                    <a asp-action="Index" class="btn btn-outline-secondary px-4 rounded-pill ms-2">Cancel</a>
+                </div>
+            </form>
         </div>
-
-        <div class="mb-3">
-            <label asp-for="SpecializationId" class="form-label fw-bold">Specialization</label>
-            <select asp-for="SpecializationId" asp-items="Model.Specializations" class="form-select"></select>
-            <span asp-validation-for="SpecializationId" class="text-danger"></span>
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label fw-bold">Clinics</label>
-            <select asp-for="ClinicIds" asp-items="Model.Clinics" class="form-select" multiple></select>
-            <span asp-validation-for="ClinicIds" class="text-danger"></span>
-        </div>
-
-        <button type="submit" class="btn btn-success">Save</button>
-        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
-    </form>
+    </div>
 </div>

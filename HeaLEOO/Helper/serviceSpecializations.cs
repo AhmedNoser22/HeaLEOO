@@ -1,14 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
-namespace HeaLEOO.Helper
+﻿namespace HeaLEOO.Helper
 {
-    public class serviceSpecializations: IserviceSpecializations
+    public class serviceSpecializations : IserviceSpecializations
     {
         private readonly AppDbContext _context;
         public serviceSpecializations(AppDbContext context)
         {
             _context = context;
         }
-
         public IEnumerable<SelectListItem> GetAllSpecializations()
         {
             return _context.Specializations.AsNoTracking()

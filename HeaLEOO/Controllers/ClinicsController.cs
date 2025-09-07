@@ -1,63 +1,43 @@
-﻿using HeaLEOO.ALLServices;
-using HeaLEOO.ViewModels;
-using Microsoft.AspNetCore.Mvc;
-
-namespace HeaLEOO.Controllers
+﻿public class ClinicsController : Controller
 {
-    public class ClinicsController : Controller
+    private readonly IServiceClinicsDB _serviceClinics;
+    private readonly IMapper _mapper;
+
+    public ClinicsController(IServiceClinicsDB serviceClinics, IMapper mapper)
     {
-        private readonly IServiceClinics _serviceClinics;
-        private readonly IMapper _mapper;
+        _serviceClinics = serviceClinics;
+        _mapper = mapper;
+    }
+    public async Task<IActionResult> Index()
+    {
+        var clinics = await _serviceClinics.GetAllClinicsAsync();
+        return View(clinics);
+    }
+    public async Task<IActionResult> Details(int id)
+    {
+        var clinic = await _serviceClinics.GetClinicByIdAsync(id);
+        if (clinic == null) return NotFound();
 
-        public ClinicsController(IServiceClinics serviceClinics, IMapper mapper)
-        {
-            _serviceClinics = serviceClinics;
-            _mapper = mapper;
-        }
+        return View(clinic);
+    }
+    public IActionResult Create()
+    {
+        return View();
+    }
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Create(ClinicVM model, IFormFile file)
+    {
+        if (!ModelState.IsValid) return View(model);
 
-        public async Task<IActionResult> Index()
-        {
-            var clinics = await _serviceClinics.GetAllClinicsAsync();
-            var model = _mapper.Map<List<ClinicVM>>(clinics);
-            return View(model);
-        }
+        await _serviceClinics.AddClinicAsync(model, file);
+        return RedirectToAction(nameof(Index));
+    }
+    public async Task<IActionResult> Delete(int id)
+    {
+        var success = await _serviceClinics.DeleteClinicAsync(id);
+        if (!success) return NotFound();
 
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(ClinicVM model)
-        {
-            if (ModelState.IsValid)
-            {
-                var clinic = await _serviceClinics.AddClinicAsync(model);
-                return RedirectToAction(nameof(Index));
-            }
-            return View(model);
-        }
-
-        public async Task<IActionResult> Details(int id)
-        {
-            var clinic = await _serviceClinics.GetClinicByIdAsync(id);
-            if (clinic == null)
-            {
-                return NotFound();
-            }
-            var model = await _serviceClinics.GetClinicByIdAsync(id);
-            return View(model);
-        }
-
-        public async Task<IActionResult> DeleteClinic(int id)
-        {
-            var success = await _serviceClinics.DeleteClinicAsync(id);
-            if (!success)
-            {
-                return NotFound();
-            }
-            return RedirectToAction(nameof(Index));
-        }
+        return RedirectToAction(nameof(Index));
     }
 }

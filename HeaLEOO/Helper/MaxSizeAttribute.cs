@@ -1,6 +1,6 @@
 ﻿namespace HeaLEOO.Helper
 {
-    public class MaxSizeAttribute: ValidationAttribute
+    public class MaxSizeAttribute : ValidationAttribute
     {
         private readonly int _MaxSize;
 

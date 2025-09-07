@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ClinicVM>
+@{
+    ViewData["Title"] = "Clinics";
+}
+
+<div class="clinics-container">
+    <h2 class="clinics-title">Clinics</h2>
+
+    <div class="clinics-grid">
+        @foreach (var clinic in Model)
+        {
+            <div class="clinic-card">
+                <div class="clinic-photo">
+                    @if (!string.IsNullOrEmpty(clinic.PhotoUrl))
+                    {
+                        <img src="@clinic.PhotoUrl" alt="@clinic.Name" />
+                    }
+                    else
+                    {
+                        <div class="clinic-photo-placeholder">No Image</div>
+                    }
+                </div>
+
+                <div class="clinic-info">
+                    <h3 class="clinic-name">@clinic.Name</h3>
+                    <p class="clinic-address">@clinic.Address</p>
+                    <p class="clinic-phone">@clinic.PhoneNumber</p>
+                </div>
+
+                <div class="clinic-actions">
+                    <a asp-action="Details" asp-route-id="@clinic.Id" class="btn-details">Details</a>
+                    <a asp-action="Delete" asp-route-id="@clinic.Id" class="btn-delete">Delete</a>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="clinics-footer">
+        <a asp-action="Create" class="btn-create">+ Add New Clinic</a>
+    </div>
+</div>

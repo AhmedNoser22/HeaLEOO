@@ -1,0 +1,237 @@
+﻿body {
+    background-color: #f9fafb;
+}
+
+.about-hero {
+    background: linear-gradient(#096187cc, #5096b4e6), url('https://images.unsplash.com/photo-1631248055158-edec7a3c072b?q=80&w=1161&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    height: 95vh;
+    display: flex;
+    align-items: center;
+}
+
+.about-hero h1 {
+    font-size: 3rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.about-hero p {
+    font-size: 1.2rem;
+    max-width:fit-content;
+    margin: 0 auto 2rem;
+    color: #f9fafb;
+    width:fit-content;
+}
+
+.about-hero .btn {
+    border-radius: 30px;
+    padding: 0.8rem 2.5rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.about-hero .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.our-story {
+    padding: 6rem 1rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.story-card {
+    margin-top:50px;
+    background: linear-gradient(145deg, #ffffff, #e6f7ff);
+    border-radius: 30px;
+    padding: 3rem 2rem;
+    max-width: 1200px       ;
+    width: 100%;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.story-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+}
+
+.story-card h2 {
+    font-size: 2.5rem;
+    font-weight: 600 !important;
+    color: #2c7da0;
+    margin-bottom: 2rem;
+}
+
+.story-card p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #0D3C61;
+    max-width: fit-content;
+    margin: 0 auto;
+}
+
+.g-4 {
+    margin:0px !important;
+/*    gap: 2rem;*/
+    justify-content: center;
+}
+
+.col-md-6 {
+    width: 48%;
+}
+
+.mission-goals {
+    padding: 5rem 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    background: #f0faff;
+}
+
+.mission-card, .goals-card {
+    background: linear-gradient(135deg, #e0f7ff, #e1f4ff);
+    border-radius: 15px;
+    padding: 2rem;
+    width: 600px;
+    transition: all 0.3s ease;
+    text-align: center;
+    color: #0D3C61;
+    margin-right: 0px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.mission-card:hover, .goals-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+}
+
+.mission-card h3, .goals-card h3 {
+    color: #1b4b63;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.featured-doctors {
+    padding: 6rem 1rem;
+    text-align: center;
+}
+
+.featured-doctors h2 {
+    margin-bottom: 4rem;
+    color: #2c7da0;
+}
+
+.doctor-card {
+    width:300px !important;
+    background: #0095ff0d;
+    border-radius: 20px;
+    padding: 3.5rem 1.5rem;
+    width: 250px;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+    text-align: center;
+    color: #0D3C61;
+}
+
+.doctor-card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.doctor-image {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border-radius: 50%;
+    border: 2px solid #2c7da0;
+}
+
+.doctor-card h5 {
+    margin-bottom: 0.3rem;
+}
+
+.rating {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: #0D3C61;
+}
+
+.doctor-card p {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.btn-profile {
+    border-radius: 30px;
+    padding: 0.6rem 2rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    background: #2c7da0;
+    color: #fff;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-profile:hover {
+    background: #1c5a80;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.our-values {
+    padding: 5rem 1rem;
+    background: linear-gradient(0deg, #f0f7ff 0%, #f9fafb 100%);
+    text-align: center;
+}
+
+.our-values h2 {
+    margin-bottom: 4rem;
+    color: #2c7da0;
+}
+
+.value-card {
+    background: #0095ff0d;
+    border-radius: 15px;
+    padding: 2rem;
+    height: 100%;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #0D3C61;
+    transition: all 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.value-card i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #2c7da0;
+}
+
+.value-card h4 {
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+    font-size: 1.1rem;
+}
+
+.value-card p {
+    font-size: 1rem;
+    color: #1b4b63;
+}

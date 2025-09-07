@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
-
-namespace HeaLEOO.Helper
+﻿namespace HeaLEOO.Helper
 {
     public interface IserviceSpecializations
     {
