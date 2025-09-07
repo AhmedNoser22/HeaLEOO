@@ -28,6 +28,7 @@
     flex-direction: column;
     justify-content: space-between;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    padding: 2.5rem 1.5rem;
 }
 
     .doctor-card:hover {
