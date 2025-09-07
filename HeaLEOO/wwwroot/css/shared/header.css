@@ -2,7 +2,7 @@
 .header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: start;
     padding: 0.3rem 2rem;
     background-color: #ffffff;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
@@ -38,11 +38,11 @@
 
 /* Nav Links */
 .nav-links {
-    position: absolute;
-    left: 32.5%;
-    transform: translateX(-50%);
+    margin-left: 2rem;
     display: flex;
     gap: 25px;
+    position: static;
+    transform: none;
 }
 
 .nav-links a {
@@ -58,10 +58,11 @@
 
 /* Nav Buttons */
 .nav-buttons {
+    margin-left: auto;
+    margin-right: 250px;
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-right: 250px;
 }
 
 .btn {

@@ -29,6 +29,8 @@
     <link rel="stylesheet" href="~/css/pages/about.css" />
     <link rel="stylesheet" href="~/css/pages/dashboard.css" />
 
+    <link rel="stylesheet" href="~/css/pages/clinics.css" />
+
     <link rel="stylesheet" href="~/css/views/specializations/add.css" />
     <link rel="stylesheet" href="~/css/views/specializations/index.css" />
 </head>
@@ -42,13 +44,17 @@
         </div>
 
         <div class="nav-links">
-            <a class="animated-underline" asp-controller="Clinics" asp-action="index">Clinics</a>
+            <a class="animated-underline" asp-controller="Clinics" asp-action="Index">Clinics</a>
             <a class="animated-underline" asp-controller="Doctors" asp-action="Index">Doctors</a>
-            <a class="animated-underline" asp-controller="Appointments" asp-action="Index">Appointments</a>
             <a class="animated-underline" asp-controller="Services" asp-action="Index">Services</a>
-            <a class="animated-underline" asp-controller="UserManagement" asp-action="Index">UserManagement</a>
-            <a class="animated-underline" asp-controller="RoleMvc" asp-action="Index">Roles</a>
+
+            @if (User.IsInRole("Admin"))
+            {
+                <a class="animated-underline" asp-controller="UserManagement" asp-action="Index">User Management</a>
+                <a class="animated-underline" asp-controller="RoleMvc" asp-action="Index">Roles</a>
+            }
         </div>
+
 
         <div class="nav-buttons">
             @if (User.Identity.IsAuthenticated)
