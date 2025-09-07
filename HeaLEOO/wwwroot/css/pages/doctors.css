@@ -253,3 +253,29 @@
             background: #fff;
             color: #e63946;
         }
+
+.doctor-checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin: 0.5rem 0rem 0.5rem 0.5rem;
+    padding: 0.5rem 0;
+}
+
+    .doctor-checkbox-group .form-check {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .doctor-checkbox-group .form-check-input {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+    }
+
+    .doctor-checkbox-group .form-check-label {
+        font-size: 0.95rem;
+        color: #34495e;
+        cursor: pointer;
+    }
