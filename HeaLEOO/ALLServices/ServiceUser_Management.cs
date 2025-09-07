@@ -17,10 +17,13 @@ namespace HeaLEOO.ALLServices
             throw new NotImplementedException();
         }
 
-        public Task<List<AppUserDto>> GetAllUsersAsync()
+        public async Task<List<AppUserDto>> GetAllUsersAsync()
         {
-            throw new NotImplementedException();
+            var users = await _userManager.Users.ToListAsync();
+            return _mapper.Map<List<AppUserDto>>(users);
         }
+
+
 
         public Task<AppUserDto?> GetUserByIdAsync(string userId)
         {
