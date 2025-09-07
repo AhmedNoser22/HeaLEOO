@@ -47,11 +47,12 @@
             <a class="animated-underline" asp-controller="Clinics" asp-action="Index">Clinics</a>
             <a class="animated-underline" asp-controller="Doctors" asp-action="Index">Doctors</a>
             <a class="animated-underline" asp-controller="Services" asp-action="Index">Services</a>
+            <a class="animated-underline" asp-controller="UserManagement" asp-action="Index">User Management</a>
+            <a class="animated-underline" asp-controller="RoleMvc" asp-action="Index">Roles</a>
 
             @if (User.IsInRole("Admin"))
             {
-                <a class="animated-underline" asp-controller="UserManagement" asp-action="Index">User Management</a>
-                <a class="animated-underline" asp-controller="RoleMvc" asp-action="Index">Roles</a>
+                
             }
         </div>
 

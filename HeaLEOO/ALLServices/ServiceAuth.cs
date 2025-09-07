@@ -24,11 +24,11 @@
             if (result.Succeeded)
             {
                 await _signInManager.SignInAsync(registerUser, isPersistent: false);
+                await _userManager.AddToRoleAsync(registerUser, "User");
                 return true;
             }
             return false;
         }
-
         public async Task<bool> LoginAsync(LoginVM login)
         {
             var user = await _userManager.FindByEmailAsync(login.Email);
