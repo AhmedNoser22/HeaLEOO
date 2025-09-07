@@ -28,6 +28,7 @@
     flex-direction: column;
     justify-content: space-between;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    padding: 2.5rem 1.5rem;
 }
 
     .doctor-card:hover {
@@ -74,7 +75,7 @@
     padding: 1rem 1.5rem;
     border-top: 1px solid #f0f0f0;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
     /* ================== Doctors Action Buttons ================== */
@@ -159,3 +160,122 @@
     margin-top: 2rem;
     text-align: center;
 }
+
+/* ================== Create Page ================== */
+.doctor-create-container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1rem;
+    margin: 75px 0px;
+}
+
+.doctor-create-card {
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    max-width: 550px;
+    width: 100%;
+}
+
+.doctor-create-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #2c7da0 !important;
+    text-align: center;
+}
+
+.doctor-create-form .form-group {
+    margin-bottom: 1.2rem;
+}
+
+.doctor-create-form label {
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+    display: block;
+    color: #34495e;
+}
+
+.doctor-create-form input,
+.doctor-create-form select {
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+    padding: 0.6rem;
+    width: 100%;
+    font-size: 0.95rem;
+}
+
+/* Action buttons */
+.doctor-create-actions {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 7rem;
+}
+
+    .doctor-create-actions .btn-create,
+    .doctor-create-actions .btn-cancel {
+        margin: 0;
+        width: 120px;
+        text-align: center;
+        font-weight: 500;
+        padding: 0.6rem 1.5rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: 0.2s ease;
+        border: 2px solid transparent;
+    }
+
+    /* Save button (green) */
+    .doctor-create-actions .btn-create {
+        background: #0bc850;
+        color: #fff;
+        border-color: #0bc850;
+        margin-left: -50px;
+    }
+
+        .doctor-create-actions .btn-create:hover {
+            background: #fff;
+            color: #0bc850;
+        }
+
+    /* Cancel button (red) */
+    .doctor-create-actions .btn-cancel {
+        background: #e63946;
+        color: #fff;
+        border-color: #e63946;
+        text-decoration: none;
+        margin-right: -50px;
+    }
+
+        .doctor-create-actions .btn-cancel:hover {
+            background: #fff;
+            color: #e63946;
+        }
+
+.doctor-checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin: 0.5rem 0rem 0.5rem 0.5rem;
+    padding: 0.5rem 0;
+}
+
+    .doctor-checkbox-group .form-check {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .doctor-checkbox-group .form-check-input {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+    }
+
+    .doctor-checkbox-group .form-check-label {
+        font-size: 0.95rem;
+        color: #34495e;
+        cursor: pointer;
+    }
