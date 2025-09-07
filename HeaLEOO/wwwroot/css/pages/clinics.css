@@ -56,7 +56,6 @@
 
 /* ================== Action Buttons ================== */
 
-/* General style for all buttons */
 .clinic-actions a,
 .btn-create,
 .btn-cancel,
@@ -68,7 +67,26 @@
     padding: 0.5rem 1rem;
     border-radius: 0.6rem;
     transition: all 0.2s ease;
+    border: 2px solid transparent; /* 👈 prevent jump on hover */
 }
+
+/* Create button */
+.btn-create {
+    background: #0bc850;
+    color: #fff;
+    border-radius: 10px;
+    display: block;
+    margin: 2.5rem auto 0 auto;
+    text-align: center;
+    width: 200px;
+}
+
+    .btn-create:hover {
+        background: #fff;
+        border-color: #0bc850;
+        color: #0bc850;
+        border-radius: 1px;
+    }
 
 /* Details button */
 .btn-details {
@@ -77,10 +95,13 @@
 }
 
     .btn-details:hover {
-        background: #1f5d77;
+        background: #fff;
+        border-color: #2c7da0;
+        color: #2c7da0;
+        border-radius: 1px;
     }
 
-/* Delete button */
+/* Delete + Cancel button */
 .btn-delete,
 .btn-cancel {
     background: #e63946;
@@ -89,32 +110,25 @@
 
     .btn-delete:hover,
     .btn-cancel:hover {
-        background: #c92a36;
+        background: #fff;
+        border-color: #e63946;
+        color: #e63946;
+        border-radius: 1px;
     }
 
-/* Create button */
-.btn-create {
-    background: #2a9d8f;
-    color: #fff;
-    display: block;
-    margin: 2.5rem auto 0 auto; /* top margin + auto left/right centers it */
-    text-align: center;
-    width: 200px;
-}
-
-    .btn-create:hover {
-        background: #22796e;
-    }
-
-/* Back button (used in Details) */
+/* Back button */
 .btn-back {
     background: #6c757d;
     color: #fff;
 }
 
     .btn-back:hover {
-        background: #565e64;
+        background: #fff;
+        border-color: #6c757d;
+        color: #6c757d;
+        border-radius: 1px;
     }
+
 
 
 /* ================== Details Page ================== */
