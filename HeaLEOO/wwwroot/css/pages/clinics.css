@@ -238,39 +238,49 @@
 .clinic-create-actions {
     margin-top: 2rem;
     display: flex;
-    justify-content: flex-start !important;
+    justify-content: center; /* center the button group */
+    gap: 1.5rem; /* space between buttons */
 }
 
-.clinic-create-actions .btn-create {
-    background: #0bc850;
-    color: #fff;
-    padding: 0.6rem 1.5rem;
-    border-radius: 0.5rem;
-    border: 2px solid #0bc850;
-    cursor: pointer;
-    transition: 0.2s;
-    width: 150px !important;
-}
+    .clinic-create-actions .btn-create,
+    .clinic-create-actions .btn-cancel {
+        margin: 0;
+        width: 120px;
+        text-align: center;
+        font-weight: 500;
+        padding: 0.6rem 1.5rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: 0.2s ease;
+        border: 2px solid transparent;
+    }
 
-.clinic-create-actions .btn-create:hover {
-    background: #fff;
-    color: #0bc850;
-}
+    /* Create button (green) */
+    .clinic-create-actions .btn-create {
+        background: #0bc850;
+        color: #fff;
+        border-color: #0bc850;
+        margin-left:50px;
+    }
 
-.clinic-create-actions .btn-cancel {
-    background: #e63946;
-    color: #fff;
-    padding: 0.6rem 1.5rem;
-    border-radius: 0.5rem;
-    border: 2px solid #e63946;
-    text-decoration: none;
-    transition: 0.2s;
-}
+        .clinic-create-actions .btn-create:hover {
+            background: #fff;
+            color: #0bc850;
+        }
 
-.clinic-create-actions .btn-cancel:hover {
-    background: #fff;
-    color: #e63946;
-}
+    /* Cancel button (red) */
+    .clinic-create-actions .btn-cancel {
+        background: #e63946;
+        color: #fff;
+        border-color: #e63946;
+        text-decoration: none;
+        margin-right: 50px;
+    }
+
+        .clinic-create-actions .btn-cancel:hover {
+            background: #fff;
+            color: #e63946;
+        }
 
 .clinic-create-container {
     display: flex;
