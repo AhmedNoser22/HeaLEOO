@@ -23,6 +23,15 @@
             return _mapper.Map<AppointmentsVM>(appointments);
         }
 
+        public async Task<AppointmentsVM> CreateItem(AppointmentsVM appointments)
+        {
+            var apps = _mapper.Map<Appointments>(appointments);
+            await _genericRepo.Add(apps);
+            await _genericRepo.Complete();
+            return _mapper.Map<AppointmentsVM>(apps);
+        }
+
+
 
 
 
