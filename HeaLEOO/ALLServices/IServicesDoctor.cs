@@ -2,5 +2,6 @@
 {
     public interface IServicesDoctor
     {
+        Task<IEnumerable<DoctorViewModel>> GetAllItems();
     }
 }
