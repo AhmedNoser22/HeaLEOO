@@ -3,14 +3,19 @@ document.querySelector(".doctor-create-form")?.addEventListener("submit", functi
     e.preventDefault(); // stop form temporarily
 
     Swal.fire({
+        toast: true,
+        position: 'top-end', // top-right corner
         icon: 'success',
-        title: 'Saved',
-        text: 'Doctor has been added successfully ✅',
-        confirmButtonText: 'OK',
-        confirmButtonColor: '#0bc850'
-    }).then(() => {
-        this.submit(); // continue form submit after confirmation
+        title: 'Doctor has been added successfully ✅',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true
     });
+
+    // continue form submit after short delay
+    setTimeout(() => {
+        this.submit();
+    }, 1500);
 });
 
 // ⚠️ On Cancel button click
