@@ -1,11 +1,11 @@
-﻿namespace HeaLEOO.ALLServices
+﻿public interface IRoleServices
 {
-    public interface IRoleServices
+    public interface IRoleService
     {
-        Task<List<RoleViewModel>> GetAllRolesAsync();
-        Task<IdentityResult> CreateRoleAsync(string roleName);
-        Task<IdentityResult> DeleteRoleAsync(string roleName);
-        Task<UserRolesVM> GetUserRolesAsync(string userName);
-        Task UpdateUserRolesAsync(UserRolesVM model);
+        Task<List<UserManagerVM>> GetAllUsers();
+        Task<List<RoleViewModel>> GetUserRoles(string userName);
+        Task UpdateUserRoles(string userName, List<RoleViewModel> roles);
     }
+
 }
+
