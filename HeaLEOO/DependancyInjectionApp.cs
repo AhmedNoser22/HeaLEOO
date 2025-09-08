@@ -30,6 +30,7 @@
             services.AddScoped<IServiceClinicsDB,ServiceClinicsDB>();
             services.AddScoped<ImageService>();
             services.AddScoped<IServiceUserManagement, ServiceUserManagement>();
+            services.AddScoped<IServiceLM, ServiceLM>();
             services.AddScoped<IServiceNserv, ServiceNserv>();
             services.AddScoped<ILookupService, LookupService>();
             services.AddScoped<IServiceClinicsDB, ServiceClinicsDB>();
