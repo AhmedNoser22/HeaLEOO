@@ -1,0 +1,27 @@
+﻿@model IEnumerable<UserManagerVM>
+
+<div class="container mt-5">
+    <h2>Users</h2>
+    <table class="table table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>UserName</th>
+                <th>Email</th>
+                <th>Manage Roles</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.UserName</td>
+                    <td>@user.Email</td>
+                    <td>
+                        <a asp-action="ManageUserRoles" asp-route-userName="@user.UserName"
+                           class="btn btn-sm btn-primary">Manage Roles</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
