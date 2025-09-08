@@ -5,6 +5,14 @@
 
 <div class="doctors-container">
     <h2 class="doctors-title">Doctors</h2>
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <input type="hidden" id="successMessage" value="@TempData["SuccessMessage"]" />
+    }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <input type="hidden" id="errorMessage" value="@TempData["ErrorMessage"]" />
+    }
 
     <div class="doctors-grid">
         @foreach (var doc in Model)
@@ -24,9 +32,9 @@
                 </div>
 
                 <div class="doctor-actions">
-                    <a asp-action="DeleteDoctor" asp-route-id="@doc.Id"
+                    <a href="@Url.Action("DeleteDoctor", new { id = doc.Id })"
                        class="doctor-btn-delete"
-                       onclick="return confirm('Are you sure you want to delete this doctor?');">
+                       onclick="return confirmDelete(event, this.href);">
                         Delete
                     </a>
                 </div>
@@ -38,4 +46,6 @@
         <a asp-action="Create" class="doctor-btn-create">+ Add New Doctor</a>
     </div>
 </div>
-    
+@section Scripts {
+    <script src="~/js/doctor-index.js"></script>
+}

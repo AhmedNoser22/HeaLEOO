@@ -1,7 +1,4 @@
-﻿
-using HeaLEOO.Models;
-
-namespace HeaLEOO.ALLServices
+﻿namespace HeaLEOO.ALLServices
 {
     public class ServiceAppointments : IServiceAppointments
     {
@@ -14,6 +11,17 @@ namespace HeaLEOO.ALLServices
             _mapper = mapper;
         }
 
+        public async Task<IEnumerable<AppointmentsVM>> GetAllItems()
+        {
+            var appointments = await _genericRepo.GetAll();
+            return _mapper.Map<IEnumerable<AppointmentsVM>>(appointments);
+        }
+
+        public async Task<AppointmentsVM> GetItemById(int id)
+        {
+            var appointments = await _genericRepo.GetById(id);
+            return _mapper.Map<AppointmentsVM>(appointments);
+        }
 
         public async Task<AppointmentsVM> CreateItem(AppointmentsVM appointments)
         {
@@ -33,16 +41,8 @@ namespace HeaLEOO.ALLServices
             return true;
         }
 
-        public async Task<IEnumerable<AppointmentsVM>> GetAllItems()
-        {
-            var appointments = await _genericRepo.GetAll();
-            return _mapper.Map<IEnumerable<AppointmentsVM>>(appointments);
-        }
 
-        public async Task<AppointmentsVM> GetItemById(int id)
-        {
-            var appointments = await _genericRepo.GetById(id);
-            return _mapper.Map<AppointmentsVM>(appointments);
-        }
+
     }
 }
+
