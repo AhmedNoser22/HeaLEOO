@@ -25,7 +25,7 @@
             services.AddScoped<IServiceAuth, ServiceAuth>(); 
             services.AddScoped<IServicesDoctor, ServicesDoctor>();
             services.AddScoped<IserviceSpecializations, serviceSpecializations>();
-            services.AddScoped<IServiceAppointments, ServiceAppointments>();
+           
             services.AddScoped<IServiceSpec, ServiceSpec>();
             services.AddScoped<IServiceClinicsDB,ServiceClinicsDB>();
             services.AddScoped<ImageService>();
