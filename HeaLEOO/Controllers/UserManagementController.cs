@@ -2,9 +2,9 @@
 {
     public class UserManagementController : Controller
     {
-        private readonly IServiceUserManagement _serviceUserManagement;
+        private readonly IServiceUser_Management _serviceUserManagement;
 
-        public UserManagementController(IServiceUserManagement serviceUserManagement)
+        public UserManagementController(IServiceUser_Management serviceUserManagement)
         {
             _serviceUserManagement = serviceUserManagement;
         }
