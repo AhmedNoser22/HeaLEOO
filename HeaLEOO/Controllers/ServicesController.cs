@@ -63,10 +63,22 @@
         }
         public async Task<IActionResult> Delete(int id)
         {
-            var service = await _serviceServices.GetByIdAsync(id);
+            var service = await _serviceServices.GetById(id);
             if (service == null) return NotFound();
 
             return View(service);
+        }
+        [HttpPost, ActionName("DeleteConfirmed")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var result = await _serviceServices.Delete(id);
+            if (result)
+                TempData["SuccessMessage"] = "Service deleted successfully.";
+            else
+                TempData["ErrorMessage"] = "Failed to delete service.";
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }
