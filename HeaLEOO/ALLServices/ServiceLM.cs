@@ -1,4 +1,5 @@
-﻿namespace HeaLEOO.ALLServices
+﻿
+namespace HeaLEOO.ALLServices
 {
     public class ServiceLM : IServiceLM
     {
@@ -30,6 +31,19 @@
                 Price = s.Price
             };
         }
+        public async Task<ServiceVM> CreateAsync(ServiceVM vm)
+        {
+            var entity = new ModelService
+            {
+                Name = vm.Name,
+                Price = vm.Price
+            };
+            _context.Services.Add(entity);
+            await _context.SaveChangesAsync();
+
+            return vm;
+        }
+
 
 
 
