@@ -3,7 +3,8 @@
     public interface IServiceLM
     {
         Task<IEnumerable<ServiceVM>> GetAllAsync();
-        
+        Task<ServiceVM?> GetByIdAsync(int id);
+
 
     }
 }
