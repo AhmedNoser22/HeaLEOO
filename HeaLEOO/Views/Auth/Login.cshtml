@@ -42,6 +42,15 @@
                     </div>
 
                     <button type="submit" class="btn-login w-100 mb-2">Sign in</button>
+                    @if (!ViewData.ModelState.IsValid)
+                    {
+                        var errorMessage = ViewData.ModelState.Values.SelectMany(v => v.Errors)
+                        .FirstOrDefault()?.ErrorMessage;
+                        if (!string.IsNullOrEmpty(errorMessage))
+                        {
+                            <input type="hidden" id="serverError" value="@errorMessage" />
+                        }
+                    }
                 </form>
 
                 <p class="auth-footer-text mt-3">
@@ -52,3 +61,7 @@
         </div>
     </div>
 </div>
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="~/js/login.js"></script>
+}
