@@ -2,5 +2,7 @@
 {
     public interface IServiceSpec
     {
+        Task<IEnumerable<SpecializationsVM>> GetSpecializations();
+        
     }
 }
