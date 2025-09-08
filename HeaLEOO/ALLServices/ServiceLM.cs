@@ -43,7 +43,17 @@ namespace HeaLEOO.ALLServices
 
             return vm;
         }
+        public async Task<bool> UpdateAsync(int id, ServiceVM vm)
+        {
+            var entity = await _context.Services.FindAsync(id);
+            if (entity == null) return false;
 
+            entity.Name = vm.Name;
+            entity.Price = vm.Price;
+
+            await _context.SaveChangesAsync();
+            return true;
+        }
 
 
 
