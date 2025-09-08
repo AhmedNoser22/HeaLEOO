@@ -15,7 +15,7 @@ namespace HeaLEOO.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var appointments = await _serviceAppointments.GetAllAppAsync();
+            var appointments = await _serviceAppointments.GetAllItems();    
             return View(appointments);
         }
 
@@ -34,13 +34,13 @@ namespace HeaLEOO.Controllers
                 return View(model);
             }
 
-            await _serviceAppointments.AddAppAsync(model);
+            await _serviceAppointments.CreateItem(model);
             return RedirectToAction(nameof(Index));
         }
 
         public async Task<IActionResult> Details(int id)
         {
-            var appointment = await _serviceAppointments.GetAppByIdAsync(id);
+            var appointment = await _serviceAppointments.GetItemById(id);
             if (appointment == null) return NotFound();
 
             return View(appointment);
@@ -48,7 +48,7 @@ namespace HeaLEOO.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
-            var appointment = await _serviceAppointments.GetAppByIdAsync(id);
+            var appointment = await _serviceAppointments.GetItemById(id);
             if (appointment == null) return NotFound();
 
             return View(appointment);
@@ -56,7 +56,8 @@ namespace HeaLEOO.Controllers
 
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var result = await _serviceAppointments.DeleteAppAsync(id);
+            var result = await _serviceAppointments.DeletItem(id);
+
             if (result)
             {
                 TempData["SuccessMessage"] = "Appointment deleted successfully.";
