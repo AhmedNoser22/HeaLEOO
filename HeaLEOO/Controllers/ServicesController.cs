@@ -61,6 +61,13 @@
             }
             return RedirectToAction(nameof(Index));
         }
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var service = await _serviceServices.GetByIdAsync(id);
+            if (service == null) return NotFound();
+            return View(service);
+        }
 
 
 
