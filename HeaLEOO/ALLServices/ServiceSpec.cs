@@ -1,6 +1,6 @@
 ﻿namespace HeaLEOO.ALLServices
 {
-    public class ServiceSpec
+    public class ServiceSpec: IServiceSpec
     {
     }
 }

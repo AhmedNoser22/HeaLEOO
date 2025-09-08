@@ -16,8 +16,8 @@ namespace HeaLEOO.Mapping
             CreateMap<DoctorViewModel, Doctors>()
            .ForMember(dest => dest.ClinicDoctors, opt => opt.Ignore())
               .ForMember(dest => dest.specializations, opt => opt.Ignore());
-        
-
+            CreateMap<SpecializationsVM, Specializations>();
+            CreateMap<Specializations, SpecializationsVM>();
             CreateMap<ClinicVM, Clinics>()
            .ForMember(dest => dest.Id, opt => opt.Ignore());
             CreateMap<Clinics, ClinicVM>()
