@@ -15,6 +15,11 @@
             var services = await _serviceServices.GetAllAsync();
             return View(services);
         }
+        public IActionResult Create()
+        {
+            var model = new ServiceVM();
+            return View(model);
+        }
 
     }
 }
