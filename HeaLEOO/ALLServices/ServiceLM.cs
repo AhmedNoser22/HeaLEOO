@@ -19,11 +19,22 @@
                      })
                      .ToListAsync();
         }
+        public async Task<ServiceVM?> GetByIdAsync(int id)
+        {
+            var s = await _context.Services.FindAsync(id);
+            if (s == null) return null;
+
+            return new ServiceVM
+            {
+                Name = s.Name,
+                Price = s.Price
+            };
+        }
 
 
-        
 
-       
-       
+
+
+
     }
 }
