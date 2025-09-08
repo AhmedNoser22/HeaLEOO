@@ -39,6 +39,25 @@
             return model;
         }
 
+        public async Task<bool> CreateItem(DoctorViewModel model)
+        {
+            var entity = _mapper.Map<Doctors>(model);
+            if (model.ClinicIds != null && model.ClinicIds.Any())
+            {
+                foreach (var clinicId in model.ClinicIds)
+                {
+                    entity.ClinicDoctors.Add(new ClinicDoctors
+                    {
+                        Doctor = entity,
+                        ClinicId = clinicId
+                    });
+                }
+            }
+
+            await _genericRepo.Add(entity);
+            await _genericRepo.Complete();
+            return true;
+        }
 
     }
 }
