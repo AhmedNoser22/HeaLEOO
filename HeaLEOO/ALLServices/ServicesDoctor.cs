@@ -1,6 +1,6 @@
 ﻿namespace HeaLEOO.ALLServices
 {
-    public class ServicesDoctor : IServicesDoctor
+    public class ServicesDoctor: IServicesDoctor
     {
         private readonly IGenericRepo<Doctors> _genericRepo;
         private readonly IMapper _mapper;
@@ -67,5 +67,6 @@
             await _genericRepo.Complete();
             return true;
         }
+
     }
 }

@@ -1,7 +1,6 @@
-﻿
-namespace HeaLEOO.ALLServices
+﻿namespace HeaLEOO.ALLServices
 {
-    public class ServiceSpec : IServiceSpec
+    public class ServiceSpec: IServiceSpec
     {
         private readonly IGenericRepo<Specializations> _genericRepo;
         private readonly IMapper _mapper;
@@ -12,7 +11,7 @@ namespace HeaLEOO.ALLServices
         }
         public async Task<IEnumerable<SpecializationsVM>> GetSpecializations()
         {
-            var specializations =await _genericRepo.GetAll();
+            var specializations = await _genericRepo.GetAll();
             return _mapper.Map<IEnumerable<SpecializationsVM>>(specializations);
         }
         public async Task<SpecializationsVM> Addspecializations(SpecializationsVM specializations)
@@ -23,7 +22,5 @@ namespace HeaLEOO.ALLServices
             return _mapper.Map<SpecializationsVM>(spec);
 
         }
-
-       
     }
 }
