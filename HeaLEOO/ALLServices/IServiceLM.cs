@@ -2,6 +2,8 @@
 {
     public interface IServiceLM
     {
+        Task<IEnumerable<ServiceVM>> GetAllAsync();
+        
 
     }
 }
