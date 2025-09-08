@@ -1,11 +1,14 @@
 ﻿namespace HeaLEOO.ViewModels
-{  
-        public class UserManagerVM
-        {
-        public string Id { get; set; } = default!;
+{
+    public class UserManagerVM
+    {
+        public string Id { get; set; } = string.Empty;
         [Display(Name = "User Name")]
-        public string UserName { get; set; } = default!;
-        public string Email { get; set; } = default!;
-        public bool IsSelected { get; set; } = false;
-        }    
+        [Required(ErrorMessage = "User Name is required")]
+        public string UserName { get; set; } = string.Empty;
+        [Display(Name = "Email")]
+        [Required(ErrorMessage = "Email is required")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        public string Email { get; set; } = string.Empty;
+    }
 }
