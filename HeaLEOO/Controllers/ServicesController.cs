@@ -37,5 +37,29 @@
             await _serviceServices.Create(model);
             return RedirectToAction(nameof(Index));
         }
+        public async Task<IActionResult> Edit(int id)
+        {
+            var service = await _serviceServices.GetById(id);
+            if (service == null) return NotFound();
+
+            service.Clinics = _serviceClinDate.GetAllServiceClinDate();
+            return View(service);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, ServiceVM model)
+        {
+            if (!ModelState.IsValid)
+            {
+                model.Clinics = _serviceClinDate.GetAllServiceClinDate();
+                return View(model);
+            }
+
+            var result = await _serviceServices.Update(id, model);
+            if (!result) return NotFound();
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
