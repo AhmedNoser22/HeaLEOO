@@ -1,4 +1,6 @@
-﻿namespace HeaLEOO.Controllers
+﻿using HeaLEOO.ViewModels;
+
+namespace HeaLEOO.Controllers
 {
     public class ServicesController : Controller
     {
@@ -15,13 +17,11 @@
             var services = await _serviceServices.GetAllAsync();
             return View(services);
         }
-
         public IActionResult Create()
         {
             var model = new ServiceVM();
             return View(model);
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ServiceVM model)
@@ -34,14 +34,12 @@
             await _serviceServices.CreateAsync(model);
             return RedirectToAction(nameof(Index));
         }
-
         public async Task<IActionResult> Details(int id)
         {
             var service = await _serviceServices.GetByIdAsync(id);
             if (service == null) return NotFound();
             return View(service);
         }
-
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
@@ -49,7 +47,6 @@
             if (service == null) return NotFound();
             return View(service);
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, ServiceVM model)
@@ -66,7 +63,6 @@
             }
             return RedirectToAction(nameof(Index));
         }
-
         [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
@@ -74,7 +70,6 @@
             if (service == null) return NotFound();
             return View(service);
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -90,5 +85,8 @@
             }
             return RedirectToAction(nameof(Index));
         }
+
+
+
     }
 }
