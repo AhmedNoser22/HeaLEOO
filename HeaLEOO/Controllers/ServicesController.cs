@@ -24,5 +24,18 @@
             };
             return View(model);
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(ServiceVM model)
+        {
+            if (!ModelState.IsValid)
+            {
+                model.Clinics = _serviceClinDate.GetAllServiceClinDate();
+                return View(model);
+            }
+
+            await _serviceServices.Create(model);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
