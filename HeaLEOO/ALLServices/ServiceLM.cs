@@ -54,6 +54,16 @@ namespace HeaLEOO.ALLServices
             await _context.SaveChangesAsync();
             return true;
         }
+        public async Task<bool> DeleteAsync(int id)
+        {
+            var entity = await _context.Services.FindAsync(id);
+            if (entity == null) return false;
+
+            _context.Services.Remove(entity);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
 
 
 
