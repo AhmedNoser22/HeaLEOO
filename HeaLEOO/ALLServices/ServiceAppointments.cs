@@ -11,6 +11,13 @@
             _mapper = mapper;
         }
 
+        public async Task<IEnumerable<AppointmentsVM>> GetAllItems()
+        {
+            var appointments = await _genericRepo.GetAll();
+            return _mapper.Map<IEnumerable<AppointmentsVM>>(appointments);
+        }
+
+
 
     }
 }

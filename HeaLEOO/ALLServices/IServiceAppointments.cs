@@ -2,6 +2,7 @@
 {
     public interface IServiceAppointments
     {
- 
+        Task<IEnumerable<AppointmentsVM>> GetAllItems();
+
     }
 }
