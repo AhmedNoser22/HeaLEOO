@@ -1,0 +1,53 @@
+﻿body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(180deg,#0f172a 0%, #071033 100%);
+    color: #e6eef8;
+}
+
+.card-panel {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 6px 30px rgba(2,6,23,0.6);
+    border-radius: 14px;
+}
+
+.page-title {
+    font-weight: 800;
+    letter-spacing: 0.2px;
+    color: #fff;
+}
+
+.subtle {
+    color: #b8c7e6;
+}
+
+.btn-ghost {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.06);
+    color: #e6eef8;
+}
+
+.role-badge {
+    font-weight: 600;
+    background: rgba(255,255,255,0.03);
+    padding: .35rem .6rem;
+    border-radius: .6rem;
+    border: 1px solid rgba(255,255,255,0.03);
+}
+
+.table thead {
+    background: rgba(255,255,255,0.04);
+}
+
+.table tbody tr:hover {
+    background: rgba(255,255,255,0.02);
+}
+
+.accent {
+    color: #7dd3fc;
+}
+
+.small-muted {
+    font-size: .85rem;
+    color: #a9bfdc;
+}
