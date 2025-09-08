@@ -17,6 +17,13 @@
             return _mapper.Map<IEnumerable<AppointmentsVM>>(appointments);
         }
 
+        public async Task<AppointmentsVM> GetItemById(int id)
+        {
+            var appointments = await _genericRepo.GetById(id);
+            return _mapper.Map<AppointmentsVM>(appointments);
+        }
+
+
 
 
     }
