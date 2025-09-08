@@ -1,7 +1,7 @@
 ﻿
 namespace HeaLEOO.ALLServices
 {
-    public class ServiceUser_Management : IServiceUser_Management
+    public class ServiceUser_Management : IServiceUserManagement
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly IMapper _mapper;
