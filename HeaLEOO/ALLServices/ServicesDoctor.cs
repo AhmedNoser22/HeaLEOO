@@ -59,5 +59,14 @@
             return true;
         }
 
+        public async Task<bool> DeletItem(int id)
+        {
+            var entity = await _genericRepo.GetById(id);
+            if (entity == null) return false;
+            await _genericRepo.Delete(id);
+            await _genericRepo.Complete();
+            return true;
+        }
+
     }
 }
