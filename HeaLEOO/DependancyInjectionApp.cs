@@ -35,6 +35,7 @@
             services.AddScoped<ILookupService, LookupService>();
             services.AddScoped<IServiceClinicsDB, ServiceClinicsDB>();
             services.AddScoped<IServiceClinDate, ServiceClinDate>();
+            services.AddScoped<IRoleService,RoleService>();
 
 
             return services;

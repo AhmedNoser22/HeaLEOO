@@ -1,4 +1,6 @@
-﻿namespace HeaLEOO.ALLServices
+﻿using HeaLEOO.DTOs;
+
+namespace HeaLEOO.ALLServices
 {
     public class ServiceUser_Management : IServiceUserManagement
     {

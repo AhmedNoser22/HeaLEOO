@@ -12,14 +12,15 @@
         }
         public async Task<List<UserManagerVM>> GetAllUsers()
         {
-            return _userManager.Users.Select(u => new UserManagerVM
-            {
-                Id = u.Id,
-                UserName = u.UserName!,
-                Email = u.Email!
-            }).ToList();
+            return await _userManager.Users
+                .Select(u => new UserManagerVM
+                {
+                    Id = u.Id,
+                    UserName = u.UserName!,
+                    Email = u.Email!
+                })
+                .ToListAsync();
         }
-
         public async Task<List<RoleViewModel>> GetUserRoles(string userName)
         {
             var user = await _userManager.FindByNameAsync(userName);
