@@ -28,5 +28,17 @@
             );
             return _mapper.Map<IEnumerable<DoctorViewModel>>(doctors);
         }
+
+        public async Task<DoctorViewModel> GetItemById(int id)
+        {
+            var doctor = await _genericRepo.GetById(id);
+            if (doctor == null) return null!;
+            var model = _mapper.Map<DoctorViewModel>(doctor);
+            model.Specializations = _serviceSpecializations.GetAllSpecializations();
+            model.Clinics = _serviceClinDate.GetAllServiceClinDate();
+            return model;
+        }
+
+
     }
 }
