@@ -45,6 +45,23 @@
             if (service == null) return NotFound();
             return View(service);
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, ServiceVM model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var result = await _serviceServices.UpdateAsync(id, model);
+            if (!result)
+            {
+                return NotFound();
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
 
 
     }
