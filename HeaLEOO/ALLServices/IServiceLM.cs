@@ -4,11 +4,11 @@ namespace HeaLEOO.ALLServices
 {
     public interface IServiceLM
     {
-        Task<IEnumerable<ServiceVM>> GetAllAsync();
-        Task<ServiceVM?> GetByIdAsync(int id);
-        Task<ServiceVM> CreateAsync(ServiceVM vm);
-        Task<bool> UpdateAsync(int id, ServiceVM vm);
-        Task<bool> DeleteAsync(int id);
+        Task<IEnumerable<ServiceVM>> GetAll();
+        Task<ServiceVM?> GetById(int id);
+        Task<bool> Create(ServiceVM vm);
+        Task<bool> Update(int id, ServiceVM vm);
+        Task<bool> Delete(int id);
 
 
 

@@ -1,75 +1,60 @@
-﻿using HeaLEOO.ViewModels;
-
-namespace HeaLEOO.ALLServices
+﻿namespace HeaLEOO.ALLServices
 {
     public class ServiceLM : IServiceLM
     {
-        private readonly AppDbContext _context;
+        private readonly IGenericRepo<ModelService> _genericRepo;
+        private readonly IMapper _mapper;
+        private readonly IServiceClinDate _serviceClinDate;
 
-        public ServiceLM(AppDbContext context)
+        public ServiceLM(
+            IGenericRepo<ModelService> genericRepo,
+            IMapper mapper,
+            IServiceClinDate serviceClinDate)
         {
-            _context = context;
+            _genericRepo = genericRepo;
+            _mapper = mapper;
+            _serviceClinDate = serviceClinDate;
         }
 
-        public async Task<IEnumerable<ServiceVM>> GetAllAsync()
+        public async Task<IEnumerable<ServiceVM>> GetAll()
         {
-            return await _context.Services
-                     .Select(s => new ServiceVM
-                     {
-                         Name = s.Name,
-                         Price = s.Price
-                     })
-                     .ToListAsync();
-        }
-        public async Task<ServiceVM?> GetByIdAsync(int id)
-        {
-            var s = await _context.Services.FindAsync(id);
-            if (s == null) return null;
+            var services = await _genericRepo.GetAll(query =>
+                query.Include(x => x.Clinic));
 
-            return new ServiceVM
-            {
-                Name = s.Name,
-                Price = s.Price
-            };
+            return _mapper.Map<IEnumerable<ServiceVM>>(services);
         }
-        public async Task<ServiceVM> CreateAsync(ServiceVM vm)
-        {
-            var entity = new ModelService
-            {
-                Name = vm.Name,
-                Price = vm.Price
-            };
-            _context.Services.Add(entity);
-            await _context.SaveChangesAsync();
 
-            return vm;
-        }
-        public async Task<bool> UpdateAsync(int id, ServiceVM vm)
+        public async Task<ServiceVM?> GetById(int id)
         {
-            var entity = await _context.Services.FindAsync(id);
+            var service = await _genericRepo.GetById(id);
+            if (service == null) return null;
+
+            var model = _mapper.Map<ServiceVM>(service);
+            model.Clinics = _serviceClinDate.GetAllServiceClinDate();
+            return model;
+        }
+
+        public async Task<bool> Create(ServiceVM model)
+        {
+            var entity = _mapper.Map<ModelService>(model);
+            await _genericRepo.Add(entity);
+            return await _genericRepo.Complete();
+        }
+
+        public async Task<bool> Update(int id, ServiceVM model)
+        {
+            var entity = await _genericRepo.GetById(id);
             if (entity == null) return false;
 
-            entity.Name = vm.Name;
-            entity.Price = vm.Price;
-
-            await _context.SaveChangesAsync();
-            return true;
+            _mapper.Map(model, entity); 
+            _genericRepo.Update(entity);
+            return await _genericRepo.Complete();
         }
-        public async Task<bool> DeleteAsync(int id)
+
+        public async Task<bool> Delete(int id)
         {
-            var entity = await _context.Services.FindAsync(id);
-            if (entity == null) return false;
-
-            _context.Services.Remove(entity);
-            await _context.SaveChangesAsync();
-            return true;
+            await _genericRepo.Delete(id);
+            return await _genericRepo.Complete();
         }
-
-
-
-
-
-
-
     }
 }
