@@ -1,5 +1,4 @@
-﻿using static IRoleServices;
-public class RoleMvcController : Controller
+﻿public class RoleMvcController : Controller
 {
     private readonly IRoleService _roleService;
 
