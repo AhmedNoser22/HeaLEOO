@@ -5,7 +5,8 @@
         Task<IEnumerable<ServiceVM>> GetAllAsync();
         Task<ServiceVM?> GetByIdAsync(int id);
         Task<ServiceVM> CreateAsync(ServiceVM vm);
-      
+        Task<bool> UpdateAsync(int id, ServiceVM vm);
+
 
 
     }
