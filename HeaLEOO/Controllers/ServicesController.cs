@@ -1,6 +1,4 @@
-﻿using HeaLEOO.ViewModels;
-
-namespace HeaLEOO.Controllers
+﻿namespace HeaLEOO.Controllers
 {
     public class ServicesController : Controller
     {
