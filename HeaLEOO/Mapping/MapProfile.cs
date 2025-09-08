@@ -32,7 +32,8 @@ namespace HeaLEOO.Mapping
             CreateMap<Appointments, AppointmentsVM>();
             CreateMap<AppointmentsVM, Appointments>();
             CreateMap<ModelService, ServiceVM>();
-            CreateMap<ServiceVM, ModelService>();
+            CreateMap<ServiceVM, ModelService>()
+                .ForMember(dest => dest.Id, opt => opt.Ignore());
             CreateMap<AppUser, AppUserDto>();
             CreateMap<AppUserDto, AppUser>()
                 .ForMember(dest => dest.Id, opt => opt.Ignore())
