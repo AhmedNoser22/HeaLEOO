@@ -1,4 +1,6 @@
-﻿namespace HeaLEOO.ALLServices
+﻿using HeaLEOO.ViewModels;
+
+namespace HeaLEOO.ALLServices
 {
     public interface IServiceLM
     {

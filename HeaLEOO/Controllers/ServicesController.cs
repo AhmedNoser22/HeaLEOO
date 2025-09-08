@@ -1,4 +1,6 @@
-﻿namespace HeaLEOO.Controllers
+﻿using HeaLEOO.ViewModels;
+
+namespace HeaLEOO.Controllers
 {
     public class ServicesController : Controller
     {
