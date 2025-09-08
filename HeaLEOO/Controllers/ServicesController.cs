@@ -38,6 +38,13 @@
             if (service == null) return NotFound();
             return View(service);
         }
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            var service = await _serviceServices.GetByIdAsync(id);
+            if (service == null) return NotFound();
+            return View(service);
+        }
 
 
     }
