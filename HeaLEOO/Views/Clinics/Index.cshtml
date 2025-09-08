@@ -1,51 +1,41 @@
 ﻿@model IEnumerable<ClinicVM>
-
 @{
     ViewData["Title"] = "Clinics";
 }
 
-<div class="container mt-5">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2 class="fw-bold">Clinics</h2>
-        <a asp-action="Create" class="btn px-4 rounded-pill text-white shadow-sm" style="background: linear-gradient(135deg, #007bff, #00c6ff); border: none;">➕ Add Clinic</a>
+<div class="clinics-container">
+    <h2 class="clinics-title">Clinics</h2>
+
+    <div class="clinics-grid">
+        @foreach (var clinic in Model)
+        {
+            <div class="clinic-card">
+                <div class="clinic-photo">
+                    @if (!string.IsNullOrEmpty(clinic.PhotoUrl))
+                    {
+                        <img src="@clinic.PhotoUrl" alt="@clinic.Name" />
+                    }
+                    else
+                    {
+                        <div class="clinic-photo-placeholder">No Image</div>
+                    }
+                </div>
+
+                <div class="clinic-info">
+                    <h3 class="clinic-name">@clinic.Name</h3>
+                    <p class="clinic-address">@clinic.Address</p>
+                    <p class="clinic-phone">@clinic.PhoneNumber</p>
+                </div>
+
+                <div class="clinic-actions">
+                    <a asp-action="Details" asp-route-id="@clinic.Id" class="btn-details">Details</a>
+                    <a asp-action="Delete" asp-route-id="@clinic.Id" class="btn-delete" onclick="return confirm('Are you sure you want to delete this doctor?');">Delete</a>
+                </div>
+            </div>
+        }
     </div>
-    <table class="table table-hover table-bordered shadow-sm align-middle text-center">
-        <thead class="table-success">
-            <tr>
-                <th>Photo</th>
-                <th>Name</th>
-                <th>Address</th>
-                <th>Phone</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var clinic in Model)
-            {
-                <tr>
-                    <td>
-                        @if (!string.IsNullOrEmpty(clinic.PhotoUrl))
-                        {
-                            <img src="@clinic.PhotoUrl" class="img-thumbnail"
-                                 style="width:100px; height:100px; object-fit:cover;" />
-                        }
-                        else
-                        {
-                            <span>No Photo</span>
-                        }
-                    </td>
-                    <td>@clinic.Name</td>
-                    <td>@clinic.Address</td>
-                    <td>@clinic.PhoneNumber</td>
-                    <td>
-                        <a asp-action="Details" asp-route-id="@clinic.Id" class="btn btn-info btn-sm">Details</a>
-                        <a asp-action="Delete" asp-route-id="@clinic.Id" class="btn btn-danger btn-sm"
-                           onclick="return confirm('Are you sure you want to delete this clinic?');">
-                            Delete
-                        </a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+
+    <div class="clinics-footer">
+        <a asp-action="Create" class="btn-create">+ Add New Clinic</a>
+    </div>
 </div>

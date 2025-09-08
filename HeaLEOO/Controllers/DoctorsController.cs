@@ -1,24 +1,24 @@
-﻿using HeaLEOO.ALLServices;
-using HeaLEOO.Helper;
-using HeaLEOO.ViewModels;
-using Microsoft.AspNetCore.Mvc;
-
-namespace HeaLEOO.Controllers
+﻿namespace HeaLEOO.Controllers
 {
     public class DoctorsController : Controller
     {
         private readonly IServicesDoctor _serviceDoctor;
         private readonly IserviceSpecializations _serviceSpecializations;
-        private readonly IserviceClinics _serviceClinics;
+        private readonly IServiceClinDate _serviceClinicsDate;
         private readonly IMapper _mapper;
 
-        public DoctorsController(IServicesDoctor serviceDoctor, IserviceSpecializations serviceSpecializations, IserviceClinics serviceClinics, IMapper mapper)
+        public DoctorsController(
+            IServicesDoctor serviceDoctor,
+            IserviceSpecializations serviceSpecializations,
+            IServiceClinDate _serviceClinDate,
+            IMapper mapper)
         {
             _serviceDoctor = serviceDoctor;
             _serviceSpecializations = serviceSpecializations;
-            _serviceClinics = serviceClinics;
+            _serviceClinicsDate =_serviceClinDate;
             _mapper = mapper;
         }
+
         public async Task<IActionResult> Index()
         {
             var doctors = await _serviceDoctor.GetAllItems();
@@ -30,7 +30,7 @@ namespace HeaLEOO.Controllers
             var model = new DoctorViewModel
             {
                 Specializations = _serviceSpecializations.GetAllSpecializations(),
-                Clinics = _serviceClinics.GetAllClinics()
+                Clinics = _serviceClinicsDate.GetAllServiceClinDate()
             };
             return View(model);
         }
@@ -42,9 +42,10 @@ namespace HeaLEOO.Controllers
             if (!ModelState.IsValid)
             {
                 model.Specializations = _serviceSpecializations.GetAllSpecializations();
-                model.Clinics = _serviceClinics.GetAllClinics();
+                model.Clinics = _serviceClinicsDate.GetAllServiceClinDate();
                 return View(model);
             }
+
             await _serviceDoctor.CreateItem(model);
             return RedirectToAction(nameof(Index));
         }
@@ -55,21 +56,13 @@ namespace HeaLEOO.Controllers
             if (doctor == null) return NotFound();
             return View(doctor);
         }
+
         public async Task<IActionResult> DeleteDoctor(int id)
         {
             var result = await _serviceDoctor.DeletItem(id);
-            if (result)
-            {
-                TempData["SuccessMessage"] = "Doctor deleted successfully.";
-            }
-            else
-            {
-                TempData["ErrorMessage"] = "Failed to delete doctor.";
-            }
-
+            TempData[result ? "SuccessMessage" : "ErrorMessage"] =
+                result ? "Doctor deleted successfully." : "Failed to delete doctor.";
             return RedirectToAction(nameof(Index));
         }
-
     }
-
 }

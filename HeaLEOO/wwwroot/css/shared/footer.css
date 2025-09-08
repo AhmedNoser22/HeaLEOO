@@ -20,6 +20,7 @@
 
 /* Footer Links */
 .footer-links {
+    margin: 0px 0px 0px 150px;
     display: flex;
     justify-content: center;
     gap: 4rem;
@@ -32,7 +33,7 @@
 .footer-column {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items:start;
     flex: 1;
     min-width: 150px;
 }
@@ -79,6 +80,10 @@
     color: #2c7da0;
     font-weight: 600;
     font-size: 1.3rem;
+}
+
+.brand-title-footer{
+    margin-left:-250px !important;
 }
 
 .footer-tagline {

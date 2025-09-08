@@ -6,16 +6,22 @@
 .auth-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+/*    align-items:flex-start;*/
     justify-content: center;
-    min-height:92vh;
-    background: linear-gradient(135deg, #1c4a92, #2c93ea);
+    justify-items:flex-start;
+    min-height:80vh !important;
+    background: #FFF;
     padding: 20px;
 }
 
 /* 🔹 Different background for Login */
 .login-page {
-    background: linear-gradient(135deg, #1c4a92, #2c93ea);
+    background: #FFF;
+    width: 100%;
+    height: 100%;
+    align-items: flex-start;
+    margin-left: 90px;
+}
 }
 
 /* 🔹 Different background for Register */
@@ -24,11 +30,14 @@
 }
 
 .auth-title-login-page {
-    color: #246FBE;
+    font-weight: 550;
+    color: #01aaff;
+    margin: 0 0 10px 0;
 }
 
 .auth-title-register-page {
-    color: #416CDF;
+    color: #366cc1;
+    font-weight: 550;
 }
 
 /* Title outside card */
@@ -45,11 +54,12 @@
     background: #fff;
     padding: 2rem;
     border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+/*    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);*/
     width: 100%;
-    max-width: 420px;
+/*    max-width: 420px;*/
     text-align: center;
     animation: fadeInUp 0.6s ease-in-out;
+    margin-top:125px;
 }
 
 /* Inside card title */
@@ -60,9 +70,10 @@
     color: #2c7da0;
 }
 
-.second-line{
-    font-size:0.9rem;
-    color:#929292;
+.second-line {
+    font-size: 0.9rem;
+    color: #929292;
+    margin: 0 0 20px 0;
 }
 
 .auth-subtitle {
@@ -75,13 +86,14 @@
 .auth-form .form-group label {
     font-weight: 500; /* Slightly bold */
     display: block;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.6rem;
     text-align: left;
     color: #333;
 }
 
 .auth-form .form-control {
     border-radius: 10px;
+    margin-bottom: 2rem;
     padding: 0.75rem;
     font-size: 0.95rem;
     border: 1px solid #ddd;
@@ -95,7 +107,8 @@
 
 /* Login button */
 .btn-login {
-    background: linear-gradient(135deg, #1c4a92, #2c93ea);
+    /*    background: linear-gradient(135deg, #1c4a92, #2c93ea);*/
+    background: #01aaff;
     border: none;
     padding: 0.8rem;
     font-size: 1rem;
@@ -106,6 +119,9 @@
     transition: background 0.3s ease;
 }
 
+.register-page .btn-login {
+    background: #366cc1;
+}
 /* Register button */
 .btn-register {
     background: linear-gradient(135deg, #1533bf, #6CA4FF);
@@ -119,9 +135,9 @@
     transition: background 0.3s ease;
 }
 
-.btn-login:hover{
+/*.btn-login:hover{
     background: linear-gradient(160deg, #2c93ea, #1c4a92);
-}
+}*/
 
 .btn-register:hover {
     background: linear-gradient(160deg, #6CA4FF, #1533bf);
@@ -188,4 +204,90 @@
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Split container */
+.auth-split-container {
+    display: flex;
+    min-height: 95vh;
+    background: #FFF;
+}
+
+/* Left side */
+.auth-left {
+    flex: 1;
+    position: relative;
+}
+
+.auth-left img {
+    margin: 100px 200px;
+    width: 700px;
+    height: 700px;
+    object-fit: cover;
+    animation: fadeInUp 0.6s ease-in-out;
+    /* border: 2px solid black;*/
+}
+
+/* Right side */
+.auth-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    background: #FFF; /* light gray background for contrast */
+}
+
+/* Auth card adjustments */
+.auth-card {
+    background: #fff;
+    padding: 3rem;
+/*    margin-left: 50px;*/
+    border-radius: 15px;
+    width: 500px;
+    height:700px;
+/*    max-width: 400px;*/
+    text-align:center;
+/*    border: 2px solid black;*/
+    /*    box-shadow: 0 10px 25px rgba(0,0,0,0.1);*/
+}
+
+
+/* Links */
+.auth-link {
+    color: #2c7da0;
+    text-decoration: none;
+}
+
+.auth-link:hover {
+    text-decoration: underline;
+    font-weight:600;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+    .auth-split-container {
+        flex-direction: column;
+    }
+
+    .auth-left {
+        height: 250px;
+    }
+
+    .auth-right {
+        padding: 1rem;
+    }
+}
+
+/* Right side (Register, reversed) */
+.auth-right-register {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFF;
+}
+
+
+.register-page .auth-card {
+    margin:25px 0px 0px 200px;
 }

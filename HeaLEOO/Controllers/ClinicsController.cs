@@ -8,31 +8,11 @@
         _serviceClinics = serviceClinics;
         _mapper = mapper;
     }
-
     public async Task<IActionResult> Index()
     {
         var clinics = await _serviceClinics.GetAllClinicsAsync();
-        var model = _mapper.Map<List<ClinicVM>>(clinics);
-        return View(model);
+        return View(clinics);
     }
-
-    public IActionResult Create()
-    {
-        return View();
-    }
-
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create(ClinicVM model, IFormFile file)
-    {
-        if (ModelState.IsValid)
-        {
-            await _serviceClinics.AddClinicAsync(model, file);
-            return RedirectToAction(nameof(Index));
-        }
-        return View(model);
-    }
-
     public async Task<IActionResult> Details(int id)
     {
         var clinic = await _serviceClinics.GetClinicByIdAsync(id);
@@ -40,7 +20,19 @@
 
         return View(clinic);
     }
+    public IActionResult Create()
+    {
+        return View();
+    }
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Create(ClinicVM model, IFormFile file)
+    {
+        if (!ModelState.IsValid) return View(model);
 
+        await _serviceClinics.AddClinicAsync(model, file);
+        return RedirectToAction(nameof(Index));
+    }
     public async Task<IActionResult> Delete(int id)
     {
         var success = await _serviceClinics.DeleteClinicAsync(id);

@@ -7,7 +7,6 @@
         {
             _context = context;
         }
-
         public IEnumerable<SelectListItem> GetAllSpecializations()
         {
             return _context.Specializations.AsNoTracking()

@@ -1,4 +1,5 @@
-﻿@using Microsoft.AspNetCore.Identity
+﻿@inject UserManager<AppUser> userManager
+@using Microsoft.AspNetCore.Identity
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,8 +18,6 @@
     <!-- Animations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
-    @* <link href="~/css/pages/site.css" rel="stylesheet" /> *@
-
     <!-- Shared Styles -->
     <link rel="stylesheet" href="~/css/shared/global.css" />
     <link rel="stylesheet" href="~/css/shared/header.css" />
@@ -29,6 +28,12 @@
     <link rel="stylesheet" href="~/css/pages/index.css" />
     <link rel="stylesheet" href="~/css/pages/about.css" />
     <link rel="stylesheet" href="~/css/pages/dashboard.css" />
+
+    <link rel="stylesheet" href="~/css/pages/clinics.css" />
+    <link rel="stylesheet" href="~/css/pages/doctors.css" />
+
+    <link rel="stylesheet" href="~/css/views/specializations/add.css" />
+    <link rel="stylesheet" href="~/css/views/specializations/index.css" />
 </head>
 <body>
     <!-- ======= Header ======= -->
@@ -36,51 +41,38 @@
         <div class="brand">
             <a asp-controller="Home" asp-action="Index" class="brand-link">
                 <img class="logo" src="~/images/healeologolog.png" alt="Healeo Logo" />
-                @* <span class="brand-title">Healeo</span> *@
             </a>
         </div>
 
         <div class="nav-links">
-            @* <a asp-controller="Home" asp-action="About">About</a> *@
-            <a class="animated-underline" asp-controller="Clinics" asp-action="index">Clinics</a>
+            <a class="animated-underline" asp-controller="Clinics" asp-action="Index">Clinics</a>
             <a class="animated-underline" asp-controller="Doctors" asp-action="Index">Doctors</a>
-            <a class="animated-underline" asp-controller="Appointments" asp-action="Index">Appointments</a>
             <a class="animated-underline" asp-controller="Services" asp-action="Index">Services</a>
-        </div>
+            <a class="animated-underline" asp-controller="UserManagement" asp-action="Index">User Management</a>
+            
 
+             @if (User.IsInRole("Admin"))
+            {
+                <a class="animated-underline" asp-controller="RoleMvc" asp-action="Index">Roles</a>
+                <a class="animated-underline" asp-controller="UserManagement" asp-action="Index">User Management</a>
+                <a class="animated-underline" asp-controller="RoleMvc" asp-action="Index">Roles</a>
+            } 
+        </div>
         <div class="nav-buttons">
             @if (User.Identity.IsAuthenticated)
             {
-                <span class="btn home-bun-username">AhmedNoser22</span>
+				var userLd = await userManager.GetUserAsync(User);
+                @* <span class="btn home-bun-username">@userManager.Users</span> *@
                 <form method="post" asp-controller="Auth" asp-action="Logout" class="mb-0">
                     <button type="submit" class="btn home-btn-logout">Logout</button>
                 </form>
             }
             else
             {
-                <a asp-controller="Auth" asp-action="Login" class="btn home-btn-login">Sign in</a>
-                <a asp-controller="Auth" asp-action="Register" class="btn home-btn-register">Register</a>
+                <a asp-controller="Auth" asp-action="Login" class="btn home-btn-login animated-underline">Log in</a>
+                <a asp-controller="Auth" asp-action="Register" class="btn home-btn-register">Get started</a>
             }
         </div>
-
-        @* <div class="nav-buttons">
-            @{
-                var fakeLoggedIn = true; // toggle this for testing
-            }
-
-            @if (fakeLoggedIn) // instead of User.Identity.IsAuthenticated
-            {
-                <span class="btn home-bun-username">AhmedNoser22</span>
-                <form method="post" asp-controller="Auth" asp-action="Logout" class="mb-0">
-                        <button type="submit" class="btn home-btn-logout">Logout</button>
-                </form>
-            }
-            else
-            {
-                <a asp-controller="Auth" asp-action="Login" class="btn home-btn-login">Sign in</a>
-                <a asp-controller="Auth" asp-action="Register" class="btn home-btn-register">Register</a>
-            }
-        </div> *@
     </div>
 
     <!-- ======= Main Content ======= -->
@@ -126,10 +118,8 @@
             <!-- Brand Info -->
             <div class="footer-brand">
                 <div class="brand">
-                    <!-- Not clickable anymore -->
                     <div class="brand-link">
-                        @* <img class="logo" src="~/images/healeologolog.png" alt="Healeo Logo" /> *@
-                        <span class="brand-title">Healeo</span>
+                        <span class="brand-title-footer">Healeo</span>
                     </div>
                 </div>
                 <p class="footer-tagline">Your trusted healthcare clinics.</p>
@@ -145,13 +135,10 @@
             <button id="backToTop" class="back-to-top" title="Back to top">
                 ↑
             </button>
-
         </div>
     </footer>
 
     <!-- ======= Scripts ======= -->
-    
-    <!-- Smooth Scroll Script -->
     <script>
         const backToTop = document.getElementById("backToTop");
         window.addEventListener("scroll", () => {
@@ -167,7 +154,6 @@
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
     @RenderSection("Scripts", required: false)
 </body>
 </html>

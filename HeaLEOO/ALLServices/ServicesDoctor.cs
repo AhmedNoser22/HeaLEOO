@@ -5,26 +5,27 @@
         private readonly IGenericRepo<Doctors> _genericRepo;
         private readonly IMapper _mapper;
         private readonly IserviceSpecializations _serviceSpecializations;
-        private readonly IserviceClinics _serviceClinics;
+        private readonly IServiceClinDate _serviceClinDate;
 
-        public ServicesDoctor(IGenericRepo<Doctors> genericRepo, IMapper mapper, IserviceSpecializations serviceSpecializations, IserviceClinics serviceClinics)
+        public ServicesDoctor(
+            IGenericRepo<Doctors> genericRepo,
+            IMapper mapper,
+            IserviceSpecializations serviceSpecializations,
+            IServiceClinDate serviceClinDate)
         {
             _genericRepo = genericRepo;
             _mapper = mapper;
             _serviceSpecializations = serviceSpecializations;
-            _serviceClinics = serviceClinics;
+            _serviceClinDate = serviceClinDate;
         }
 
         public async Task<IEnumerable<DoctorViewModel>> GetAllItems()
         {
-            var doctors = await _genericRepo.GetAll
-                (
-                query =>
+            var doctors = await _genericRepo.GetAll(query =>
                 query.Include(d => d.specializations)
-                .Include(d => d.ClinicDoctors)
-                .ThenInclude(cd => cd.Clinic)
+                     .Include(d => d.ClinicDoctors)
+                     .ThenInclude(cd => cd.Clinic)
             );
-
             return _mapper.Map<IEnumerable<DoctorViewModel>>(doctors);
         }
 
@@ -34,7 +35,7 @@
             if (doctor == null) return null!;
             var model = _mapper.Map<DoctorViewModel>(doctor);
             model.Specializations = _serviceSpecializations.GetAllSpecializations();
-            model.Clinics = _serviceClinics.GetAllClinics();
+            model.Clinics = _serviceClinDate.GetAllServiceClinDate();
             return model;
         }
 
@@ -57,7 +58,6 @@
             await _genericRepo.Complete();
             return true;
         }
-
 
         public async Task<bool> DeletItem(int id)
         {

@@ -1,48 +1,41 @@
 ﻿@model IEnumerable<DoctorViewModel>
-
 @{
     ViewData["Title"] = "Doctors";
 }
 
-<div class="container py-4">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2 class="text-primary fw-bold">Doctors List</h2>
-        <a asp-action="Create" class="btn px-4 rounded-pill text-white shadow-sm" style="background: linear-gradient(135deg, #007bff, #00c6ff); border: none;">+ Add Doctor</a>
-    </div>
+<div class="doctors-container">
+    <h2 class="doctors-title">Doctors</h2>
 
-    <table class="table table-hover shadow-sm rounded">
-        <thead class="table-primary">
-            <tr>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>Specialization</th>
-                <th>Clinics</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var doc in Model)
-            {
-                <tr>
-                    <td>@doc.Name</td>
-                    <td>@doc.PhoneNumber</td>
-                    <td>@doc.SpecializationName</td>
-                    <td>
+    <div class="doctors-grid">
+        @foreach (var doc in Model)
+        {
+            <div class="doctor-card">
+                <div class="doctor-info">
+                    <h3 class="doctor-name">@doc.Name</h3>
+                    <p class="doctor-phone">@doc.PhoneNumber</p>
+                    <p class="doctor-specialization">@doc.SpecializationName</p>
+
+                    <div class="doctor-clinics">
                         @foreach (var clinic in doc.ClinicNames)
                         {
-                            <span class="badge bg-info text-dark me-1">@clinic</span>
+                            <span class="doctor-clinic-badge">@clinic</span>
                         }
-                    </td>
-                    <td>
-                        <a asp-action="DeleteDoctor" asp-route-id="@doc.Id"
-                           class="btn btn-sm btn-danger"
-                           onclick="return confirm('Are you sure you want to delete this doctor?');">
-                            Delete
-                        </a>
+                    </div>
+                </div>
 
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+                <div class="doctor-actions">
+                    <a asp-action="DeleteDoctor" asp-route-id="@doc.Id"
+                       class="doctor-btn-delete"
+                       onclick="return confirm('Are you sure you want to delete this doctor?');">
+                        Delete
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="doctors-footer">
+        <a asp-action="Create" class="doctor-btn-create">+ Add New Doctor</a>
+    </div>
 </div>
+    

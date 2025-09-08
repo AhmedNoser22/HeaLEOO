@@ -1,48 +1,56 @@
 ﻿@model HeaLEOO.ViewModels.DoctorViewModel
-
 @{
     ViewData["Title"] = "Add Doctor";
 }
 
-<div class="container mt-5 d-flex justify-content-center">
-    <div class="card shadow border-0 rounded-4" style="max-width: 600px; width: 100%;">
-        <div class="card-header text-white text-center rounded-top-4" style="background: linear-gradient(135deg, #007bff, #00c6ff);">
-            <h3 class="mb-0">👨‍⚕️ Add New Doctor</h3>
-        </div>
-        <div class="card-body p-4">
-            <form asp-action="Create" method="post">
-                <div class="mb-3">
-                    <label asp-for="Name" class="form-label fw-semibold"></label>
-                    <input asp-for="Name" class="form-control shadow-sm rounded-3" placeholder="Enter doctor's name" />
-                    <span asp-validation-for="Name" class="text-danger small"></span>
-                </div>
 
-                <div class="mb-3">
-                    <label asp-for="PhoneNumber" class="form-label fw-semibold"></label>
-                    <input asp-for="PhoneNumber" class="form-control shadow-sm rounded-3" placeholder="Enter phone number" />
-                    <span asp-validation-for="PhoneNumber" class="text-danger small"></span>
-                </div>
+<div class="doctor-create-container">
+    <div class="doctor-create-card">
+        <h2 class="doctor-create-title">Add New Doctor</h2>
 
-                <div class="mb-3">
-                    <label asp-for="SpecializationId" class="form-label fw-semibold">Specialization</label>
-                    <select asp-for="SpecializationId" asp-items="Model.Specializations" class="form-select shadow-sm rounded-3"></select>
-                    <span asp-validation-for="SpecializationId" class="text-danger small"></span>
-                </div>
+        <form asp-action="Create" method="post" class="doctor-create-form">
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger small"></span>
+            </div>
 
-                <div class="mb-3">
-                    <label class="form-label fw-semibold">Clinics</label>
-                    <select asp-for="ClinicIds" asp-items="Model.Clinics" class="form-select shadow-sm rounded-3" multiple></select>
-                    <span asp-validation-for="ClinicIds" class="text-danger small"></span>
-                </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger small"></span>
+            </div>
 
-                <div class="text-center mt-4">
-                    <button type="submit" class="btn px-4 rounded-pill text-white shadow-sm"
-                            style="background: linear-gradient(135deg, #007bff, #00c6ff); border: none;">
-                        💾 Save
-                    </button>
-                    <a asp-action="Index" class="btn btn-outline-secondary px-4 rounded-pill ms-2">Cancel</a>
+            <div class="form-group">
+                <label asp-for="SpecializationId">Specialization</label>
+                <select asp-for="SpecializationId" asp-items="Model.Specializations" class="form-select"></select>
+                <span asp-validation-for="SpecializationId" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Clinics</label>
+                <div class="doctor-checkbox-group">
+                    @foreach (var clinic in Model.Clinics)
+                    {
+                        <div class="form-check">
+                            <input type="checkbox"
+                                   class="form-check-input"
+                                   name="ClinicIds"
+                                   value="@clinic.Value"
+                                   id="clinic_@clinic.Value" />
+                            <label class="form-check-label" for="clinic_@clinic.Value">
+                                @clinic.Text
+                            </label>
+                        </div>
+                    }
                 </div>
-            </form>
-        </div>
+                <span asp-validation-for="ClinicIds" class="text-danger small"></span>
+            </div>
+
+            <div class="doctor-create-actions">
+                <button type="submit" class="btn-create">Save</button>
+                <a asp-action="Index" class="btn-cancel">Cancel</a>
+            </div>
+        </form>
     </div>
 </div>
