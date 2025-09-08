@@ -1,47 +1,47 @@
 ﻿
-using HeaLEOO.ViewModels;
+using HeaLEOO.Models;
 
 namespace HeaLEOO.ALLServices
 {
     public class ServiceAppointments : IServiceAppointments
     {
-        private readonly IGenericRepo<Appointments> _repo;
+        private readonly IGenericRepo<Appointments> _genericRepo;
         private readonly IMapper _mapper;
-        public ServiceAppointments(IGenericRepo<Appointments> repo, IMapper mapper)
+
+        public ServiceAppointments(IGenericRepo<Appointments> genericRepo, IMapper mapper = null)
         {
-            _repo = repo;
+            _genericRepo = genericRepo;
             _mapper = mapper;
         }
 
-        public async Task<AppointmentsVM> AddAppAsync(AppointmentsVM appointmentsVM)
-        {
-            var appointments = _mapper.Map<Appointments>(appointmentsVM);
-            await _repo.Add(appointments);
-            await _repo.Complete();
 
-            return _mapper.Map<AppointmentsVM>(appointmentsVM);
+        public async Task<AppointmentsVM> CreateItem(AppointmentsVM appointments)
+        {
+            var apps = _mapper.Map<Appointments>(appointments);
+            await _genericRepo.Add(apps);
+            await _genericRepo.Complete();
+            return _mapper.Map<AppointmentsVM>(apps);
         }
 
-        public async Task<bool> DeleteAppAsync(int id)
+        public async Task<bool> DeletItem(int id)
         {
-            var appointments = await _repo.Delete(id);
-            if (appointments != null)
-            {
-                await _repo.Complete();
-                return true;
-            }
-            return false;
+            var appointments = await _genericRepo.GetById(id);
+            if (appointments == null) return false;
+
+            await _genericRepo.Delete(id);
+            await _genericRepo.Complete();
+            return true;
         }
 
-        public async Task<IEnumerable<AppointmentsVM>> GetAllAppAsync()
+        public async Task<IEnumerable<AppointmentsVM>> GetAllItems()
         {
-            var appointments = await _repo.GetAll();
+            var appointments = await _genericRepo.GetAll();
             return _mapper.Map<IEnumerable<AppointmentsVM>>(appointments);
         }
 
-        public async Task<AppointmentsVM> GetAppByIdAsync(int id)
+        public async Task<AppointmentsVM> GetItemById(int id)
         {
-            var appointments = await _repo.GetById(id);
+            var appointments = await _genericRepo.GetById(id);
             return _mapper.Map<AppointmentsVM>(appointments);
         }
     }

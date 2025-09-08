@@ -1,6 +1,6 @@
 ﻿namespace HeaLEOO.ALLServices
 {
-    public interface IServiceUserManagement
+    public interface IServiceUser_Management
     {
         Task<List<AppUserDto>> GetAllUsersAsync();
         Task<AppUserDto?> GetUserByIdAsync(string userId);

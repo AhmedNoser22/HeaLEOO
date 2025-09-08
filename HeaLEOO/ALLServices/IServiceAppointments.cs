@@ -2,9 +2,9 @@
 {
     public interface IServiceAppointments
     {
-        Task<AppointmentsVM> AddAppAsync(AppointmentsVM appointmentsVM);
-        Task<IEnumerable<AppointmentsVM>> GetAllAppAsync();
-        Task<AppointmentsVM> GetAppByIdAsync(int id);
-        Task<bool> DeleteAppAsync(int id);
+        Task<IEnumerable<AppointmentsVM>> GetAllItems();
+        Task<AppointmentsVM> GetItemById(int id);
+        Task<AppointmentsVM> CreateItem(AppointmentsVM model);
+        Task<bool> DeletItem(int id);
     }
 }

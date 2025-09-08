@@ -2,13 +2,14 @@
 using HeaLEOO.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
+
 namespace HeaLEOO.Controllers
 {
-    public class SpecializationController : Controller
+    public class SpecializationsController : Controller
     {
         private readonly IServiceSpec _serviceSpecializations;
 
-        public SpecializationController(IServiceSpec serviceSpecializations)
+        public SpecializationsController(IServiceSpec serviceSpecializations)
         {
             _serviceSpecializations = serviceSpecializations;
         }
