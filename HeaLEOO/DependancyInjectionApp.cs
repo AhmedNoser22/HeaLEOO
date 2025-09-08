@@ -23,7 +23,7 @@
             services.AddScoped(typeof(IGenericRepo<>),typeof(GenericRepo<>));
             services.AddAutoMapper(typeof(DependancyInjectionApp));
             services.AddScoped<IServiceAuth, ServiceAuth>(); 
-            services.AddScoped<IServicesDoctor, ServicesDoctor>();
+            
             services.AddScoped<IserviceSpecializations, serviceSpecializations>();
             services.AddScoped<IServiceAppointments, ServiceAppointments>();
             services.AddScoped<IServiceSpec, ServiceSpec>();
