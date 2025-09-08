@@ -1,12 +1,20 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace HeaLEOO.Controllers
+﻿namespace HeaLEOO.Controllers
 {
     public class ServicesController : Controller
     {
-        public IActionResult Index()
+        private readonly IServiceLM _serviceServices;
+        private readonly IMapper _mapper;
+
+        public ServicesController(IServiceLM serviceServices, IMapper mapper)
         {
-            return View();
+            _serviceServices = serviceServices;
+            _mapper = mapper;
         }
+        public async Task<IActionResult> Index()
+        {
+            var services = await _serviceServices.GetAllAsync();
+            return View(services);
+        }
+
     }
 }
