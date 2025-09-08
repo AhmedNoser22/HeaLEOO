@@ -5,6 +5,6 @@
         Task<IEnumerable<AppointmentsVM>> GetAllItems();
         Task<AppointmentsVM> GetItemById(int id);
         Task<AppointmentsVM> CreateItem(AppointmentsVM model);
-
+        Task<bool> DeletItem(int id);
     }
 }

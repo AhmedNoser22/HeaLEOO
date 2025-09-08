@@ -31,7 +31,15 @@
             return _mapper.Map<AppointmentsVM>(apps);
         }
 
+        public async Task<bool> DeletItem(int id)
+        {
+            var appointments = await _genericRepo.GetById(id);
+            if (appointments == null) return false;
 
+            await _genericRepo.Delete(id);
+            await _genericRepo.Complete();
+            return true;
+        }
 
 
 
