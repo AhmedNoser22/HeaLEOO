@@ -20,6 +20,19 @@
             var model = new ServiceVM();
             return View(model);
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(ServiceVM model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            await _serviceServices.CreateAsync(model);
+            return RedirectToAction(nameof(Index));
+        }
+
 
     }
 }
