@@ -16,5 +16,13 @@
             var services = await _serviceServices.GetAll();
             return View(services);
         }
+        public IActionResult Create()
+        {
+            var model = new ServiceVM
+            {
+                Clinics = _serviceClinDate.GetAllServiceClinDate()
+            };
+            return View(model);
+        }
     }
 }
