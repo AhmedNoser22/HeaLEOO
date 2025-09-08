@@ -16,18 +16,20 @@
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-.hero .btn {
-    border-radius: 30px;
-    padding: 0.8rem 2.5rem;
-    font-weight: 600;
-    margin-top: 1.5rem;
-    transition: all 0.3s ease;
-}
+    .hero .btn {
+        border-radius: 10px;
+        padding: 0.8rem 2.5rem !important;
+        font-weight: 600;
+        margin-top: 1.5rem;
+        transition: all 0.25s ease;
+        border: 2px solid #F8F9FA !important;
+    }
 
-.hero .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
+        .hero .btn:hover {
+            background-color: Transparent;
+            color: #FFF !important;
+            border-radius: 2px !important;
+        }
 
 .how-it-works, .features, .featured-clinics {
     padding: 5rem 0;
