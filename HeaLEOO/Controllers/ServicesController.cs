@@ -24,6 +24,14 @@
             };
             return View(model);
         }
+        public async Task<IActionResult> Details(int id)
+        {
+            var service = await _serviceServices.GetById(id);
+            if (service == null) return NotFound();
+
+            service.Clinics = _serviceClinDate.GetAllServiceClinDate();
+            return View(service);
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ServiceVM model)
