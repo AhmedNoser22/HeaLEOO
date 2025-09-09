@@ -1,6 +1,6 @@
 ﻿namespace HeaLEOO.Helper
 {
-    public class LookupService: ILookupService
+    public class LookupService: IServiceLookup
     {
         private readonly AppDbContext _context;
         public LookupService(AppDbContext context)

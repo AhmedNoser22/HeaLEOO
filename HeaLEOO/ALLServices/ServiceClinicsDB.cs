@@ -2,16 +2,16 @@
 {
     private readonly IGenericRepo<Clinics> _repo;
     private readonly IMapper _mapper;
-    private readonly ImageService _imageService;
+    private readonly IServiceImage _imageService;
     private readonly IServiceNserv _serviceNserv;
-    private readonly ILookupService _lookupService;
+    private readonly IServiceLookup _lookupService;
 
     public ServiceClinicsDB(
         IGenericRepo<Clinics> repo,
         IMapper mapper,
-        ImageService imageService,
+        IServiceImage imageService,
         IServiceNserv serviceNserv,
-        ILookupService lookupService)
+        IServiceLookup lookupService)
     {
         _repo = repo;
         _mapper = mapper;

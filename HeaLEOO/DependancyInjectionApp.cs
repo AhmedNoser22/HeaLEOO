@@ -28,16 +28,14 @@
             services.AddScoped<IServiceAppointments, ServiceAppointments>();
             services.AddScoped<IServiceSpec, ServiceSpec>();
             services.AddScoped<IServiceClinicsDB,ServiceClinicsDB>();
-            services.AddScoped<ImageService>();
+            services.AddScoped<IServiceImage>();
             services.AddScoped<IServiceUserManagement, ServiceUser_Management>();
             services.AddScoped<IServiceLM, ServiceLM>();
             services.AddScoped<IServiceNserv, ServiceNserv>();
-            services.AddScoped<ILookupService, LookupService>();
+            services.AddScoped<IServiceLookup, LookupService>();
             services.AddScoped<IServiceClinicsDB, ServiceClinicsDB>();
             services.AddScoped<IServiceClinDate, ServiceClinDate>();
             services.AddScoped<IRoleService,RoleService>();
-
-
             return services;
             
 

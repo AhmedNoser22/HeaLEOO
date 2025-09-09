@@ -1,6 +1,6 @@
 ﻿namespace HeaLEOO.Helper
 {
-    public interface ILookupService
+    public interface IServiceLookup
     {
         IEnumerable<SelectListItem> GetAllAppointments();
     }
