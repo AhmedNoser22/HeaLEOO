@@ -280,3 +280,53 @@
         color: #34495e;
         cursor: pointer;
     }
+
+    .doctor-checkbox-group .form-check {
+        display: flex;
+        align-items: center; /* ✅ checkbox + text same line */
+        gap: 0.5rem;
+    }
+
+    /* custom checkbox */
+    .doctor-checkbox-group .form-check-input {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background: #fff;
+        background-image: none;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #0bc850;
+        border-radius: 4px;
+        cursor: pointer;
+        position: relative;
+        flex-shrink: 0; /* ✅ stops shrinking, keeps spacing consistent */
+    }
+
+        /* checked state */
+        .doctor-checkbox-group .form-check-input:checked {
+            background-color: #0bc850;
+            border-color: #0bc850;
+        }
+
+            /* centered checkmark */
+            .doctor-checkbox-group .form-check-input:checked::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 6px;
+                height: 12px;
+                border: solid #fff;
+                border-width: 0 2px 2px 0;
+                transform: translate(-50%, -50%) rotate(45deg); /* ✅ perfectly centered */
+            }
+
+    /* label next to checkbox */
+    .doctor-checkbox-group .form-check-label {
+        font-size: 0.95rem;
+        color: #000; /* ✅ always black */
+        font-weight: normal;
+        cursor: pointer;
+        line-height: 1.2; /* ✅ fixes vertical alignment */
+    }
