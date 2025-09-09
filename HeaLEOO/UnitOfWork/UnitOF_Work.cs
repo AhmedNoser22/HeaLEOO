@@ -10,7 +10,7 @@
 
         public IGenericRepo<ModelService> GetRepoModelService { get; private set; }
 
-        public IGenericRepo<ServiceSpec> GetRepoServiceSpec { get; private set; }
+        public IGenericRepo<Specializations> GetRepoSpecializations { get; private set; }
         public UnitOF_Work(AppDbContext context)
         {
             _context = context;
@@ -18,14 +18,12 @@
             GetRepoDoctors = new GenericRepo<Doctors>(_context);
             GetRepoAppointments = new GenericRepo<Appointments>(_context);
             GetRepoModelService = new GenericRepo<ModelService>(_context);
-            GetRepoServiceSpec = new GenericRepo<ServiceSpec>(_context);
+            GetRepoSpecializations = new GenericRepo<Specializations>(_context);
         }
-
         public async Task<bool> Complete()
         {
             return await _context.SaveChangesAsync() > 0;
         }
-
         public void Dispose()
         {
             _context.Dispose();

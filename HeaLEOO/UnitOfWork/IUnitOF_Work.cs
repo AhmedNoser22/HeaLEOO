@@ -6,7 +6,7 @@
         IGenericRepo<Doctors> GetRepoDoctors { get; }
         IGenericRepo<Appointments> GetRepoAppointments { get; }
         IGenericRepo<ModelService> GetRepoModelService { get; }
-        IGenericRepo<ServiceSpec> GetRepoServiceSpec { get; }
+        IGenericRepo<Specializations> GetRepoSpecializations { get; }
         Task<bool> Complete();
     }
 }
