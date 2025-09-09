@@ -2,42 +2,40 @@
 {
     public class ServiceAppointments : IServiceAppointments
     {
-        private readonly IGenericRepo<Appointments> _genericRepo;
+        private readonly IUnitOF_Work work;
         private readonly IMapper _mapper;
 
-        public ServiceAppointments(IGenericRepo<Appointments> genericRepo, IMapper mapper = null)
+        public ServiceAppointments(IMapper mapper,IUnitOF_Work work)
         {
-            _genericRepo = genericRepo;
             _mapper = mapper;
+            this.work = work;
         }
 
         public async Task<IEnumerable<AppointmentsVM>> GetAllItems()
         {
-            var appointments = await _genericRepo.GetAll();
+            var appointments = await work.GetRepoAppointments.GetAll();
             return _mapper.Map<IEnumerable<AppointmentsVM>>(appointments);
         }
 
         public async Task<AppointmentsVM> GetItemById(int id)
         {
-            var appointments = await _genericRepo.GetById(id);
+            var appointments = await work.GetRepoAppointments.GetById(id);
             return _mapper.Map<AppointmentsVM>(appointments);
         }
-
         public async Task<AppointmentsVM> CreateItem(AppointmentsVM appointments)
         {
             var apps = _mapper.Map<Appointments>(appointments);
-            await _genericRepo.Add(apps);
-            await _genericRepo.Complete();
+            await work.GetRepoAppointments.Add(apps);
+            await work.Complete();
             return _mapper.Map<AppointmentsVM>(apps);
         }
-
         public async Task<bool> DeletItem(int id)
         {
-            var appointments = await _genericRepo.GetById(id);
+            var appointments = await work.GetRepoAppointments.GetById(id);
             if (appointments == null) return false;
 
-            await _genericRepo.Delete(id);
-            await _genericRepo.Complete();
+            await work.GetRepoAppointments.Delete(id);
+            await work.Complete();
             return true;
         }
 

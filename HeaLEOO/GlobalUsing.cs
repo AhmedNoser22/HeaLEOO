@@ -15,3 +15,4 @@ global using Microsoft.AspNetCore.Mvc.Rendering;
 global using HeaLEOO.Helper;
 global using HeaLEOO.Setting;
 global using HeaLEOO.ServicesHel;
+global using HeaLEOO.UnitOfWork;
