@@ -10,6 +10,7 @@
         [Display(Name = "Clinics")]
         [Required(ErrorMessage = "clinic is required.")]
         public int clinicId { get; set; }
+        public string? ClinicName { get; set; }
         public IEnumerable<SelectListItem> Clinics { get; set; } = Enumerable.Empty<SelectListItem>();
     }
 }
