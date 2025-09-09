@@ -21,8 +21,6 @@
             return await query.ToListAsync();
         }
 
-
-
         public async Task<T> GetById(int id)
         {
             if (id <= 0)

@@ -27,9 +27,10 @@
         public async Task<IActionResult> Details(int id)
         {
             var service = await _serviceServices.GetById(id);
-            if (service == null) return NotFound();
-
-            service.Clinics = _serviceClinDate.GetAllServiceClinDate();
+            if (service == null)
+            {
+                return NotFound();
+            }
             return View(service);
         }
         [HttpPost]
@@ -72,20 +73,26 @@
         public async Task<IActionResult> Delete(int id)
         {
             var service = await _serviceServices.GetById(id);
-            if (service == null) return NotFound();
+
+            if (service == null)
+            {
+                return NotFound(); 
+            }
 
             return View(service);
         }
-        [HttpPost, ActionName("DeleteConfirmed")]
+
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var result = await _serviceServices.Delete(id);
-            if (result)
-                TempData["SuccessMessage"] = "Service deleted successfully.";
-            else
-                TempData["ErrorMessage"] = "Failed to delete service.";
+            var service = await _serviceServices.GetById(id);
+            if (service == null)
+            {
+                return NotFound();
+            }
 
+            await _serviceServices.Delete(id);
             return RedirectToAction(nameof(Index));
         }
     }
