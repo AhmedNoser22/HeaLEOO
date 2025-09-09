@@ -25,6 +25,18 @@ namespace HeaLEOO.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(AppointmentsVM model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            await _serviceAppointments.CreateItem(model);
+            return RedirectToAction(nameof(Index));
+        }
 
     }
 }
