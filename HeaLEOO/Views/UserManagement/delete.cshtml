@@ -1,4 +1,4 @@
-﻿@using HeaLEOO.DTOs
+﻿@* @using HeaLEOO.DTOs
 @model AppUserDto
 
 @{
@@ -18,6 +18,31 @@
                 <input type="hidden" asp-for="Id" />
                 <button type="submit" class="btn btn-danger rounded-pill px-4">Yes, Delete</button>
                 <a asp-action="Index" class="btn btn-secondary rounded-pill px-4">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div> *@
+
+
+@using HeaLEOO.DTOs
+@model AppUserDto
+
+@{
+    ViewData["Title"] = "Delete User";
+}
+
+<div class="user-create-container">
+    <div class="user-create-card">
+        <h2 class="user-create-title">Delete User</h2>
+
+        <div class="user-create-form text-center">
+            <p class="fs-5">Are you sure you want to delete this user?</p>
+            <p><strong>@Model.UserName</strong> - @Model.Email</p>
+
+            <form asp-action="DeleteConfirmed" method="post" class="user-create-actions">
+                <input type="hidden" asp-for="Id" />
+                <button type="submit" class="user-btn-delete">Yes, Delete</button>
+                <a asp-action="Index" class="user-btn-cancel">Cancel</a>
             </form>
         </div>
     </div>
