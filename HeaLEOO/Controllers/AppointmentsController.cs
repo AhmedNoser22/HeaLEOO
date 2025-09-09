@@ -38,5 +38,14 @@ namespace HeaLEOO.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public async Task<IActionResult> Details(int id)
+        {
+            var appointment = await _serviceAppointments.GetItemById(id);
+            if (appointment == null) return NotFound();
+
+            return View(appointment);
+        }
+
+
     }
 }
