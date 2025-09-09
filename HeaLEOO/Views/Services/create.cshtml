@@ -22,12 +22,25 @@
             </div>
 
             <div class="form-group">
-                <label asp-for="clinicId"></label>
-                <select asp-for="clinicId" asp-items="Model.Clinics">
-                    <option value="">Choose clinic</option>
-                </select>
-                <span asp-validation-for="clinicId" class="text-danger"></span>
+                <label>Services</label>
+                <div class="services-radio-group">
+                    @foreach (var clinic in Model.Clinics)
+                    {
+                        <div class="form-radio">
+                            <input type="radio"
+                                   class="form-radio-input"
+                                   name="ClinicIds"
+                                   value="@clinic.Value"
+                                   id="service_@clinic.Value" />
+                            <label class="form-radio-label" for="service_@clinic.Value">
+                                @clinic.Text
+                            </label>
+                        </div>
+                    }
+                </div>
+                <span asp-validation-for="clinicId" class="text-danger small"></span>
             </div>
+
 
             <div class="service-create-actions">
                 <button type="submit" class="btn-create">Save</button>
