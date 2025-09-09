@@ -69,9 +69,5 @@ namespace HeaLEOO.Controllers
 
             return RedirectToAction(nameof(Index));
         }
-
-
-
-
     }
 }
