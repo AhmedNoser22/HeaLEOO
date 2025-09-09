@@ -3,31 +3,28 @@
     private readonly IGenericRepo<Clinics> _repo;
     private readonly IMapper _mapper;
     private readonly IServiceImage _imageService;
-    private readonly IServiceNserv _serviceNserv;
     private readonly IServiceLookup _lookupService;
 
     public ServiceClinicsDB(
         IGenericRepo<Clinics> repo,
         IMapper mapper,
         IServiceImage imageService,
-        IServiceNserv serviceNserv,
         IServiceLookup lookupService)
     {
         _repo = repo;
         _mapper = mapper;
         _imageService = imageService;
-        _serviceNserv = serviceNserv;
         _lookupService = lookupService;
     }
+
     public async Task<IEnumerable<ClinicVM>> GetAllClinicsAsync()
     {
-        var clinics = await _repo.GetAll();
+        var clinics = await _repo.GetAll(query => query.Include(c => c.Services));
         var mapped = _mapper.Map<IEnumerable<ClinicVM>>(clinics);
 
         foreach (var c in mapped)
         {
             c.Appointments = _lookupService.GetAllAppointments();
-            c.Services = _serviceNserv.GetAllServices();
         }
 
         return mapped;
@@ -35,12 +32,11 @@
 
     public async Task<ClinicVM> GetClinicByIdAsync(int id)
     {
-        var clinic = await _repo.GetById(id);
-        if (clinic == null) return null;
+        var clinic = await _repo.GetById(id, query => query.Include(c => c.Services));
+        if (clinic == null) return null!;
 
         var mapped = _mapper.Map<ClinicVM>(clinic);
         mapped.Appointments = _lookupService.GetAllAppointments();
-        mapped.Services = _serviceNserv.GetAllServices();
 
         return mapped;
     }
@@ -56,6 +52,7 @@
 
         return _mapper.Map<ClinicVM>(clinic);
     }
+
     public async Task<bool> DeleteClinicAsync(int id)
     {
         var clinic = await _repo.Delete(id);

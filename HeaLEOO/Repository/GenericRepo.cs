@@ -22,12 +22,15 @@ namespace HeaLEOO.Repository
 
             return await query.ToListAsync();
         }
-        public async Task<T?> GetById(int id)
+        public async Task<T?> GetById(int id, Func<IQueryable<T>, IQueryable<T>>? include = null)
         {
-            return await _Context.Set<T>().FindAsync(id);
+            IQueryable<T> query =_Context.Set<T>();
+
+            if (include != null)
+                query = include(query);
+
+            return await query.FirstOrDefaultAsync(e => EF.Property<int>(e, "Id") == id);
         }
-
-
         public async Task<T> Add(T entity)
         {
             if (entity == null)
