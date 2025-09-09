@@ -70,21 +70,15 @@
 
             return RedirectToAction(nameof(Index));
         }
-        [HttpGet]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
             var service = await _serviceServices.GetById(id);
             if (service == null) return NotFound();
 
-            service.Clinics = _serviceClinDate.GetAllServiceClinDate();
-            return View(service);
-        }
-
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
             var result = await _serviceServices.Delete(id);
+
             if (result)
                 TempData["SuccessMessage"] = "Service deleted successfully.";
             else
@@ -92,5 +86,6 @@
 
             return RedirectToAction(nameof(Index));
         }
+
     }
 }
