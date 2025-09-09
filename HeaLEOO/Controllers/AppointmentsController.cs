@@ -46,6 +46,15 @@ namespace HeaLEOO.Controllers
             return View(appointment);
         }
 
+        public async Task<IActionResult> Delete(int id)
+        {
+            var appointment = await _serviceAppointments.GetItemById(id);
+            if (appointment == null) return NotFound();
+
+            return View(appointment);
+        }
+
+
 
     }
 }
