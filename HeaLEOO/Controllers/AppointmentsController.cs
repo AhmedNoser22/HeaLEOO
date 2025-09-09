@@ -54,6 +54,23 @@ namespace HeaLEOO.Controllers
             return View(appointment);
         }
 
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var result = await _serviceAppointments.DeletItem(id);
+
+            if (result)
+            {
+                TempData["SuccessMessage"] = "Appointment deleted successfully.";
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "Failed to delete appointment.";
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+
+
 
 
     }
