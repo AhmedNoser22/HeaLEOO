@@ -1,0 +1,20 @@
+﻿@model HeaLEOO.ViewModels.ServiceVM
+
+@{
+    ViewData["Title"] = "Service Details";
+}
+
+<h2>Service Details</h2>
+
+<div class="card">
+    <div class="card-body">
+        <h4>@Model.Name</h4>
+        <p><strong>Price:</strong> @Model.Price</p>
+        <p>
+            <strong>Clinic:</strong>
+            @Model.Clinics?.FirstOrDefault(c => c.Value == Model.clinicId.ToString())?.Text
+        </p>
+    </div>
+</div>
+
+<a asp-action="Index" class="btn btn-secondary">Back</a>
