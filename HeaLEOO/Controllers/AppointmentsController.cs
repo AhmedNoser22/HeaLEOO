@@ -19,6 +19,11 @@ namespace HeaLEOO.Controllers
             return View(appointments);
         }
 
+        public IActionResult Create()
+        {
+            var model = new AppointmentsVM();
+            return View(model);
+        }
 
 
     }
