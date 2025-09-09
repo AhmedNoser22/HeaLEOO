@@ -1,38 +1,38 @@
-﻿public class ServiceClinicsDB : IServiceClinicsDB
+﻿using HeaLEOO.UnitOfWork;
+public class ServiceClinicsDB : IServiceClinicsDB
 {
-    private readonly IGenericRepo<Clinics> _repo;
+    private readonly IUnitOF_Work work;
     private readonly IMapper _mapper;
     private readonly IServiceImage _imageService;
     private readonly IServiceLookup _lookupService;
 
     public ServiceClinicsDB(
-        IGenericRepo<Clinics> repo,
         IMapper mapper,
         IServiceImage imageService,
-        IServiceLookup lookupService)
+        IServiceLookup lookupService,
+        IUnitOF_Work work)
     {
-        _repo = repo;
         _mapper = mapper;
         _imageService = imageService;
         _lookupService = lookupService;
+        this.work = work;
     }
 
     public async Task<IEnumerable<ClinicVM>> GetAllClinicsAsync()
     {
-        var clinics = await _repo.GetAll(query => query.Include(c => c.Services));
+        var clinics = await work.GetRepoCliinics.GetAll(query => query.Include(c => c.Services));
         var mapped = _mapper.Map<IEnumerable<ClinicVM>>(clinics);
 
         foreach (var c in mapped)
         {
             c.Appointments = _lookupService.GetAllAppointments();
         }
-
         return mapped;
     }
 
     public async Task<ClinicVM> GetClinicByIdAsync(int id)
     {
-        var clinic = await _repo.GetById(id, query => query.Include(c => c.Services));
+        var clinic = await work.GetRepoCliinics.GetById(id, query => query.Include(c => c.Services));
         if (clinic == null) return null!;
 
         var mapped = _mapper.Map<ClinicVM>(clinic);
@@ -47,20 +47,20 @@
         if (file != null)
             clinic.PhotoUrl = await _imageService.UploadImageAsync(file);
 
-        await _repo.Add(clinic);
-        await _repo.Complete();
+        await work.GetRepoCliinics.Add(clinic);
+        await work.Complete();
 
         return _mapper.Map<ClinicVM>(clinic);
     }
 
     public async Task<bool> DeleteClinicAsync(int id)
     {
-        var clinic = await _repo.Delete(id);
+        var clinic = await work.GetRepoCliinics.Delete(id);
         if (clinic == null) return false;
 
         if (!string.IsNullOrEmpty(clinic.PhotoUrl))
             _imageService.DeleteImage(clinic.PhotoUrl);
 
-        return await _repo.Complete();
+        return await work.Complete();
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace HeaLEOO
+﻿using HeaLEOO.UnitOfWork;
+
+namespace HeaLEOO
 {
     public static class DependancyInjectionApp
     {
@@ -21,6 +23,7 @@
                 )
                 .AddEntityFrameworkStores<AppDbContext>();
             services.AddScoped(typeof(IGenericRepo<>),typeof(GenericRepo<>));
+            services.AddScoped<IUnitOF_Work, UnitOF_Work>();
             services.AddAutoMapper(typeof(DependancyInjectionApp));
             services.AddScoped<IServiceAuth, ServiceAuth>();
             services.AddScoped<IServicesDoctor, ServicesDoctor>();
