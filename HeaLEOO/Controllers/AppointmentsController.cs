@@ -13,6 +13,11 @@ namespace HeaLEOO.Controllers
             _mapper = mapper;
         }
 
+        public async Task<IActionResult> Index()
+        {
+            var appointments = await _serviceAppointments.GetAllItems();
+            return View(appointments);
+        }
 
 
 
