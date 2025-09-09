@@ -58,15 +58,9 @@ namespace HeaLEOO.Controllers
         {
             var result = await _serviceAppointments.DeletItem(id);
 
-            if (result)
-            {
-                TempData["SuccessMessage"] = "Appointment deleted successfully.";
-            }
-            else
-            {
-                TempData["ErrorMessage"] = "Failed to delete appointment.";
-            }
-
+            if (result) TempData["SuccessMessage"] = "Appointment deleted successfully.";
+            else TempData["ErrorMessage"] = "Failed to delete appointment.";
+            
             return RedirectToAction(nameof(Index));
         }
     }
