@@ -2,23 +2,23 @@
 {
     public class ServiceLM : IServiceLM
     {
-        private readonly IGenericRepo<ModelService> _genericRepo;
+        private readonly IUnitOF_Work work;
         private readonly IMapper _mapper;
         private readonly IServiceClinDate _serviceClinDate;
 
         public ServiceLM(
-            IGenericRepo<ModelService> genericRepo,
             IMapper mapper,
-            IServiceClinDate serviceClinDate)
+            IServiceClinDate serviceClinDate,
+            IUnitOF_Work work)
         {
-            _genericRepo = genericRepo;
             _mapper = mapper;
             _serviceClinDate = serviceClinDate;
+            this.work = work;
         }
 
         public async Task<IEnumerable<ServiceVM>> GetAll()
         {
-            var services = await _genericRepo.GetAll(query =>
+            var services = await work.GetRepoModelService.GetAll(query =>
                 query.Include(x => x.Clinic));
 
             return _mapper.Map<IEnumerable<ServiceVM>>(services);
@@ -26,7 +26,7 @@
 
         public async Task<ServiceVM?> GetById(int id)
         {
-            var service = await _genericRepo.GetById(id);
+            var service = await work.GetRepoModelService.GetById(id);
             if (service == null) return null;
 
             var model = _mapper.Map<ServiceVM>(service);
@@ -37,24 +37,24 @@
         public async Task<bool> Create(ServiceVM model)
         {
             var entity = _mapper.Map<ModelService>(model);
-            await _genericRepo.Add(entity);
-            return await _genericRepo.Complete();
+            await work.GetRepoModelService.Add(entity);
+            return await work.Complete();
         }
 
         public async Task<bool> Update(int id, ServiceVM model)
         {
-            var entity = await _genericRepo.GetById(id);
+            var entity = await work.GetRepoModelService.GetById(id);
             if (entity == null) return false;
 
             _mapper.Map(model, entity); 
-            _genericRepo.Update(entity);
-            return await _genericRepo.Complete();
+            work.GetRepoModelService.Update(entity);
+            return await work.Complete();
         }
 
         public async Task<bool> Delete(int id)
         {
-            await _genericRepo.Delete(id);
-            return await _genericRepo.Complete();
+            await work.GetRepoModelService.Delete(id);
+            return await work.Complete();
         }
     }
 }
