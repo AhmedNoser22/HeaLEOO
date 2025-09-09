@@ -24,13 +24,13 @@
             };
             return View(model);
         }
+        [HttpGet]
         public async Task<IActionResult> Details(int id)
         {
             var service = await _serviceServices.GetById(id);
-            if (service == null)
-            {
-                return NotFound();
-            }
+            if (service == null) return NotFound();
+
+            service.Clinics = _serviceClinDate.GetAllServiceClinDate();
             return View(service);
         }
         [HttpPost]
@@ -70,15 +70,13 @@
 
             return RedirectToAction(nameof(Index));
         }
+        [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
             var service = await _serviceServices.GetById(id);
+            if (service == null) return NotFound();
 
-            if (service == null)
-            {
-                return NotFound(); 
-            }
-
+            service.Clinics = _serviceClinDate.GetAllServiceClinDate();
             return View(service);
         }
 
@@ -86,13 +84,12 @@
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var service = await _serviceServices.GetById(id);
-            if (service == null)
-            {
-                return NotFound();
-            }
+            var result = await _serviceServices.Delete(id);
+            if (result)
+                TempData["SuccessMessage"] = "Service deleted successfully.";
+            else
+                TempData["ErrorMessage"] = "Failed to delete service.";
 
-            await _serviceServices.Delete(id);
             return RedirectToAction(nameof(Index));
         }
     }
