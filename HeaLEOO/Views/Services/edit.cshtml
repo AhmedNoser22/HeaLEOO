@@ -1,0 +1,34 @@
+﻿@model HeaLEOO.ViewModels.ServiceVM
+
+@{
+    ViewData["Title"] = "Edit Service";
+}
+
+<h2>Edit Service</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="clinicId" />
+
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="clinicId"></label>
+        <select asp-for="clinicId" asp-items="Model.Clinics" class="form-control">
+            <option value="">-- اختر عيادة --</option>
+        </select>
+        <span asp-validation-for="clinicId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a asp-action="Index" class="btn btn-secondary">Back</a>
+</form>
