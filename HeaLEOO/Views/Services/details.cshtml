@@ -4,17 +4,24 @@
     ViewData["Title"] = "Service Details";
 }
 
-<h2>Service Details</h2>
+<div class="service-details-container">
+    <div class="service-details-card">
+        <h2 class="service-details-name">@Model.Name</h2>
 
-<div class="card">
-    <div class="card-body">
-        <h4>@Model.Name</h4>
-        <p><strong>Price:</strong> @Model.Price</p>
-        <p>
-            <strong>Clinic:</strong>
-            @Model.Clinics?.FirstOrDefault(c => c.Value == Model.clinicId.ToString())?.Text
-        </p>
+        <div class="service-details-section">
+            <h3>Price</h3>
+            <p>@Model.Price</p>
+        </div>
+
+        <div class="service-details-section">
+            <h3>Clinic</h3>
+            <p>
+                @Model.Clinics?.FirstOrDefault(c => c.Value == Model.clinicId.ToString())?.Text
+            </p>
+        </div>
+
+        <div class="service-details-actions">
+            <a asp-action="Index" class="btn-back">← Back to List</a>
+        </div>
     </div>
 </div>
-
-<a asp-action="Index" class="btn btn-secondary">Back</a>

@@ -6,9 +6,17 @@
 
 <h2>Services</h2>
 
-<p>
-    <a asp-action="Create" class="btn btn-primary">+ Add Service</a>
-</p>
+    <div class="services-grid">
+        @foreach (var service in Model)
+        {
+            <div class="service-card">
+                <div class="service-info">
+                    <h3 class="service-name">@service.Name</h3>
+                    <p class="service-price">@service.Price</p>
+                    <p class="service-clinic">
+                        @service.Clinics?.FirstOrDefault(c => c.Value == service.clinicId.ToString())?.Text
+                    </p>
+                </div>
 
 <table class="table table-bordered table-striped">
     <thead>
@@ -37,9 +45,12 @@
                             Delete
                         </button>
                     </form>
-                </td>
-
-            </tr>
+                </div>
+            </div>
         }
-    </tbody>
-</table>
+    </div>
+
+    <div class="services-footer">
+        <a asp-action="Create" class="btn-create">+ Add New Service</a>
+    </div>
+</div>

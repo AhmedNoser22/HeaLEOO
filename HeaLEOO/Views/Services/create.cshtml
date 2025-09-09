@@ -4,29 +4,35 @@
     ViewData["Title"] = "Create Service";
 }
 
-<h2>Create Service</h2>
+<div class="service-create-container">
+    <div class="service-create-card">
+        <h2 class="service-create-title">Create Service</h2>
 
-<form asp-action="Create" method="post">
-    <div class="form-group">
-        <label asp-for="Name"></label>
-        <input asp-for="Name" class="form-control" />
-        <span asp-validation-for="Name" class="text-danger"></span>
+        <form asp-action="Create" method="post" class="service-create-form">
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Price"></label>
+                <input asp-for="Price" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="clinicId"></label>
+                <select asp-for="clinicId" asp-items="Model.Clinics">
+                    <option value="">Choose clinic</option>
+                </select>
+                <span asp-validation-for="clinicId" class="text-danger"></span>
+            </div>
+
+            <div class="service-create-actions">
+                <button type="submit" class="btn-create">Save</button>
+                <a asp-action="Index" class="btn-cancel">Back</a>
+            </div>
+        </form>
     </div>
-
-    <div class="form-group">
-        <label asp-for="Price"></label>
-        <input asp-for="Price" class="form-control" />
-        <span asp-validation-for="Price" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="clinicId"></label>
-        <select asp-for="clinicId" asp-items="Model.Clinics" class="form-control">
-            <option value="">-- اختر عيادة --</option>
-        </select>
-        <span asp-validation-for="clinicId" class="text-danger"></span>
-    </div>
-
-    <button type="submit" class="btn btn-success">Save</button>
-    <a asp-action="Index" class="btn btn-secondary">Back</a>
-</form>
+</div>

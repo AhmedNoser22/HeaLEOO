@@ -1,4 +1,4 @@
-﻿@using HeaLEOO.DTOs
+﻿@* @using HeaLEOO.DTOs
 @model AppUserDto
 
 @{
@@ -25,6 +25,29 @@
             <a asp-action="Index" class="btn btn-secondary rounded-pill px-4">⬅ Back</a>
             <a asp-action="Delete" asp-route-id="@Model.Id"
                class="btn btn-danger rounded-pill px-4">🗑 Delete</a>
+        </div>
+    </div>
+</div> *@
+
+
+@using HeaLEOO.DTOs
+@model AppUserDto
+
+@{
+    ViewData["Title"] = "User Details";
+}
+
+<div class="user-details-container">
+    <div class="user-details-card">
+        <h2 class="user-details-name">@Model.UserName</h2>
+
+        <div class="user-details-section">
+            <h3>Email</h3>
+            <p>@Model.Email</p>
+        </div>
+
+        <div class="user-details-actions">
+            <a asp-action="Index" class="user-btn-back">← Back to List</a>
         </div>
     </div>
 </div>
