@@ -325,7 +325,7 @@
     /* label next to checkbox */
     .doctor-checkbox-group .form-check-label {
         font-size: 0.95rem;
-        color: #000; /* ✅ always black */
+        color: #000 !important; /* ✅ always black */
         font-weight: normal;
         cursor: pointer;
         line-height: 1.2; /* ✅ fixes vertical alignment */
