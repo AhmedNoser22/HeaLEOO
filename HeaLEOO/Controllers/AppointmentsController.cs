@@ -58,9 +58,6 @@
 
             return RedirectToAction(nameof(Index));
         }
-
-
-
         public async Task<IActionResult> Details(int id)
         {
             var appointment = await _serviceAppointments.GetItemById(id);
@@ -68,7 +65,6 @@
 
             return View(appointment);
         }
-
         public async Task<IActionResult> Delete(int id)
         {
             var appointment = await _serviceAppointments.GetItemById(id);
