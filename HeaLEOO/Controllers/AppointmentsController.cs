@@ -15,7 +15,7 @@ namespace HeaLEOO.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var appointments = await _serviceAppointments.GetAllItems();    
+            var appointments = await _serviceAppointments.GetAllItems();
             return View(appointments);
         }
 
@@ -58,15 +58,9 @@ namespace HeaLEOO.Controllers
         {
             var result = await _serviceAppointments.DeletItem(id);
 
-            if (result)
-            {
-                TempData["SuccessMessage"] = "Appointment deleted successfully.";
-            }
-            else
-            {
-                TempData["ErrorMessage"] = "Failed to delete appointment.";
-            }
-
+            if (result) TempData["SuccessMessage"] = "Appointment deleted successfully.";
+            else TempData["ErrorMessage"] = "Failed to delete appointment.";
+            
             return RedirectToAction(nameof(Index));
         }
     }
