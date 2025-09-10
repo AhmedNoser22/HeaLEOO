@@ -1,7 +1,4 @@
-﻿@model HeaLEOO.ViewModels.AppointmentsVM
-
-<h2>Create Appointment</h2>
-
+﻿@model AppointmentsVM
 <form asp-action="Create" method="post">
     <div class="form-group">
         <label asp-for="App_Date"></label>
@@ -20,11 +17,17 @@
         <input asp-for="status" class="form-control" />
         <span asp-validation-for="status" class="text-danger"></span>
     </div>
+
     <div class="form-group form-check">
-        <input asp-for="isActive" class="form-check-input" />
+        <input type="checkbox" name="isActive" value="true" class="form-check-input"
+               @(Model?.isActive == true ? "checked" : "") />
         <label class="form-check-label" asp-for="isActive"></label>
     </div>
-
+    <div class="form-group">
+        <label asp-for="ClinicId"></label>
+        <select asp-for="ClinicId" asp-items="Model.SelectClinics" class="form-control"></select>
+        <span asp-validation-for="ClinicId" class="text-danger"></span>
+    </div>
 
     <button type="submit" class="btn btn-success">Save</button>
     <a asp-action="Index" class="btn btn-secondary">Back</a>

@@ -10,6 +10,7 @@
             _mapper = mapper;
             this.work = work;
         }
+
         public async Task<IEnumerable<AppointmentsVM>> GetAllItems()
         {
             var appointments = await work.GetRepoAppointments.GetAll(include: q =>
@@ -19,6 +20,7 @@
 
             return _mapper.Map<IEnumerable<AppointmentsVM>>(appointments);
         }
+
         public async Task<AppointmentsVM?> GetItemById(int id)
         {
             var appointment = await work.GetRepoAppointments.GetById(id,
@@ -28,6 +30,7 @@
 
             return _mapper.Map<AppointmentsVM>(appointment);
         }
+
         public async Task<AppointmentsVM> CreateItem(Appointments appointment)
         {
             await work.GetRepoAppointments.Add(appointment);
@@ -35,6 +38,7 @@
 
             return _mapper.Map<AppointmentsVM>(appointment);
         }
+
         public async Task<IEnumerable<AppointmentsVM>> GetAppointmentsWithUsers()
         {
             var appointments = await work.GetRepoAppointments.GetAll(include: q =>
@@ -44,14 +48,16 @@
 
             return _mapper.Map<IEnumerable<AppointmentsVM>>(appointments);
         }
+
         public async Task<IEnumerable<AppointmentsVM>> GetAvailableAppointments(int doctorId, int clinicId)
         {
             var appointments = await work.GetRepoAppointments.GetAll(
-                a => a.DoctorId == doctorId && a.ClinicId == clinicId && a.isActive == true,
-                q => q.Include(a => a.Doctors).Include(a => a.Clinics));
+                filter: a => a.DoctorId == doctorId && a.ClinicId == clinicId && a.isActive == true,
+                include: q => q.Include(a => a.Doctors).Include(a => a.Clinics));
 
             return _mapper.Map<IEnumerable<AppointmentsVM>>(appointments);
         }
+
         public async Task<bool> DeleteItem(int id)
         {
             var appointment = await work.GetRepoAppointments.GetById(id);
