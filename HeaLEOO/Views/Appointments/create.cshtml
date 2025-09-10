@@ -1,0 +1,28 @@
+﻿@model HeaLEOO.ViewModels.AppointmentsVM
+
+<h2>Create Appointment</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="App_Date"></label>
+        <input asp-for="App_Date" type="datetime-local" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DoctorId"></label>
+        <select asp-for="DoctorId" asp-items="Model.SelectDoctors" class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="status"></label>
+        <input asp-for="status" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="isActive"></label>
+        <input asp-for="isActive" type="checkbox" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Back</a>
+</form>

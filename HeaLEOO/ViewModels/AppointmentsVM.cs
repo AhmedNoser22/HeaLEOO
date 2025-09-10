@@ -7,6 +7,7 @@
         public bool? isActive { get; set; }
         [Display(Name = "Doctors")]
         public int DoctorId { get; set; }
+        public AppUser AppUser { get; set; } = default!;
         public string DoctorName { get; set; } = default!;
         public IEnumerable<SelectListItem> SelectDoctors { get; set; } = Enumerable.Empty<SelectListItem>();
     }

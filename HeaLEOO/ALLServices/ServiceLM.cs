@@ -18,7 +18,7 @@
 
         public async Task<IEnumerable<ServiceVM>> GetAll()
         {
-            var services = await work.GetRepoModelService.GetAll(query =>
+            var services = await work.GetRepoModelService.GetAll(include:query =>
                 query.Include(x => x.Clinic));
 
             return _mapper.Map<IEnumerable<ServiceVM>>(services);

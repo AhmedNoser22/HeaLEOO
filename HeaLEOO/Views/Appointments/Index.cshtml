@@ -1,0 +1,31 @@
+﻿@model IEnumerable<HeaLEOO.ViewModels.AppointmentsVM>
+<h2>All Appointments</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Active</th>
+            <th>Doctor</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.App_Date.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>@item.status</td>
+                <td>@(item.isActive == true ? "Yes" : "No")</td>
+                <td>@item.DoctorName</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.DoctorId" class="btn btn-info">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.DoctorId" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create" class="btn btn-primary">Create New Appointment</a>

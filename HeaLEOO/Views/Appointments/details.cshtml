@@ -1,0 +1,12 @@
+﻿@model HeaLEOO.ViewModels.AppointmentsVM
+
+<h2>Appointment Details</h2>
+
+<div>
+    <p><strong>Date:</strong> @Model.App_Date</p>
+    <p><strong>Status:</strong> @Model.status</p>
+    <p><strong>Active:</strong> @(Model.isActive == true ? "Yes" : "No")</p>
+    <p><strong>Doctor:</strong> @Model.DoctorName</p>
+</div>
+
+<a asp-action="Index" class="btn btn-secondary">Back</a>

@@ -20,7 +20,7 @@ public class ServiceClinicsDB : IServiceClinicsDB
 
     public async Task<IEnumerable<ClinicVM>> GetAllClinicsAsync()
     {
-        var clinics = await work.GetRepoCliinics.GetAll(query => query.Include(c => c.Services));
+        var clinics = await work.GetRepoCliinics.GetAll(include: query => query.Include(c => c.Services));
         var mapped = _mapper.Map<IEnumerable<ClinicVM>>(clinics);
 
         foreach (var c in mapped)
