@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace HeaLEOO.Repository
 {
@@ -10,15 +12,15 @@ namespace HeaLEOO.Repository
         {
             _Context = context ?? throw new ArgumentNullException(nameof(context));
         }
-
-        public async Task<IEnumerable<T>> GetAll(Func<IQueryable<T>, IQueryable<T>> include = null!)
+        public async Task<IEnumerable<T>> GetAll(Expression<Func<T, bool>>? filter = null,Func<IQueryable<T>, IQueryable<T>>? include = null)
         {
             IQueryable<T> query = _Context.Set<T>();
 
+            if (filter != null)
+                query = query.Where(filter);
+
             if (include != null)
-            {
                 query = include(query);
-            }
 
             return await query.ToListAsync();
         }

@@ -5,7 +5,6 @@
         public DateTime App_Date { get; set; }
         public string? status { get; set; }
         public bool? isActive { get; set; }
-        [ForeignKey("Doctors")]
         [Display(Name = "Doctors")]
         public int DoctorId { get; set; }
         public string DoctorName { get; set; } = default!;
