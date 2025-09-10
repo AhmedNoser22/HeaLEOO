@@ -10,8 +10,6 @@
             _mapper = mapper;
             this.work = work;
         }
-
-        // كل المواعيد
         public async Task<IEnumerable<AppointmentsVM>> GetAllItems()
         {
             var appointments = await work.GetRepoAppointments.GetAll(include: q =>
@@ -47,14 +45,13 @@
             return _mapper.Map<IEnumerable<AppointmentsVM>>(appointments);
         }
         public async Task<IEnumerable<AppointmentsVM>> GetAvailableAppointments(int doctorId, int clinicId)
-{
-    var appointments = await work.GetRepoAppointments.GetAll(
-        a => a.DoctorId == doctorId && a.ClinicId == clinicId && a.isActive == true,
-        q => q.Include(a => a.Doctors).Include(a => a.Clinics));
+        {
+            var appointments = await work.GetRepoAppointments.GetAll(
+                a => a.DoctorId == doctorId && a.ClinicId == clinicId && a.isActive == true,
+                q => q.Include(a => a.Doctors).Include(a => a.Clinics));
 
-    return _mapper.Map<IEnumerable<AppointmentsVM>>(appointments);
-}
-
+            return _mapper.Map<IEnumerable<AppointmentsVM>>(appointments);
+        }
         public async Task<bool> DeleteItem(int id)
         {
             var appointment = await work.GetRepoAppointments.GetById(id);
