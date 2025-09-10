@@ -38,6 +38,7 @@ namespace HeaLEOO
             services.AddScoped<IServiceLookup, LookupService>();
             services.AddScoped<IServiceClinicsDB, ServiceClinicsDB>();
             services.AddScoped<IServiceClinDate, ServiceClinDate>();
+            services.AddScoped<IServiceDoctorAppointment, ServiceDoctorAppointment>();
             services.AddScoped<IRoleService,RoleService>();
             return services;
             

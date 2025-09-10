@@ -6,21 +6,24 @@
     <div class="form-group">
         <label asp-for="App_Date"></label>
         <input asp-for="App_Date" type="datetime-local" class="form-control" />
+        <span asp-validation-for="App_Date" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="DoctorId"></label>
         <select asp-for="DoctorId" asp-items="Model.SelectDoctors" class="form-control"></select>
+        <span asp-validation-for="DoctorId" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="status"></label>
         <input asp-for="status" class="form-control" />
+        <span asp-validation-for="status" class="text-danger"></span>
     </div>
-
-    <div class="form-group">
-        <label asp-for="isActive"></label>
-        <input asp-for="isActive" type="checkbox" />
+    <div class="form-group form-check">
+        <input type="checkbox" name="isActive" value="true" class="form-check-input"
+               @(Model?.isActive == true ? "checked" : "") />
+        <label class="form-check-label" asp-for="isActive"></label>
     </div>
 
     <button type="submit" class="btn btn-success">Save</button>
