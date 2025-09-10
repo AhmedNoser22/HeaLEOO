@@ -47,12 +47,18 @@
                 model.SelectDoctors = _ServiceDoctorAppointment.GetAllServiceDoctorAppointment();
                 return View(model);
             }
-
             var appointment = _mapper.Map<Appointments>(model);
+            var user = await _userManager.GetUserAsync(User);
+            if (user != null)
+            {
+                appointment.AppUserId = user.Id;
+            }
             await _serviceAppointments.CreateItem(appointment);
-
+            TempData["SuccessMessage"] = "Appointment created successfully.";
             return RedirectToAction(nameof(Index));
         }
+
+
 
         public async Task<IActionResult> Details(int id)
         {
@@ -79,5 +85,6 @@
 
             return RedirectToAction(nameof(Index));
         }
+
     }
 }

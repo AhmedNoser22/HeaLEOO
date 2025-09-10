@@ -20,8 +20,8 @@
                 <td>@(item.isActive == true ? "Yes" : "No")</td>
                 <td>@item.DoctorName</td>
                 <td>
-                    <a asp-action="Details" asp-route-id="@item.DoctorId" class="btn btn-info">Details</a>
-                    <a asp-action="Delete" asp-route-id="@item.DoctorId" class="btn btn-danger">Delete</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
         }
