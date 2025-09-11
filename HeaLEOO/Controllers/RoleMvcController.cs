@@ -21,8 +21,12 @@
     }
 
     [HttpPost]
+    public async Task<IActionResult> ManageUserRoles(string userName, List<RoleViewModel> model)
+    {
+
+    }
 
 
 
 
-}
+    }
