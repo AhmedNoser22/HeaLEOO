@@ -12,6 +12,7 @@
         var users = await _roleService.GetAllUsers();
         return View(users);
     }
+
     public async Task<IActionResult> ManageUserRoles(string userName)
     {
         var model = await _roleService.GetUserRoles(userName);
@@ -27,7 +28,9 @@
             return View(model);
         }
 
-        await _roleService.UpdateUserRoles(userName, model);
-        return RedirectToAction(nameof(Users));
     }
+
+
+
+
 }
