@@ -62,10 +62,5 @@ namespace HeaLEOO.Controllers
             await _serviceAuth.Logout();
             return RedirectToAction("Login", "Auth");
         }
-
-
-
-
-
     }
 }
