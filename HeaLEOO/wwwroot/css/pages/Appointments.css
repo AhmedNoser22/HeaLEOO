@@ -61,6 +61,30 @@
             background: #f9f9f9;
         }
 
+/* ================== Action Buttons ================== */
+.appointments-actions {
+    display: flex;
+    gap: 0.6rem;
+    justify-content: center;
+}
+
+.appointments-btn-create {
+    background: #0BC850;
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border: 2px solid #0BC850;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+    .appointments-btn-create:hover {
+        background: inherit !important;
+        border: 2px solid #0BC850;
+        border-radius: 1px;
+        color: #0BC850;
+    }
 
 
 
