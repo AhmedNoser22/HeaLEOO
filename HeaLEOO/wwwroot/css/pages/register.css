@@ -52,7 +52,7 @@
 .register-title {
     font-weight: 550 !important;
     color: #366cc1;
-    margin-bottom: 10px;
+    margin-bottom: 10px !important;
 }
 
 .register-second-line {
