@@ -50,7 +50,7 @@
 }
 
 .login-title {
-    font-weight: 550;
+    font-weight: 550 !important;
     color: #01aaff;
     margin-bottom: 10px;
 }
