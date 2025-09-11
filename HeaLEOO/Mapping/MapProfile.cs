@@ -7,8 +7,7 @@ namespace HeaLEOO.Mapping
         public MapProfile()
         {
             DoctorMap();
-            CreateMap<SpecializationsVM, Specializations>();
-            CreateMap<Specializations, SpecializationsVM>();
+            SpecializationMap();
             CreateMap<Clinics, ClinicVM>()
                 .ForMember(dest => dest.PhotoUrl, opt => opt.MapFrom(src => src.PhotoUrl))
                 .ForMember(dest => dest.ServiceNames, opt => opt.MapFrom(src => src.Services.Select(s => s.Name)));
