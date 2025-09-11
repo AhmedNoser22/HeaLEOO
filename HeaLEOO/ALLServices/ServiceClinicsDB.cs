@@ -1,5 +1,4 @@
-﻿using HeaLEOO.UnitOfWork;
-public class ServiceClinicsDB : IServiceClinicsDB
+﻿public class ServiceClinicsDB : IServiceClinicsDB
 {
     private readonly IUnitOF_Work work;
     private readonly IMapper _mapper;

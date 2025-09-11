@@ -17,3 +17,4 @@ global using HeaLEOO.Setting;
 global using HeaLEOO.ServicesHel;
 global using HeaLEOO.UnitOfWork;
 global using HeaLEOO.DTOs;
+global using System.Linq.Expressions;

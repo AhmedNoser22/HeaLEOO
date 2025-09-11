@@ -1,0 +1,126 @@
+﻿/* ================== Appointments Container ================== */
+.appointments-container {
+    margin: 0 10rem;
+    padding: 5rem;
+}
+
+/* Header row */
+.appointments-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.appointments-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a4a8e;
+}
+/* ================== Alerts ================== */
+.alert {
+    border-radius: 0.75rem;
+    padding: 0.9rem 1.2rem;
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+}
+/* ================== Appointments Table ================== */
+.appointments-table-wrapper {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    overflow-x: auto;
+    padding: 1.5rem;
+}
+.appointments-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+    .appointments-table thead {
+        background: #1a4a8e;
+        color: #fff;
+        font-size: 1rem;
+        height: 60px;
+    }
+
+    .appointments-table th,
+    .appointments-table td {
+        padding: 1rem;
+        text-align: left;
+        font-weight: 600;
+    }
+
+    .appointments-table tbody tr {
+        border-bottom: 1px solid #eee;
+        transition: background 0.2s ease;
+    }
+
+        .appointments-table tbody tr:hover {
+            background: #f9f9f9;
+        }
+
+/* ================== Action Buttons ================== */
+.appointments-actions {
+    display: flex;
+    gap: 0.6rem;
+    justify-content: center;
+}
+
+.appointments-btn-create {
+    background: #0BC850;
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border: 2px solid #0BC850;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+    .appointments-btn-create:hover {
+        background: inherit !important;
+        border: 2px solid #0BC850;
+        border-radius: 1px;
+        color: #0BC850;
+    }
+
+/* Details button */
+.appointments-btn-details {
+    background: #2C7DA0;
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border: 2px solid #2C7DA0;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+    .appointments-btn-details:hover {
+        background: inherit !important;
+        border: 2px solid #2C7DA0;
+        color: #2C7DA0;
+        border-radius: 1px;
+    }
+/* Delete button */
+.appointments-btn-delete {
+    background: #E63946;
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border: 2px solid #E63946;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+    .appointments-btn-delete:hover {
+        background: inherit !important;
+        border: 2px solid #E63946;
+        color: #E63946;
+        border-radius: 1px;
+    }
+
+ 
