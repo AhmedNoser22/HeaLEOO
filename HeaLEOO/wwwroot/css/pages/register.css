@@ -6,9 +6,8 @@
 
 .register-split-container {
     display: flex;
-    min-height: 100vh; /* Changed to 100vh to ensure it fills the entire viewport */
+    min-height: 95vh;
     background: #FFF;
-    overflow-y: hidden; /* Prevent vertical scrolling */
 }
 
 .register-left {
@@ -20,33 +19,31 @@
 
     .register-left img {
         width: 100%;
-        max-width: 600px; /* Reduced max-width for smaller screens */
+        max-width: 700px;
         height: auto;
         object-fit: contain;
-        margin: 0; /* Removed fixed margins for better responsiveness */
+        margin: 0 0px 0px 125px;
     }
 
 .register-right {
     flex: 1;
     display: flex;
-    align-items: center; /* Vertically centers the content */
-    justify-content: center; /* Horizontally centers the content */
+    align-items: center;
+    justify-content: center;
     background: #FFF;
-    padding: 20px; /* Added padding for spacing */
 }
 
 .register-container {
-    padding: 0; /* Removed fixed padding */
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    max-width: 450px; /* Reduced max-width to make the form smaller */
-    margin: 0; /* Removed fixed margins */
+    width: 550px;
+    margin: 50px 125px 0 0;
 }
 
 .register-card {
     background: #fff;
-    padding: 2rem; /* Reduced padding to save vertical space */
+    padding: 3rem;
     border-radius: 15px;
     width: 100%;
     text-align: center;
@@ -55,28 +52,27 @@
 .register-title {
     font-weight: 550 !important;
     color: #366cc1;
-    margin-bottom: 5px !important; /* Reduced margin */
+    margin-bottom: 10px !important;
 }
 
 .register-second-line {
-    font-size: 0.8rem; /* Reduced font size to save vertical space */
+    font-size: 0.9rem;
     color: #929292;
-    margin-bottom: 15px; /* Reduced margin */
+    margin-bottom: 20px;
 }
 
 .register-form .form-label {
     font-weight: 500;
     display: block;
-    margin-bottom: 0.4rem; /* Reduced margin */
+    margin-bottom: 0.6rem;
     text-align: left;
     color: #333;
-    font-size: 0.9rem; /* Reduced font size */
 }
 
 .register-form .form-control {
     border-radius: 10px;
-    margin-bottom: 1rem; /* Reduced margin */
-    padding: 0.6rem; /* Reduced padding */
+    margin-bottom: 1.5rem;
+    padding: 0.75rem;
     border: 1px solid #ddd;
     width: 100%;
 }
@@ -88,8 +84,8 @@
 
 .btn-register {
     border: none;
-    padding: 0.7rem; /* Reduced padding */
-    font-size: 0.9rem; /* Reduced font size */
+    padding: 0.8rem;
+    font-size: 1rem;
     font-weight: 500;
     color: #fff;
     background: #366CC1;
@@ -110,39 +106,54 @@
     }
 
 .register-footer-text {
-    font-size: 0.8rem; /* Reduced font size */
+    font-size: 0.9rem;
     color: #555;
-    margin-top: 1rem; /* Reduced margin */
+    margin-top: 1.5rem;
 }
 
-/* Updated media queries to use correct class names */
 @media (max-width: 991px) {
-    .register-left img {
-        max-width: 450px;
+    .auth-left img {
+        max-width: 500px;
     }
 
-    .register-card {
-        padding: 1.5rem;
+    .auth-card {
+        padding: 2rem;
+        max-width: 400px;
     }
 }
 
 @media (max-width: 768px) {
-    .register-split-container {
+    .auth-split-container {
         flex-direction: column;
+        align-items: center;
         min-height: auto;
     }
 
-    .register-left {
+    .auth-left {
+        height: auto;
         padding-top: 20px;
-        padding-bottom: 0;
+        padding-bottom: 20px;
     }
 
-        .register-left img {
+        .auth-left img {
             width: 80%;
-            max-width: 350px;
+            max-width: 400px;
+            height: auto;
+            margin: 0;
         }
 
-    .register-right {
+    .auth-right {
         padding: 1rem;
+    }
+
+    .auth-card {
+        padding: 1.5rem;
+        max-width: 90%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .auth-form .form-control {
+        margin-bottom: 1rem;
     }
 }
