@@ -1,5 +1,4 @@
-﻿/* ------------------ LOGIN PAGE ------------------ */
-body {
+﻿body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
@@ -46,10 +45,8 @@ body {
     background: #fff;
     padding: 3rem;
     border-radius: 15px;
-/*    max-width: 500px;*/
     width: 100%;
     text-align: center;
-/*    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);*/
 }
 
 .login-title {
@@ -114,14 +111,49 @@ body {
     margin-top: 1.5rem;
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-    .login-split-container {
-        flex-direction: column;
+@media (max-width: 991px) {
+    .auth-left img {
+        max-width: 500px;
     }
 
-    .login-card {
+    .auth-card {
+        padding: 2rem;
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .auth-split-container {
+        flex-direction: column;
+        align-items: center;
+        min-height: auto;
+    }
+
+    .auth-left {
+        height: auto;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+        .auth-left img {
+            width: 80%;
+            max-width: 400px;
+            height: auto;
+            margin: 0;
+        }
+
+    .auth-right {
+        padding: 1rem;
+    }
+
+    .auth-card {
         padding: 1.5rem;
         max-width: 90%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .auth-form .form-control {
+        margin-bottom: 1rem;
     }
 }
