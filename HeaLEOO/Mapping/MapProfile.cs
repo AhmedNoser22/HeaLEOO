@@ -10,14 +10,10 @@ namespace HeaLEOO.Mapping
             SpecializationMap();
             ClinicMap();
             ServiceModelMap();
+            AppointmentMap();
             CreateMap<RegisterVM,AppUser>()
                 .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.Username))
                 .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email));
-            CreateMap<Appointments, AppointmentsVM>()
-            .ForMember(dest => dest.DoctorName, opt => opt.MapFrom(src => src.Doctors.Name))
-            .ForMember(dest => dest.status, opt => opt.MapFrom(src => src.status))
-            .ForMember(dest => dest.isActive, opt => opt.MapFrom(src => src.isActive));
-            CreateMap<AppointmentsVM, Appointments>();
             CreateMap<AppUser, AppUserDto>();
             CreateMap<AppUserDto, AppUser>()
                 .ForMember(dest => dest.Id, opt => opt.Ignore())
