@@ -1,0 +1,223 @@
+﻿/* ================== Roles Container ================== */
+.roles-container {
+    margin: 0 10rem;
+    padding: 5rem;
+}
+
+.roles-title {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    color: #2c7da0;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* ================== Alerts ================== */
+.alert {
+    border-radius: 0.75rem;
+    padding: 0.9rem 1.2rem;
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* ================== Role Table ================== */
+.role-table-wrapper {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    overflow-x: auto;
+    padding: 1.5rem;
+}
+
+.role-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+    .role-table thead {
+        background: #2c7da0;
+        color: #fff;
+        font-size: 1rem;
+        height: 60px;
+    }
+
+    .role-table th,
+    .role-table td {
+        padding: 1rem;
+        text-align: left;
+        font-weight: 600;
+    }
+
+    .role-table tbody tr {
+        border-bottom: 1px solid #eee;
+        transition: background 0.2s ease;
+    }
+
+        .role-table tbody tr:hover {
+            background: #f2f2f2;
+        }
+
+    /* First column highlight */
+    .role-table td:first-child {
+        font-weight: 500;
+        color: #1a4a8e;
+    }
+
+/* ================== Action Buttons ================== */
+.role-actions {
+    display: flex;
+    gap: 0.6rem;
+    justify-content: center;
+}
+
+/* Manage button */
+.role-btn-manage {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500 !important;
+    padding: 0.5rem 1rem;
+    border-radius: 0.6rem;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+    background: #F0AD4E;
+    color: #fff;
+}
+
+    .role-btn-manage:hover {
+        background: #f2f2f2;
+        border-color: #F0AD4E;
+        color: #F0AD4E;
+        border-radius: 1px;
+    }
+
+
+/* ================== Role Details Page ================== */
+.role-details-container {
+    display: flex;
+    justify-content: center;
+    padding: 3rem 1rem;
+}
+
+.role-details-card {
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    max-width: 600px;
+    width: 100%;
+    margin: 2rem;
+}
+
+.role-details-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #000;
+    text-align: center;
+}
+
+.role-username {
+    color: #2c7da0;
+}
+
+.role-details-section {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* ================== Role Checkboxes ================== */
+.role-checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.role-checkbox-input {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #0BC850;
+    border-radius: 4px;
+    margin-right: 0.6rem;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+    /* Checkmark when checked */
+    .role-checkbox-input:checked {
+        background-color: #0BC850;
+        border-color: #0BC850;
+    }
+
+        .role-checkbox-input:checked::after {
+            content: "✔";
+            position: absolute;
+            top: -2px;
+            left: 2px;
+            font-size: 14px;
+            color: #fff;
+        }
+
+.role-checkbox-label {
+    font-weight: 500;
+    color: #444;
+    cursor: pointer;
+}
+
+.role-details-actions {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Update button */
+.role-btn-update {
+    background: #0bc850;
+    color: #fff;
+    border: 2px solid #0bc850;
+    border-radius: 0.6rem;
+    padding: 0.6rem 1.2rem;
+    transition: all 0.2s ease;
+}
+
+    .role-btn-update:hover {
+        background: #f2f2f2;
+        color: #0bc850;
+        border: 2px solid #0bc850;
+        border-radius: 1px;
+    }
+
+/* Back button */
+.role-btn-back {
+    background: #6c757d;
+    color: #fff;
+    border: 2px solid #6c757d;
+    border-radius: 0.6rem;
+    padding: 0.6rem 1.2rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+    .role-btn-back:hover {
+        background: #fff !important;
+        color: #6c757d;
+        border: 2px solid #6c757d;
+        border-radius: 1px;
+    }
