@@ -54,7 +54,7 @@ section {
     }
 
     .hero .btn {
-        border-radius: 50px !important;
+        border-radius: 10px !important;
         padding: 12px 40px !important;
         font-weight: 600 !important;
         transition: all 0.3s ease;
@@ -65,6 +65,8 @@ section {
             background-color: transparent !important;
             color: #FFF !important;
             box-shadow: none !important;
+            border-radius: 1px !important;
+                    
         }
 
 /* --- Dynamic Sections with Interconnected Gradients --- */
