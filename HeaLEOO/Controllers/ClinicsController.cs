@@ -28,6 +28,17 @@
         return View();
     }
 
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Create(ClinicVM model, IFormFile file)
+    {
+        if (!ModelState.IsValid) return View(model);
+
+        await _serviceClinics.AddClinicAsync(model, file);
+        return RedirectToAction(nameof(Index));
+    }
+
+
 
 
 
