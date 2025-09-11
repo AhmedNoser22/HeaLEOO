@@ -19,6 +19,13 @@
             _mapper = mapper;
         }
 
+        public async Task<IActionResult> Index()
+        {
+            var doctors = await _serviceDoctor.GetAllItems();
+            return View(doctors);
+        }
+
+
 
 
 
