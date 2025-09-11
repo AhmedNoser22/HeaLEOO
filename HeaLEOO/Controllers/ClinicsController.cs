@@ -38,6 +38,15 @@
         return RedirectToAction(nameof(Index));
     }
 
+    public async Task<IActionResult> Delete(int id)
+    {
+        var success = await _serviceClinics.DeleteClinicAsync(id);
+        if (!success) return NotFound();
+
+        return RedirectToAction(nameof(Index));
+    }
+
+
 
 
 
