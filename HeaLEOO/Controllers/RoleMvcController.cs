@@ -7,4 +7,11 @@
         _roleService = roleService;
     }
 
+    public async Task<IActionResult> Users()
+    {
+        var users = await _roleService.GetAllUsers();
+        return View(users);
+    }
+
+
 }
