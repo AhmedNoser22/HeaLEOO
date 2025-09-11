@@ -55,6 +55,15 @@ namespace HeaLEOO.Controllers
             return View(login);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Logout()
+        {
+            await _serviceAuth.Logout();
+            return RedirectToAction("Login", "Auth");
+        }
+
+
 
 
 
