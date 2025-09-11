@@ -25,6 +25,17 @@
             return View(doctors);
         }
 
+        public IActionResult Create()
+        {
+            var model = new DoctorViewModel
+            {
+                Specializations = _serviceSpecializations.GetAllSpecializations(),
+                Clinics = _serviceClinicsDate.GetAllServiceClinDate()
+            };
+            return View(model);
+        }
+
+
 
 
 
