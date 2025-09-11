@@ -1,10 +1,10 @@
-﻿// ✅ On Create button click (Clinic form)
+﻿
 document.querySelector(".clinic-create-form")?.addEventListener("submit", function (e) {
     e.preventDefault(); 
 
     Swal.fire({
         toast: true,
-        position: 'top-end', // top-right corner
+        position: 'top-end', 
         icon: 'success',
         title: 'Clinic has been added successfully ✅',
         showConfirmButton: false,
@@ -12,13 +12,13 @@ document.querySelector(".clinic-create-form")?.addEventListener("submit", functi
         timerProgressBar: true
     });
 
-    // رجع السابميت بعد ثواني قليلة
+    
     setTimeout(() => {
         this.submit();
     }, 1500);
 });
 
-// ⚠️ On Cancel button click
+
 document.querySelector(".btn-cancel")?.addEventListener("click", function (e) {
     e.preventDefault();
     Swal.fire({
@@ -37,7 +37,6 @@ document.querySelector(".btn-cancel")?.addEventListener("click", function (e) {
     });
 });
 
-// 🎨 Highlight inputs on focus (Name, Address, PhoneNumber)
 document.querySelectorAll(".clinic-create-form input").forEach(input => {
     input.addEventListener("focus", function () {
         this.style.borderColor = "#2c7da0";
