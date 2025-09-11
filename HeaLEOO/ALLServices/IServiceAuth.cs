@@ -6,8 +6,5 @@
         Task<bool> RegisterAsync(RegisterVM register);
         Task<bool> LoginAsync(LoginVM login);
         Task<bool> Logout();
-        // Fatma & Farida
-
-
     }
 }

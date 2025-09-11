@@ -1,6 +1,4 @@
-﻿using HeaLEOO.DTOs;
-
-namespace HeaLEOO.ALLServices
+﻿namespace HeaLEOO.ALLServices
 {
     public interface IServiceUserManagement
     {

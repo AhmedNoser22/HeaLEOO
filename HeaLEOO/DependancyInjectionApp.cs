@@ -1,6 +1,4 @@
-﻿using HeaLEOO.UnitOfWork;
-
-namespace HeaLEOO
+﻿namespace HeaLEOO
 {
     public static class DependancyInjectionApp
     {
