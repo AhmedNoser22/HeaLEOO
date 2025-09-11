@@ -19,5 +19,21 @@ namespace HeaLEOO.Controllers
             return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register(RegisterVM register)
+        {
+            if (!ModelState.IsValid)
+                return View(register);
+
+            var result = await _serviceAuth.RegisterAsync(register);
+            if (result)
+                return RedirectToAction("Index", "Home");
+
+            ModelState.AddModelError("", "Email already exists or registration failed.");
+            return View(register);
+        }
+
+
     }
 }
