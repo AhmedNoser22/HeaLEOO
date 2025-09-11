@@ -7,8 +7,15 @@
         private readonly IServiceClinDate _serviceClinicsDate;
         private readonly IMapper _mapper;
 
+        public DoctorsController(
+            IServicesDoctor serviceDoctor,
+            IserviceSpecializations serviceSpecializations,
+            IServiceClinDate _serviceClinDate,
+            IMapper mapper)
+        {
 
 
 
+
+        }
     }
-}
