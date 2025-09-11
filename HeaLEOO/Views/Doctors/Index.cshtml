@@ -5,6 +5,7 @@
 
 <div class="doctors-container">
     <h2 class="doctors-title">Doctors</h2>
+
     @if (TempData["SuccessMessage"] != null)
     {
         <input type="hidden" id="successMessage" value="@TempData["SuccessMessage"]" />
@@ -14,8 +15,12 @@
         <input type="hidden" id="errorMessage" value="@TempData["ErrorMessage"]" />
     }
 
+   
     <div class="doctors-footer">
-        <a asp-action="Create" class="doctor-btn-create">+ Add New Doctor</a>
+        @if (User.IsInRole("Admin"))
+        {
+            <a asp-action="Create" class="doctor-btn-create">+ Add New Doctor</a>
+        }
     </div>
 
     <div class="doctors-grid">
@@ -34,18 +39,21 @@
                         }
                     </div>
                 </div>
-
-                <div class="doctor-actions">
-                    <a href="@Url.Action("DeleteDoctor", new { id = doc.Id })"
-                       class="doctor-btn-delete"
-                       onclick="return confirmDelete(event, this.href);">
-                        Delete
-                    </a>
-                </div>
+                @if (User.IsInRole("Admin"))
+                {
+                    <div class="doctor-actions">
+                        <a href="@Url.Action("DeleteDoctor", new { id = doc.Id })"
+                           class="doctor-btn-delete"
+                           onclick="return confirmDelete(event, this.href, this.closest('.doctor-card'));">
+                            Delete
+                        </a>
+                    </div>
+                }
             </div>
         }
     </div>
 </div>
+
 @section Scripts {
     <script src="~/js/doctor-index.js"></script>
 }
