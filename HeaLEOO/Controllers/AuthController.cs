@@ -40,6 +40,22 @@ namespace HeaLEOO.Controllers
             return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(LoginVM login)
+        {
+            if (!ModelState.IsValid)
+                return View(login);
+
+            var result = await _serviceAuth.LoginAsync(login);
+            if (result)
+                return RedirectToAction("Index", "Home");
+
+            ModelState.AddModelError("", "Invalid Email or Password.");
+            return View(login);
+        }
+
+
 
 
     }
