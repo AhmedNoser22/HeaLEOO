@@ -8,5 +8,11 @@ namespace HeaLEOO.Controllers
     {
         private readonly IServiceAuth _serviceAuth;
 
+        public AuthController(IServiceAuth serviceAuth)
+        {
+            _serviceAuth = serviceAuth;
+        }
+
+
     }
 }
