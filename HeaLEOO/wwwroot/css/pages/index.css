@@ -48,11 +48,26 @@ section {
         max-width: 900px;
     }
 
-    .hero h1 {
-        font-size: 2.5rem;
+    /* Adjustments for the tagline */
+    .hero .tagline {
+        font-size: 2.2rem; /* تم تصغير حجم الخط لكي يناسب سطرًا واحدًا */
+        font-weight: 700; /* تم جعل الخط bold (عريض) */
+        color: #fff;
         text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        margin-top: 1rem;
+        margin-bottom: 2.5rem;
     }
 
+    /*.hero h1 {
+        font-size: 2.5rem;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    }*/
+    .hero p {
+        font-size: 1.1rem;
+        font-weight: 500;
+        margin-bottom: 2rem;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    }
     .hero .btn {
         border-radius: 10px !important;
         padding: 12px 40px !important;
