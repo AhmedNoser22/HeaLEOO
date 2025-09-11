@@ -1,10 +1,16 @@
-﻿/* --- General Styles and Fonts --- */
+﻿/* General Styles and Fonts */
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     color: #444;
     line-height: 1.6;
     margin: 0;
     padding: 0;
+    /* Main body background gradient - This can be a very subtle gradient or a solid color */
+    background: #ffffff;
 }
 
 h1, h2, h5 {
@@ -15,13 +21,26 @@ section {
     padding: 5rem 0;
 }
 
+/* --- Responsive Grid Fixes to prevent content duplication --- */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -0.75rem;
+    margin-left: -0.75rem;
+}
+
+.col-md-4, .col-md-3 {
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
 /* --- Hero Section --- */
 .hero {
-    /* Background Image with Overlay */
     background: linear-gradient(rgba(44, 125, 160, 0.8), rgba(44, 125, 160, 0.9)), url('https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
     height: 95vh;
     color: #fff;
-    /* تحسين الأداء */
     will-change: transform;
 }
 
@@ -49,8 +68,9 @@ section {
         }
 
 /* --- How It Works & Why Choose Healeo Sections --- */
-.how-it-works, .features {
-    background-color: #f8f9fa;
+/* Unified background for these sections */
+.how-it-works, .features, .testimonials {
+    background-color: #f0f7ff; /* The same color as .featured-clinics */
     text-align: center;
 }
 
@@ -73,7 +93,6 @@ h2 {
     justify-content: center;
     align-items: center;
     text-align: center;
-    /* تحسين الأداء */
     will-change: transform;
 }
 
@@ -108,7 +127,6 @@ h2 {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    /* تحسين الأداء */
     will-change: transform;
 }
 
@@ -123,7 +141,6 @@ h2 {
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 1rem;
-    /* تحسين الأداء */
     transition: transform 0.3s ease;
     will-change: transform;
 }
@@ -150,11 +167,6 @@ h2 {
 }
 
 /* --- Testimonials Section --- */
-.testimonials {
-    text-align: center;
-    background-color: #fefefe;
-}
-
 .testimonial-card {
     background: #fff;
     padding: 2rem;
@@ -167,7 +179,6 @@ h2 {
     align-items: center;
     text-align: center;
     position: relative;
-    /* تحسين الأداء */
     will-change: transform;
 }
 
@@ -220,10 +231,25 @@ h2 {
     .hero h1 {
         font-size: 3.5rem;
     }
+
+    .col-md-4, .col-md-3 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
 }
 
 @media (min-width: 992px) {
     .hero h1 {
         font-size: 4.5rem;
+    }
+
+    .col-md-4 {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+
+    .col-md-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
     }
 }
