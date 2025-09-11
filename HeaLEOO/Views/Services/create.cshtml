@@ -29,7 +29,7 @@
                         <div class="form-radio">
                             <input type="radio"
                                    class="form-radio-input"
-                                   name="ClinicIds"
+                                   name="ClinicId"
                                    value="@clinic.Value"
                                    id="service_@clinic.Value" />
                             <label class="form-radio-label" for="service_@clinic.Value">
@@ -49,3 +49,8 @@
         </form>
     </div>
 </div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="~/js/service-create.js"></script>
+}
