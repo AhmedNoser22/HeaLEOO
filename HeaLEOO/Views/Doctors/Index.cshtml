@@ -14,6 +14,10 @@
         <input type="hidden" id="errorMessage" value="@TempData["ErrorMessage"]" />
     }
 
+    <div class="doctors-footer">
+        <a asp-action="Create" class="doctor-btn-create">+ Add New Doctor</a>
+    </div>
+
     <div class="doctors-grid">
         @foreach (var doc in Model)
         {
@@ -40,10 +44,6 @@
                 </div>
             </div>
         }
-    </div>
-
-    <div class="doctors-footer">
-        <a asp-action="Create" class="doctor-btn-create">+ Add New Doctor</a>
     </div>
 </div>
 @section Scripts {
