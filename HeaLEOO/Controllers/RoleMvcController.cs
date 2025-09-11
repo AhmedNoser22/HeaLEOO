@@ -23,10 +23,11 @@
     [HttpPost]
     public async Task<IActionResult> ManageUserRoles(string userName, List<RoleViewModel> model)
     {
-        if (!ModelState.IsValid)
-        {
-            return View(model);
-        }
+        if (!ModelState.IsValid) return View(model);
+
+        await _roleService.UpdateUserRoles(userName, model);
+        return RedirectToAction(nameof(Users));
+
 
     }
 
