@@ -1,4 +1,4 @@
-﻿namespace HeaLEOO.Mapping.MethodsMap
+﻿namespace HeaLEOO.Mapping
 {
     public partial class MapProfile
     {
