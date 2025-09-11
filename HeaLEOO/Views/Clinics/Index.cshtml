@@ -29,7 +29,13 @@
 
                 <div class="clinic-actions">
                     <a asp-action="Details" asp-route-id="@clinic.Id" class="btn-details">Details</a>
-                    <a asp-action="Delete" asp-route-id="@clinic.Id" class="btn-delete" onclick="return confirm('Are you sure you want to delete this doctor?');">Delete</a>
+                    <a asp-action="Delete"
+                       asp-route-id="@clinic.Id"
+                       class="btn-delete"
+                       onclick="return confirmClinicDelete(event, this.href, this.closest('.clinic-card'));">
+                        Delete
+                    </a>
+
                 </div>
             </div>
         }
@@ -39,3 +45,14 @@
         <a asp-action="Create" class="btn-create">+ Add New Clinic</a>
     </div>
 </div>
+
+
+<input type="hidden" id="successMessage" value="@TempData["Success"]" />
+<input type="hidden" id="errorMessage" value="@TempData["Error"]" />
+
+@section Scripts {
+ 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="~/js/clinic-Index.js"></script>
+}
