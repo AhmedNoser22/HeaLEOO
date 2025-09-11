@@ -13,5 +13,13 @@
         return View(users);
     }
 
+    public async Task<IActionResult> ManageUserRoles(string userName)
+    {
+        var model = await _roleService.GetUserRoles(userName);
+        ViewBag.UserName = userName;
+        return View(model);
+    }
+
+
 
 }
