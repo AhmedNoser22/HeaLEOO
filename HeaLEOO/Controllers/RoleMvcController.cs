@@ -27,11 +27,5 @@
 
         await _roleService.UpdateUserRoles(userName, model);
         return RedirectToAction(nameof(Users));
-
-
     }
-
-
-
-
 }
