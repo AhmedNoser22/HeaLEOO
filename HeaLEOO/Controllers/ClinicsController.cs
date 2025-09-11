@@ -15,6 +15,15 @@
         return View(clinics);
     }
 
+    public async Task<IActionResult> Details(int id)
+    {
+        var clinic = await _serviceClinics.GetClinicByIdAsync(id);
+        if (clinic == null) return NotFound();
+
+        return View(clinic);
+    }
+
+
 
 
 }
