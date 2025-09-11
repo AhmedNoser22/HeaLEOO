@@ -9,5 +9,12 @@
         _mapper = mapper;
     }
 
+    public async Task<IActionResult> Index()
+    {
+        var clinics = await _serviceClinics.GetAllClinicsAsync();
+        return View(clinics);
+    }
+
+
 
 }
