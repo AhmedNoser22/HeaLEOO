@@ -7,6 +7,11 @@
 <div class="services-container">
     <h2 class="services-title">Services</h2>
 
+
+    <div class="services-footer">
+        <a asp-action="Create" class="btn-create">+ Add Service</a>
+    </div>
+
     <div class="services-grid">
         @foreach (var service in Model)
         {
@@ -29,9 +34,5 @@
                 </div>
             </div>
         }
-    </div>
-
-    <div class="services-footer">
-        <a asp-action="Create" class="btn-create">+ Add Service</a>
     </div>
 </div>

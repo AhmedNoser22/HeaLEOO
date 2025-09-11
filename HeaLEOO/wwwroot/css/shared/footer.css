@@ -1,6 +1,7 @@
 ﻿/* ================== Footer ================== */
 .footer {
-    background: linear-gradient(180deg, #f0f7ff 0%, #e6f0fa 100%);
+    /* Gradient to make it connected with the last section */
+    background: linear-gradient(180deg, #EDF5FE 0%, #d2e5f5 100%);
     padding: 2rem 0 1rem;
     text-align: center;
     color: #333;

@@ -5,7 +5,7 @@
 
 .clinics-title {
     font-size: 2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     color: #2c7da0;
     font-weight: 700;
     text-align: center;
@@ -76,7 +76,7 @@
     color: #fff;
     border-radius: 10px;
     display: block;
-    margin: 2.5rem auto 0 auto;
+    margin: 0 auto 2.5rem auto !important;
     text-align: center;
     width: 200px;
     border: 2px solid #0bc850 !important;
@@ -93,7 +93,7 @@
 .btn-details {
     background: #2c7da0;
     color: #fff;
-    margin-right:5px;
+    margin-right: 5px;
 }
 
     .btn-details:hover {
@@ -168,10 +168,10 @@
     margin-top: 1.5rem;
 }
 
-.clinic-details-section h3 {
-    margin-bottom: 0.5rem;
-    color: #000;
-}
+    .clinic-details-section h3 {
+        margin-bottom: 0.5rem;
+        color: #000;
+    }
 
 .clinic-details-actions {
     margin-top: 2rem;
@@ -227,7 +227,7 @@
     color: #34495e;
 }
 
-.clinic-create-form input{
+.clinic-create-form input {
     border-radius: 0.5rem;
     border: 1px solid #ccc;
     padding: 0.6rem;
@@ -261,7 +261,7 @@
         background: #0bc850;
         color: #fff;
         border-color: #0bc850;
-        margin-left:50px;
+        margin-left: 50px;
     }
 
         .clinic-create-actions .btn-create:hover {
