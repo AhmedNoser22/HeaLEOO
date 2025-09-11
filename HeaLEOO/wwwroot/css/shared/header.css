@@ -125,6 +125,20 @@ a.home-btn-login:hover::after {
         border-radius: 1px;
     }
 
+.home-btn-logout {
+    padding: 0.75rem 2rem !important;
+    background-color: #e73a46 !important;
+    color: #FFF !important;
+    border: 2px solid #e73a46 !important;
+    border-radius: 10px;
+}
+
+    .home-btn-logout:hover {
+        background-color: #FFF !important;
+        color: #e73a46 !important;
+        border-radius: 1px;
+    }
+
 /* Animated Underline */
 .animated-underline {
     position: relative !important;
