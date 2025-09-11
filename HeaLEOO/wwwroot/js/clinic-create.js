@@ -8,7 +8,7 @@ document.querySelector(".clinic-create-form")?.addEventListener("submit", functi
         icon: 'success',
         title: 'Clinic has been added successfully ✅',
         showConfirmButton: false,
-        timer: 3000,
+        timer: 1000,
         timerProgressBar: true
     });
 
