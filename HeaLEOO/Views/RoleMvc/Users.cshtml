@@ -1,27 +1,45 @@
 ﻿@model IEnumerable<UserManagerVM>
 
-<div class="container mt-5">
-    <h2>Users</h2>
-    <table class="table table-bordered">
-        <thead class="table-dark">
-            <tr>
-                <th>UserName</th>
-                <th>Email</th>
-                <th>Manage Roles</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var user in Model)
-            {
+@{
+    ViewData["Title"] = "Roles";
+}
+
+<div class="roles-container">
+    <h2 class="roles-title">Roles</h2>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success text-center">@TempData["Success"]</div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger text-center">@TempData["Error"]</div>
+    }
+
+    <div class="role-table-wrapper">
+        <table class="role-table">
+            <thead>
                 <tr>
-                    <td>@user.UserName</td>
-                    <td>@user.Email</td>
-                    <td>
-                        <a asp-action="ManageUserRoles" asp-route-userName="@user.UserName"
-                           class="btn btn-sm btn-primary">Manage Roles</a>
-                    </td>
+                    <th>User Name</th>
+                    <th>Email</th>
+                    <th style="width: 200px;">Manage Roles</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@user.UserName</td>
+                        <td>@user.Email</td>
+                        <td>
+                            <div class="role-actions">
+                                <a asp-action="ManageUserRoles" asp-route-userName="@user.UserName"
+                                   class="role-btn-manage">Manage Roles</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
