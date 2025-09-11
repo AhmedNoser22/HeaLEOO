@@ -13,9 +13,14 @@
             IServiceClinDate _serviceClinDate,
             IMapper mapper)
         {
-
-
-
-
+            _serviceDoctor = serviceDoctor;
+            _serviceSpecializations = serviceSpecializations;
+            _serviceClinicsDate = _serviceClinDate;
+            _mapper = mapper;
         }
+
+
+
+
     }
+}
