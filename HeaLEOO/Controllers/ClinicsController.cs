@@ -45,6 +45,4 @@
 
         return RedirectToAction(nameof(Index));
     }
-
-
 }
