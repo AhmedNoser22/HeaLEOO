@@ -2,7 +2,7 @@
 .header {
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: space-between; /* Adjusted for better spacing */
     padding: 0.3rem 2rem;
     background-color: #ffffff;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
@@ -18,7 +18,7 @@
     gap: 8px;
     text-decoration: none;
     color: inherit;
-    margin-left: 250px;
+    /* Fixed: Removed fixed margins */
     justify-content: center;
 }
 
@@ -26,6 +26,7 @@
     width: 75px;
     height: 75px;
     object-fit: contain;
+    margin-left: 30px;
 }
 
 .brand-title {
@@ -37,11 +38,8 @@
 
 /* Nav Links */
 .nav-links {
-    margin-left: 2rem;
     display: flex;
     gap: 25px;
-    position: static;
-    transform: none;
 }
 
     .nav-links a {
@@ -57,11 +55,10 @@
 
 /* Nav Buttons */
 .nav-buttons {
-    margin-left: auto;
-    margin-right: 250px;
     display: flex;
     align-items: center;
     gap: 10px;
+    /* Fixed: Removed fixed margins */
 }
 
 .btn {
@@ -76,7 +73,6 @@
 }
 
 .nav-buttons .btn {
-    margin-left: 10px;
     padding: 0.5rem 1.5rem;
     font-weight: 600;
     transition: all 0.3s ease;
@@ -89,7 +85,6 @@
     position: relative;
     transition: color 0.3s ease;
     padding: 5px !important;
-    margin-right: 10px !important;
 }
 
     .home-btn-login::after {
@@ -122,7 +117,7 @@ a.home-btn-login:hover::after {
     .home-btn-register:hover {
         background-color: #FFF !important;
         color: #2C7DA0 !important;
-        border-radius: 1px;
+        border-radius: 10px !important; /* Fixed: Corrected border-radius on hover */
     }
 
 /* Animated Underline */
