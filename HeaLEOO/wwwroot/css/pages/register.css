@@ -1,36 +1,31 @@
-﻿* {
-    font-family: 'Poppins', sans-serif;
-    box-sizing: border-box;
-}
-
-body {
+﻿body {
     margin: 0;
     padding: 0;
-    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
 }
 
-/* ------------------ Base Styles (For Large Screens) ------------------ */
-.auth-split-container {
+.register-split-container {
     display: flex;
     min-height: 95vh;
     background: #FFF;
 }
 
-.auth-left {
+.register-left {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-    .auth-left img {
+    .register-left img {
         width: 100%;
         max-width: 700px;
         height: auto;
         object-fit: contain;
+        margin: 0 0px 0px 125px;
     }
 
-.auth-right {
+.register-right {
     flex: 1;
     display: flex;
     align-items: center;
@@ -38,45 +33,35 @@ body {
     background: #FFF;
 }
 
-.auth-container {
+.register-container {
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    background: #FFF;
-    padding: 20px;
+    width: 550px;
+    margin: 50px 125px 0 0;
 }
 
-/* Auth Card and its content */
-.auth-card {
+.register-card {
     background: #fff;
     padding: 3rem;
     border-radius: 15px;
     width: 100%;
-    max-width: 500px;
-    height: auto;
     text-align: center;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
-.auth-title-login-page {
+.register-title {
     font-weight: 550;
-    color: #01aaff;
-    margin: 0 0 10px 0;
-}
-
-.auth-title-register-page {
     color: #366cc1;
-    font-weight: 550;
+    margin-bottom: 10px;
 }
 
-.second-line {
+.register-second-line {
     font-size: 0.9rem;
     color: #929292;
-    margin: 0 0 20px 0;
+    margin-bottom: 20px;
 }
 
-/* Form inputs and buttons */
-.auth-form .form-group label {
+.register-form .form-label {
     font-weight: 500;
     display: block;
     margin-bottom: 0.6rem;
@@ -84,59 +69,48 @@ body {
     color: #333;
 }
 
-.auth-form .form-control {
+.register-form .form-control {
     border-radius: 10px;
     margin-bottom: 1.5rem;
     padding: 0.75rem;
-    font-size: 0.95rem;
     border: 1px solid #ddd;
-    transition: all 0.3s ease;
     width: 100%;
 }
 
-    .auth-form .form-control:focus {
+    .register-form .form-control:focus {
         border-color: #2c7da0;
         box-shadow: 0 0 0 0.2rem rgba(44, 125, 160, 0.25);
     }
 
-.btn-login, .btn-register {
+.btn-register {
     border: none;
     padding: 0.8rem;
     font-size: 1rem;
     font-weight: 500;
     color: #fff;
+    background: #366CC1;
     border-radius: 10px;
     cursor: pointer;
-    transition: background 0.3s ease;
     width: 100%;
 }
 
-.btn-login {
-    background: #01aaff;
-}
-
-.btn-register {
-    background: linear-gradient(135deg, #1533bf, #6CA4FF);
-}
-
-.auth-link {
+.register-link {
     color: #2c7da0;
     text-decoration: none;
     font-weight: 500;
 }
 
-    .auth-link:hover {
+    .register-link:hover {
         text-decoration: underline;
         font-weight: 600;
     }
 
-.auth-footer-text {
+.register-footer-text {
     font-size: 0.9rem;
     color: #555;
     margin-top: 1.5rem;
 }
 
-/* ------------------ Media Queries (For Tablets and Mobiles) ------------------ */
 @media (max-width: 991px) {
     .auth-left img {
         max-width: 500px;
