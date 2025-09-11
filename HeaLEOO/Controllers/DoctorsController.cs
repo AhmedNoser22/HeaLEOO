@@ -56,6 +56,15 @@
             return View(doctor);
         }
 
+        public async Task<IActionResult> DeleteDoctor(int id)
+        {
+            var result = await _serviceDoctor.DeletItem(id);
+            TempData[result ? "SuccessMessage" : "ErrorMessage"] =
+                result ? "Doctor deleted successfully." : "Failed to delete doctor.";
+            return RedirectToAction(nameof(Index));
+        }
+
+
 
 
 
