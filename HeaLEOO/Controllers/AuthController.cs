@@ -34,6 +34,13 @@ namespace HeaLEOO.Controllers
             return View(register);
         }
 
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+
 
     }
 }
