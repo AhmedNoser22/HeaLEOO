@@ -86,6 +86,24 @@
         color: #0BC850;
     }
 
+/* Details button */
+.appointments-btn-details {
+    background: #2C7DA0;
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border: 2px solid #2C7DA0;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+    .appointments-btn-details:hover {
+        background: inherit !important;
+        border: 2px solid #2C7DA0;
+        color: #2C7DA0;
+        border-radius: 1px;
+    }
 
 
  
