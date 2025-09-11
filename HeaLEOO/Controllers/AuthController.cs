@@ -13,6 +13,11 @@ namespace HeaLEOO.Controllers
             _serviceAuth = serviceAuth;
         }
 
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
 
     }
 }
