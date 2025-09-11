@@ -32,3 +32,36 @@
     overflow-x: auto;
     padding: 1.5rem;
 }
+.appointments-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+    .appointments-table thead {
+        background: #1a4a8e;
+        color: #fff;
+        font-size: 1rem;
+        height: 60px;
+    }
+
+    .appointments-table th,
+    .appointments-table td {
+        padding: 1rem;
+        text-align: left;
+        font-weight: 600;
+    }
+
+    .appointments-table tbody tr {
+        border-bottom: 1px solid #eee;
+        transition: background 0.2s ease;
+    }
+
+        .appointments-table tbody tr:hover {
+            background: #f9f9f9;
+        }
+
+
+
+
+ 
