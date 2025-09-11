@@ -1,0 +1,19 @@
+﻿/* ================== Appointments Container ================== */
+.appointments-container {
+    margin: 0 10rem;
+    padding: 5rem;
+}
+
+/* Header row */
+.appointments-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.appointments-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a4a8e;
+}
