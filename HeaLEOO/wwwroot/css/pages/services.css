@@ -5,7 +5,7 @@
 
 .services-title {
     font-size: 2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     color: #2c7da0;
     font-weight: 700;
     text-align: center;
@@ -26,12 +26,12 @@
     flex-direction: column;
     justify-content: space-between;
     transition: transform 0.2s ease;
-    width:300px;
+    width: 300px;
 }
 
-.service-card:hover {
-    transform: translateY(-5px);
-}
+    .service-card:hover {
+        transform: translateY(-5px);
+    }
 
 .service-info {
     padding: 5px;
@@ -62,18 +62,18 @@
     color: #fff;
     border-radius: 10px;
     display: block;
-    margin: 2.5rem auto 0 auto;
+    margin: 0 auto 2.5rem auto !important;
     text-align: center;
     width: 200px;
     border: 2px solid #0bc850 !important;
 }
 
-.btn-create:hover {
-    background: inherit !important;
-    border: 2px solid #0bc850;
-    color: #0bc850;
-    border-radius: 1px;
-}
+    .btn-create:hover {
+        background: inherit !important;
+        border: 2px solid #0bc850;
+        color: #0bc850;
+        border-radius: 1px;
+    }
 
 /* Details button */
 .btn-details {
@@ -82,12 +82,12 @@
     margin-right: 5px;
 }
 
-.btn-details:hover {
-    background: #fff;
-    border-color: #2c7da0;
-    color: #2c7da0;
-    border-radius: 1px;
-}
+    .btn-details:hover {
+        background: #fff;
+        border-color: #2c7da0;
+        color: #2c7da0;
+        border-radius: 1px;
+    }
 
 /* Edit button */
 .btn-edit {
@@ -96,12 +96,12 @@
     margin-right: 5px;
 }
 
-.btn-edit:hover {
-    background: #fff;
-    border-color: #f0ad4e;
-    color: #f0ad4e;
-    border-radius: 1px;
-}
+    .btn-edit:hover {
+        background: #fff;
+        border-color: #f0ad4e;
+        color: #f0ad4e;
+        border-radius: 1px;
+    }
 
 /* Delete + Cancel button */
 .btn-delete,
@@ -110,13 +110,13 @@
     color: #fff;
 }
 
-.btn-delete:hover,
-.btn-cancel:hover {
-    background: #fff;
-    border-color: #e63946;
-    color: #e63946;
-    border-radius: 1px;
-}
+    .btn-delete:hover,
+    .btn-cancel:hover {
+        background: #fff;
+        border-color: #e63946;
+        color: #e63946;
+        border-radius: 1px;
+    }
 
 /* Back button */
 .btn-back {
@@ -125,12 +125,12 @@
     border: 2px solid #6c757d;
 }
 
-.btn-back:hover {
-    background: #fff !important;
-    border: 2px solid #6c757d;
-    color: #6c757d;
-    border-radius: 1px;
-}
+    .btn-back:hover {
+        background: #fff !important;
+        border: 2px solid #6c757d;
+        color: #6c757d;
+        border-radius: 1px;
+    }
 
 
 /* ================== Details Page ================== */

@@ -7,9 +7,9 @@
     font-size: 2rem;
     font-weight: 700;
     color: #2c7da0;
-    margin-top: 3rem;
+    /*    margin-top: 3rem;*/
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 /* Grid */
@@ -100,7 +100,7 @@
     color: #fff;
     border-radius: 10px;
     display: block;
-    margin: 2.5rem auto 0 auto;
+    margin: 0 auto 2.5rem auto !important;
     text-align: center;
     width: 200px;
     border: 2px solid #0bc850 !important;
