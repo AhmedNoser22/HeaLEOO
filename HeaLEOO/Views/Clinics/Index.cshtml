@@ -6,9 +6,12 @@
 <div class="clinics-container">
     <h2 class="clinics-title">Clinics</h2>
 
-
+    @* زرار Add New Clinic يظهر فقط للأدمن *@
     <div class="clinics-footer">
-        <a asp-action="Create" class="btn-create">+ Add New Clinic</a>
+        @if (User.IsInRole("Admin"))
+        {
+            <a asp-action="Create" class="btn-create">+ Add New Clinic</a>
+        }
     </div>
 
     <div class="clinics-grid">
@@ -34,9 +37,22 @@
 
                 <div class="clinic-actions">
                     <a asp-action="Details" asp-route-id="@clinic.Id" class="btn-details">Details</a>
-                    <a asp-action="Delete" asp-route-id="@clinic.Id" class="btn-delete" onclick="return confirm('Are you sure you want to delete this doctor?');">Delete</a>
+
+                    @* زرار Delete يظهر فقط للأدمن *@
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a href="@Url.Action("Delete", new { id = clinic.Id })"
+                           class="btn-delete"
+                           onclick="return confirmClinicDelete(event, this.href, this.closest('.clinic-card'));">
+                            Delete
+                        </a>
+                    }
                 </div>
             </div>
         }
     </div>
 </div>
+
+@section Scripts {
+    <script src="~/js/clinic-Index.js"></script>
+}
