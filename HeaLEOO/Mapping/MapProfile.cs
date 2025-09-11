@@ -2,10 +2,11 @@
 
 namespace HeaLEOO.Mapping
 {
-    public class MapProfile : Profile
+    public partial class MapProfile : Profile
     {
         public MapProfile()
         {
+            // doc
            CreateMap<Doctors, DoctorViewModel>()
           .ForMember(dest => dest.SpecializationName, opt => opt.MapFrom(src => src.specializations.Name))
           .ForMember(dest => dest.SpecializationId, opt => opt.MapFrom(src => src.specializationId))
