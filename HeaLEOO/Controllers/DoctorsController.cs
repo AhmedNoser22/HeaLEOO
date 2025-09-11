@@ -35,10 +35,18 @@
             return View(model);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(DoctorViewModel model)
+        {
+
+        }
 
 
 
 
 
+
+
+        }
     }
-}
