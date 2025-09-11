@@ -23,6 +23,12 @@
         return View(clinic);
     }
 
+    public IActionResult Create()
+    {
+        return View();
+    }
+
+
 
 
 
