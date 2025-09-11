@@ -49,6 +49,14 @@
             return RedirectToAction(nameof(Index));
         }
 
+        public async Task<IActionResult> Details(int id)
+        {
+            var doctor = await _serviceDoctor.GetItemById(id);
+            if (doctor == null) return NotFound();
+            return View(doctor);
+        }
+
+
 
 
 
@@ -56,4 +64,4 @@
 
 
     }
-    }
+}
