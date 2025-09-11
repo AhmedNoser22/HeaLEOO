@@ -63,8 +63,5 @@
                 result ? "Doctor deleted successfully." : "Failed to delete doctor.";
             return RedirectToAction(nameof(Index));
         }
-
-
-
     }
 }
