@@ -9,8 +9,9 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    /* Main body background gradient - This can be a very subtle gradient or a solid color */
-    background: #ffffff;
+    /* Main body background gradient - subtle and refreshing */
+    background: linear-gradient(180deg, #e0f2f7 0%, #ffffff 100%); /* Light blue to white gradient */
+    background-attachment: fixed;
 }
 
 h1, h2, h5 {
@@ -38,6 +39,7 @@ section {
 
 /* --- Hero Section --- */
 .hero {
+    /* Retains its strong original background to make it visually distinct and impactful */
     background: linear-gradient(rgba(44, 125, 160, 0.8), rgba(44, 125, 160, 0.9)), url('https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
     height: 95vh;
     color: #fff;
@@ -67,10 +69,9 @@ section {
             box-shadow: none !important;
         }
 
-/* --- How It Works & Why Choose Healeo Sections --- */
-/* Unified background for these sections */
-.how-it-works, .features, .testimonials {
-    background-color: #f0f7ff; /* The same color as .featured-clinics */
+/* --- How It Works Section --- */
+.how-it-works {
+    background-color: #f8f9fa;
     text-align: center;
 }
 
@@ -112,7 +113,8 @@ h2 {
 
 /* --- Featured Clinics Section --- */
 .featured-clinics {
-    background-color: #f0f7ff;
+    /* Subtle light blue gradient to differentiate from solid white sections */
+    background: linear-gradient(180deg, #e6f7ff 0%, #f0f9ff 100%);
     text-align: center;
 }
 
@@ -166,7 +168,18 @@ h2 {
     margin-top: auto;
 }
 
+/* --- Features Section --- */
+.features {
+    background-color: #fafafa;
+    text-align: center;
+}
+
 /* --- Testimonials Section --- */
+.testimonials {
+    background: linear-gradient(180deg, #f5fbff 0%, #f0f7ff 100%); /* تدرج أزرق فاتح جداً */
+    text-align: center;
+}
+
 .testimonial-card {
     background: #fff;
     padding: 2rem;
