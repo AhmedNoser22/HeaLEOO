@@ -3,20 +3,18 @@
     ViewData["Title"] = "Login";
 }
 
-<div class="auth-split-container">
-    <!-- Left side: image -->
-    <div class="auth-left">
+<div class="login-split-container">
+    <div class="login-left">
         <img src="~/images/DocWallpaper1.png" alt="Doctor" />
     </div>
 
-    <!-- Right side: login form -->
-    <div class="auth-right">
-        <div class="auth-container login-page">
-            <div class="auth-card">
-                <h2 class="auth-title-login-page">Welcome back</h2>
-                <p class="second-line">Please enter your details below</p>
+    <div class="login-right">
+        <div class="login-container">
+            <div class="login-card">
+                <h2 class="login-title">Welcome back</h2>
+                <p class="login-second-line">Please enter your details below</p>
 
-                <form asp-action="Login" method="post" class="auth-form">
+                <form asp-action="Login" method="post" class="login-form">
                     @Html.AntiForgeryToken()
 
                     <div class="form-group mb-3 text-start">
@@ -42,25 +40,17 @@
                     </div>
 
                     <button type="submit" class="btn-login w-100 mb-2">Sign in</button>
-                    @if (!ViewData.ModelState.IsValid)
-                    {
-                        var errorMessage = ViewData.ModelState.Values.SelectMany(v => v.Errors)
-                        .FirstOrDefault()?.ErrorMessage;
-                        if (!string.IsNullOrEmpty(errorMessage))
-                        {
-                            <input type="hidden" id="serverError" value="@errorMessage" />
-                        }
-                    }
                 </form>
 
-                <p class="auth-footer-text mt-3">
+                <p class="login-footer-text mt-3">
                     Don’t have an account?
-                    <a asp-controller="Auth" asp-action="Register" class="auth-link">Sign up</a>
+                    <a asp-controller="Auth" asp-action="Register" class="login-link">Sign up</a>
                 </p>
             </div>
         </div>
     </div>
 </div>
+
 @section Scripts {
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="~/js/login.js"></script>

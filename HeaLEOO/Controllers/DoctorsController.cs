@@ -15,7 +15,7 @@
         {
             _serviceDoctor = serviceDoctor;
             _serviceSpecializations = serviceSpecializations;
-            _serviceClinicsDate =_serviceClinDate;
+            _serviceClinicsDate = _serviceClinDate;
             _mapper = mapper;
         }
 
@@ -45,7 +45,6 @@
                 model.Clinics = _serviceClinicsDate.GetAllServiceClinDate();
                 return View(model);
             }
-
             await _serviceDoctor.CreateItem(model);
             return RedirectToAction(nameof(Index));
         }
