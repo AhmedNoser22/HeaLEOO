@@ -20,6 +20,9 @@
         return View(model);
     }
 
+    [HttpPost]
+
+
 
 
 }
