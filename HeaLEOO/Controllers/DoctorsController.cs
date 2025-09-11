@@ -39,7 +39,14 @@
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(DoctorViewModel model)
         {
-
+            if (!ModelState.IsValid)
+            {
+                model.Specializations = _serviceSpecializations.GetAllSpecializations();
+                model.Clinics = _serviceClinicsDate.GetAllServiceClinDate();
+                return View(model);
+            }
+            await _serviceDoctor.CreateItem(model);
+            return RedirectToAction(nameof(Index));
         }
 
 
@@ -48,5 +55,5 @@
 
 
 
-        }
+    }
     }
