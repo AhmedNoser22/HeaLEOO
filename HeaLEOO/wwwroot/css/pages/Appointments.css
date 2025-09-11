@@ -104,6 +104,23 @@
         color: #2C7DA0;
         border-radius: 1px;
     }
+/* Delete button */
+.appointments-btn-delete {
+    background: #E63946;
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border: 2px solid #E63946;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
 
+    .appointments-btn-delete:hover {
+        background: inherit !important;
+        border: 2px solid #E63946;
+        color: #E63946;
+        border-radius: 1px;
+    }
 
  
