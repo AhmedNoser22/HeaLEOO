@@ -148,15 +148,15 @@
 /* Delete + Cancel button */
 .user-btn-delete,
 .user-btn-cancel {
-    background: #e63946 !important;
+    background: #e64f5a !important;
     color: #fff;
 }
 
     .user-btn-delete:hover,
     .user-btn-cancel:hover {
         background: #f2f2f2 !important;
-        border-color: #e63946;
-        color: #e63946;
+        border-color: #e64f5a;
+        color: #e64f5a;
         border-radius: 1px;
     }
 

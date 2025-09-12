@@ -90,15 +90,15 @@
     border-radius: 0.6rem;
     transition: all 0.2s ease;
     border: 2px solid transparent;
-    background: #F0AD4E;
+    background: #eaaf5a;
     color: #fff;
     font-weight: 550 !important;
 }
 
     .role-btn-manage:hover {
         background: #f2f2f2;
-        border-color: #F0AD4E;
-        color: #F0AD4E;
+        border-color: #eaaf5a;
+        color: #eaaf5a;
         border-radius: 1px;
     }
 
@@ -190,9 +190,9 @@
 
 /* Update button */
 .role-btn-update {
-    background: #0bc850;
+    background: #58C0B8;
     color: #fff;
-    border: 2px solid #0bc850;
+    border: 2px solid #58C0B8;
     border-radius: 0.6rem;
     padding: 0.6rem 1.2rem;
     transition: all 0.2s ease;
@@ -201,8 +201,8 @@
 
     .role-btn-update:hover {
         background: inherit;
-        color: #0bc850;
-        border: 2px solid #0bc850;
+        color: #58C0B8;
+        border: 2px solid #58C0B8;
         border-radius: 1px;
     }
 
