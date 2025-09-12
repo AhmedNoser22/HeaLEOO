@@ -1,12 +1,11 @@
 ﻿/* ================== Users Container ================== */
 .users-container {
-/*    max-width: 1000px;*/
     margin: 0 10rem;
     padding: 5rem;
 }
 
 .users-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 3rem;
     color: #2c7da0;
     font-weight: 700;
@@ -92,7 +91,7 @@
     display: inline-block;
     text-decoration: none;
     font-size: 0.95rem;
-    font-weight: 500 !important;
+    font-weight: 550 !important;
     padding: 0.5rem 1rem;
     border-radius: 0.6rem;
     transition: all 0.2s ease;
@@ -179,7 +178,8 @@
 .user-details-container {
     display: flex;
     justify-content: center;
-    padding: 3rem 1rem;
+    padding: 2rem;
+    margin: 4rem auto;
 }
 
 .user-details-card {
@@ -189,14 +189,14 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     max-width: 600px;
     width: 100%;
-    margin: 2rem; /* 👈 gives space outside the card */
+    margin: 2rem;
 }
 
-.user-details-title {
-    font-size: 1.8rem;
+.user-details-name {
+    font-size: 2.25rem;
     font-weight: 700;
     margin-bottom: 2rem;
-    color: #2c7da0;
+    color: #366cc1;
     text-align: center;
 }
 
@@ -207,6 +207,7 @@
 }
 
     .user-details-section p {
+        color: #2c7da0;
         margin-bottom: 1rem;
     }
 
