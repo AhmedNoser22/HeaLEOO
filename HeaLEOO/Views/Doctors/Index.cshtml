@@ -4,7 +4,13 @@
 }
 
 <div class="doctors-container">
-    <h2 class="doctors-title">Doctors</h2>
+    <div class="doctor-header">
+        <h2 class="doctors-title">Doctors</h2>
+        @if (User.IsInRole("Admin"))
+        {
+            <a asp-action="Create" class="doctor-btn-create">+ Add New Doctor</a>
+        }
+    </div>
 
     @if (TempData["SuccessMessage"] != null)
     {
@@ -14,14 +20,6 @@
     {
         <input type="hidden" id="errorMessage" value="@TempData["ErrorMessage"]" />
     }
-
-   
-    <div class="doctors-footer">
-        @if (User.IsInRole("Admin"))
-        {
-            <a asp-action="Create" class="doctor-btn-create">+ Add New Doctor</a>
-        }
-    </div>
 
     <div class="doctors-grid">
         @foreach (var doc in Model)

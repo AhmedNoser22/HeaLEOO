@@ -1,21 +1,30 @@
 ﻿/* =============== Doctors Page Styles =============== */
 .doctors-container {
-    padding: 5rem;
+    padding: 5rem 7rem;
+}
+
+.doctor-header {
+    margin-bottom: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .doctors-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    margin: 0px 0px 0px 0px !important;
     font-weight: 700;
     color: #2c7da0;
     text-align: center;
-    margin-bottom: 2rem;
 }
 
 /* Grid */
 .doctors-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 /* Doctor Card */
@@ -28,7 +37,7 @@
     flex-direction: column;
     justify-content: space-between;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    padding: 2.5rem 1.5rem;
+    padding: 2rem 1.5rem;
 }
 
     .doctor-card:hover {
@@ -85,74 +94,71 @@
     .doctor-btn-cancel,
     .doctor-btn-back,
     .doctor-btn-details,
-    .doctor-btn-delete {
+    .doctor-btn-delete,
+    .doctor-btn-save {
         display: inline-block;
         text-decoration: none;
         font-size: 0.95rem;
-        font-weight: 500;
+        font-weight: 550;
         padding: 0.5rem 1rem;
-        border-radius: 0.6rem;
         transition: all 0.2s ease;
-        border: 2px solid transparent;
+        width: fit-content;
     }
 
 /* Create button */
 .doctor-btn-create {
-    background: #0bc850;
+    background: #58C0B8;
     color: #fff;
+    border: 2px solid #58C0B8;
     border-radius: 10px;
-    display: block;
-    margin: 0 auto 2.5rem auto !important;
-    text-align: center;
-    width: 200px;
-    border: 2px solid #0bc850 !important;
 }
 
     .doctor-btn-create:hover {
-        background: inherit !important;
-        border: 2px solid #0bc850;
+        background: inherit;
+        color: #58C0B8;
+        border-radius: 1px;
+    }
+
+/* Save button */
+.doctor-btn-save {
+    background: #58C0B8;
+    color: #fff;
+    border: 2px solid #58C0B8;
+    border-radius: 10px;
+}
+
+    .doctor-btn-save:hover {
+        background: inherit;
         color: #0bc850;
         border-radius: 1px;
     }
 
-/* Details button */
-.doctor-btn-details {
-    background: #2c7da0;
-    color: #fff;
-    margin-right: 5px;
-    border-color: #2c7da0;
-}
-
-    .doctor-btn-details:hover {
-        background: #fff;
-        border-color: #2c7da0;
-        color: #2c7da0;
-    }
-
 /* Delete button */
 .doctor-btn-delete {
-    background: #e63946;
+    background: #e64f5a;
     color: #fff;
-    border-color: #e63946;
+    border: 2px solid #e64f5a;
+    border-radius: 10px;
 }
 
     .doctor-btn-delete:hover {
         background: #fff;
-        border-color: #e63946;
-        color: #e63946;
+        color: #e64f5a;
+        border-radius: 1px;
     }
 
 /* Cancel button */
 .doctor-btn-cancel {
-    background: #e63946;
+    background: #e64f5a;
     color: #fff;
-    border-color: #e63946;
+    border: 2px solid #e64f5a;
+    border-radius: 10px;
 }
 
     .doctor-btn-cancel:hover {
         background: #fff;
-        border-color: #e63946;
-        color: #e63946;
+        color: #e64f5a;
+        border-radius: 1px;
     }
 
 /* Back button */
@@ -177,7 +183,8 @@
 .doctor-create-container {
     display: flex;
     justify-content: center;
-    padding: 2rem 1rem;
+    padding: 3rem 1rem;
+    margin: 2rem auto;
 }
 
 .doctor-create-card {
@@ -190,7 +197,7 @@
 }
 
 .doctor-create-title {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 700;
     margin-bottom: 2rem;
     color: #2c7da0;
@@ -225,12 +232,13 @@
 }
 
 .doctor-checkbox-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem 2rem;
     margin: 0.5rem 0;
     padding: 0.5rem 0;
 }
+
 
     .doctor-checkbox-group .form-check {
         display: flex;
@@ -278,7 +286,7 @@
 
     .doctor-checkbox-group .form-check-label {
         color: #000 !important;
-        font-weight: normal;
+        font-weight: normal !important;
         line-height: 1.2;
     }
 
