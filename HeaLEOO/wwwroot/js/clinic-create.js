@@ -19,7 +19,7 @@ document.querySelector(".clinic-create-form")?.addEventListener("submit", functi
 });
 
 
-document.querySelector(".btn-cancel")?.addEventListener("click", function (e) {
+document.querySelector(".clinics-btn-cancel")?.addEventListener("click", function (e) {
     e.preventDefault();
     Swal.fire({
         title: 'Are you sure?',
