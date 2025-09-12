@@ -1,6 +1,14 @@
-﻿/* ================== Services Page ================== */
+﻿/* ================== General Page Styles ================== */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f7f9fc;
+    margin: 0;
+    padding: 0;
+}
+
+/* ================== Services Page ================== */
 .services-container {
-    padding: 5rem;
+    padding: 3rem 1rem;
 }
 
 .services-title {
@@ -14,7 +22,7 @@
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 3.5rem;
+    gap: 2.5rem;
 }
 
 .service-card {
@@ -26,7 +34,7 @@
     flex-direction: column;
     justify-content: space-between;
     transition: transform 0.2s ease;
-    width: 300px;
+    width: auto;
 }
 
     .service-card:hover {
@@ -37,14 +45,11 @@
     padding: 5px;
 }
 
-/* ================== Action Buttons ================== */
-
+/* ================== Action Buttons (Common Styles) ================== */
 .service-actions a,
-.btn-create,
 .btn-details,
 .btn-delete,
 .btn-edit,
-.btn-cancel,
 .btn-back {
     display: inline-block;
     text-decoration: none;
@@ -53,22 +58,23 @@
     padding: 0.5rem 1rem;
     border-radius: 0.6rem;
     transition: all 0.2s ease;
-    border: 2px solid transparent; /* 👈 prevent jump on hover */
+    border: 2px solid transparent;
+    text-align: center;
 }
 
-/* Create button */
-.btn-create {
+/* Create button (on Services list page) */
+.btn-create.services-page {
     background: #0bc850;
     color: #fff;
     border-radius: 10px;
-    display: block;
-    margin: 0 auto 2.5rem auto !important;
+    display: inline-block; /* Changed to inline-block for natural flow */
+    margin-bottom: 2.5rem; /* Re-added margin-bottom for spacing */
     text-align: center;
-    width: 200px;
+    width: auto; /* Removed fixed width */
     border: 2px solid #0bc850 !important;
 }
 
-    .btn-create:hover {
+    .btn-create.services-page:hover {
         background: inherit !important;
         border: 2px solid #0bc850;
         color: #0bc850;
@@ -132,7 +138,6 @@
         border-radius: 1px;
     }
 
-
 /* ================== Details Page ================== */
 .service-details-container {
     display: flex;
@@ -173,8 +178,9 @@
 .service-create-container {
     display: flex;
     justify-content: center;
-    padding: 3rem 1rem;
-    margin: 75px 0px !important;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
 }
 
 .service-create-card {
@@ -190,7 +196,7 @@
     font-size: 1.8rem;
     font-weight: 700;
     margin-bottom: 2rem;
-    color: #2c7da0 !important;
+    color: #2c7da0;
     text-align: center;
 }
 
@@ -210,19 +216,19 @@
     /* single radio item */
     .services-radio-group .form-radio {
         display: flex;
-        align-items: center; /* ✅ keeps radio and text on same line */
+        align-items: center;
         gap: 0.5rem;
     }
 
     /* base radio button */
     .services-radio-group .form-radio-input {
-        appearance: none; /* remove default browser style */
+        appearance: none;
         -webkit-appearance: none;
         -moz-appearance: none;
         width: 18px;
         height: 18px;
-        border: 2px solid #0bc850; /* ✅ border color */
-        border-radius: 50%; /* make it circular */
+        border: 2px solid #0bc850;
+        border-radius: 50%;
         cursor: pointer;
         display: inline-block;
         position: relative;
@@ -231,8 +237,8 @@
 
         /* when checked */
         .services-radio-group .form-radio-input:checked {
-            background-color: #0bc850; /* ✅ green fill */
-            border-color: #0bc850; /* border stays green */
+            background-color: #0bc850;
+            border-color: #0bc850;
         }
 
             /* inner dot effect */
@@ -240,7 +246,7 @@
                 content: "";
                 width: 8px;
                 height: 8px;
-                background: #fff; /* white inner circle */
+                background: #fff;
                 border-radius: 50%;
                 position: absolute;
                 top: 50%;
@@ -279,8 +285,8 @@
 .service-create-actions {
     margin-top: 2rem;
     display: flex;
-    justify-content: center; /* center the button group */
-    gap: 1.5rem; /* space between buttons */
+    justify-content: center;
+    gap: 7.5rem;
 }
 
     .service-create-actions .btn-create,
@@ -322,3 +328,71 @@
             background: #fff;
             color: #e63946;
         }
+
+/* ================== Media Queries for Responsiveness ================== */
+@media (max-width: 768px) {
+    .services-container {
+        padding: 2rem 0.5rem;
+    }
+
+    .services-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .services-grid {
+        gap: 1.5rem;
+    }
+
+    .service-card {
+        padding: 1rem;
+    }
+
+    .btn-create.services-page {
+        width: 100%;
+        max-width: 250px;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .service-actions a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .service-details-name {
+        font-size: 1.5rem;
+    }
+
+    .service-details-card,
+    .service-create-card {
+        padding: 1.5rem;
+    }
+
+    .service-create-title {
+        font-size: 1.5rem;
+    }
+
+    .service-create-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+        .service-create-actions .btn-create,
+        .service-create-actions .btn-cancel {
+            width: 100%;
+            max-width: 250px;
+            font-size: 0.9rem;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+    .service-create-form input {
+        font-size: 0.85rem;
+    }
+
+    .services-radio-group .form-radio-label {
+        font-size: 0.85rem;
+    }
+}
