@@ -1,28 +1,29 @@
-﻿/* ================== General Page Styles ================== */
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f7f9fc;
-    margin: 0;
-    padding: 0;
+﻿/* ================== Services Page ================== */
+.services-container {
+    padding: 5rem 7rem;
 }
 
-/* ================== Services Page ================== */
-.services-container {
-    padding: 3rem 1rem;
+.services-header {
+    margin-bottom: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .services-title {
-    font-size: 2rem;
-    margin-bottom: 2rem;
+    font-size: 2.5rem;
     color: #2c7da0;
     font-weight: 700;
     text-align: center;
+    margin: 0px 0px 0px 0 !important;
 }
 
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 2.5rem;
+    gap: 2rem;
 }
 
 .service-card {
@@ -34,7 +35,6 @@ body {
     flex-direction: column;
     justify-content: space-between;
     transition: transform 0.2s ease;
-    width: auto;
 }
 
     .service-card:hover {
@@ -47,93 +47,87 @@ body {
 
 /* ================== Action Buttons (Common Styles) ================== */
 .service-actions a,
-.btn-details,
-.btn-delete,
-.btn-edit,
-.btn-back {
+.service-btn-create,
+.service-btn-details,
+.service-btn-delete,
+.service-btn-edit,
+.service-btn-back,
+.service-btn-cancel {
     display: inline-block;
     text-decoration: none;
     font-size: 0.95rem;
-    font-weight: 500;
+    font-weight: 550;
     padding: 0.5rem 1rem;
-    border-radius: 0.6rem;
     transition: all 0.2s ease;
-    border: 2px solid transparent;
-    text-align: center;
 }
 
-/* Create button (on Services list page) */
-.btn-create.services-page {
-    background: #0bc850;
+.service-btn-create {
+    background: #58C0B8;
     color: #fff;
+    border: 2px solid #58C0B8;
     border-radius: 10px;
-    display: block; /* Ensures the button takes up the full width to be centered */
-    margin: 0 auto 2.5rem auto; /* Centers the button horizontally with auto margins */
-    text-align: center;
-    width: 200px;
-    border: 2px solid #0bc850 !important;
 }
 
-    .btn-create.services-page:hover {
-        background: inherit !important;
-        border: 2px solid #0bc850;
-        color: #0bc850;
+    .service-btn-create:hover {
+        background: inherit;
+        color: #58C0B8;
         border-radius: 1px;
     }
 
 /* Details button */
-.btn-details {
+.service-btn-details {
     background: #2c7da0;
     color: #fff;
-    margin-right: 5px;
+    border: 2px solid #2c7da0 !important;
+    border-radius: 10px;
 }
 
-    .btn-details:hover {
+    .service-btn-details:hover {
         background: #fff;
-        border-color: #2c7da0;
         color: #2c7da0;
         border-radius: 1px;
     }
 
 /* Edit button */
-.btn-edit {
-    background: #f0ad4e;
+.service-btn-edit {
+    background: #eaaf5a;
     color: #fff;
-    margin-right: 5px;
+    border: 2px solid #eaaf5a !important;
+    border-radius: 10px;
 }
 
-    .btn-edit:hover {
+    .service-btn-edit:hover {
         background: #fff;
-        border-color: #f0ad4e;
-        color: #f0ad4e;
+        color: #eaaf5a;
         border-radius: 1px;
     }
 
 /* Delete + Cancel button */
-.btn-delete,
-.btn-cancel {
-    background: #e63946;
+.service-btn-delete,
+.service-btn-cancel {
+    background: #e64f5a;
     color: #fff;
+    border: 2px solid #e64f5a !important;
+    border-radius: 10px;
 }
 
-    .btn-delete:hover,
-    .btn-cancel:hover {
+    .service-btn-delete:hover,
+    .service-btn-cancel:hover {
         background: #fff;
-        border-color: #e63946;
-        color: #e63946;
+        color: #e64f5a;
         border-radius: 1px;
     }
 
 /* Back button */
-.btn-back {
+.service-btn-back {
     background: #6c757d;
     color: #fff;
-    border: 2px solid #6c757d;
+    border: 2px solid #6c757d !important;
+    border-radius: 10px;
 }
 
-    .btn-back:hover {
-        background: #fff !important;
-        border: 2px solid #6c757d;
+    .service-btn-back:hover {
+        background: #fff;
         color: #6c757d;
         border-radius: 1px;
     }
@@ -143,6 +137,7 @@ body {
     display: flex;
     justify-content: center;
     padding: 2rem;
+    margin: 4rem auto;
 }
 
 .service-details-card {
@@ -155,8 +150,8 @@ body {
 }
 
 .service-details-name {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
+    font-size: 2rem;
+    margin-bottom: 2rem !important;
     color: #366cc1;
 }
 
@@ -169,6 +164,10 @@ body {
         color: #000;
     }
 
+    .service-details-section p {
+        color: #2c7da0;
+    }
+
 .service-details-actions {
     margin-top: 2rem;
     text-align: center;
@@ -178,9 +177,8 @@ body {
 .service-create-container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 1rem;
+    padding: 3rem 1rem;
+    margin: 4rem auto;
 }
 
 .service-create-card {
@@ -193,7 +191,7 @@ body {
 }
 
 .service-create-title {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 700;
     margin-bottom: 2rem;
     color: #2c7da0;
@@ -206,10 +204,10 @@ body {
 
 /* container for radios */
 .services-radio-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    margin: 0.5rem 0 0.5rem 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem 2rem;
+    margin: 0.5rem 0;
     padding: 0.5rem 0;
 }
 
@@ -225,14 +223,13 @@ body {
         appearance: none;
         -webkit-appearance: none;
         -moz-appearance: none;
-        width: 18px;
-        height: 18px;
+        width: 20px;
+        height: 20px;
         border: 2px solid #0bc850;
         border-radius: 50%;
         cursor: pointer;
-        display: inline-block;
         position: relative;
-        transition: all 0.2s ease-in-out;
+        flex-shrink: 0;
     }
 
         /* when checked */
@@ -259,11 +256,15 @@ body {
         }
 
     /* label next to radio */
+        .services-radio-group .form-radio-input:checked + .form-radio-label {
+            color: #34495e !important;
+            cursor: pointer;
+        }
+
     .services-radio-group .form-radio-label {
-        font-size: 0.95rem;
-        color: #34495e;
-        cursor: pointer;
+        font-weight: normal !important;
     }
+
 
 
 .service-create-form label {
@@ -283,10 +284,10 @@ body {
 
 /* Action buttons */
 .service-create-actions {
-    margin-top: 2rem;
+    margin-top: 1rem;
     display: flex;
     justify-content: center;
-    gap: 7.5rem;
+    gap: 1.5rem;
 }
 
     .service-create-actions .btn-create,
