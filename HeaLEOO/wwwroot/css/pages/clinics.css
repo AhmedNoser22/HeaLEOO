@@ -86,15 +86,15 @@
 
 /* Create button */
 .clinics-btn-create {
-    background: #0bc850;
+    background: #58C0B8;
     color: #fff;
-    border: 2px solid #0bc850;
+    border: 2px solid #58C0B8;
     border-radius: 10px;
 }
 
     .clinics-btn-create:hover {
         background: inherit;
-        color: #0bc850;
+        color: #58C0B8;
         border-radius: 1px;
     }
 
@@ -115,16 +115,16 @@
 
 /* Delete button */
 .clinics-btn-delete {
-    background: #e63946;
+    background: #e64f5a;
     color: #fff;
-    border: 2px solid #e63946;
+    border: 2px solid #e64f5a;
     margin-left: 3px;
     border-radius: 10px;
 }
 
     .clinics-btn-delete:hover {
         background: #fff;
-        color: #e63946;
+        color: #e64f5a;
         border-radius: 1px;
     }
 
@@ -144,15 +144,15 @@
 
 /* Cancel button */
 .clinics-btn-cancel {
-    background: #e63946;
+    background: #e64f5a;
     color: #fff;
-    border: 2px solid #e63946;
+    border: 2px solid #e64f5a;
     border-radius: 10px;
 }
 
     .clinics-btn-cancel:hover {
         background: #fff;
-        color: #e63946;
+        color: #e64f5a;
         border-radius: 1px;
     }
 
