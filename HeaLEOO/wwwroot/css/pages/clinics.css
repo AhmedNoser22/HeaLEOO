@@ -58,7 +58,9 @@
 .clinic-actions a,
 .btn-create,
 .btn-cancel,
-.btn-back {
+.btn-back,
+.btn-delete,
+.btn-details {
     display: inline-block;
     text-decoration: none;
     font-size: 0.95rem;
@@ -67,6 +69,7 @@
     border-radius: 0.6rem;
     transition: all 0.2s ease;
     border: 2px solid transparent;
+    width: fit-content;
 }
 
 /* Create button */
