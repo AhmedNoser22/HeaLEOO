@@ -1,7 +1,6 @@
 ﻿/* ================== Appointments Container ================== */
 .appointments-container {
-    margin: 0 10rem;
-    padding: 5rem;
+    padding: 3rem 1rem;
 }
 
 /* Header row */
@@ -10,6 +9,8 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .appointments-title {
@@ -53,6 +54,7 @@
         padding: 1rem;
         text-align: left;
         font-weight: 600;
+        white-space: nowrap;
     }
 
     .appointments-table tbody tr {
@@ -64,13 +66,14 @@
             background: #f9f9f9;
         }
 
-/* ================== Action Buttons ================== */
+/* ================== Action Buttons (List Page) ================== */
 .appointments-actions {
     display: flex;
     gap: 0.6rem;
     justify-content: center;
 }
 
+/* Updated `create` button */
 .appointments-btn-create {
     background: #0BC850;
     color: #fff;
@@ -80,13 +83,16 @@
     text-decoration: none;
     font-weight: 500;
     transition: all 0.2s ease;
+    white-space: nowrap;
+    width: auto;
+    margin: 0;
 }
 
     .appointments-btn-create:hover {
         background: inherit !important;
         border: 2px solid #0BC850;
-        border-radius: 1px;
         color: #0BC850;
+        border-radius: 1px;
     }
 
 /* Details button */
@@ -127,13 +133,13 @@
         border-radius: 1px;
     }
 
-
 /* ================== Shared Appointment Container ================== */
 .appointment-container {
     display: flex;
     justify-content: center;
-    padding: 3rem 1rem;
-    margin: 75px 0 !important;
+    align-items: center;
+    padding: 2rem 1rem;
+    min-height: 100vh;
 }
 
 .appointment-card {
@@ -142,14 +148,14 @@
     border-radius: 1rem;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     max-width: 550px;
-    width: 1400px;
+    width: 100%;
 }
 
 .appointment-title {
     font-size: 1.8rem;
     font-weight: 700;
     margin-bottom: 2rem;
-    color: #2c7da0 !important;
+    color: #2c7da0;
     text-align: center;
 }
 
@@ -170,7 +176,7 @@
     border-radius: 0.5rem;
     border: 1px solid #ccc;
     padding: 0.6rem;
-    /*    width: 100%;*/
+    width: 100%;
     font-size: 0.95rem;
 }
 
@@ -183,7 +189,7 @@
 }
 
 .form-check-input {
-    width: 10px;
+    width: 16px;
     height: 16px;
     cursor: pointer;
     margin: 0;
@@ -195,7 +201,6 @@
     cursor: pointer;
     line-height: 1;
     margin: 0;
-    margin-bottom: 0 !important;
 }
 
 /* ================== Info Text (for Details / Delete) ================== */
@@ -210,13 +215,12 @@
         margin-bottom: 0.8rem;
     }
 
-/* ================== Action Buttons ================== */
-.form-actions,
-.appointment-actions {
+/* ================== Action Buttons (Form) ================== */
+.form-actions {
     margin-top: 2rem;
     display: flex;
     justify-content: center;
-    gap: 7.5rem;
+    gap: 1.5rem;
 }
 
 .btn-save {
@@ -238,24 +242,7 @@
 .btn-cancel {
     background: #6c757d;
     color: #fff;
-    border: 2px solid #6c757d !important;
-    width: 120px;
-    text-align: center;
-    font-weight: 500;
-    border-radius: 0.5rem;
-    text-decoration: none;
-    transition: 0.2s ease;
-}
-
-    .btn-cancel:hover {
-        background: #fff;
-        color: #6c757d;
-    }
-
-.btn-cancel {
-    background: #6c757d;
-    color: #fff;
-    border: 2px solid #6c757d !important;
+    border: 2px solid #6c757d;
     width: 120px;
     text-align: center;
     font-weight: 500;
@@ -291,4 +278,87 @@
 
 .appointment-card.delete .appointment-title {
     color: #e63946;
+}
+
+/* ================== Media Queries for Responsiveness ================== */
+@media (max-width: 768px) {
+    .appointments-container {
+        padding: 1.5rem 1rem;
+    }
+
+    .appointments-title {
+        font-size: 1.5rem;
+    }
+
+    .appointments-table-wrapper {
+        padding: 1rem;
+    }
+
+    .appointments-table th,
+    .appointments-table td {
+        padding: 0.7rem;
+        font-size: 0.85rem;
+    }
+
+    .appointments-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .appointments-btn-create {
+        width: 100%;
+        text-align: center;
+    }
+
+    .appointments-actions {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .appointments-btn-details,
+    .appointments-btn-delete {
+        width: 100%;
+        max-width: 250px;
+        font-size: 0.85rem;
+        padding: 0.5rem 0.75rem;
+    }
+
+    .appointment-container {
+        padding: 1.5rem 0.5rem;
+        min-height: auto;
+    }
+
+    .appointment-card {
+        padding: 1.5rem;
+    }
+
+    .appointment-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .appointment-form input,
+    .appointment-form select {
+        font-size: 0.9rem;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .btn-save,
+    .btn-delete,
+    .btn-cancel {
+        width: 100%;
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 500px) {
+    .appointments-container {
+        padding: 1rem 0.5rem;
+    }
 }
