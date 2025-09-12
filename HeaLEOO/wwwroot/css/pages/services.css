@@ -67,10 +67,10 @@ body {
     background: #0bc850;
     color: #fff;
     border-radius: 10px;
-    display: inline-block; /* Changed to inline-block for natural flow */
-    margin-bottom: 2.5rem; /* Re-added margin-bottom for spacing */
+    display: block; /* Ensures the button takes up the full width to be centered */
+    margin: 0 auto 2.5rem auto; /* Centers the button horizontally with auto margins */
     text-align: center;
-    width: auto; /* Removed fixed width */
+    width: 200px;
     border: 2px solid #0bc850 !important;
 }
 
@@ -351,8 +351,8 @@ body {
     .btn-create.services-page {
         width: 100%;
         max-width: 250px;
-        margin-left: auto !important;
-        margin-right: auto !important;
+        margin: 0 auto 1.5rem auto !important;
+        display: block !important;
     }
 
     .service-actions a {
