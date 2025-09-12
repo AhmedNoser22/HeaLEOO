@@ -1,38 +1,41 @@
 ﻿@model IEnumerable<HeaLEOO.ViewModels.ServiceVM>
 
-
-
-
 @{
-    ViewData["Title"] = "Services List";
+    ViewData["Title"] = "Services";
 }
 
-<h2>Services</h2>
+<div class="services-container">
+    <h2 class="services-title">Services</h2>
 
-<p>
-    <a asp-action="Create" class="btn btn-primary">Add New Service</a>
-</p>
+    <div class="services-footer">
+        <a asp-action="Create" class="btn-create">+ Add Service</a>
+    </div>
 
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th style="width:200px;">Actions</th>
-        </tr>
-    </thead>
-    <tbody>
+    <div class="services-grid">
         @foreach (var service in Model)
         {
-            <tr>
-                <td>@service.Name</td>
-                <td>@service.Price</td>
-                <td>
-                    <a asp-action="Details" asp-route-id="@service.Id" class="btn btn-info btn-sm">Details</a>
-                    <a asp-action="Edit" asp-route-id="@service.Id" class="btn btn-warning btn-sm">Edit</a>
-                    <a asp-action="Delete" asp-route-id="@service.Id" class="btn btn-danger btn-sm">Delete</a>
-                </td>
-            </tr>
+            <div class="service-card">
+                <div class="service-info">
+                    <h3 class="service-name">@service.Name</h3>
+                    <p class="service-address">@service.Price</p>
+                    <p class="service-phone">@service.ClinicName</p>
+                </div>
+
+                <div class="service-actions">
+                    <a asp-action="Details" asp-route-id="@service.Id" class="btn-details">Details</a>
+                    <a asp-action="Edit" asp-route-id="@service.Id" class="btn-edit">Edit</a>
+
+                    <form asp-action="Delete" asp-route-id="@service.Id" method="post" style="display:inline"
+                          onsubmit="return confirmServiceDelete(event, this);">
+                        <button type="submit" class="btn-delete">Delete</button>
+                    </form>
+                </div>
+            </div>
         }
-    </tbody>
-</table>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="~/js/service-Index.js"></script>
+}

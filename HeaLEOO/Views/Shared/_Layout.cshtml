@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Healeo | @ViewData["Title"]</title>
+    <link rel="icon" type="image/x-icon" href="~/images/HealeoLogoLOG.png">
 
     <!-- Bootstrap & Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
@@ -24,17 +25,28 @@
     <link rel="stylesheet" href="~/css/shared/footer.css" />
 
     <!-- Pages Styles -->
-    <link rel="stylesheet" href="~/css/pages/auth.css" />
+    <link rel="stylesheet" href="~/css/pages/login.css" />
+    <link rel="stylesheet" href="~/css/pages/register.css" />
     <link rel="stylesheet" href="~/css/pages/index.css" />
     <link rel="stylesheet" href="~/css/pages/about.css" />
     <link rel="stylesheet" href="~/css/pages/dashboard.css" />
 
     <link rel="stylesheet" href="~/css/pages/clinics.css" />
     <link rel="stylesheet" href="~/css/pages/doctors.css" />
+    <link rel="stylesheet" href="~/css/pages/services.css" />
+    <link rel="stylesheet" href="~/css/pages/appointments.css" />
+
+    <link rel="stylesheet" href="~/css/adminPages/userManagement.css" />
+    <link rel="stylesheet" href="~/css/adminpages/roles.css" />
+
 
     <link rel="stylesheet" href="~/css/views/specializations/add.css" />
     <link rel="stylesheet" href="~/css/views/specializations/index.css" />
+	
+
+
 </head>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <body>
     <!-- ======= Header ======= -->
     <div class="header">
@@ -45,17 +57,17 @@
         </div>
 
         <div class="nav-links">
+            <a class="animated-underline" asp-controller="Home" asp-action="Index">Home</a>
             <a class="animated-underline" asp-controller="Clinics" asp-action="Index">Clinics</a>
             <a class="animated-underline" asp-controller="Doctors" asp-action="Index">Doctors</a>
             <a class="animated-underline" asp-controller="Services" asp-action="Index">Services</a>
-            <a class="animated-underline" asp-controller="UserManagement" asp-action="Index">User Management</a>
+            <a class="animated-underline" asp-controller="Appointments" asp-action="Index">Appointments</a>
             
 
              @if (User.IsInRole("Admin"))
             {
-                <a class="animated-underline" asp-controller="RoleMvc" asp-action="Index">Roles</a>
                 <a class="animated-underline" asp-controller="UserManagement" asp-action="Index">User Management</a>
-                <a class="animated-underline" asp-controller="RoleMvc" asp-action="Index">Roles</a>
+                <a class="animated-underline" asp-controller="RoleMvc" asp-action="Users">Roles</a>
             } 
         </div>
         <div class="nav-buttons">
@@ -153,7 +165,11 @@
         });
     </script>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     @RenderSection("Scripts", required: false)
+
+
+
 </body>
 </html>

@@ -1,14 +1,14 @@
 ﻿/* =============== Doctors Page Styles =============== */
 .doctors-container {
-    padding: 2rem;
+    padding: 5rem;
 }
 
 .doctors-title {
     font-size: 2rem;
     font-weight: 700;
     color: #2c7da0;
-    margin-top: 3rem;
     text-align: center;
+    margin-bottom: 2rem;
 }
 
 /* Grid */
@@ -76,13 +76,16 @@
     border-top: 1px solid #f0f0f0;
     display: flex;
     justify-content: center;
+    gap: 1.5rem; /* Increased gap for better spacing */
 }
 
     /* ================== Doctors Action Buttons ================== */
     .doctor-actions a,
     .doctor-btn-create,
     .doctor-btn-cancel,
-    .doctor-btn-back {
+    .doctor-btn-back,
+    .doctor-btn-details,
+    .doctor-btn-delete {
         display: inline-block;
         text-decoration: none;
         font-size: 0.95rem;
@@ -90,7 +93,7 @@
         padding: 0.5rem 1rem;
         border-radius: 0.6rem;
         transition: all 0.2s ease;
-        border: 2px solid transparent; /* 👈 prevent jump on hover */
+        border: 2px solid transparent;
     }
 
 /* Create button */
@@ -99,7 +102,7 @@
     color: #fff;
     border-radius: 10px;
     display: block;
-    margin: 2.5rem auto 0 auto;
+    margin: 0 auto 2.5rem auto !important;
     text-align: center;
     width: 200px;
     border: 2px solid #0bc850 !important;
@@ -117,42 +120,51 @@
     background: #2c7da0;
     color: #fff;
     margin-right: 5px;
+    border-color: #2c7da0;
 }
 
     .doctor-btn-details:hover {
         background: #fff;
         border-color: #2c7da0;
         color: #2c7da0;
-        border-radius: 1px;
     }
 
-/* Delete + Cancel button */
-.doctor-btn-delete,
+/* Delete button */
+.doctor-btn-delete {
+    background: #e63946;
+    color: #fff;
+    border-color: #e63946;
+}
+
+    .doctor-btn-delete:hover {
+        background: #fff;
+        border-color: #e63946;
+        color: #e63946;
+    }
+
+/* Cancel button */
 .doctor-btn-cancel {
     background: #e63946;
     color: #fff;
+    border-color: #e63946;
 }
 
-    .doctor-btn-delete:hover,
     .doctor-btn-cancel:hover {
         background: #fff;
         border-color: #e63946;
         color: #e63946;
-        border-radius: 1px;
     }
 
 /* Back button */
 .doctor-btn-back {
     background: #6c757d;
     color: #fff;
-    border: 2px solid #6c757d;
+    border-color: #6c757d;
 }
 
     .doctor-btn-back:hover {
-        background: #fff !important;
-        border: 2px solid #6c757d;
+        background: #fff;
         color: #6c757d;
-        border-radius: 1px;
     }
 
 /* Footer */
@@ -166,7 +178,6 @@
     display: flex;
     justify-content: center;
     padding: 2rem 1rem;
-    margin: 75px 0px;
 }
 
 .doctor-create-card {
@@ -182,7 +193,7 @@
     font-size: 1.8rem;
     font-weight: 700;
     margin-bottom: 2rem;
-    color: #2c7da0 !important;
+    color: #2c7da0;
     text-align: center;
 }
 
@@ -206,59 +217,18 @@
     font-size: 0.95rem;
 }
 
-/* Action buttons */
 .doctor-create-actions {
     margin-top: 2rem;
     display: flex;
     justify-content: center;
-    gap: 7rem;
+    gap: 1.5rem;
 }
-
-    .doctor-create-actions .btn-create,
-    .doctor-create-actions .btn-cancel {
-        margin: 0;
-        width: 120px;
-        text-align: center;
-        font-weight: 500;
-        padding: 0.6rem 1.5rem;
-        border-radius: 0.5rem;
-        cursor: pointer;
-        transition: 0.2s ease;
-        border: 2px solid transparent;
-    }
-
-    /* Save button (green) */
-    .doctor-create-actions .btn-create {
-        background: #0bc850;
-        color: #fff;
-        border-color: #0bc850;
-        margin-left: -50px;
-    }
-
-        .doctor-create-actions .btn-create:hover {
-            background: #fff;
-            color: #0bc850;
-        }
-
-    /* Cancel button (red) */
-    .doctor-create-actions .btn-cancel {
-        background: #e63946;
-        color: #fff;
-        border-color: #e63946;
-        text-decoration: none;
-        margin-right: -50px;
-    }
-
-        .doctor-create-actions .btn-cancel:hover {
-            background: #fff;
-            color: #e63946;
-        }
 
 .doctor-checkbox-group {
     display: flex;
     flex-direction: column;
     gap: 0.6rem;
-    margin: 0.5rem 0rem 0.5rem 0.5rem;
+    margin: 0.5rem 0;
     padding: 0.5rem 0;
 }
 
@@ -268,14 +238,107 @@
         gap: 0.5rem;
     }
 
-    .doctor-checkbox-group .form-check-input {
-        width: 18px;
-        height: 18px;
-        cursor: pointer;
-    }
-
     .doctor-checkbox-group .form-check-label {
         font-size: 0.95rem;
         color: #34495e;
         cursor: pointer;
     }
+
+    .doctor-checkbox-group .form-check-input {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background: #fff;
+        background-image: none;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #0bc850;
+        border-radius: 4px;
+        cursor: pointer;
+        position: relative;
+        flex-shrink: 0;
+    }
+
+        .doctor-checkbox-group .form-check-input:checked {
+            background-color: #0bc850;
+            border-color: #0bc850;
+        }
+
+            .doctor-checkbox-group .form-check-input:checked::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 6px;
+                height: 12px;
+                border: solid #fff;
+                border-width: 0 2px 2px 0;
+                transform: translate(-50%, -50%) rotate(45deg);
+            }
+
+    .doctor-checkbox-group .form-check-label {
+        color: #000 !important;
+        font-weight: normal;
+        line-height: 1.2;
+    }
+
+/* ================== Media Queries for Responsiveness ================== */
+@media (max-width: 768px) {
+    /* General Adjustments */
+    .doctors-container {
+        padding: 2rem 1rem;
+    }
+
+    .doctors-title {
+        font-size: 1.75rem;
+    }
+
+    /* Doctors Grid */
+    .doctors-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .doctor-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .doctor-info {
+        padding: 1rem 0;
+    }
+
+    /* Create Page */
+    .doctor-create-container {
+        padding: 1.5rem 1rem;
+    }
+
+    .doctor-create-card {
+        padding: 1.5rem;
+    }
+
+    .doctor-create-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .doctor-create-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+        .doctor-create-actions .doctor-btn-create,
+        .doctor-create-actions .doctor-btn-cancel {
+            width: 100%;
+            margin: 0;
+        }
+
+    .doctor-btn-create,
+    .doctor-btn-details,
+    .doctor-btn-delete,
+    .doctor-btn-back,
+    .doctor-btn-cancel {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+    }
+}

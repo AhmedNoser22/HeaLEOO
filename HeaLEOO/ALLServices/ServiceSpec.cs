@@ -1,29 +1,26 @@
-﻿
-namespace HeaLEOO.ALLServices
+﻿namespace HeaLEOO.ALLServices
 {
-    public class ServiceSpec : IServiceSpec
+    public class ServiceSpec: IServiceSpec
     {
-        private readonly IGenericRepo<Specializations> _genericRepo;
+        private readonly IUnitOF_Work work;
         private readonly IMapper _mapper;
-        public ServiceSpec(IGenericRepo<Specializations> genericRepo, IMapper mapper = null)
+        public ServiceSpec(IMapper mapper, IUnitOF_Work work)
         {
-            _genericRepo = genericRepo;
             _mapper = mapper;
+            this.work = work;
         }
         public async Task<IEnumerable<SpecializationsVM>> GetSpecializations()
         {
-            var specializations =await _genericRepo.GetAll();
+            var specializations = await work.GetRepoSpecializations.GetAll();
             return _mapper.Map<IEnumerable<SpecializationsVM>>(specializations);
         }
         public async Task<SpecializationsVM> Addspecializations(SpecializationsVM specializations)
         {
             var spec = _mapper.Map<Specializations>(specializations);
-            await _genericRepo.Add(spec);
-            await _genericRepo.Complete();
+            await work.GetRepoSpecializations.Add(spec);
+            await work.Complete();
             return _mapper.Map<SpecializationsVM>(spec);
 
         }
-
-       
     }
 }

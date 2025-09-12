@@ -1,0 +1,218 @@
+﻿/* ================== Users Container ================== */
+.users-container {
+/*    max-width: 1000px;*/
+    margin: 0 10rem;
+    padding: 5rem;
+}
+
+.users-title {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    color: #2c7da0;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* ================== Alerts ================== */
+.alert {
+    border-radius: 0.75rem;
+    padding: 0.9rem 1.2rem;
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* ================== User Table ================== */
+.user-table-wrapper {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    overflow-x: auto;
+    padding: 1.5rem;
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.user-table thead {
+    background: #2c7da0;
+    color: #fff;
+    font-size: 1rem;
+    height:60px;
+}
+
+.user-table th,
+.user-table td {
+    padding: 1rem;
+    text-align: left;
+    font-weight:600;
+}
+
+.user-table tbody tr {
+    border-bottom: 1px solid #eee;
+    transition: background 0.2s ease;
+}
+
+.user-table tbody tr:hover {
+    background: #f2f2f2;
+}
+
+    /* First column highlight */
+    .user-table td:first-child {
+        font-weight: 500;
+        color: #1a4a8e;
+    }
+
+/* ================== Action Buttons ================== */
+.user-actions {
+    display: flex;
+    gap: 0.6rem; /* space between buttons */
+    justify-content: center; /* optional: center them in the table cell */
+}
+
+.service-actions a,
+.user-btn-create,
+.user-btn-details,
+.user-btn-delete,
+.user-btn-edit,
+.user-btn-cancel,
+.user-btn-back {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500 !important;
+    padding: 0.5rem 1rem;
+    border-radius: 0.6rem;
+    transition: all 0.2s ease;
+    border: 2px solid transparent; /* 👈 prevent jump on hover */
+}
+
+/* Create button */
+.user-btn-create {
+    background: #0bc850;
+    color: #fff;
+    border-radius: 10px;
+    display: block;
+    margin: 2.5rem auto 0 auto;
+    text-align: center;
+    width: 200px;
+    border: 2px solid #0bc850 !important;
+}
+
+    .user-btn-create:hover {
+        background: #f2f2f2;
+        border: 2px solid #0bc850;
+        color: #0bc850;
+        border-radius: 1px;
+    }
+
+/* Details button */
+.user-btn-details {
+    background: #2c7da0;
+    color: #fff;
+    margin-right: 5px;
+}
+
+    .user-btn-details:hover {
+        background: #f2f2f2;
+        border-color: #2c7da0;
+        color: #2c7da0;
+        border-radius: 1px;
+    }
+
+/* Edit button */
+.user-btn-edit {
+    background: #f0ad4e;
+    color: #fff;
+    margin-right: 5px;
+}
+
+    .user-btn-edit:hover {
+        background: #f2f2f2;
+        border-color: #f0ad4e;
+        color: #f0ad4e;
+        border-radius: 1px;
+    }
+
+/* Delete + Cancel button */
+.user-btn-delete,
+.user-btn-cancel {
+    background: #e63946 !important;
+    color: #fff;
+}
+
+    .user-btn-delete:hover,
+    .user-btn-cancel:hover {
+        background: #f2f2f2 !important;
+        border-color: #e63946;
+        color: #e63946;
+        border-radius: 1px;
+    }
+
+/* Back button */
+.user-btn-back {
+    background: #6c757d;
+    color: #fff;
+    border: 2px solid #6c757d;
+}
+
+    .user-btn-back:hover {
+        background: #fff !important;
+        border: 2px solid #6c757d;
+        color: #6c757d;
+        border-radius: 1px;
+    }
+
+/* ================== User Details Page ================== */
+.user-details-container {
+    display: flex;
+    justify-content: center;
+    padding: 3rem 1rem;
+}
+
+.user-details-card {
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    max-width: 600px;
+    width: 100%;
+    margin: 2rem; /* 👈 gives space outside the card */
+}
+
+.user-details-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #2c7da0;
+    text-align: center;
+}
+
+.user-details-section {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+}
+
+    .user-details-section p {
+        margin-bottom: 1rem;
+    }
+
+.user-details-actions {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* 👈 space between Back and Delete */
+}

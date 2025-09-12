@@ -1,0 +1,53 @@
+﻿@model IEnumerable<AppointmentsVM>
+
+@{
+    ViewData["Title"] = "Appointments";
+}
+
+<div class="appointments-container">
+    <div class="appointments-header">
+        <h2 class="appointments-title">Your Appointments</h2>
+        <a asp-action="Create" class="appointments-btn-create">+ Create New</a>
+    </div>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success text-center">@TempData["Success"]</div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger text-center">@TempData["Error"]</div>
+    }
+
+    <div class="appointments-table-wrapper">
+        <table class="appointments-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Active</th>
+                    <th>Doctor</th>
+                    <th style="width:200px;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.App_Date.ToString("dd/MM/yyyy HH:mm")</td>
+                        <td>@item.status</td>
+                        <td>@(item.isActive == true ? "Yes" : "No")</td>
+                        <td>@item.DoctorName</td>
+                        <td>
+                            <div class="appointments-actions">
+                                <a asp-action="Details" asp-route-id="@item.Id" class="appointments-btn-details">Details</a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="appointments-btn-delete">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

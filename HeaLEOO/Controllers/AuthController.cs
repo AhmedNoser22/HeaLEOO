@@ -1,8 +1,4 @@
-﻿using HeaLEOO.ALLServices;
-using HeaLEOO.ViewModels;
-using Microsoft.AspNetCore.Mvc;
-
-namespace HeaLEOO.Controllers
+﻿namespace HeaLEOO.Controllers
 {
     public class AuthController : Controller
     {
@@ -12,11 +8,13 @@ namespace HeaLEOO.Controllers
         {
             _serviceAuth = serviceAuth;
         }
+
         [HttpGet]
         public IActionResult Register()
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterVM register)
@@ -31,11 +29,13 @@ namespace HeaLEOO.Controllers
             ModelState.AddModelError("", "Email already exists or registration failed.");
             return View(register);
         }
+
         [HttpGet]
         public IActionResult Login()
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginVM login)
@@ -50,6 +50,7 @@ namespace HeaLEOO.Controllers
             ModelState.AddModelError("", "Invalid Email or Password.");
             return View(login);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()

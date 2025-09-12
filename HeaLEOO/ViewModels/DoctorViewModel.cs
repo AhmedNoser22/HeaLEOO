@@ -22,9 +22,3 @@
         public List<string> ClinicNames { get; set; } = new();
     }
 }
-
-    
-
-
-
-

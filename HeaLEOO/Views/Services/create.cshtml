@@ -1,0 +1,56 @@
+﻿@model HeaLEOO.ViewModels.ServiceVM
+
+@{
+    ViewData["Title"] = "Create Service";
+}
+
+<div class="service-create-container">
+    <div class="service-create-card">
+        <h2 class="service-create-title">Create Service</h2>
+
+        <form asp-action="Create" method="post" class="service-create-form">
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Price"></label>
+                <input asp-for="Price" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Services</label>
+                <div class="services-radio-group">
+                    @foreach (var clinic in Model.Clinics)
+                    {
+                        <div class="form-radio">
+                            <input type="radio"
+                                   class="form-radio-input"
+                                   name="ClinicId"
+                                   value="@clinic.Value"
+                                   id="service_@clinic.Value" />
+                            <label class="form-radio-label" for="service_@clinic.Value">
+                                @clinic.Text
+                            </label>
+                        </div>
+                    }
+                </div>
+                <span asp-validation-for="clinicId" class="text-danger small"></span>
+            </div>
+
+
+            <div class="service-create-actions">
+                <button type="submit" class="btn-create">Save</button>
+                <a asp-action="Index" class="btn-cancel">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="~/js/service-create.js"></script>
+}

@@ -3,16 +3,18 @@
     ViewData["Title"] = "Register";
 }
 
-<div class="auth-split-container">
+<div class="register-split-container">
+    <div class="register-left">
+        <img src="~/images/DocWallpaper1.png" alt="Doctor" />
+    </div>
 
-    <!-- Left side: register form -->
-    <div class="auth-right-register">
-        <div class="auth-container register-page">
-            <div class="auth-card">
-                <h2 class="auth-title-register-page">Create an Account</h2>
-                <p class="second-line">Fill in your details to get started</p>
+    <div class="register-right">
+        <div class="register-container">
+            <div class="register-card">
+                <h2 class="register-title">Create an Account</h2>
+                <p class="register-second-line">Fill in your details to get started</p>
 
-                <form asp-action="Register" method="post" class="auth-form">
+                <form asp-action="Register" method="post" class="register-form">
                     @Html.AntiForgeryToken()
 
                     <div class="form-group mb-3 text-start">
@@ -45,19 +47,14 @@
                         <span asp-validation-for="ConfirmPassword" class="text-danger d-block"></span>
                     </div>
 
-                    <button type="submit" class="btn-login w-100 mb-2">Register</button>
+                    <button type="submit" class="btn-register w-100 mb-2">Register</button>
                 </form>
 
-                <p class="auth-footer-text mt-3">
+                <p class="register-footer-text mt-3">
                     Already have an account?
-                    <a asp-controller="Auth" asp-action="Login" class="auth-link">Login here</a>
+                    <a asp-controller="Auth" asp-action="Login" class="register-link">Login</a>
                 </p>
             </div>
         </div>
-    </div>
-
-    <!-- Right side: image -->
-    <div class="auth-left">
-        <img src="~/images/DocWallpaper2.png" alt="Doctor" />
     </div>
 </div>

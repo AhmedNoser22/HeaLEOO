@@ -1,4 +1,4 @@
-﻿namespace HeaLEOO.ViewModels
+﻿namespace HeaLEOO.DTOs
 {
     public class AppUserDto
     {

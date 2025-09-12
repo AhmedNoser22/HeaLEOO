@@ -1,27 +1,27 @@
 ﻿namespace HeaLEOO.ALLServices
 {
-    public class ServicesDoctor : IServicesDoctor
+    public class ServicesDoctor: IServicesDoctor
     {
-        private readonly IGenericRepo<Doctors> _genericRepo;
+        private readonly IUnitOF_Work work;
         private readonly IMapper _mapper;
         private readonly IserviceSpecializations _serviceSpecializations;
         private readonly IServiceClinDate _serviceClinDate;
 
         public ServicesDoctor(
-            IGenericRepo<Doctors> genericRepo,
             IMapper mapper,
             IserviceSpecializations serviceSpecializations,
-            IServiceClinDate serviceClinDate)
+            IServiceClinDate serviceClinDate,
+            IUnitOF_Work work)
         {
-            _genericRepo = genericRepo;
             _mapper = mapper;
             _serviceSpecializations = serviceSpecializations;
             _serviceClinDate = serviceClinDate;
+            this.work = work;
         }
 
         public async Task<IEnumerable<DoctorViewModel>> GetAllItems()
         {
-            var doctors = await _genericRepo.GetAll(query =>
+            var doctors = await work.GetRepoDoctors.GetAll(include: query =>
                 query.Include(d => d.specializations)
                      .Include(d => d.ClinicDoctors)
                      .ThenInclude(cd => cd.Clinic)
@@ -31,7 +31,7 @@
 
         public async Task<DoctorViewModel> GetItemById(int id)
         {
-            var doctor = await _genericRepo.GetById(id);
+            var doctor = await work.GetRepoDoctors.GetById(id);
             if (doctor == null) return null!;
             var model = _mapper.Map<DoctorViewModel>(doctor);
             model.Specializations = _serviceSpecializations.GetAllSpecializations();
@@ -54,18 +54,19 @@
                 }
             }
 
-            await _genericRepo.Add(entity);
-            await _genericRepo.Complete();
+            await work.GetRepoDoctors.Add(entity);
+            await work.Complete();
             return true;
         }
 
         public async Task<bool> DeletItem(int id)
         {
-            var entity = await _genericRepo.GetById(id);
+            var entity = await work.GetRepoDoctors.GetById(id);
             if (entity == null) return false;
-            await _genericRepo.Delete(id);
-            await _genericRepo.Complete();
+            await work.GetRepoDoctors.Delete(id);
+            await work.Complete();
             return true;
         }
+
     }
 }

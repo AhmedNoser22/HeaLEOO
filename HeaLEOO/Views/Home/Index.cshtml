@@ -1,20 +1,29 @@
-﻿@{
+﻿@inject UserManager<AppUser> userManager
+@model IEnumerable<ClinicVM>
+@using Microsoft.AspNetCore.Identity
+
+@{
     ViewData["Title"] = "Home";
 }
 
 <main>
     <section class="hero d-flex align-items-center text-center text-white">
         <div class="container">
-            <h1 class="fw-bold display-4 animate__animated animate__fadeInDown">
+            <h1 class="tagline">
                 Book Your Healthcare Appointments Easily
             </h1>
             <p class="lead mt-3 animate__animated animate__fadeInUp">
                 Manage your clinic visits and connect with healthcare providers instantly.
             </p>
-            @* <a href="#" class="btn btn-light btn-lg px-5 mt-3 shadow">Book Now</a> *@
+            @* <a href="#" class="btn btn-light btn-lg px-5 mt-3 shadow">Get started</a> *@
+                @if (!(User.Identity.IsAuthenticated))
+                {
+                    <a asp-controller="Auth" asp-action="Register" class="btn btn-light btn-lg px-5 mt-3 shadow">Get started</a>
+
+                }
         </div>
     </section>
-
+    <div class="page">
     <section class="how-it-works">
         <div class="container">
             <h2 class="fw-bold mb-4">How It Works</h2>
@@ -50,47 +59,78 @@
             <div class="row g-4">
                 <div class="col-md-3">
                     <div class="clinic-card">
-                        <img src="~/images/Central_Medical_Center.jpeg" alt="Central Medical Center" class="clinic-image">
-                        <h5>North Mansoura Clinic</h5>
+                        <img src="~/images/HealClinic.jpg" alt="Central Medical Center" class="clinic-image">
+                        <h5>Heal Clinic</h5>
                         <p class="stars">★★★★☆</p>
                         <p class="reviews">(12 reviews)</p>
                         <p>12 slots available</p>
-                        <a href="#" class="btn btn-primary btn-slot">View Slots</a>
+                        <a asp-controller="Clinics" asp-action="Index" class="btn btn-primary btn-slot">View All Clinics</a>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="clinic-card">
-                        <img src="~/images/Wellness_Family_Clinic.jpeg" alt="Wellness Family Clinic" class="clinic-image">
-                        <h5>Sidi Gaber Clinic</h5>
-                        <p class="stars">★★★★☆</p>
+                        <img src="~/images/WellnessClinic.jpg" alt="Wellness Family Clinic" class="clinic-image">
+                        <h5>Wellness Clinic</h5>
+                        <p class="stars">★★★★★</p>
                         <p class="reviews">(8 reviews)</p>
                         <p>8 slots available</p>
-                        <a href="#" class="btn btn-primary btn-slot">View Slots</a>
+                        <a asp-controller="Clinics" asp-action="Index" class="btn btn-primary btn-slot">View All Clinics</a>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="clinic-card">
-                        <img src="~/images/Advanced_Care_Hospital.jpeg" alt="Advanced Care Hospital" class="clinic-image">
-                        <h5>6 October Clinic</h5>
+                        <img src="~/images/SmileDental.jpg" alt="Advanced Care Hospital" class="clinic-image">
+                        <h5>Smile Dental</h5>
                         <p class="stars">★★★★☆</p>
                         <p class="reviews">(10 reviews)</p>
                         <p>10 slots available</p>
-                        <a href="#" class="btn btn-primary btn-slot">View Slots</a>
+                        <a asp-controller="Clinics" asp-action="Index" class="btn btn-primary btn-slot">View All Clinics</a>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="clinic-card">
-                        <img src="~/images/Community_Health_Center.jpeg" alt="Community Health Center" class="clinic-image">
-                        <h5>Future City Clinic</h5>
+                        <img src="~/images/SurgeryHub.jpg" alt="Community Health Center" class="clinic-image">
+                        <h5>Surgery Hub</h5>
                         <p class="stars">★★★☆☆</p>
                         <p class="reviews">(6 reviews)</p>
                         <p>6 slots available</p>
-                        <a href="#" class="btn btn-primary btn-slot">View Slots</a>
+                        <a asp-controller="Clinics" asp-action="Index" class="btn btn-primary btn-slot">View All Clinics</a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </section> 
+
+        <!-- Our Story Section -->
+    @*<section class="our-story py-5">
+        <div class="story-card">
+            <h2 class="fw-bold mb-4">Our Story</h2>
+            <p>
+                Healeo was founded to simplify the healthcare experience. From booking appointments to tracking visits, we aim to make managing health seamless and stress-free. Our team of dedicated developers and healthcare professionals work together to bring technology and healthcare closer to you.
+            </p>
+        </div>
+    </section>*@
+
+
+    <!-- Mission & Goals Section -->
+    @*<section class="mission-goals py-5 bg-light text-center">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="mission-card">
+                        <h3 class="fw-bold mb-3">Our Mission</h3>
+                        <p>To make healthcare accessible, simple, and reliable for everyone by connecting patients with trusted clinics and professionals.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="goals-card">
+                        <h3 class="fw-bold mb-3">Our Goals</h3>
+                        <p>Deliver a seamless booking experience, ensure data security, and maintain a network of verified clinics and healthcare providers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>*@
 
     <section class="features py-5 text-center">
         <div class="container">

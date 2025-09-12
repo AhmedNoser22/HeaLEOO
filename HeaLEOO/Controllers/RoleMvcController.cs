@@ -1,42 +1,31 @@
 ﻿public class RoleMvcController : Controller
 {
-    private readonly IRoleServices _roleService;
+    private readonly IRoleService _roleService;
 
-    public RoleMvcController(IRoleServices roleService)
+    public RoleMvcController(IRoleService roleService)
     {
         _roleService = roleService;
     }
 
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Users()
     {
-        var roles = await _roleService.GetAllRolesAsync();
-        return View(roles);
+        var users = await _roleService.GetAllUsers();
+        return View(users);
     }
 
-    [HttpPost]
-    public async Task<IActionResult> CreateRole(string roleName)
+    public async Task<IActionResult> ManageUserRoles(string userName)
     {
-        await _roleService.CreateRoleAsync(roleName);
-        return RedirectToAction("Index");
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> DeleteRole(string roleName)
-    {
-        await _roleService.DeleteRoleAsync(roleName);
-        return RedirectToAction("Index");
-    }
-
-    public async Task<IActionResult> ManageUserRoles(string userName= "ahmednose32r")
-    {
-        var model = await _roleService.GetUserRolesAsync(userName);
+        var model = await _roleService.GetUserRoles(userName);
+        ViewBag.UserName = userName;
         return View(model);
     }
 
     [HttpPost]
-    public async Task<IActionResult> UpdateUserRoles(UserRolesVM model)
+    public async Task<IActionResult> ManageUserRoles(string userName, List<RoleViewModel> model)
     {
-        await _roleService.UpdateUserRolesAsync(model);
-        return RedirectToAction("Index");
+        if (!ModelState.IsValid) return View(model);
+
+        await _roleService.UpdateUserRoles(userName, model);
+        return RedirectToAction(nameof(Users));
     }
 }

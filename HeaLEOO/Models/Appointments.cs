@@ -12,6 +12,10 @@
         public int ClinicId { get; set; }
         public Doctors Doctors { get; set; } = default!;
         public Clinics Clinics { get; set; } = default!;
+        [ForeignKey("AppUser")]
+        public string AppUserId { get; set; } = default!;
+        public AppUser AppUser { get; set; } = default!;
+        
 
     }
 }

@@ -1,32 +1,36 @@
-﻿@model UserRolesVM
+﻿@model List<RoleViewModel>
+
 @{
     ViewData["Title"] = "Manage User Roles";
 }
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<div class="role-details-container">
+    <div class="role-details-card">
+        <h2 class="role-details-title">
+            Manage Roles for: <span class="role-username">@ViewBag.UserName</span>
+        </h2>
 
-<div class="container mt-5">
-    <h2 class="mb-4">Manage Roles for User: <span class="text-primary">@Model.UserName</span></h2>
+        <form asp-action="ManageUserRoles" method="post">
+            <input type="hidden" name="userName" value="@ViewBag.UserName" />
 
-    <form asp-action="UpdateUserRoles" method="post">
-        <input type="hidden" name="UserName" value="@Model.UserName" />
-
-        <div class="mb-3">
-            <label class="form-label">Roles</label>
-            <div class="form-check">
-                @foreach (var role in Model.AllRoles)
+            <div class="role-details-section">
+                @for (int i = 0; i < Model.Count; i++)
                 {
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox"
-                               name="SelectedRoles" value="@role"
-                               @(Model.UserRoles.Contains(role) ? "checked" : "") />
-                        <label class="form-check-label">@role</label>
+                    var checkboxId = $"role_{i}";
+                    <div class="role-checkbox">
+                        <input id="@checkboxId" class="role-checkbox-input" type="checkbox"
+                               asp-for="@Model[i].IsSelected" />
+                        <label for="@checkboxId" class="role-checkbox-label">@Model[i].RoleName</label>
+                        <input type="hidden" asp-for="@Model[i].RoleName" />
                     </div>
                 }
             </div>
-        </div>
 
-        <button type="submit" class="btn btn-primary">Update Roles</button>
-        <a asp-action="Index" class="btn btn-secondary ms-2">Back to Roles</a>
-    </form>
+            <div class="role-details-actions">
+                <button type="submit" class="role-btn-update">Update Roles</button>
+                <a asp-action="Users" class="role-btn-back">← Back to List</a>
+            </div>
+        </form>
+    </div>
 </div>
+

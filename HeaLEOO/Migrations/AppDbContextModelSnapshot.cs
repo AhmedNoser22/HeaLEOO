@@ -95,6 +95,10 @@ namespace HeaLEOO.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("AppUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<DateTime>("App_Date")
                         .HasColumnType("datetime2");
 
@@ -111,6 +115,8 @@ namespace HeaLEOO.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
 
                     b.HasIndex("ClinicId");
 
@@ -188,7 +194,7 @@ namespace HeaLEOO.Migrations
                     b.ToTable("Doctors");
                 });
 
-            modelBuilder.Entity("HeaLEOO.Models.Services", b =>
+            modelBuilder.Entity("HeaLEOO.Models.ModelService", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -365,6 +371,12 @@ namespace HeaLEOO.Migrations
 
             modelBuilder.Entity("HeaLEOO.Models.Appointments", b =>
                 {
+                    b.HasOne("HeaLEOO.Models.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("HeaLEOO.Models.Clinics", "Clinics")
                         .WithMany("Appointments")
                         .HasForeignKey("ClinicId")
@@ -376,6 +388,8 @@ namespace HeaLEOO.Migrations
                         .HasForeignKey("DoctorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("AppUser");
 
                     b.Navigation("Clinics");
 
@@ -412,7 +426,7 @@ namespace HeaLEOO.Migrations
                     b.Navigation("specializations");
                 });
 
-            modelBuilder.Entity("HeaLEOO.Models.Services", b =>
+            modelBuilder.Entity("HeaLEOO.Models.ModelService", b =>
                 {
                     b.HasOne("HeaLEOO.Models.Clinics", "Clinic")
                         .WithMany("Services")
