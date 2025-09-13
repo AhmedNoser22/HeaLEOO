@@ -5,10 +5,9 @@
 }
 
 <div class="services-container">
-    <h2 class="services-title">Services</h2>
-
-    <div class="services-footer">
-        <a asp-action="Create" class="btn-create">+ Add Service</a>
+    <div class="services-header">
+        <h2 class="services-title">Services</h2>
+        <a asp-action="Create" class="service-btn-create">+ Add Service</a>
     </div>
 
     <div class="services-grid">
@@ -22,12 +21,12 @@
                 </div>
 
                 <div class="service-actions">
-                    <a asp-action="Details" asp-route-id="@service.Id" class="btn-details">Details</a>
-                    <a asp-action="Edit" asp-route-id="@service.Id" class="btn-edit">Edit</a>
+                    <a asp-action="Details" asp-route-id="@service.Id" class="service-btn-details">Details</a>
+                    <a asp-action="Edit" asp-route-id="@service.Id" class="service-btn-edit">Edit</a>
 
                     <form asp-action="Delete" asp-route-id="@service.Id" method="post" style="display:inline"
                           onsubmit="return confirmServiceDelete(event, this);">
-                        <button type="submit" class="btn-delete">Delete</button>
+                        <button type="submit" class="service-btn-delete">Delete</button>
                     </form>
                 </div>
             </div>

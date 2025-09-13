@@ -5,7 +5,7 @@
 }
 
 .roles-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 3rem;
     color: #2c7da0;
     font-weight: 700;
@@ -75,7 +75,7 @@
     }
 
 /* ================== Action Buttons ================== */
-.role-actions {
+.role-details-actions {
     display: flex;
     gap: 0.6rem;
     justify-content: center;
@@ -86,19 +86,19 @@
     display: inline-block;
     text-decoration: none;
     font-size: 0.95rem;
-    font-weight: 500 !important;
     padding: 0.5rem 1rem;
     border-radius: 0.6rem;
     transition: all 0.2s ease;
     border: 2px solid transparent;
-    background: #F0AD4E;
+    background: #eaaf5a;
     color: #fff;
+    font-weight: 550 !important;
 }
 
     .role-btn-manage:hover {
         background: #f2f2f2;
-        border-color: #F0AD4E;
-        color: #F0AD4E;
+        border-color: #eaaf5a;
+        color: #eaaf5a;
         border-radius: 1px;
     }
 
@@ -107,7 +107,8 @@
 .role-details-container {
     display: flex;
     justify-content: center;
-    padding: 3rem 1rem;
+    padding: 2rem;
+    margin: 4rem auto;
 }
 
 .role-details-card {
@@ -129,7 +130,7 @@
 }
 
 .role-username {
-    color: #2c7da0;
+    color: #366cc1;
 }
 
 .role-details-section {
@@ -189,18 +190,19 @@
 
 /* Update button */
 .role-btn-update {
-    background: #0bc850;
+    background: #58C0B8;
     color: #fff;
-    border: 2px solid #0bc850;
+    border: 2px solid #58C0B8;
     border-radius: 0.6rem;
     padding: 0.6rem 1.2rem;
     transition: all 0.2s ease;
+    font-weight: 550 !important;
 }
 
     .role-btn-update:hover {
-        background: #f2f2f2;
-        color: #0bc850;
-        border: 2px solid #0bc850;
+        background: inherit;
+        color: #58C0B8;
+        border: 2px solid #58C0B8;
         border-radius: 1px;
     }
 
@@ -213,10 +215,11 @@
     padding: 0.6rem 1.2rem;
     text-decoration: none;
     transition: all 0.2s ease;
+    font-weight: 550 !important;
 }
 
     .role-btn-back:hover {
-        background: #fff !important;
+        background: inherit;
         color: #6c757d;
         border: 2px solid #6c757d;
         border-radius: 1px;
