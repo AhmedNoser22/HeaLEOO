@@ -24,7 +24,7 @@
     .create-role-box form {
         display: flex;
         align-items: center;
-        gap: 2rem;
+        gap: 1rem;
     }
 
     .create-role-box .form-control {
