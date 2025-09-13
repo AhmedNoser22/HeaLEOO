@@ -36,7 +36,6 @@
                 <div class="clinic-actions">
                     <a asp-action="Details" asp-route-id="@clinic.Id" class="clinics-btn-details">Details</a>
 
-                    @* زرار Delete يظهر فقط للأدمن *@
                     @if (User.IsInRole("Admin"))
                     {
                         <a href="@Url.Action("Delete", new { id = clinic.Id })"
