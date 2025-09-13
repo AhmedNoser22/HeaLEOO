@@ -12,6 +12,57 @@
     text-align: center;
 }
 
+.create-role-box {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+    .create-role-box form {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .create-role-box .form-control {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 10px;
+        outline: none;
+        transition: border-color 0.2s ease;
+    }
+
+        .create-role-box .form-control:focus {
+            border-color: #2c7da0;
+            box-shadow: 0 0 4px rgba(44, 125, 160, 0.3);
+        }
+
+    .create-role-box button {
+        display: inline-block;
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 550;
+        padding: 0.5rem 1rem;
+        transition: all 0.2s ease;
+        width: fit-content;
+        background: #58C0B8;
+        color: #fff;
+        border: 2px solid #58C0B8;
+        border-radius: 10px;
+    }
+
+        .create-role-box button:hover {
+            background: inherit;
+            color: #58C0B8;
+            border-radius: 1px;
+            border: 2px solid #58C0B8;
+        }
+
+
+
 /* ================== Alerts ================== */
 .alert {
     border-radius: 0.75rem;
