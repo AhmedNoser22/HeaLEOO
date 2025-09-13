@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Create Role";
+}
+
+<div class="create-role-container">
+    <h2 class="create-role-title">Create New Role</h2>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success text-center">@TempData["Success"]</div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger text-center">@TempData["Error"]</div>
+    }
+
+    <form asp-action="CreateRole" method="post" class="create-role-form">
+        <div class="form-group">
+            <label for="roleName">Role Name</label>
+            <input type="text" name="roleName" class="form-control" placeholder="Enter role name..." />
+        </div>
+        <button type="submit" class="btn btn-primary">Create</button>
+        <a asp-action="Users" class="btn btn-secondary">← Back to List</a>
+    </form>
+</div>

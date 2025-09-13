@@ -51,7 +51,7 @@
         }
 
         TempData["Error"] = string.Join(", ", result.Errors.Select(e => e.Description));
-        return View();
+        return RedirectToAction(nameof(Users));
     }
 
 }
