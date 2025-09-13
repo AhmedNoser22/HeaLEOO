@@ -28,5 +28,30 @@
         await _roleService.UpdateUserRoles(userName, model);
         return RedirectToAction(nameof(Users));
     }
+    public IActionResult CreateRole()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> CreateRole(string roleName)
+    {
+        if (string.IsNullOrWhiteSpace(roleName))
+        {
+            TempData["Error"] = "Role name is required.";
+            return View();
+        }
+
+        var result = await _roleService.CreateRoleAsync(roleName);
+
+        if (result.Succeeded)
+        {
+            TempData["Success"] = "Role created successfully.";
+            return RedirectToAction(nameof(Users));
+        }
+
+        TempData["Error"] = string.Join(", ", result.Errors.Select(e => e.Description));
+        return View();
+    }
 
 }
