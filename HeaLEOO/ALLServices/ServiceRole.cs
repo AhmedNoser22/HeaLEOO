@@ -47,5 +47,17 @@
             var selectedRoles = roles.Where(r => r.IsSelected).Select(r => r.RoleName);
             await _userManager.AddToRolesAsync(user, selectedRoles);
         }
+        public async Task<IdentityResult> CreateRoleAsync(string roleName)
+        {
+            if (string.IsNullOrWhiteSpace(roleName))
+                return IdentityResult.Failed(new IdentityError { Description = "Role name cannot be empty" });
+
+            if (await _roleManager.RoleExistsAsync(roleName))
+                return IdentityResult.Failed(new IdentityError { Description = "Role already exists" });
+
+            var role = new IdentityRole(roleName);
+            return await _roleManager.CreateAsync(role);
+        }
+
     }
 }
