@@ -15,6 +15,15 @@
     {
         <div class="alert alert-danger text-center">@TempData["Error"]</div>
     }
+    <div class="create-role-box">
+        <form asp-action="CreateRole" method="post" class="form-inline">
+            <div class="form-group">
+                <input type="text" name="roleName" class="form-control" placeholder="Enter new role..." />
+            </div>
+            <button type="submit" class="btn btn-success ml-2">Create Role</button>
+        </form>
+    </div>
+    <hr />
 
     <div class="role-table-wrapper">
         <table class="role-table">

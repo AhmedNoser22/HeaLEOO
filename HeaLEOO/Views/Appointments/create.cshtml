@@ -3,11 +3,11 @@
     ViewData["Title"] = "Create Appointment";
 }
 
-<div class="appointment-container">
-    <div class="appointment-card">
-        <h2 class="appointment-title">Create Appointment</h2>
+<div class="appointment-create-container">
+    <div class="appointment-create-card">
+        <h2 class="appointment-create-title">Create Appointment</h2>
 
-        <form asp-action="Create" method="post" class="appointment-form">
+        <form asp-action="Create" method="post" class="appointment-create-form">
             <div class="form-group">
                 <label asp-for="App_Date">Appointment Date</label>
                 <input asp-for="App_Date" type="datetime-local" class="form-control" />
@@ -16,7 +16,7 @@
 
             <div class="form-group">
                 <label asp-for="DoctorId">Doctor</label>
-                <select asp-for="DoctorId" asp-items="Model.SelectDoctors" class="form-control"></select>
+                <select asp-for="DoctorId" asp-items="Model.SelectDoctors" class="form-control-select"></select>
                 <span asp-validation-for="DoctorId" class="text-danger"></span>
             </div>
 
@@ -34,13 +34,13 @@
 
             <div class="form-group">
                 <label asp-for="ClinicId">Clinic</label>
-                <select asp-for="ClinicId" asp-items="Model.SelectClinics" class="form-control"></select>
+                <select asp-for="ClinicId" asp-items="Model.SelectClinics" class="form-control-select"></select>
                 <span asp-validation-for="ClinicId" class="text-danger"></span>
             </div>
 
             <div class="form-actions">
-                <button type="submit" class="btn-save">Save</button>
-                <a asp-action="Index" class="btn-cancel">Cancel</a>
+                <button type="submit" class="appointments-btn-save">Save</button>
+                <a asp-action="Index" class="appointments-btn-cancel">Cancel</a>
             </div>
         </form>
     </div>

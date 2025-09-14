@@ -4,13 +4,11 @@
 }
 
 <div class="clinics-container">
-    <h2 class="clinics-title">Clinics</h2>
-
-    @* زرار Add New Clinic يظهر فقط للأدمن *@
-    <div class="clinics-footer">
+    <div class="clinics-header">
+        <h2 class="clinics-page-title">Clinics</h2>
         @if (User.IsInRole("Admin"))
         {
-            <a asp-action="Create" class="btn-create">+ Add New Clinic</a>
+            <a asp-action="Create" class="clinics-btn-create">+ Add New Clinic</a>
         }
     </div>
 
@@ -36,13 +34,12 @@
                 </div>
 
                 <div class="clinic-actions">
-                    <a asp-action="Details" asp-route-id="@clinic.Id" class="btn-details">Details</a>
+                    <a asp-action="Details" asp-route-id="@clinic.Id" class="clinics-btn-details">Details</a>
 
-                    @* زرار Delete يظهر فقط للأدمن *@
                     @if (User.IsInRole("Admin"))
                     {
                         <a href="@Url.Action("Delete", new { id = clinic.Id })"
-                           class="btn-delete"
+                           class="clinics-btn-delete"
                            onclick="return confirmClinicDelete(event, this.href, this.closest('.clinic-card'));">
                             Delete
                         </a>
