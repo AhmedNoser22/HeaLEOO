@@ -7,6 +7,7 @@
         public string phoneNumber { get; set; } = default!;
         public int specializationId { get; set; }
         public ICollection<ClinicDoctors> ClinicDoctors { get; set; } = new List<ClinicDoctors>();
-
+        public Specializations specializations { get; set; } = default!;
+        //Finished
     }
 }
