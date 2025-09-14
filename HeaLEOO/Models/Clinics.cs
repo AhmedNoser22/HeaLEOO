@@ -7,6 +7,7 @@
         public string Address { get; set; } = default!;
         public string PhoneNumber { get; set; } = default!;
         public string? PhotoUrl { get; set; }
+        public ICollection<ClinicDoctors> ClinicDoctors { get; set; } = new List<ClinicDoctors>();
 
     }
 }
