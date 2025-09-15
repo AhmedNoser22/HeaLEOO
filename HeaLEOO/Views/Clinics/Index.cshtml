@@ -6,7 +6,7 @@
 <div class="clinics-container">
     <div class="clinics-header">
         <h2 class="clinics-page-title">Clinics</h2>
-        @if (User.IsInRole("Admin"))
+        @if (User.IsInRole("Medical Assistant"))
         {
             <a asp-action="Create" class="clinics-btn-create">+ Add New Clinic</a>
         }
@@ -36,7 +36,7 @@
                 <div class="clinic-actions">
                     <a asp-action="Details" asp-route-id="@clinic.Id" class="clinics-btn-details">Details</a>
 
-                    @if (User.IsInRole("Admin"))
+                    @if (User.IsInRole("Medical Assistant"))
                     {
                         <a href="@Url.Action("Delete", new { id = clinic.Id })"
                            class="clinics-btn-delete"
