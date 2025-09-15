@@ -15,7 +15,6 @@
         [ForeignKey("AppUser")]
         public string AppUserId { get; set; } = default!;
         public AppUser AppUser { get; set; } = default!;
-        
-
+        //Finished
     }
 }
