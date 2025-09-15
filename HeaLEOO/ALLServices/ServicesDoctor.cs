@@ -22,7 +22,7 @@
         public async Task<IEnumerable<DoctorViewModel>> GetAllItems()
         {
             var doctors = await work.GetRepoDoctors.GetAll(include: query =>
-                query.Include(d => d.specializations)
+                query.Include(d => d.Specialization)
                      .Include(d => d.ClinicDoctors)
                      .ThenInclude(cd => cd.Clinic)
             );

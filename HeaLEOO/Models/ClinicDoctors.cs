@@ -6,6 +6,5 @@
         public int ClinicId { get; set; }
         public Clinics Clinic { get; set; } = default!;
         public Doctors Doctor { get; set; } = default!;
-        //Finished
     }
 }
