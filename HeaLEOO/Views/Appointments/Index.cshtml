@@ -41,7 +41,10 @@
                         <td>
                             <div class="appointments-actions">
                                 <a asp-action="Details" asp-route-id="@item.Id" class="appointments-btn-details">Details</a>
-                                <a asp-action="Delete" asp-route-id="@item.Id" class="appointments-btn-delete">Delete</a>
+                                @if (User.IsInRole("Medical Assistant"))
+                                {
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="appointments-btn-delete">Delete</a>
+                                }
                             </div>
                         </td>
                     </tr>
