@@ -21,40 +21,7 @@
         <input type="hidden" id="errorMessage" value="@TempData["ErrorMessage"]" />
     }
 
-    @* <div class="doctors-grid">
-        @foreach (var doc in Model)
-        {
-            <div class="doctor-card">
-                <div class="doctor-info">
-                    <h3 class="doctor-name">@doc.Name</h3>
-                    <h6>Doctor Number:</h6>
-                    <p class="doctor-phone">@doc.PhoneNumber</p>
-                    <h6>Doctor Specialization:</h6>
-                    <p class="doctor-specialization">@doc.SpecializationName</p>
-
-                    <div class="doctor-clinics">
-                        @foreach (var clinic in doc.ClinicNames)
-                        {
-                            <h6>Doctor Works in:</h6>
-                            <span class="doctor-clinic-badge">@clinic</span>
-                        }
-                    </div>
-                </div>
-                @if (User.IsInRole("Medical Assistant"))
-                {
-                    <div class="doctor-actions">
-                        <a href="@Url.Action("DeleteDoctor", new { id = doc.Id })"
-                           class="doctor-btn-delete"
-                           onclick="return confirmDelete(event, this.href, this.closest('.doctor-card'));">
-                            Delete
-                        </a>
-                    </div>
-                }
-            </div>
-        }
-    </div> *@
-
-    <div class="doctors-grid">
+<div class="doctors-grid">
         @foreach (var doc in Model)
         {
             <div class="doctor-card">
