@@ -6,7 +6,7 @@
 <div class="doctors-container">
     <div class="doctor-header">
         <h2 class="doctors-title">Doctors</h2>
-        @if (User.IsInRole("Admin"))
+        @if (User.IsInRole("Medical Assistant"))
         {
             <a asp-action="Create" class="doctor-btn-create">+ Add New Doctor</a>
         }
@@ -37,7 +37,7 @@
                         }
                     </div>
                 </div>
-                @if (User.IsInRole("Admin"))
+                @if (User.IsInRole("Medical Assistant"))
                 {
                     <div class="doctor-actions">
                         <a href="@Url.Action("DeleteDoctor", new { id = doc.Id })"

@@ -19,16 +19,15 @@
                     <p class="service-address">@service.Price</p>
                     <p class="service-phone">@service.ClinicName</p>
                 </div>
-
-                <div class="service-actions">
-                    <a asp-action="Details" asp-route-id="@service.Id" class="service-btn-details">Details</a>
+                   <div class="service-actions">
+                        <a asp-action="Details" asp-route-id="@service.Id" class="service-btn-details">Details</a>
                     <a asp-action="Edit" asp-route-id="@service.Id" class="service-btn-edit">Edit</a>
 
                     <form asp-action="Delete" asp-route-id="@service.Id" method="post" style="display:inline"
                           onsubmit="return confirmServiceDelete(event, this);">
                         <button type="submit" class="service-btn-delete">Delete</button>
                     </form>
-                </div>
+                   </div>     
             </div>
         }
     </div>

@@ -20,12 +20,6 @@
                 <span asp-validation-for="DoctorId" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
-                <label asp-for="status">Status</label>
-                <input asp-for="status" class="form-control" />
-                <span asp-validation-for="status" class="text-danger"></span>
-            </div>
-
             <div class="form-group form-check">
                 <input type="checkbox" id="isActive" name="isActive" value="true" class="form-check-input"
                        @(Model?.isActive == true ? "checked" : "") />
@@ -34,7 +28,7 @@
 
             <div class="form-group">
                 <label asp-for="ClinicId">Clinic</label>
-                <select asp-for="ClinicId" asp-items="Model.SelectClinics" class="form-control-select"></select>
+                <select asp-for="ClinicId" asp-items="Model!.SelectClinics" class="form-control-select"></select>
                 <span asp-validation-for="ClinicId" class="text-danger"></span>
             </div>
 
