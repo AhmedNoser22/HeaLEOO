@@ -60,22 +60,23 @@
             <a class="animated-underline" asp-controller="Home" asp-action="Index">Home</a>
             <a class="animated-underline" asp-controller="Clinics" asp-action="Index">Clinics</a>
             <a class="animated-underline" asp-controller="Doctors" asp-action="Index">Doctors</a>
-            <a class="animated-underline" asp-controller="Appointments" asp-action="Index">Appointments</a>
-            
-
+            @if (User.IsInRole("Medical Assistant"))
+            {
+                <a class="animated-underline" asp-controller="Services" asp-action="Index">Services</a>
+                <a class="animated-underline" asp-controller="Appointments" asp-action="Index">Appointments</a>
+            }
+            @if (User.IsInRole("User"))
+            {
+                <a class="animated-underline" asp-controller="Appointments" asp-action="Create">Appointments</a>
+            }
              @if (User.IsInRole("Admin"))
             {
                 <a class="animated-underline" asp-controller="UserManagement" asp-action="Index">User Management</a>
                 <a class="animated-underline" asp-controller="RoleMvc" asp-action="Users">Roles</a>
             }
-
-            @if (User.IsInRole("Medical Assistant"))
-            {
-                <a class="animated-underline" asp-controller="Services" asp-action="Index">Services</a>                
-            } 
         </div>
         <div class="nav-buttons">
-            @if (User.Identity.IsAuthenticated)
+            @if (User.Identity!.IsAuthenticated)
             {
 				var userLd = await userManager.GetUserAsync(User);
                 @* <span class="btn home-bun-username">@userManager.Users</span> *@

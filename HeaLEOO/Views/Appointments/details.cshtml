@@ -3,6 +3,9 @@
     ViewData["Title"] = "Appointment Details";
 }
 
+@if (User.IsInRole("Medical Assistant"))
+{
+
 <div class="appointment-container">
     <div class="appointment-card">
         <h2 class="appointment-title">Appointment Details</h2>
@@ -36,3 +39,4 @@
         </div>
     </div>
 </div>
+}
