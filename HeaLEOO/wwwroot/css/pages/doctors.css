@@ -39,11 +39,11 @@
 }
 
 .doctor-label {
-    font-size: 0.85rem; /* small, subtle */
-    font-weight: 600; /* semi-bold, not too heavy */
-    color: #2c7da0; /* matches your theme blue */
-    margin: 0.8rem 0 0.2rem; /* spacing above/below */
-    letter-spacing: 0.3px; /* modern spacing */
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #2c7da0;
+    margin: 0.8rem 0 0.2rem;
+    letter-spacing: 0.3px;
 }
 
 .doctor-card:hover {
