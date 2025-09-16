@@ -14,7 +14,6 @@
 
             if (filter != null)
                 query = query.Where(filter);
-
             if (include != null)
                 query = include(query);
 
@@ -59,8 +58,6 @@
             _Context.Set<T>().Remove(entity);
             return entity;
         }
-
-        public async Task<bool> Complete() => await _Context.SaveChangesAsync() > 0;
 
 
     }

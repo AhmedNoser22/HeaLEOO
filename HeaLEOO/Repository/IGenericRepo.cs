@@ -9,6 +9,5 @@ namespace HeaLEOO.Repository
         Task<T> Add(T entity);
         T Update(T entity);
         Task<T> Delete(int id);
-        Task<bool> Complete();
     }
 }

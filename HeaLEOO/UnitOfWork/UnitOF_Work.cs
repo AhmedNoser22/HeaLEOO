@@ -20,13 +20,7 @@
             GetRepoModelService = new GenericRepo<ModelService>(_context);
             GetRepoSpecializations = new GenericRepo<Specializations>(_context);
         }
-        public async Task<bool> Complete()
-        {
-            return await _context.SaveChangesAsync() > 0;
-        }
-        public void Dispose()
-        {
-            _context.Dispose();
-        }
+        public async Task<bool> Complete() => await _context.SaveChangesAsync() > 0;
+        public void Dispose() => _context.Dispose();
     }
 }

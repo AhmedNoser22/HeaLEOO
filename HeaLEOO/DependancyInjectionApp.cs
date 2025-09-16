@@ -38,7 +38,7 @@
             services.AddScoped<IServiceLookup, LookupService>();
             services.AddScoped<IServiceClinDate, ServiceClinDate>();
             services.AddScoped<IServiceDoctorAppointment, ServiceDoctorAppointment>();
-            services.AddScoped<IServiceImage>();
+            services.AddScoped<ServiceImage>();
             #endregion
 
             #region AllServices

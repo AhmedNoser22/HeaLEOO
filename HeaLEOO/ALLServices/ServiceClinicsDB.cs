@@ -2,12 +2,12 @@
 {
     private readonly IUnitOF_Work work;
     private readonly IMapper _mapper;
-    private readonly IServiceImage _imageService;
+    private readonly ServiceImage _imageService;
     private readonly IServiceLookup _lookupService;
 
     public ServiceClinicsDB(
         IMapper mapper,
-        IServiceImage imageService,
+        ServiceImage imageService,
         IServiceLookup lookupService,
         IUnitOF_Work work)
     {

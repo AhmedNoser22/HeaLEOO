@@ -1,10 +1,10 @@
 ﻿namespace HeaLEOO.ALLServices
 {
-    public class IServiceImage
+    public class ServiceImage
     {
         private readonly IWebHostEnvironment _env;
 
-        public IServiceImage(IWebHostEnvironment env)
+        public ServiceImage(IWebHostEnvironment env)
         {
             _env = env;
         }
