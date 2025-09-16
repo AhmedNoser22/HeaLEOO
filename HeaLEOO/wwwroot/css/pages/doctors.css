@@ -32,9 +32,18 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    padding: 2rem 1.5rem;
+    padding: 1.5rem 1.2rem;
+    text-align: center;
+}
+
+.doctor-label {
+    font-size: 0.85rem; /* small, subtle */
+    font-weight: 600; /* semi-bold, not too heavy */
+    color: #2c7da0; /* matches your theme blue */
+    margin: 0.8rem 0 0.2rem; /* spacing above/below */
+    letter-spacing: 0.3px; /* modern spacing */
 }
 
 .doctor-card:hover {
