@@ -15,11 +15,11 @@
 
         @if (User.Identity!.IsAuthenticated)
         {
-            <a class="animated-underline" asp-controller="Appointments" asp-action="Create">Appointments</a>
+            <a class="animated-underline" asp-controller="Appointments" asp-action="Create">Bookings</a>
         }
         @if (User.IsInRole("Medical Assistant"))
         {
-            <a class="animated-underline" asp-controller="Appointments" asp-action="Create">Appointments</a>
+            <a class="animated-underline" asp-controller="Appointments" asp-action="Index">Appointments</a>
         }
         @if (User.IsInRole("Admin"))
         {
