@@ -1,5 +1,4 @@
-﻿// ✅ Show/Hide Password
-function togglePassword(id) {
+﻿function togglePassword(id) {
     const input = document.getElementById(id);
     const icon = event.currentTarget.querySelector("i");
     if (input.type === "password") {
@@ -13,9 +12,7 @@ function togglePassword(id) {
     }
 }
 
-// ✅ Run after page load
 document.addEventListener("DOMContentLoaded", () => {
-    // 🔹 Input focus animation
     document.querySelectorAll(".auth-form .form-control").forEach(input => {
         input.addEventListener("focus", () => {
             input.style.borderColor = "#01aaff";
@@ -27,7 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 🔹 Form validation
     const form = document.querySelector(".auth-form");
     if (form) {
         form.addEventListener("submit", function (e) {
@@ -35,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const pass = document.querySelector("#loginPassword").value.trim();
 
             if (email === "" || pass === "") {
-                e.preventDefault(); // ❌ امنع السبميت لو فيه حاجة ناقصة
+                e.preventDefault();
                 showToast("error", "Please fill all fields!");
 
                 // Shake animation
@@ -45,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     card.classList.remove("shake");
                 }, 500);
             }
-            // ⚠️ else مش هنعمل preventDefault → الفورم هيتبعت عادي للـ Controller
         });
     }
 });
@@ -54,7 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (serverError && serverError.value) {
         showToast("error", serverError.value);
 
-        // Shake animation
         const card = document.querySelector(".auth-card");
         if (card) {
             card.classList.add("shake");
@@ -65,7 +59,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// ✅ SweetAlert Toast
 function showToast(type, message) {
     Swal.fire({
         toast: true,

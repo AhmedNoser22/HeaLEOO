@@ -1,8 +1,6 @@
-﻿// Confirm delete (follows url with GET after confirmation)
-function confirmDelete(e, url) {
+﻿function confirmDelete(e, url) {
     e.preventDefault();
 
-    // Fallback if SweetAlert not loaded
     if (typeof Swal === "undefined") {
         if (confirm("Are you sure? This doctor will be deleted permanently.")) {
             window.location.href = url;
@@ -28,7 +26,6 @@ function confirmDelete(e, url) {
     return false;
 }
 
-// Toast from hidden TempData fields
 document.addEventListener("DOMContentLoaded", function () {
     var successEl = document.getElementById("successMessage");
     var errorEl = document.getElementById("errorMessage");

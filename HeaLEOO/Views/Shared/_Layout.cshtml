@@ -1,25 +1,18 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 
-<!-- =======Head ======= -->
  @await Html.PartialAsync("_Head")
-
-@* <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> *@
 
 <body>
 
-    <!-- ======= Header ======= -->
     @await Html.PartialAsync("_Header")
 
-    <!-- ======= Main Content ======= -->
     <main>
         @RenderBody()
     </main>
 
-    <!-- ======= Footer ======= -->
     @await Html.PartialAsync("_Footer")
 
-    <!-- ======= Scripts ======= -->
     <script>
         const backToTop = document.getElementById("backToTop");
         window.addEventListener("scroll", () => {

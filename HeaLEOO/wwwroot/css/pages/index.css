@@ -1,5 +1,4 @@
-﻿/* General Styles and Fonts */
-* {
+﻿* {
     box-sizing: border-box;
 }
 
@@ -21,7 +20,6 @@ section {
     padding: 5rem 0;
 }
 
-/* --- Responsive Grid Fixes to prevent content duplication --- */
 .row {
     display: flex;
     flex-wrap: wrap;
@@ -36,7 +34,6 @@ section {
     max-width: 100%;
 }
 
-/* --- Hero Section --- */
 .hero {
     background: linear-gradient(rgba(44, 125, 160, 0.8), rgba(44, 125, 160, 0.9)), url('https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
     height: 95vh;
@@ -44,49 +41,41 @@ section {
     will-change: transform;
 }
 
-    .hero .container {
-        max-width: 900px;
-    }
+.hero .container {
+    max-width: 900px;
+}
 
-    /* Adjustments for the tagline */
-    .hero .tagline {
-        font-size: 2.2rem; /* تم تصغير حجم الخط لكي يناسب سطرًا واحدًا */
-        font-weight: 700; /* تم جعل الخط bold (عريض) */
-        color: #fff;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-        margin-top: 1rem;
-        margin-bottom: 2.5rem;
-    }
+.hero .tagline {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
+}
 
-    /*.hero h1 {
-        font-size: 2.5rem;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    }*/
-    .hero p {
-        font-size: 1.1rem;
-        font-weight: 500;
-        margin-bottom: 2rem;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    }
-    .hero .btn {
-        border-radius: 10px !important;
-        padding: 12px 40px !important;
-        font-weight: 600 !important;
-        transition: all 0.3s ease;
-        border: 2px solid #F8F9FA !important;
-    }
+.hero p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
 
-        .hero .btn:hover {
-            background-color: transparent !important;
-            color: #FFF !important;
-            box-shadow: none !important;
-            border-radius: 1px !important;
-                    
-        }
+.hero .btn {
+    border-radius: 10px !important;
+    padding: 12px 40px !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease;
+    border: 2px solid #F8F9FA !important;
+}
 
-/* --- Dynamic Sections with Interconnected Gradients --- */
+.hero .btn:hover {
+    background-color: transparent !important;
+    color: #FFF !important;
+    box-shadow: none !important;
+    border-radius: 1px !important;
+}
 
-/* How It Works Section */
 .how-it-works {
     background: linear-gradient(180deg, #EDF5FE 0%, #FAFAFA 100%);
     text-align: center;
@@ -114,21 +103,20 @@ h2 {
     will-change: transform;
 }
 
-    .step-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    }
+.step-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
 
-    .step-card h5 {
-        color: #1b4b63;
-    }
+.step-card h5 {
+    color: #1b4b63;
+}
 
 .step-description {
     color: #6c757d;
     font-size: 1rem;
 }
 
-/* Featured Clinics Section - Gradient from white to a light blue */
 .featured-clinics {
     background: linear-gradient(180deg, #FAFAFA 0%, #EDF5FE 100%);
     text-align: center;
@@ -148,10 +136,10 @@ h2 {
     will-change: transform;
 }
 
-    .clinic-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    }
+.clinic-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
 
 .clinic-image {
     width: 100%;
@@ -163,9 +151,9 @@ h2 {
     will-change: transform;
 }
 
-    .clinic-image:hover {
-        transform: scale(1.05);
-    }
+.clinic-image:hover {
+    transform: scale(1.05);
+}
 
 .stars {
     color: #ffc107;
@@ -187,13 +175,11 @@ h2 {
     color: #fff !important;
 }
 
-/* Why Choose Us Section - Starts with light blue and fades to white */
 .features {
     background: linear-gradient(180deg, #EDF5FE 0%, #FAFAFA 100%);
     text-align: center;
 }
 
-/* Testimonials Section - Starts with white and fades to light blue */
 .testimonials {
     background: linear-gradient(180deg, #FAFAFA 0%, #EDF5FE 100%);
     text-align: center;
@@ -214,29 +200,29 @@ h2 {
     will-change: transform;
 }
 
-    .testimonial-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    }
+.testimonial-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
 
-    .testimonial-card::before, .testimonial-card::after {
-        font-family: serif;
-        font-size: 3rem;
-        color: rgba(44, 125, 160, 0.1);
-        position: absolute;
-    }
+.testimonial-card::before, .testimonial-card::after {
+    font-family: serif;
+    font-size: 3rem;
+    color: rgba(44, 125, 160, 0.1);
+    position: absolute;
+}
 
-    .testimonial-card::before {
-        content: '“';
-        top: 10px;
-        left: 20px;
-    }
+.testimonial-card::before {
+    content: '“';
+    top: 10px;
+    left: 20px;
+}
 
-    .testimonial-card::after {
-        content: '”';
-        bottom: 10px;
-        right: 20px;
-    }
+.testimonial-card::after {
+    content: '”';
+    bottom: 10px;
+    right: 20px;
+}
 
 .testimonial-avatar {
     width: 80px;
@@ -258,7 +244,6 @@ h2 {
     margin-top: 1rem;
 }
 
-/* --- Media Queries for Responsiveness --- */
 @media (min-width: 768px) {
     .hero h1 {
         font-size: 3.5rem;

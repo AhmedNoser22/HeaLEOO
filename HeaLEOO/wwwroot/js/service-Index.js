@@ -1,5 +1,4 @@
-﻿// ================== Confirm Delete Service ==================
-function confirmServiceDelete(e, form) {
+﻿function confirmServiceDelete(e, form) {
     e.preventDefault();
 
     if (typeof Swal === "undefined") {

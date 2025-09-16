@@ -17,13 +17,13 @@
     align-items: center;
 }
 
-    .login-left img {
-        width: 100%;
-        max-width: 700px;
-        height: auto;
-        object-fit: contain;
-        margin: 0 0px 0px 125px;
-    }
+.login-left img {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    object-fit: contain;
+    margin: 0 0px 0px 125px;
+}
 
 .login-right {
     flex: 1;
@@ -77,10 +77,10 @@
     width: 100%;
 }
 
-    .login-form .form-control:focus {
-        border-color: #2c7da0;
-        box-shadow: 0 0 0 0.2rem rgba(44, 125, 160, 0.25);
-    }
+.login-form .form-control:focus {
+    border-color: #2c7da0;
+    box-shadow: 0 0 0 0.2rem rgba(44, 125, 160, 0.25);
+}
 
 .btn-login {
     border: none;
@@ -100,10 +100,10 @@
     font-weight: 500;
 }
 
-    .login-link:hover {
-        text-decoration: underline;
-        font-weight: 600;
-    }
+.login-link:hover {
+    text-decoration: underline;
+    font-weight: 600;
+}
 
 .login-footer-text {
     font-size: 0.9rem;
@@ -135,12 +135,12 @@
         padding-bottom: 20px;
     }
 
-        .auth-left img {
-            width: 80%;
-            max-width: 400px;
-            height: auto;
-            margin: 0;
-        }
+    .auth-left img {
+        width: 80%;
+        max-width: 400px;
+        height: auto;
+        margin: 0;
+    }
 
     .auth-right {
         padding: 1rem;

@@ -1,6 +1,4 @@
-﻿// ================== Edit Service Page ==================
-
-document.querySelector(".service-create-form")?.addEventListener("submit", function (e) {
+﻿document.querySelector(".service-create-form")?.addEventListener("submit", function (e) {
     e.preventDefault(); 
 
     Swal.fire({

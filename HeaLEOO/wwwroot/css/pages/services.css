@@ -1,5 +1,4 @@
-﻿/* ================== Services Page ================== */
-.services-container {
+﻿.services-container {
     padding: 5rem 7rem;
 }
 
@@ -37,15 +36,14 @@
     transition: transform 0.2s ease;
 }
 
-    .service-card:hover {
-        transform: translateY(-5px);
-    }
+.service-card:hover {
+    transform: translateY(-5px);
+}
 
 .service-info {
     padding: 5px;
 }
 
-/* ================== Action Buttons (Common Styles) ================== */
 .service-actions a,
 .service-btn-create,
 .service-btn-details,
@@ -68,13 +66,12 @@
     border-radius: 10px;
 }
 
-    .service-btn-create:hover {
-        background: inherit;
-        color: #58C0B8;
-        border-radius: 1px;
-    }
+.service-btn-create:hover {
+    background: inherit;
+    color: #58C0B8;
+    border-radius: 1px;
+}
 
-/* Details button */
 .service-btn-details {
     background: #2c7da0;
     color: #fff;
@@ -82,13 +79,12 @@
     border-radius: 10px;
 }
 
-    .service-btn-details:hover {
-        background: #fff;
-        color: #2c7da0;
-        border-radius: 1px;
-    }
+.service-btn-details:hover {
+    background: #fff;
+    color: #2c7da0;
+    border-radius: 1px;
+}
 
-/* Edit button */
 .service-btn-edit {
     background: #eaaf5a;
     color: #fff;
@@ -96,13 +92,12 @@
     border-radius: 10px;
 }
 
-    .service-btn-edit:hover {
-        background: #fff;
-        color: #eaaf5a;
-        border-radius: 1px;
-    }
+.service-btn-edit:hover {
+    background: #fff;
+    color: #eaaf5a;
+    border-radius: 1px;
+}
 
-/* Delete + Cancel button */
 .service-btn-delete,
 .service-btn-cancel {
     background: #e64f5a;
@@ -111,14 +106,13 @@
     border-radius: 10px;
 }
 
-    .service-btn-delete:hover,
-    .service-btn-cancel:hover {
-        background: #fff;
-        color: #e64f5a;
-        border-radius: 1px;
-    }
+.service-btn-delete:hover,
+.service-btn-cancel:hover {
+    background: #fff;
+    color: #e64f5a;
+    border-radius: 1px;
+}
 
-/* Back button */
 .service-btn-back {
     background: #6c757d;
     color: #fff;
@@ -126,13 +120,12 @@
     border-radius: 10px;
 }
 
-    .service-btn-back:hover {
-        background: #fff;
-        color: #6c757d;
-        border-radius: 1px;
-    }
+.service-btn-back:hover {
+    background: #fff;
+    color: #6c757d;
+    border-radius: 1px;
+}
 
-/* ================== Details Page ================== */
 .service-details-container {
     display: flex;
     justify-content: center;
@@ -159,21 +152,20 @@
     margin-top: 1.5rem;
 }
 
-    .service-details-section h3 {
-        margin-bottom: 0.5rem;
-        color: #000;
-    }
+.service-details-section h3 {
+    margin-bottom: 0.5rem;
+    color: #000;
+}
 
-    .service-details-section p {
-        color: #2c7da0;
-    }
+.service-details-section p {
+    color: #2c7da0;
+}
 
 .service-details-actions {
     margin-top: 2rem;
     text-align: center;
 }
 
-/* ================== Create Page ================== */
 .service-create-container {
     display: flex;
     justify-content: center;
@@ -202,7 +194,6 @@
     margin-bottom: 1.2rem;
 }
 
-/* container for radios */
 .services-radio-group {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -211,61 +202,54 @@
     padding: 0.5rem 0;
 }
 
-    /* single radio item */
-    .services-radio-group .form-radio {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
+.services-radio-group .form-radio {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
 
-    /* base radio button */
-    .services-radio-group .form-radio-input {
-        appearance: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        width: 20px;
-        height: 20px;
-        border: 2px solid #0bc850;
-        border-radius: 50%;
-        cursor: pointer;
-        position: relative;
-        flex-shrink: 0;
-    }
+.services-radio-group .form-radio-input {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #0bc850;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+}
 
-        /* when checked */
-        .services-radio-group .form-radio-input:checked {
-            background-color: #0bc850;
-            border-color: #0bc850;
-        }
+.services-radio-group .form-radio-input:checked {
+    background-color: #0bc850;
+    border-color: #0bc850;
+}
 
-            /* inner dot effect */
-            .services-radio-group .form-radio-input:checked::after {
-                content: "";
-                width: 8px;
-                height: 8px;
-                background: #fff;
-                border-radius: 50%;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
+.services-radio-group .form-radio-input:checked::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
-        .services-radio-group .form-radio-input:hover {
-            transform: scale(1.1);
-        }
+.services-radio-group .form-radio-input:hover {
+    transform: scale(1.1);
+}
 
-    /* label next to radio */
-        .services-radio-group .form-radio-input:checked + .form-radio-label {
-            color: #34495e !important;
-            cursor: pointer;
-        }
+.services-radio-group .form-radio-input:checked + .form-radio-label {
+    color: #34495e !important;
+    cursor: pointer;
+}
 
-    .services-radio-group .form-radio-label {
-        font-weight: normal !important;
-    }
-
-
+.services-radio-group .form-radio-label {
+    font-weight: normal !important;
+}
 
 .service-create-form label {
     font-weight: 500;
@@ -282,7 +266,6 @@
     font-size: 0.95rem;
 }
 
-/* Action buttons */
 .service-create-actions {
     margin-top: 1rem;
     display: flex;
@@ -290,47 +273,44 @@
     gap: 1.5rem;
 }
 
-    .service-create-actions .btn-create,
-    .service-create-actions .btn-cancel {
-        margin: 0;
-        width: 120px;
-        text-align: center;
-        font-weight: 500;
-        padding: 0.6rem 1.5rem;
-        border-radius: 0.5rem;
-        cursor: pointer;
-        transition: 0.2s ease;
-        border: 2px solid transparent;
-    }
+.service-create-actions .btn-create,
+.service-create-actions .btn-cancel {
+    margin: 0;
+    width: 120px;
+    text-align: center;
+    font-weight: 500;
+    padding: 0.6rem 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: 0.2s ease;
+    border: 2px solid transparent;
+}
 
-    /* Create button (green) */
-    .service-create-actions .btn-create {
-        background: #0bc850;
-        color: #fff;
-        border-color: #0bc850;
-        margin-left: 50px;
-    }
+.service-create-actions .btn-create {
+    background: #0bc850;
+    color: #fff;
+    border-color: #0bc850;
+    margin-left: 50px;
+}
 
-        .service-create-actions .btn-create:hover {
-            background: #fff;
-            color: #0bc850;
-        }
+.service-create-actions .btn-create:hover {
+    background: #fff;
+    color: #0bc850;
+}
 
-    /* Cancel button (red) */
-    .service-create-actions .btn-cancel {
-        background: #e63946;
-        color: #fff;
-        border-color: #e63946;
-        text-decoration: none;
-        margin-right: 50px;
-    }
+.service-create-actions .btn-cancel {
+    background: #e63946;
+    color: #fff;
+    border-color: #e63946;
+    text-decoration: none;
+    margin-right: 50px;
+}
 
-        .service-create-actions .btn-cancel:hover {
-            background: #fff;
-            color: #e63946;
-        }
+.service-create-actions .btn-cancel:hover {
+    background: #fff;
+    color: #e63946;
+}
 
-/* ================== Media Queries for Responsiveness ================== */
 @media (max-width: 768px) {
     .services-container {
         padding: 2rem 0.5rem;
@@ -380,14 +360,14 @@
         gap: 0.5rem;
     }
 
-        .service-create-actions .btn-create,
-        .service-create-actions .btn-cancel {
-            width: 100%;
-            max-width: 250px;
-            font-size: 0.9rem;
-            margin-left: auto !important;
-            margin-right: auto !important;
-        }
+    .service-create-actions .btn-create,
+    .service-create-actions .btn-cancel {
+        width: 100%;
+        max-width: 250px;
+        font-size: 0.9rem;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
 
     .service-create-form input {
         font-size: 0.85rem;
