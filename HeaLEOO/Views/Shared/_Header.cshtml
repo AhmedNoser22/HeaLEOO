@@ -16,20 +16,25 @@
         <a class="animated-underline" asp-controller="Home" asp-action="Index">Home</a>
         <a class="animated-underline" asp-controller="Clinics" asp-action="Index">Clinics</a>
         <a class="animated-underline" asp-controller="Doctors" asp-action="Index">Doctors</a>
-        @if (User.Identity!.IsAuthenticated)
-        {
-            <a class="animated-underline" asp-controller="Appointments" asp-action="Create">Bookings</a>
-        }
         @if (User.IsInRole("Medical Assistant"))
         {
             <a class="animated-underline" asp-controller="Services" asp-action="Index">Services</a>
             <a class="animated-underline" asp-controller="Appointments" asp-action="Index">Appointments</a>
         }
-        @if (User.IsInRole("Admin"))
+        else
         {
-            <a class="animated-underline" asp-controller="UserManagement" asp-action="Index">User Management</a>
-            <a class="animated-underline" asp-controller="RoleMvc" asp-action="Users">Roles</a> 
+            @if (User.Identity!.IsAuthenticated)
+            {
+                <a class="animated-underline" asp-controller="Appointments" asp-action="Create">Bookings</a>
+            }
         }
+            @if (User.IsInRole("Admin"))
+            {
+                <a class="animated-underline" asp-controller="UserManagement" asp-action="Index">User Management</a>
+                <a class="animated-underline" asp-controller="RoleMvc" asp-action="Users">Roles</a>
+            }
+
+        
     </div>
 
     <div class="nav-buttons">

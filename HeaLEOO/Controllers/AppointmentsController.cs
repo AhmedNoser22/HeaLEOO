@@ -36,18 +36,7 @@
         }
 
         [HttpGet]
-        public IActionResult Create()
-        {
-            var vm = new AppointmentsVM
-            {
-                SelectDoctors = _serviceDoctorAppointment.GetAllServiceDoctorAppointment(),
-                SelectClinics = _serviceClinDate.GetAllServiceClinDate()
-            };
-            return View(vm);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Create(AppointmentsVM vm)
+        public async Task<IActionResult> Create()
         {
             var user = await _userManager.GetUserAsync(User);
 
@@ -57,20 +46,43 @@
 
             if (existing.Any())
             {
-                TempData["Error"] = "You cannot book more than one appointment";
-                vm.SelectDoctors = _serviceDoctorAppointment.GetAllServiceDoctorAppointment();
-                vm.SelectClinics = _serviceClinDate.GetAllServiceClinDate();
-                return View(vm);
+                return RedirectToAction("MyAppointment");
             }
 
+            var vm = new AppointmentsVM
+            {
+                SelectDoctors = _serviceDoctorAppointment.GetAllServiceDoctorAppointment(),
+                SelectClinics = _serviceClinDate.GetAllServiceClinDate()
+            };
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(AppointmentsVM vm)
+        {
+            var user = await _userManager.GetUserAsync(User);
+
+            var existing = await _unitOfWork.GetRepoAppointments.GetAll(
+                x => x.AppUserId == user.Id,
+                include: q => q
+                    .Include(a => a.Doctors)
+                    .Include(a => a.Clinics)
+                    .Include(a => a.AppUser)
+            );
+
+            if (existing.Any())
+            {
+                return RedirectToAction("MyAppointment");
+            }
             var appointment = _mapper.Map<Appointments>(vm);
             appointment.AppUserId = user.Id;
             await _unitOfWork.GetRepoAppointments.Add(appointment);
             await _unitOfWork.Complete();
-
             TempData["Success"] = "Appointment booked successfully";
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("MyAppointment");
         }
+
         [HttpGet]
         public async Task<IActionResult> Details(int id)
         {
@@ -97,5 +109,30 @@
             TempData["Success"] = "Appointment deleted successfully.";
             return RedirectToAction(nameof(Index));
         }
+        [HttpGet]
+        public async Task<IActionResult> MyAppointment()
+        {
+            var user = await _userManager.GetUserAsync(User);
+
+            var appointment = await _unitOfWork.GetRepoAppointments.GetAll(
+                x => x.AppUserId == user.Id,
+                include: q => q
+                    .Include(a => a.Doctors)
+                    .Include(a => a.Clinics)
+                    .Include(a => a.AppUser)
+            );
+
+            var single = appointment.FirstOrDefault();
+            if (single == null)
+            {
+                TempData["Error"] = "You have no booked appointment.";
+                return RedirectToAction("Create");
+            }
+
+            var vm = _mapper.Map<AppointmentsVM>(single);
+            return View(vm);
+        }
+
+
     }
 }

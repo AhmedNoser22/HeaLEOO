@@ -6,6 +6,7 @@
         {
             CreateMap<Appointments, AppointmentsVM>()
             .ForMember(dest => dest.DoctorName, opt => opt.MapFrom(src => src.Doctors.Name))
+            .ForMember(dest => dest.ClinicName, opt => opt.MapFrom(src => src.Clinics.Name))
             .ForMember(dest => dest.status, opt => opt.MapFrom(src => src.status))
             .ForMember(dest => dest.isActive, opt => opt.MapFrom(src => src.isActive));
             CreateMap<AppointmentsVM, Appointments>();
