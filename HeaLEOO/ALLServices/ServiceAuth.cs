@@ -24,7 +24,7 @@
             if (result.Succeeded)
             {
                 await _signInManager.SignInAsync(registerUser, isPersistent: false);
-                await _userManager.AddToRoleAsync(registerUser, "User");
+                await _userManager.AddToRoleAsync(registerUser, "Patient");
                 return true;
             }
             return false;
