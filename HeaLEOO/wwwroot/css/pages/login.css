@@ -139,4 +139,8 @@
         width: 90%;
         max-width: 1500px;
     }
+
+    .login-card {
+        padding: 0px;
+    }
 }
