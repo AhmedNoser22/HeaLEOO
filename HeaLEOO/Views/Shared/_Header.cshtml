@@ -8,6 +8,10 @@
         </a>
     </div>
 
+    <button class="drawer-toggle" aria-label="Toggle menu">
+        ☰
+    </button>
+
     <div class="nav-links">
         <a class="animated-underline" asp-controller="Home" asp-action="Index">Home</a>
         <a class="animated-underline" asp-controller="Clinics" asp-action="Index">Clinics</a>
@@ -41,5 +45,45 @@
             <a asp-controller="Auth" asp-action="Login" class="btn home-btn-login animated-underline">Log in</a>
             <a asp-controller="Auth" asp-action="Register" class="btn home-btn-register">Get started</a>
         }
+    </div>
+
+    <div class="drawer">
+        <div class="drawer-links">
+            <button class="drawer-close">&times;</button> 
+
+            <a class="animated-underline" asp-controller="Home" asp-action="Index">Home</a>
+            <a class="animated-underline" asp-controller="Clinics" asp-action="Index">Clinics</a>
+            <a class="animated-underline" asp-controller="Doctors" asp-action="Index">Doctors</a>
+
+            @if (User.Identity!.IsAuthenticated)
+            {
+                <a class="animated-underline" asp-controller="Appointments" asp-action="Create">Bookings</a>
+            }
+
+            @if (User.IsInRole("Medical Assistant"))
+            {
+                <a class="animated-underline" asp-controller="Services" asp-action="Index">Services</a>
+                <a class="animated-underline" asp-controller="Appointments" asp-action="Index">Appointments</a>
+            }
+            
+            @if (User.IsInRole("Admin"))
+            {
+                <a class="animated-underline" asp-controller="UserManagement" asp-action="Index">User Management</a>
+                <a class="animated-underline" asp-controller="RoleMvc" asp-action="Users">Roles</a>
+            }
+
+            @if (User.Identity!.IsAuthenticated)
+            {
+                var userLd = await userManager.GetUserAsync(User);
+                <form method="post" asp-controller="Auth" asp-action="Logout" class="mb-0">
+                    <button type="submit" class="btn home-btn-logout">Logout</button>
+                </form>
+            }
+            else
+            {
+                <a asp-controller="Auth" asp-action="Login" class="btn home-btn-login animated-underline">Log in</a>
+                <a asp-controller="Auth" asp-action="Register" class="btn home-btn-register">Get started</a>
+            }
+        </div>
     </div>
 </div>
