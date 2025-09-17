@@ -261,3 +261,107 @@
     border: 2px solid #6c757d;
     border-radius: 1px;
 }
+
+@media (max-width: 768px) {
+    .roles-container {
+        margin: 0 1rem;
+        padding: 2rem 1rem;
+    }
+
+    .roles-title {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .create-role-box {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .create-role-box form {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .create-role-box .form-control {
+        width: 100%;
+    }
+
+    .create-role-box button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .role-table-wrapper {
+        padding: 1rem;
+    }
+
+    .role-table {
+        font-size: 0.85rem;
+        min-width:unset;
+    }
+
+    .role-table th,
+    .role-table td {
+        padding: 0.6rem;
+    }
+
+    .role-details-container {
+        padding: 1rem;
+        margin: 2rem auto;
+    }
+
+    .role-details-card {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+
+    .role-details-title {
+        font-size: 1.4rem;
+    }
+
+    .role-details-actions {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .role-btn-manage,
+    .role-btn-update,
+    .role-btn-back {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.8rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .roles-title {
+        font-size: 1.5rem;
+    }
+
+    .create-role-box {
+        gap: 0.5rem;
+    }
+
+    .create-role-box form {
+        gap: 0.5rem;
+    }
+
+    .role-table th,
+    .role-table td {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .role-btn-manage,
+    .role-btn-update,
+    .role-btn-back {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.8rem;
+        text-align: center;
+    }
+
+    .role-details-card {
+        padding: 1rem;
+    }
+}

@@ -438,46 +438,99 @@
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 768px) {
     .appointments-container {
-        padding: 1rem 0.5rem;
-    }
-}
-@media (max-width: 600px) {
-    .appointments-table thead {
-        display: none;
-    }
-
-    .appointments-table,
-    .appointments-table tbody,
-    .appointments-table tr,
-    .appointments-table td {
-        display: block;
-        width: 100%;
-    }
-
-    .appointments-table tr {
-        margin-bottom: 1.5rem;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         padding: 1rem;
     }
 
-    .appointments-table td {
-        text-align: right;
-        padding-left: 50%;
-        position: relative;
+    .appointments-title {
+        font-size: 1.6rem;
+        text-align: center;
+        margin-bottom: 1rem;
     }
 
-    .appointments-table td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 10px;
-        width: 45%;
-        padding-right: 10px;
-        white-space: nowrap;
-        text-align: left;
-        font-weight: bold;
+    .appointments-table-wrapper {
+        overflow-x: auto;
+        border-radius: 8px;
+        padding: 0.5rem;
+    }
+
+    .appointments-table {
+        min-width: 600px;
+        font-size: 0.9rem;
+    }
+
+    .appointments-actions {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .appointments-actions a {
+        flex: 1;
+        text-align: center;
+        font-size: 0.85rem;
+        padding: 0.4rem 0.6rem;
+    }
+
+    .appointment-container {
+        padding: 1rem;
+        margin: 1.5rem auto;
+    }
+
+    .appointment-card {
+        padding: 1.2rem;
+        border-radius: 10px;
+    }
+
+    .appointment-title {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .form-group h3 {
+        font-size: 1rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .form-group p {
+        font-size: 0.9rem;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        gap: 0.7rem;
+        margin-top: 1.2rem;
+    }
+
+    .appointments-btn-delete,
+    .appointments-btn-cancel {
+        width: 100%;
+        max-width: 200px;
+        text-align: center;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .appointments-title {
+        font-size: 1.3rem;
+    }
+
+    .appointments-table {
+        min-width: 500px;
+    }
+
+    .appointments-actions a {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.5rem;
+    }
+
+    .appointment-card {
+        padding: 1rem;
+    }
+
+    .appointment-title {
+        font-size: 1.3rem;
     }
 }
