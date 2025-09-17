@@ -1,5 +1,4 @@
-﻿/* ================== Users Container ================== */
-.users-container {
+﻿.users-container {
     margin: 0 10rem;
     padding: 5rem;
 }
@@ -12,7 +11,6 @@
     text-align: center;
 }
 
-/* ================== Alerts ================== */
 .alert {
     border-radius: 0.75rem;
     padding: 0.9rem 1.2rem;
@@ -30,7 +28,6 @@
     color: #721c24;
 }
 
-/* ================== User Table ================== */
 .user-table-wrapper {
     background: #fff;
     border-radius: 10px;
@@ -68,17 +65,15 @@
     background: #f2f2f2;
 }
 
-    /* First column highlight */
-    .user-table td:first-child {
-        font-weight: 500;
-        color: #1a4a8e;
-    }
+.user-table td:first-child {
+    font-weight: 500;
+    color: #1a4a8e;
+}
 
-/* ================== Action Buttons ================== */
 .user-actions {
     display: flex;
-    gap: 0.6rem; /* space between buttons */
-    justify-content: center; /* optional: center them in the table cell */
+    gap: 0.6rem;
+    justify-content: center;
 }
 
 .service-actions a,
@@ -95,10 +90,9 @@
     padding: 0.5rem 1rem;
     border-radius: 0.6rem;
     transition: all 0.2s ease;
-    border: 2px solid transparent; /* 👈 prevent jump on hover */
+    border: 2px solid transparent;
 }
 
-/* Create button */
 .user-btn-create {
     background: #0bc850;
     color: #fff;
@@ -110,71 +104,66 @@
     border: 2px solid #0bc850 !important;
 }
 
-    .user-btn-create:hover {
-        background: #f2f2f2;
-        border: 2px solid #0bc850;
-        color: #0bc850;
-        border-radius: 1px;
-    }
+.user-btn-create:hover {
+    background: #f2f2f2;
+    border: 2px solid #0bc850;
+    color: #0bc850;
+    border-radius: 1px;
+}
 
-/* Details button */
 .user-btn-details {
     background: #2c7da0;
     color: #fff;
     margin-right: 5px;
 }
 
-    .user-btn-details:hover {
-        background: #f2f2f2;
-        border-color: #2c7da0;
-        color: #2c7da0;
-        border-radius: 1px;
-    }
+.user-btn-details:hover {
+    background: #f2f2f2;
+    border-color: #2c7da0;
+    color: #2c7da0;
+    border-radius: 1px;
+}
 
-/* Edit button */
 .user-btn-edit {
     background: #f0ad4e;
     color: #fff;
     margin-right: 5px;
 }
 
-    .user-btn-edit:hover {
-        background: #f2f2f2;
-        border-color: #f0ad4e;
-        color: #f0ad4e;
-        border-radius: 1px;
-    }
+.user-btn-edit:hover {
+    background: #f2f2f2;
+    border-color: #f0ad4e;
+    color: #f0ad4e;
+    border-radius: 1px;
+}
 
-/* Delete + Cancel button */
 .user-btn-delete,
 .user-btn-cancel {
     background: #e64f5a !important;
     color: #fff;
 }
 
-    .user-btn-delete:hover,
-    .user-btn-cancel:hover {
-        background: #f2f2f2 !important;
-        border-color: #e64f5a;
-        color: #e64f5a;
-        border-radius: 1px;
-    }
+.user-btn-delete:hover,
+.user-btn-cancel:hover {
+    background: #f2f2f2 !important;
+    border-color: #e64f5a;
+    color: #e64f5a;
+    border-radius: 1px;
+}
 
-/* Back button */
 .user-btn-back {
     background: #6c757d;
     color: #fff;
     border: 2px solid #6c757d;
 }
 
-    .user-btn-back:hover {
-        background: #fff !important;
-        border: 2px solid #6c757d;
-        color: #6c757d;
-        border-radius: 1px;
-    }
+.user-btn-back:hover {
+    background: #fff !important;
+    border: 2px solid #6c757d;
+    color: #6c757d;
+    border-radius: 1px;
+}
 
-/* ================== User Details Page ================== */
 .user-details-container {
     display: flex;
     justify-content: center;
@@ -206,14 +195,14 @@
     line-height: 1.6;
 }
 
-    .user-details-section p {
-        color: #2c7da0;
-        margin-bottom: 1rem;
-    }
+.user-details-section p {
+    color: #2c7da0;
+    margin-bottom: 1rem;
+}
 
 .user-details-actions {
     margin-top: 2rem;
     display: flex;
     justify-content: center;
-    gap: 1rem; /* 👈 space between Back and Delete */
+    gap: 1rem;
 }

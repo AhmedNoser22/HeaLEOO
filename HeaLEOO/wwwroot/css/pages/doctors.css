@@ -1,5 +1,4 @@
-﻿/* =============== Doctors Page Styles =============== */
-.doctors-container {
+﻿.doctors-container {
     padding: 5rem 7rem;
 }
 
@@ -20,14 +19,12 @@
     text-align: center;
 }
 
-/* Grid */
 .doctors-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 2rem;
 }
 
-/* Doctor Card */
 .doctor-card {
     background: #fff;
     border-radius: 1rem;
@@ -35,15 +32,24 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    padding: 2rem 1.5rem;
+    padding: 1.5rem 1.2rem;
+    text-align: center;
 }
 
-    .doctor-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-    }
+.doctor-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #2c7da0;
+    margin: 0.8rem 0 0.2rem;
+    letter-spacing: 0.3px;
+}
+
+.doctor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
 
 .doctor-info {
     padding: 1.5rem;
@@ -63,7 +69,6 @@
     margin-bottom: 0.4rem;
 }
 
-/* Clinics badges */
 .doctor-clinics {
     margin-top: 0.8rem;
 }
@@ -79,33 +84,30 @@
     margin: 0.2rem 0.3rem 0 0;
 }
 
-/* Actions */
 .doctor-actions {
     padding: 1rem 1.5rem;
     border-top: 1px solid #f0f0f0;
     display: flex;
     justify-content: center;
-    gap: 1.5rem; /* Increased gap for better spacing */
+    gap: 1.5rem;
 }
 
-    /* ================== Doctors Action Buttons ================== */
-    .doctor-actions a,
-    .doctor-btn-create,
-    .doctor-btn-cancel,
-    .doctor-btn-back,
-    .doctor-btn-details,
-    .doctor-btn-delete,
-    .doctor-btn-save {
-        display: inline-block;
-        text-decoration: none;
-        font-size: 0.95rem;
-        font-weight: 550;
-        padding: 0.5rem 1rem;
-        transition: all 0.2s ease;
-        width: fit-content;
-    }
+.doctor-actions a,
+.doctor-btn-create,
+.doctor-btn-cancel,
+.doctor-btn-back,
+.doctor-btn-details,
+.doctor-btn-delete,
+.doctor-btn-save {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 550;
+    padding: 0.5rem 1rem;
+    transition: all 0.2s ease;
+    width: fit-content;
+}
 
-/* Create button */
 .doctor-btn-create {
     background: #58C0B8;
     color: #fff;
@@ -113,13 +115,12 @@
     border-radius: 10px;
 }
 
-    .doctor-btn-create:hover {
-        background: inherit;
-        color: #58C0B8;
-        border-radius: 1px;
-    }
+.doctor-btn-create:hover {
+    background: inherit;
+    color: #58C0B8;
+    border-radius: 1px;
+}
 
-/* Save button */
 .doctor-btn-save {
     background: #58C0B8;
     color: #fff;
@@ -127,13 +128,12 @@
     border-radius: 10px;
 }
 
-    .doctor-btn-save:hover {
-        background: inherit;
-        color: #0bc850;
-        border-radius: 1px;
-    }
+.doctor-btn-save:hover {
+    background: inherit;
+    color: #0bc850;
+    border-radius: 1px;
+}
 
-/* Delete button */
 .doctor-btn-delete {
     background: #e64f5a;
     color: #fff;
@@ -141,13 +141,12 @@
     border-radius: 10px;
 }
 
-    .doctor-btn-delete:hover {
-        background: #fff;
-        color: #e64f5a;
-        border-radius: 1px;
-    }
+.doctor-btn-delete:hover {
+    background: #fff;
+    color: #e64f5a;
+    border-radius: 1px;
+}
 
-/* Cancel button */
 .doctor-btn-cancel {
     background: #e64f5a;
     color: #fff;
@@ -155,31 +154,28 @@
     border-radius: 10px;
 }
 
-    .doctor-btn-cancel:hover {
-        background: #fff;
-        color: #e64f5a;
-        border-radius: 1px;
-    }
+.doctor-btn-cancel:hover {
+    background: #fff;
+    color: #e64f5a;
+    border-radius: 1px;
+}
 
-/* Back button */
 .doctor-btn-back {
     background: #6c757d;
     color: #fff;
     border-color: #6c757d;
 }
 
-    .doctor-btn-back:hover {
-        background: #fff;
-        color: #6c757d;
-    }
+.doctor-btn-back:hover {
+    background: #fff;
+    color: #6c757d;
+}
 
-/* Footer */
 .doctors-footer {
     margin-top: 2rem;
     text-align: center;
 }
 
-/* ================== Create Page ================== */
 .doctor-create-container {
     display: flex;
     justify-content: center;
@@ -239,60 +235,57 @@
     padding: 0.5rem 0;
 }
 
+.doctor-checkbox-group .form-check {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
 
-    .doctor-checkbox-group .form-check {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
+.doctor-checkbox-group .form-check-label {
+    font-size: 0.95rem;
+    color: #34495e;
+    cursor: pointer;
+}
 
-    .doctor-checkbox-group .form-check-label {
-        font-size: 0.95rem;
-        color: #34495e;
-        cursor: pointer;
-    }
+.doctor-checkbox-group .form-check-input {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: #fff;
+    background-image: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #0bc850;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+}
 
-    .doctor-checkbox-group .form-check-input {
-        appearance: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        background: #fff;
-        background-image: none;
-        width: 20px;
-        height: 20px;
-        border: 2px solid #0bc850;
-        border-radius: 4px;
-        cursor: pointer;
-        position: relative;
-        flex-shrink: 0;
-    }
+.doctor-checkbox-group .form-check-input:checked {
+    background-color: #0bc850;
+    border-color: #0bc850;
+}
 
-        .doctor-checkbox-group .form-check-input:checked {
-            background-color: #0bc850;
-            border-color: #0bc850;
-        }
+.doctor-checkbox-group .form-check-input:checked::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 12px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
 
-            .doctor-checkbox-group .form-check-input:checked::after {
-                content: "";
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: 6px;
-                height: 12px;
-                border: solid #fff;
-                border-width: 0 2px 2px 0;
-                transform: translate(-50%, -50%) rotate(45deg);
-            }
+.doctor-checkbox-group .form-check-label {
+    color: #000 !important;
+    font-weight: normal !important;
+    line-height: 1.2;
+}
 
-    .doctor-checkbox-group .form-check-label {
-        color: #000 !important;
-        font-weight: normal !important;
-        line-height: 1.2;
-    }
-
-/* ================== Media Queries for Responsiveness ================== */
 @media (max-width: 768px) {
-    /* General Adjustments */
     .doctors-container {
         padding: 2rem 1rem;
     }
@@ -301,7 +294,6 @@
         font-size: 1.75rem;
     }
 
-    /* Doctors Grid */
     .doctors-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -315,7 +307,6 @@
         padding: 1rem 0;
     }
 
-    /* Create Page */
     .doctor-create-container {
         padding: 1.5rem 1rem;
     }
@@ -335,11 +326,11 @@
         gap: 0.5rem;
     }
 
-        .doctor-create-actions .doctor-btn-create,
-        .doctor-create-actions .doctor-btn-cancel {
-            width: 100%;
-            margin: 0;
-        }
+    .doctor-create-actions .doctor-btn-create,
+    .doctor-create-actions .doctor-btn-cancel {
+        width: 100%;
+        margin: 0;
+    }
 
     .doctor-btn-create,
     .doctor-btn-details,

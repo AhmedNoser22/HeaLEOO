@@ -1,5 +1,4 @@
-﻿/* ================== Roles Container ================== */
-.roles-container {
+﻿.roles-container {
     margin: 0 10rem;
     padding: 5rem;
 }
@@ -21,49 +20,46 @@
     gap: 1rem;
 }
 
-    .create-role-box form {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-    }
+.create-role-box form {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
 
-    .create-role-box .form-control {
-        font-size: 1rem;
-        padding: 0.5rem 1rem;
-        border-radius: 10px;
-        outline: none;
-        transition: border-color 0.2s ease;
-    }
+.create-role-box .form-control {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
 
-        .create-role-box .form-control:focus {
-            border-color: #2c7da0;
-            box-shadow: 0 0 4px rgba(44, 125, 160, 0.3);
-        }
+.create-role-box .form-control:focus {
+    border-color: #2c7da0;
+    box-shadow: 0 0 4px rgba(44, 125, 160, 0.3);
+}
 
-    .create-role-box button {
-        display: inline-block;
-        text-decoration: none;
-        font-size: 0.95rem;
-        font-weight: 550;
-        padding: 0.5rem 1rem;
-        transition: all 0.2s ease;
-        width: fit-content;
-        background: #58C0B8;
-        color: #fff;
-        border: 2px solid #58C0B8;
-        border-radius: 10px;
-    }
+.create-role-box button {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 550;
+    padding: 0.5rem 1rem;
+    transition: all 0.2s ease;
+    width: fit-content;
+    background: #58C0B8;
+    color: #fff;
+    border: 2px solid #58C0B8;
+    border-radius: 10px;
+}
 
-        .create-role-box button:hover {
-            background: inherit;
-            color: #58C0B8;
-            border-radius: 1px;
-            border: 2px solid #58C0B8;
-        }
+.create-role-box button:hover {
+    background: inherit;
+    color: #58C0B8;
+    border-radius: 1px;
+    border: 2px solid #58C0B8;
+}
 
-
-
-/* ================== Alerts ================== */
 .alert {
     border-radius: 0.75rem;
     padding: 0.9rem 1.2rem;
@@ -81,7 +77,6 @@
     color: #721c24;
 }
 
-/* ================== Role Table ================== */
 .role-table-wrapper {
     background: #fff;
     border-radius: 10px;
@@ -96,43 +91,40 @@
     font-size: 0.95rem;
 }
 
-    .role-table thead {
-        background: #2c7da0;
-        color: #fff;
-        font-size: 1rem;
-        height: 60px;
-    }
+.role-table thead {
+    background: #2c7da0;
+    color: #fff;
+    font-size: 1rem;
+    height: 60px;
+}
 
-    .role-table th,
-    .role-table td {
-        padding: 1rem;
-        text-align: left;
-        font-weight: 600;
-    }
+.role-table th,
+.role-table td {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+}
 
-    .role-table tbody tr {
-        border-bottom: 1px solid #eee;
-        transition: background 0.2s ease;
-    }
+.role-table tbody tr {
+    border-bottom: 1px solid #eee;
+    transition: background 0.2s ease;
+}
 
-        .role-table tbody tr:hover {
-            background: #f2f2f2;
-        }
+.role-table tbody tr:hover {
+    background: #f2f2f2;
+}
 
-    /* First column highlight */
-    .role-table td:first-child {
-        font-weight: 500;
-        color: #1a4a8e;
-    }
+.role-table td:first-child {
+    font-weight: 500;
+    color: #1a4a8e;
+}
 
-/* ================== Action Buttons ================== */
 .role-details-actions {
     display: flex;
     gap: 0.6rem;
     justify-content: center;
 }
 
-/* Manage button */
 .role-btn-manage {
     display: inline-block;
     text-decoration: none;
@@ -146,15 +138,13 @@
     font-weight: 550 !important;
 }
 
-    .role-btn-manage:hover {
-        background: #f2f2f2;
-        border-color: #eaaf5a;
-        color: #eaaf5a;
-        border-radius: 1px;
-    }
+.role-btn-manage:hover {
+    background: #f2f2f2;
+    border-color: #eaaf5a;
+    color: #eaaf5a;
+    border-radius: 1px;
+}
 
-
-/* ================== Role Details Page ================== */
 .role-details-container {
     display: flex;
     justify-content: center;
@@ -191,7 +181,6 @@
     margin-bottom: 2rem;
 }
 
-/* ================== Role Checkboxes ================== */
 .role-checkbox {
     display: flex;
     align-items: center;
@@ -211,20 +200,19 @@
     transition: all 0.2s ease;
 }
 
-    /* Checkmark when checked */
-    .role-checkbox-input:checked {
-        background-color: #0BC850;
-        border-color: #0BC850;
-    }
+.role-checkbox-input:checked {
+    background-color: #0BC850;
+    border-color: #0BC850;
+}
 
-        .role-checkbox-input:checked::after {
-            content: "✔";
-            position: absolute;
-            top: -2px;
-            left: 2px;
-            font-size: 14px;
-            color: #fff;
-        }
+.role-checkbox-input:checked::after {
+    content: "✔";
+    position: absolute;
+    top: -2px;
+    left: 2px;
+    font-size: 14px;
+    color: #fff;
+}
 
 .role-checkbox-label {
     font-weight: 500;
@@ -239,7 +227,6 @@
     gap: 1rem;
 }
 
-/* Update button */
 .role-btn-update {
     background: #58C0B8;
     color: #fff;
@@ -250,14 +237,13 @@
     font-weight: 550 !important;
 }
 
-    .role-btn-update:hover {
-        background: inherit;
-        color: #58C0B8;
-        border: 2px solid #58C0B8;
-        border-radius: 1px;
-    }
+.role-btn-update:hover {
+    background: inherit;
+    color: #58C0B8;
+    border: 2px solid #58C0B8;
+    border-radius: 1px;
+}
 
-/* Back button */
 .role-btn-back {
     background: #6c757d;
     color: #fff;
@@ -269,9 +255,9 @@
     font-weight: 550 !important;
 }
 
-    .role-btn-back:hover {
-        background: inherit;
-        color: #6c757d;
-        border: 2px solid #6c757d;
-        border-radius: 1px;
-    }
+.role-btn-back:hover {
+    background: inherit;
+    color: #6c757d;
+    border: 2px solid #6c757d;
+    border-radius: 1px;
+}

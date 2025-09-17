@@ -1,9 +1,7 @@
-﻿/* ================== Appointments Container ================== */
-.appointments-container {
+﻿.appointments-container {
     padding: 5rem 7rem;
 }
 
-/* Header row */
 .appointments-header {
     margin-bottom: 4rem;
     display: flex;
@@ -21,7 +19,6 @@
     margin: 0px 0px 0px 0 !important;
 }
 
-/* ================== Alerts ================== */
 .alert {
     border-radius: 0.75rem;
     padding: 0.9rem 1.2rem;
@@ -29,7 +26,6 @@
     margin-bottom: 1.2rem;
 }
 
-/* ================== Appointments Table ================== */
 .appointments-table-wrapper {
     background: #fff;
     border-radius: 10px;
@@ -44,31 +40,30 @@
     font-size: 0.95rem;
 }
 
-    .appointments-table thead {
-        background: #1a4a8e;
-        color: #fff;
-        font-size: 1rem;
-        height: 60px;
-    }
+.appointments-table thead {
+    background: #1a4a8e;
+    color: #fff;
+    font-size: 1rem;
+    height: 60px;
+}
 
-    .appointments-table th,
-    .appointments-table td {
-        padding: 1rem;
-        text-align: left;
-        font-weight: 600;
-        white-space: nowrap;
-    }
+.appointments-table th,
+.appointments-table td {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    white-space: nowrap;
+}
 
-    .appointments-table tbody tr {
-        border-bottom: 1px solid #eee;
-        transition: background 0.2s ease;
-    }
+.appointments-table tbody tr {
+    border-bottom: 1px solid #eee;
+    transition: background 0.2s ease;
+}
 
-        .appointments-table tbody tr:hover {
-            background: #f9f9f9;
-        }
+.appointments-table tbody tr:hover {
+    background: #f9f9f9;
+}
 
-/* ================== Action Buttons (List Page) ================== */
 .appointments-actions a,
 .appointments-btn-create,
 .appointments-btn-details,
@@ -85,7 +80,6 @@
     transition: all 0.2s ease;
 }
 
-/* Updated `create` button */
 .appointments-btn-create {
     background: #58C0B8;
     color: #fff;
@@ -93,11 +87,11 @@
     border-radius: 10px;
 }
 
-    .appointments-btn-create:hover {
-        background: inherit;
-        color: #58C0B8;
-        border-radius: 1px;
-    }
+.appointments-btn-create:hover {
+    background: inherit;
+    color: #58C0B8;
+    border-radius: 1px;
+}
 
 .appointments-btn-save {
     background: #58C0B8;
@@ -106,13 +100,12 @@
     border-radius: 10px;
 }
 
-    .appointments-btn-save:hover {
-        background: inherit;
-        color: #58C0B8;
-        border-radius: 1px;
-    }
+.appointments-btn-save:hover {
+    background: inherit;
+    color: #58C0B8;
+    border-radius: 1px;
+}
 
-/* Details button */
 .appointments-btn-details {
     background: #2c7da0;
     color: #fff;
@@ -120,13 +113,12 @@
     border-radius: 10px;
 }
 
-    .appointments-btn-details:hover {
-        background: #fff;
-        color: #2c7da0;
-        border-radius: 1px;
-    }
+.appointments-btn-details:hover {
+    background: #fff;
+    color: #2c7da0;
+    border-radius: 1px;
+}
 
-/* Delete button */
 .appointments-btn-delete {
     background: #e64f5a;
     color: #fff;
@@ -134,13 +126,12 @@
     border-radius: 10px;
 }
 
-    .appointments-btn-delete:hover {
-        background: #fff;
-        color: #e64f5a;
-        border-radius: 1px;
-    }
+.appointments-btn-delete:hover {
+    background: #fff;
+    color: #e64f5a;
+    border-radius: 1px;
+}
 
-/* Back button */
 .appointments-btn-back {
     background: #6c757d;
     color: #fff;
@@ -148,11 +139,11 @@
     border-radius: 10px;
 }
 
-    .appointments-btn-back:hover {
-        background: #fff;
-        color: #6c757d;
-        border-radius: 1px;
-    }
+.appointments-btn-back:hover {
+    background: #fff;
+    color: #6c757d;
+    border-radius: 1px;
+}
 
 .appointments-btn-cancel {
     background: #6C757D;
@@ -161,13 +152,12 @@
     border-radius: 10px;
 }
 
-    .appointments-btn-cancel:hover {
-        background: #fff;
-        color: #6C757D;
-        border-radius: 1px;
-    }
+.appointments-btn-cancel:hover {
+    background: #fff;
+    color: #6C757D;
+    border-radius: 1px;
+}
 
-/* ================== Shared Appointment Container ================== */
 .appointment-container {
     display: flex;
     justify-content: center;
@@ -190,7 +180,6 @@
     color: #366cc1;
 }
 
-/* ================== Forms ================== */
 .appointment-form .form-group {
     margin-top: 1.5rem;
 }
@@ -226,7 +215,6 @@
     font-size: 0.95rem;
 }
 
-/* Checkbox styling */
 .form-check {
     display: flex;
     align-items: center;
@@ -257,7 +245,6 @@
     font-size: 0.95rem;
 }
 
-/* ================== Info Text (for Details / Delete) ================== */
 .appointment-info {
     margin: 1.5rem 0;
     font-size: 1rem;
@@ -265,11 +252,10 @@
     text-align: left;
 }
 
-    .appointment-info p {
-        margin-bottom: 0.8rem;
-    }
+.appointment-info p {
+    margin-bottom: 0.8rem;
+}
 
-/* ================== Action Buttons (Form) ================== */
 .form-actions {
     margin-top: 2rem;
     display: flex;
@@ -288,10 +274,10 @@
     transition: 0.2s ease;
 }
 
-    .btn-save:hover {
-        background: #fff;
-        color: #0bc850;
-    }
+.btn-save:hover {
+    background: #fff;
+    color: #0bc850;
+}
 
 .btn-cancel {
     background: #6c757d;
@@ -305,10 +291,10 @@
     transition: 0.2s ease;
 }
 
-    .btn-cancel:hover {
-        background: #fff;
-        color: #6c757d;
-    }
+.btn-cancel:hover {
+    background: #fff;
+    color: #6c757d;
+}
 
 .btn-delete {
     background: #e63946;
@@ -320,12 +306,11 @@
     transition: 0.2s ease;
 }
 
-    .btn-delete:hover {
-        background: #fff;
-        color: #e63946;
-    }
+.btn-delete:hover {
+    background: #fff;
+    color: #e63946;
+}
 
-/* ================== appointments create page ================== */
 .appointment-create-container {
     display: flex;
     justify-content: center;
@@ -369,8 +354,6 @@
     font-size: 0.95rem;
 }
 
-
-/* ================== Page Modifiers ================== */
 .appointment-card.details .appointment-title {
     color: #366cc1;
 }
@@ -379,7 +362,6 @@
     color: #e63946;
 }
 
-/* ================== Media Queries for Responsiveness ================== */
 @media (max-width: 768px) {
     .appointments-container {
         padding: 1.5rem 1rem;
@@ -463,7 +445,7 @@
 }
 @media (max-width: 600px) {
     .appointments-table thead {
-        display: none; /* Hide the table header */
+        display: none;
     }
 
     .appointments-table,
@@ -474,28 +456,28 @@
         width: 100%;
     }
 
-        .appointments-table tr {
-            margin-bottom: 1.5rem;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            padding: 1rem;
-        }
+    .appointments-table tr {
+        margin-bottom: 1.5rem;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        padding: 1rem;
+    }
 
-        .appointments-table td {
-            text-align: right;
-            padding-left: 50%;
-            position: relative;
-        }
+    .appointments-table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
 
-            .appointments-table td::before {
-                content: attr(data-label);
-                position: absolute;
-                left: 10px;
-                width: 45%;
-                padding-right: 10px;
-                white-space: nowrap;
-                text-align: left;
-                font-weight: bold;
-            }
+    .appointments-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+    }
 }

@@ -17,13 +17,13 @@
     align-items: center;
 }
 
-    .register-left img {
-        width: 100%;
-        max-width: 700px;
-        height: auto;
-        object-fit: contain;
-        margin: 0 0px 0px 125px;
-    }
+.register-left img {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    object-fit: contain;
+    margin: 0 0px 0px 125px;
+}
 
 .register-right {
     flex: 1;
@@ -77,10 +77,10 @@
     width: 100%;
 }
 
-    .register-form .form-control:focus {
-        border-color: #2c7da0;
-        box-shadow: 0 0 0 0.2rem rgba(44, 125, 160, 0.25);
-    }
+.register-form .form-control:focus {
+    border-color: #2c7da0;
+    box-shadow: 0 0 0 0.2rem rgba(44, 125, 160, 0.25);
+}
 
 .btn-register {
     border: none;
@@ -100,10 +100,10 @@
     font-weight: 500;
 }
 
-    .register-link:hover {
-        text-decoration: underline;
-        font-weight: 600;
-    }
+.register-link:hover {
+    text-decoration: underline;
+    font-weight: 600;
+}
 
 .register-footer-text {
     font-size: 0.9rem;
@@ -123,37 +123,23 @@
 }
 
 @media (max-width: 768px) {
-    .auth-split-container {
-        flex-direction: column;
-        align-items: center;
-        min-height: auto;
-    }
 
-    .auth-left {
-        height: auto;
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
+    @media (max-width: 768px) {
+        .register-left {
+            display: none !important;
+        }
 
-        .auth-left img {
-            width: 80%;
-            max-width: 400px;
-            height: auto;
+        .register-right {
+            flex: 1;
+            width: 100%;
+            justify-content: center;
             margin: 0;
         }
 
-    .auth-right {
-        padding: 1rem;
-    }
-
-    .auth-card {
-        padding: 1.5rem;
-        max-width: 90%;
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-
-    .auth-form .form-control {
-        margin-bottom: 1rem;
+        .register-container {
+            margin: 20px auto;
+            width: 90%;
+            max-width: 1500px;
+        }
     }
 }

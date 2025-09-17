@@ -1,10 +1,9 @@
-﻿// ✅ On Save button click
-document.querySelector(".doctor-create-form")?.addEventListener("submit", function (e) {
-    e.preventDefault(); // stop form temporarily
+﻿document.querySelector(".doctor-create-form")?.addEventListener("submit", function (e) {
+    e.preventDefault();
 
     Swal.fire({
         toast: true,
-        position: 'top-end', // top-right corner
+        position: 'top-end',
         icon: 'success',
         title: 'Doctor has been added successfully ✅',
         showConfirmButton: false,
@@ -12,13 +11,11 @@ document.querySelector(".doctor-create-form")?.addEventListener("submit", functi
         timerProgressBar: true
     });
 
-    // continue form submit after short delay
     setTimeout(() => {
         this.submit();
     }, 1500);
 });
 
-// ⚠️ On Cancel button click
 document.querySelector(".btn-cancel")?.addEventListener("click", function (e) {
     e.preventDefault();
     Swal.fire({
@@ -37,7 +34,6 @@ document.querySelector(".btn-cancel")?.addEventListener("click", function (e) {
     });
 });
 
-// 🎨 Highlight selected clinics
 document.querySelectorAll(".doctor-checkbox-group .form-check-input").forEach(cb => {
     cb.addEventListener("change", function () {
         let label = this.nextElementSibling;

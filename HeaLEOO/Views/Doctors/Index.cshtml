@@ -21,16 +21,21 @@
         <input type="hidden" id="errorMessage" value="@TempData["ErrorMessage"]" />
     }
 
-    <div class="doctors-grid">
+<div class="doctors-grid">
         @foreach (var doc in Model)
         {
             <div class="doctor-card">
                 <div class="doctor-info">
                     <h3 class="doctor-name">@doc.Name</h3>
+
+                    <h6 class="doctor-label">Number:</h6>
                     <p class="doctor-phone">@doc.PhoneNumber</p>
+
+                    <h6 class="doctor-label">Specialization:</h6>
                     <p class="doctor-specialization">@doc.SpecializationName</p>
 
                     <div class="doctor-clinics">
+                        <h6 class="doctor-label">Works in:</h6>
                         @foreach (var clinic in doc.ClinicNames)
                         {
                             <span class="doctor-clinic-badge">@clinic</span>
@@ -42,7 +47,7 @@
                     <div class="doctor-actions">
                         <a href="@Url.Action("DeleteDoctor", new { id = doc.Id })"
                            class="doctor-btn-delete"
-                           onclick="return confirmDelete(event, this.href, this.closest('.doctor-card'));">
+                           onclick="return confirmDelete(event, this.href, this.closest('.doctor-card')); ">
                             Delete
                         </a>
                     </div>
@@ -50,6 +55,7 @@
             </div>
         }
     </div>
+
 </div>
 
 @section Scripts {
