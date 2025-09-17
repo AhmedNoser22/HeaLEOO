@@ -16,7 +16,7 @@
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken] //CSRF (Cross-Site Request Forgery).
         public async Task<IActionResult> Register(RegisterVM register)
         {
             if (!ModelState.IsValid)
