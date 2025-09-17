@@ -206,3 +206,83 @@
     justify-content: center;
     gap: 1rem;
 }
+
+@media (max-width: 768px) {
+    .users-container {
+        margin: 0 1rem;
+        padding: 2rem 1rem;
+    }
+
+    .users-title {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .user-table-wrapper {
+        padding: 1rem;
+    }
+
+    .user-table {
+        font-size: 0.85rem;
+        min-width: unset;
+    }
+
+    .user-table th,
+    .user-table td {
+        padding: 0.6rem;
+    }
+
+    .user-actions {
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+
+    .user-btn-create {
+        width: 100%;
+        margin: 1.5rem auto 0 auto;
+    }
+
+    .user-details-container {
+        padding: 1rem;
+        margin: 2rem auto;
+    }
+
+    .user-details-card {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+
+    .user-details-name {
+        font-size: 1.6rem;
+    }
+
+    .user-details-actions {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .users-title {
+        font-size: 1.5rem;
+    }
+
+    .user-table-wrapper {
+        padding: 0.8rem;
+    }
+
+    .user-table th,
+    .user-table td {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .user-btn-create {
+        font-size: 0.9rem;
+        padding: 0.6rem;
+    }
+
+    .user-details-card {
+        padding: 1rem;
+    }
+}

@@ -123,23 +123,24 @@
 }
 
 @media (max-width: 768px) {
+    .register-left {
+        display: none !important;
+    }
 
-    @media (max-width: 768px) {
-        .register-left {
-            display: none !important;
-        }
+    .register-right {
+        flex: 1;
+        width: 100%;
+        justify-content: center;
+        margin: 0;
+    }
 
-        .register-right {
-            flex: 1;
-            width: 100%;
-            justify-content: center;
-            margin: 0;
-        }
+    .register-container {
+        margin: 20px auto;
+        width: 90%;
+        max-width: 1500px;
+    }
 
-        .register-container {
-            margin: 20px auto;
-            width: 90%;
-            max-width: 1500px;
-        }
+    .register-card {
+        padding: 0px;
     }
 }
