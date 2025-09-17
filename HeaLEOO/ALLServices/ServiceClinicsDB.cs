@@ -11,7 +11,7 @@
         IServiceLookup lookupService,
         IUnitOF_Work work)
     {
-        _mapper = mapper;
+        _mapper = mapper; 
         _imageService = imageService;
         _lookupService = lookupService;
         this.work = work;
