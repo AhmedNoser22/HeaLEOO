@@ -57,7 +57,7 @@
 
             if (existing.Any())
             {
-                TempData["Error"] = "لا يمكنك حجز أكثر من معاد واحد.";
+                TempData["Error"] = "You cannot book more than one appointment";
                 vm.SelectDoctors = _serviceDoctorAppointment.GetAllServiceDoctorAppointment();
                 vm.SelectClinics = _serviceClinDate.GetAllServiceClinDate();
                 return View(vm);
@@ -68,7 +68,33 @@
             await _unitOfWork.GetRepoAppointments.Add(appointment);
             await _unitOfWork.Complete();
 
-            TempData["Success"] = "تم حجز المعاد بنجاح.";
+            TempData["Success"] = "Appointment booked successfully";
+            return RedirectToAction(nameof(Index));
+        }
+        [HttpGet]
+        public async Task<IActionResult> Details(int id)
+        {
+            var appointment = await _unitOfWork.GetRepoAppointments.GetById(
+                id,
+                include: q => q
+                    .Include(x => x.Doctors)
+                    .Include(x => x.Clinics)
+                    .Include(x => x.AppUser)
+            );
+
+            if (appointment == null) return NotFound();
+
+            var vm = _mapper.Map<AppointmentsVM>(appointment);
+            return View(vm);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var appointment = await _unitOfWork.GetRepoAppointments.Delete(id);
+            if (appointment == null) return NotFound();
+
+            await _unitOfWork.Complete();
+            TempData["Success"] = "Appointment deleted successfully.";
             return RedirectToAction(nameof(Index));
         }
     }

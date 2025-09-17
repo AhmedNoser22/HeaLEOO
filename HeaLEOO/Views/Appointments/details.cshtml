@@ -5,33 +5,33 @@
 
 @if (User.IsInRole("Medical Assistant"))
 {
+    <div class="appointment-container">
+        <div class="appointment-card">
+            <h2 class="appointment-title">Appointment Details</h2>
 
-<div class="appointment-container">
-    <div class="appointment-card">
-        <h2 class="appointment-title">Appointment Details</h2>
+            <div class="form-group">
+                <h3>Patient:</h3>
+                <p>@Model.AppUser!.UserName</p>
+            </div>
 
-        <div class="form-group">
-            <h3>Patient:</h3>
-            <p>@Model.AppUser!.UserName</p>
-        </div>
+            <div class="form-group">
+                <h3>Date:</h3>
+                <p>@Model.App_Date.ToString("dd/MM/yyyy HH:mm")</p>
+            </div>
 
-        <div class="form-group">
-            <h3>Date:</h3>
-            <p>@Model.App_Date</p>
-        </div>
+            <div class="form-group">
+                <h3>Active:</h3>
+                <p>@(Model.isActive == true ? "Yes" : "No")</p>
+            </div>
 
-        <div class="form-group">
-            <h3>Active:</h3>
-            <p>@(Model.isActive == true ? "Yes" : "No")</p>
-        </div>
+            <div class="form-group">
+                <h3>Doctor:</h3>
+                <p>@Model.DoctorName</p>
+            </div>
 
-        <div class="form-group">
-            <h3>Doctor:</h3>
-            <p>@Model.DoctorName</p>
-        </div>
-        <div class="form-actions">
-            <a asp-action="Index" class="appointments-btn-back">← Back to List</a>
+            <div class="form-actions">
+                <a asp-action="Index" class="appointments-btn-back">← Back to List</a>
+            </div>
         </div>
     </div>
-</div>
 }

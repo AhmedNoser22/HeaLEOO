@@ -3,50 +3,53 @@
 @{
     ViewData["Title"] = "Appointments";
 }
-@if(User.IsInRole("Medical Assistant"))
+@if (User.IsInRole("Medical Assistant"))
 {
-<div class="appointments-container">
-    @if (TempData["Success"] != null)
-    {
-        <div class="alert alert-success text-center">@TempData["Success"]</div>
-    }
-    @if (TempData["Error"] != null)
-    {
-        <div class="alert alert-danger text-center">@TempData["Error"]</div>
-    }
+    <div class="appointments-container">
+        @if (TempData["Success"] != null)
+        {
+            <div class="alert alert-success text-center">@TempData["Success"]</div>
+        }
+        @if (TempData["Error"] != null)
+        {
+            <div class="alert alert-danger text-center">@TempData["Error"]</div>
+        }
 
-    <div class="appointments-table-wrapper">
-        <table class="appointments-table">
-            <thead>
-                <tr>
-                    <th>Patient</th>
-                    <th>Date</th>
-                    <th>Active</th>
-                    <th>Doctor</th>
-                    <th style="width:200px;">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
+        <div class="appointments-table-wrapper">
+            <table class="appointments-table">
+                <thead>
                     <tr>
-                        <td>@item.AppUser!.UserName</td>
-                        <td>@item.App_Date.ToString("dd/MM/yyyy HH:mm")</td>
-                        <td>@(item.isActive == true ? "Yes" : "No")</td>
-                        <td>@item.DoctorName</td>
-                        <td>
-                            <div class="appointments-actions">
-                                <a asp-action="Details" asp-route-id="@item.Id" class="appointments-btn-details">Details</a>
-                                @if (User.IsInRole("Medical Assistant"))
-                                {
-                                    <a asp-action="Delete" asp-route-id="@item.Id" class="appointments-btn-delete">Delete</a>
-                                }
-                            </div>
-                        </td>
+                        <th>Patient</th>
+                        <th>Date</th>
+                        <th>Active</th>
+                        <th>Doctor</th>
+                        <th style="width:200px;">Actions</th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.AppUser!.UserName</td>
+                            <td>@item.App_Date.ToString("dd/MM/yyyy HH:mm")</td>
+                            <td>@(item.isActive == true ? "Yes" : "No")</td>
+                            <td>@item.DoctorName</td>
+                            <td>
+                                <div class="appointments-actions">
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="appointments-btn-details">Details</a>
+                                    @if (User.IsInRole("Medical Assistant"))
+                                    {
+                                        <form asp-action="Delete" asp-route-id="@item.Id" method="post" style="display:inline;">
+                                            <button type="submit" class="appointments-btn-delete">Delete</button>
+                                        </form>
+                                        
+                                    }
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
 }
