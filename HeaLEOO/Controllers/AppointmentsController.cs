@@ -2,25 +2,37 @@
 {
     public class AppointmentsController : Controller
     {
-        private readonly IServiceAppointments _serviceAppointments;
-        private readonly IServiceDoctorAppointment _ServiceDoctorAppointment;
-        private readonly IServiceClinDate _ServiceClinDate;
+        private readonly IUnitOF_Work _unitOfWork;
         private readonly IMapper _mapper;
+        private readonly IServiceDoctorAppointment _serviceDoctorAppointment;
+        private readonly IServiceClinDate _serviceClinDate;
         private readonly UserManager<AppUser> _userManager;
 
-        public AppointmentsController(IServiceAppointments serviceAppointments, IMapper mapper, UserManager<AppUser> userManager, IServiceDoctorAppointment serviceDoctorAppointment, IServiceClinDate serviceClinDate)
+        public AppointmentsController(
+            IUnitOF_Work unitOfWork,
+            IMapper mapper,
+            IServiceDoctorAppointment serviceDoctorAppointment,
+            IServiceClinDate serviceClinDate,
+            UserManager<AppUser> userManager)
         {
-            _serviceAppointments = serviceAppointments;
+            _unitOfWork = unitOfWork;
             _mapper = mapper;
+            _serviceDoctorAppointment = serviceDoctorAppointment;
+            _serviceClinDate = serviceClinDate;
             _userManager = userManager;
-            _ServiceDoctorAppointment = serviceDoctorAppointment;
-            _ServiceClinDate = serviceClinDate;
         }
 
         public async Task<IActionResult> Index()
         {
-            var appointments = await _serviceAppointments.GetAllItems();
-            return View(appointments);
+            var data = await _unitOfWork.GetRepoAppointments.GetAll(
+                include: q => q
+                    .Include(x => x.Doctors)
+                    .Include(x => x.Clinics)
+                    .Include(x => x.AppUser)
+            );
+
+            var mapped = _mapper.Map<IEnumerable<AppointmentsVM>>(data);
+            return View(mapped);
         }
 
         [HttpGet]
@@ -28,60 +40,35 @@
         {
             var vm = new AppointmentsVM
             {
-                SelectDoctors = _ServiceDoctorAppointment.GetAllServiceDoctorAppointment(),
-                SelectClinics = _ServiceClinDate.GetAllServiceClinDate()
+                SelectDoctors = _serviceDoctorAppointment.GetAllServiceDoctorAppointment(),
+                SelectClinics = _serviceClinDate.GetAllServiceClinDate()
             };
             return View(vm);
         }
+
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(AppointmentsVM model)
+        public async Task<IActionResult> Create(AppointmentsVM vm)
         {
-            if (!ModelState.IsValid)
-            {
-                model.SelectDoctors = _ServiceDoctorAppointment.GetAllServiceDoctorAppointment();
-                model.SelectClinics = _ServiceClinDate.GetAllServiceClinDate();
-                return View(model);
-            }
-
-            var appointment = _mapper.Map<Appointments>(model);
             var user = await _userManager.GetUserAsync(User);
-            if (user == null)
+
+            var existing = await _unitOfWork.GetRepoAppointments.GetAll(
+                x => x.AppUserId == user.Id
+            );
+
+            if (existing.Any())
             {
-                ModelState.AddModelError("", "You must be logged in to create an appointment.");
-                model.SelectDoctors = _ServiceDoctorAppointment.GetAllServiceDoctorAppointment();
-                return View(model);
+                TempData["Error"] = "لا يمكنك حجز أكثر من معاد واحد.";
+                vm.SelectDoctors = _serviceDoctorAppointment.GetAllServiceDoctorAppointment();
+                vm.SelectClinics = _serviceClinDate.GetAllServiceClinDate();
+                return View(vm);
             }
+
+            var appointment = _mapper.Map<Appointments>(vm);
             appointment.AppUserId = user.Id;
+            await _unitOfWork.GetRepoAppointments.Add(appointment);
+            await _unitOfWork.Complete();
 
-            await _serviceAppointments.CreateItem(appointment);
-
-            return RedirectToAction(nameof(Index));
-        }
-        public async Task<IActionResult> Details(int id)
-        {
-            var appointment = await _serviceAppointments.GetItemById(id);
-            if (appointment == null) return NotFound();
-
-            return View(appointment);
-        }
-        public async Task<IActionResult> Delete(int id)
-        {
-            var appointment = await _serviceAppointments.GetItemById(id);
-            if (appointment == null) return NotFound();
-
-            return View(appointment);
-        }
-
-        [HttpPost, ActionName("DeleteConfirmed")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var result = await _serviceAppointments.DeleteItem(id);
-
-            if (result) TempData["SuccessMessage"] = "Appointment deleted successfully.";
-            else TempData["ErrorMessage"] = "Failed to delete appointment.";
-
+            TempData["Success"] = "تم حجز المعاد بنجاح.";
             return RedirectToAction(nameof(Index));
         }
     }

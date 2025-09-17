@@ -20,6 +20,7 @@
     public string? ClinicName { get; set; }
 
     public AppUser? AppUser { get; set; }
+    public string AppUserId { get; set; } = default!;
 
     public IEnumerable<SelectListItem> SelectDoctors { get; set; } = Enumerable.Empty<SelectListItem>();
     public IEnumerable<SelectListItem> SelectClinics { get; set; } = Enumerable.Empty<SelectListItem>();

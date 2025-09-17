@@ -50,7 +50,6 @@
         {
             if (id <= 0)
                 throw new ArgumentException("Id must be greater than zero", nameof(id));
-
             var entity = await _Context.Set<T>().FindAsync(id);
             if (entity == null)
                 throw new KeyNotFoundException($"Entity of type {typeof(T).Name} with id {id} was not found");
